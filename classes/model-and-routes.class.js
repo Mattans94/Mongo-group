@@ -1,6 +1,6 @@
 const qs = require('qs');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/mongo_books');
+mongoose.connect('mongodb://localhost/coffeeDB');
 const db = mongoose.connection;
 db.on('error', (e)=>{ console.error(e); });
 db.once('open', ()=>{ console.info('db connected');});
