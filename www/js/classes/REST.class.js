@@ -22,6 +22,22 @@ class REST {
   }
 
   static async find(query){
+
+    if(typeof query == 'object'){
+      query = JSON.stringify(query,(key,val) => {
+        if(val && val.constructor === RegExp){
+          val = val + '';
+          val = val.split('/');
+          let op = val.pop();
+          val = val.join('/');
+          val = val.substr(1, val.length - 1);
+
+          val = {$regex: val, $options: op};
+        }
+        return val;
+      });
+    }
+
     let entity = (this.name + 's').toLowerCase();
     let results = await REST.request(entity,'GET',query,'');
     results = results.result || [results];
