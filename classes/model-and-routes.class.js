@@ -51,15 +51,29 @@ module.exports = class ModelAndRoutes {
 
   setupGetRoute(){
     this.expressApp.get(`/${this.routeName}/?*`, (req, res)=>{
+
+      let params;
+
+      // check if params is a stringified object
+      try {
+        let obj = JSON.parse(req.params[0]);
+        if(typeof obj == 'object'){
+          params = obj;
+        }
+      }
+      catch(e){}
+
       // get params
-      let params = qs.parse(req.params[0]);
-      // Get populate instructions and then delete them from Mongo query params
+      params = params || qs.parse(req.params[0]);
+
+      console.log("PPPP",params)
+
+      // Get populate instructions
+      // and then delete them from the Mongo query params
       let populate = params.populate || '';
       delete params.populate;
-      // res.json(params);
-      // return;
-      // fetch books
-      this.myModel.find(params,(err, data)=>{
+
+      this.myModel.find(params).populate(populate).exec((err, data)=>{
         res.json({
           query:params,
           resultLength: data.length,
