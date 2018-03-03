@@ -1,5 +1,5 @@
 const beansJson = require('./beans.json');
-const powderJson = require('./powders.json');
+const powdersJson = require('./powders.json');
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -21,26 +21,27 @@ const powderModel = new Powder(app).myModel;
 
 // Empty collentions
 beanModel.remove({}, async () => {
-  await saveBean();
+  await save(beansJson, 'bean');
 });
 
 powderModel.remove({}, async () => {
-  await savePowder();
+  await save(powdersJson, 'powder');
   // process.exit();
 });
 
-const saveBean = () => {
-  beansJson.forEach((item) => {
-    const bean = new beanModel(item);
-    bean.save();
-    console.log("beans saved");
-  });
-}
-
-const savePowder = () => {
-  powderJson.forEach((item) => {
-    const powder = new powderModel(item);
-    powder.save();
-    console.log("powder saved");
+const save = (json, modelName) => {
+  json.forEach((item) => {
+    switch (modelName) {
+      case 'bean':
+        new beanModel(item).save();
+        console.log("beans saved");
+        break;
+      case 'powder':
+        new powderModel(item).save();
+        console.log("powder saved");
+        break;
+      default:
+        break;
+    }
   });
 }
