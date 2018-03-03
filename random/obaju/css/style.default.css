@@ -678,14 +678,14 @@ h1 {
 #content #thumbs a.active {
   border-color: #4fbfa8;
 }
-#content #checkout .nav {
+#checkout .nav {
   margin-bottom: 20px;
   border-bottom: solid 1px #4fbfa8;
 }
-#content #checkout .nav li {
+#checkout .nav li {
   height: 100%;
 }
-#content #checkout .nav li a {
+#checkout .nav li a {
   display: block;
   height: 100%;
 }
