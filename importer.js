@@ -29,19 +29,14 @@ powderModel.remove({}, async () => {
   // process.exit();
 });
 
+const models = {
+  'bean': beanModel,
+  'powder': powderModel
+}
+
 const save = (json, modelName) => {
-  json.forEach((item) => {
-    switch (modelName) {
-      case 'bean':
-        new beanModel(item).save();
-        console.log("beans saved");
-        break;
-      case 'powder':
-        new powderModel(item).save();
-        console.log("powder saved");
-        break;
-      default:
-        break;
-    }
+  json.forEach((item, index) => {
+    new models[modelName](item).save();
+    console.log(`${modelName} ${index + 1} saved`);
   });
 }
