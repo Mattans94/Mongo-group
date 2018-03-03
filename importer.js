@@ -19,16 +19,6 @@ const Powder = require('./classes/Powder.class');
 const beanModel = new Bean(app).myModel;
 const powderModel = new Powder(app).myModel;
 
-// Empty collentions
-beanModel.remove({}, async () => {
-  await save(beansJson, 'bean');
-});
-
-powderModel.remove({}, async () => {
-  await save(powdersJson, 'powder');
-  // process.exit();
-});
-
 const models = {
   'bean': beanModel,
   'powder': powderModel
@@ -40,3 +30,14 @@ const save = (json, modelName) => {
     console.log(`${modelName} ${index + 1} saved`);
   });
 }
+
+beanModel.remove({}, async () => {
+  await save(beansJson, 'bean');
+})
+.then(
+  powderModel.remove({}, async () => {
+    await save(powdersJson, 'powder');
+  }))
+.then(() => {
+  process.exit();
+});
