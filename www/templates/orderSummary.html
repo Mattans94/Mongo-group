@@ -1,4 +1,11 @@
 Object.assign(Cart.prototype, {templateOrderSummary(){ return `
+    <div class="box-header">
+            <h3>Order summary</h3>
+        </div>
+        <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+        <div class="table-responsive">
+               
     <table class="table">
             <tbody>
                 <tr>
@@ -19,5 +26,9 @@ Object.assign(Cart.prototype, {templateOrderSummary(){ return `
                 </tr>
             </tbody>
         </table>
+
+        </div>
+   
+
         `;}});
   

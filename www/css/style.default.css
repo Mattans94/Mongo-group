@@ -68,16 +68,16 @@ h1 {
 #top ul.menu > .active {
   color: #999999;
 }
-#top #login-modal .modal-header {
+#loginModal .modal-header {
   background: #4fbfa8;
 }
-#top #login-modal .modal-header h4 {
+#loginModal .modal-header h4 {
   color: #fff;
 }
-#top #login-modal a {
+#loginModal a {
   color: #4fbfa8;
 }
-#top #login-modal p {
+#loginModal p {
   font-weight: 300;
   margin-bottom: 20px;
 }

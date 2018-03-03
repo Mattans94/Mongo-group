@@ -9,8 +9,8 @@ class Cart extends Base {
         this.render('#shoppingList','ShoppingList');
     }
     renderTotalPriceWithVAT(){
-        $('#order-total-price').empty();
-        this.render('#order-total-price', 'OrderSummary');
+        $('#order-summary').empty();
+        this.render('#order-summary', 'OrderSummary');
 
     }
 }
