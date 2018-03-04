@@ -28,10 +28,21 @@ const models = {
   'capsule': capsuleModel
 }
 
-const save = (json, modelName) => {
+const save = (json, modelName, extraKey = null) => {
   json.forEach((item, index) => {
-    new models[modelName](item).save();
-    console.log(`${modelName} ${index + 1} saved`);
+    if (extraKey) {
+      for(const key in extraKey) {
+        item[key] = extraKey[key];
+      }
+    }
+
+    new models[modelName](item).save((err) => {
+      if (err) {
+        console.log(`${index} is not saved!!`);
+      } else {
+        console.log(`${index} is saved.`);
+      }
+    });
   });
 }
 
@@ -43,9 +54,8 @@ const saveModels = async () => {
     save(powdersJson, 'powder');
   });
   await capsuleModel.remove({}, () => {
-    save(capsulesJson, 'capsule');
-  });
-  process.exit();
+    save(capsulesJson, 'capsule', {'tools': []});
+  })
 }
 
 saveModels();
