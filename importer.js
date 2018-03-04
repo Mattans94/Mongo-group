@@ -34,6 +34,7 @@ const models = {
 }
 
 const save = (json, modelName, extraKey = null) => {
+  const savedObjects = [];
   json.forEach((item, index) => {
     if (extraKey) {
       for(const key in extraKey) {
@@ -41,14 +42,18 @@ const save = (json, modelName, extraKey = null) => {
       }
     }
 
-    new models[modelName](item).save((err) => {
+    const model = new models[modelName](item);
+    model.save((err, item) => {
       if (err) {
         console.log(`${modelName} ${index + 1} is not saved!!`);
       } else {
         console.log(`${modelName} ${index + 1} is saved.`);
       }
     });
+    savedObjects.push(model);
   });
+  return savedObjects;
+}
 }
 
 const saveModels = async () => {
@@ -58,8 +63,9 @@ const saveModels = async () => {
   await powderModel.remove({}, () => {
     save(powdersJson, 'powder');
   });
+  let savedCapsules;
   await capsuleModel.remove({}, () => {
-    save(capsulesJson, 'capsule', {'tools': []});
+    savedCapsules = save(capsulesJson, 'capsule', {'tools': []});
   });
   await toolModel.remove({}, () => {
     save(toolsJson, 'tool', {'capsules': []});
