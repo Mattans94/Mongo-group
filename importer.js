@@ -35,13 +35,17 @@ const save = (json, modelName) => {
   });
 }
 
-beanModel.remove({}, async () => {
-  await save(beansJson, 'bean');
-})
-.then(
-  powderModel.remove({}, async () => {
-    await save(powdersJson, 'powder');
-  }))
-.then(() => {
+const saveModels = async () => {
+  await beanModel.remove({}, () => {
+    save(beansJson, 'bean');
+  });
+  await powderModel.remove({}, () => {
+    save(powdersJson, 'powder');
+  });
+  await capsuleModel.remove({}, () => {
+    save(capsulesJson, 'capsule');
+  });
   process.exit();
-});
+}
+
+saveModels();
