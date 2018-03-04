@@ -67,6 +67,19 @@ const capsuleUpdate = (savedCapsules, savedTools) => {
   });
 }
 
+const toolUpdate = (savedCapsules, savedTools) => {
+  savedTools.forEach(tool => {
+    savedCapsules.forEach(capsule => {
+      capsule.types.forEach(type => {
+        if (type === tool.type) {
+          tool.capsules.push(capsule._id);
+        }
+      });
+    });
+    tool.save();
+  });
+}
+
 const saveModels = async () => {
   await beanModel.remove({}, () => {
     save(beansJson, 'bean');
@@ -83,7 +96,7 @@ const saveModels = async () => {
     savedTools = save(toolsJson, 'tool', {'capsules': []});
   })
   capsuleUpdate(savedCapsules, savedTools);
-
+  toolUpdate(savedCapsules, savedTools);
 //  process.exit();
 }
 
