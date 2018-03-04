@@ -54,6 +54,17 @@ const save = (json, modelName, extraKey = null) => {
   });
   return savedObjects;
 }
+
+const capsuleUpdate = (savedCapsules, savedTools) => {
+  savedCapsules.forEach(capsule => {
+    capsule.types.forEach(type => {
+      const sameTypeTools = savedTools.filter(tool => tool.type === type);
+      sameTypeTools.forEach(tool => {
+        capsule.tools.push(tool._id);
+      });
+    });
+    capsule.save();
+  });
 }
 
 const saveModels = async () => {
@@ -67,9 +78,11 @@ const saveModels = async () => {
   await capsuleModel.remove({}, () => {
     savedCapsules = save(capsulesJson, 'capsule', {'tools': []});
   });
+  let savedTools;
   await toolModel.remove({}, () => {
-    save(toolsJson, 'tool', {'capsules': []});
+    savedTools = save(toolsJson, 'tool', {'capsules': []});
   })
+  capsuleUpdate(savedCapsules, savedTools);
 
 //  process.exit();
 }
