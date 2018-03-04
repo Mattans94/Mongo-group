@@ -10,10 +10,13 @@ module.exports = class Tool extends ModelAndRoutes {
       description: String,
       price: Number,
       quantity: Number,
-      capsule: {
+      flavor: String,
+      countryOfOrigin: String,
+      type: Number,
+      capsules: [{
         type: Schema.Types.ObjectId,
         ref: 'Capsule'
-      }
+      }]
     }
   }
 

@@ -10,11 +10,13 @@ module.exports = class Capsule extends ModelAndRoutes {
       description: String,
       price: Number,
       quantity: Number,
-      type: String,
-      tool: {
+      flavor: String,
+      countryOfOrigin: String,
+      types: [Number],
+      tools: [{
         type: Schema.Types.ObjectId,
         ref: 'Tool'
-      }
+      }]
     }
   }
 

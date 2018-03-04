@@ -10,6 +10,8 @@ module.exports = class Bean extends ModelAndRoutes {
       description: String,
       price: Number,
       quantity: Number,
+      flavor: String,
+      countryOfOrigin: String,
       type: String
     }
   }
