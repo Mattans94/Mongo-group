@@ -1,6 +1,7 @@
 const beansJson = require('./beans.json');
 const powdersJson = require('./powders.json');
 const capsulesJson = require('./capsules.json');
+const toolsJson = require('./tools.json');
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -18,14 +19,18 @@ db.once('open', () => {
 const Bean = require('./classes/Bean.class');
 const Powder = require('./classes/Powder.class');
 const Capsule = require('./classes/Capsule.class');
+const Tool = require('./classes/Tool.class');
+
 const beanModel = new Bean(app).myModel;
 const powderModel = new Powder(app).myModel;
 const capsuleModel = new Capsule(app).myModel;
+const toolModel = new Tool(app).myModel;
 
 const models = {
   'bean': beanModel,
   'powder': powderModel,
-  'capsule': capsuleModel
+  'capsule': capsuleModel,
+  'tool': toolModel
 }
 
 const save = (json, modelName, extraKey = null) => {
@@ -38,9 +43,9 @@ const save = (json, modelName, extraKey = null) => {
 
     new models[modelName](item).save((err) => {
       if (err) {
-        console.log(`${index} is not saved!!`);
+        console.log(`${modelName} ${index + 1} is not saved!!`);
       } else {
-        console.log(`${index} is saved.`);
+        console.log(`${modelName} ${index + 1} is saved.`);
       }
     });
   });
@@ -55,7 +60,12 @@ const saveModels = async () => {
   });
   await capsuleModel.remove({}, () => {
     save(capsulesJson, 'capsule', {'tools': []});
+  });
+  await toolModel.remove({}, () => {
+    save(toolsJson, 'tool', {'capsules': []});
   })
+
+//  process.exit();
 }
 
 saveModels();
