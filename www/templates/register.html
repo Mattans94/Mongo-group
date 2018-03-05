@@ -28,7 +28,7 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
                 <form>
                     <div class="form-group">
                         <label for="name">User Namn</label>
-                        <input type="text" class="form-control usName" required>
+                        <input type="text" class="form-control userName" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Mailadress</label>
@@ -41,12 +41,12 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
                     </div>
                     <div class="form-group">
                         <label>Repetera lösenord</label>
-                        <input type="password" class="form-control signUpRePass" placeholder="Repetera lösenord" name="repass" required>
+                        <input type="password" class="form-control signUpRePass" name="repass" required>
                         <small class="repassCheck d-none">Kontrollera lösenordet!</small>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary ">
-                            <i class="fa fa-user-md signupbtn"></i> Registrera</button>
+                        <button class="btn btn-primary signupbtn">
+                            <i class="fa fa-user-md"></i> Registrera</button>
                     </div>
                 </form>
             </div>
@@ -73,8 +73,8 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
                         <input type="password" class="form-control lgPass" required>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-sign-in pop lgin"></i> Logga in</button>
+                        <button class="btn btn-primary pop lgin">
+                            <i class="fa fa-sign-in"></i> Logga in</button>
                     </div>
                 </form>
             </div>

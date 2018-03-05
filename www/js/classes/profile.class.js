@@ -5,7 +5,7 @@ class Profile extends Base {
     }
 
     get email() {
-        return `${this.usName}`;
+        return `${this.usName}@${this.web}`;
     }
 
     get password() {
@@ -49,9 +49,10 @@ class Profile extends Base {
         }
     }
 
-    keyupsignup(event) {
+    keyupRegister(event) {
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
+            console.log(this.email);
         }
         if ($(event.target).hasClass('signUpPass')) {
             this.password = $(".signUpPass").val();
@@ -68,6 +69,7 @@ class Profile extends Base {
         $('.signUpEmail').on('change', function(){
             this.email = $(".signUpEmail").val();
         })
+       
     }
 
     clicklogin(event, element, instance) {  
@@ -103,7 +105,7 @@ class Profile extends Base {
        $(".navbar-collapse").collapse('hide');
     }
 
-    clicksignup(event, element, instance) {
+    clickRegister(event, element, instance) {
         if ($(event.target).hasClass('cancelbtn')) {
             $('#signupModal').modal('toggle');
         }

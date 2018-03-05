@@ -28,6 +28,9 @@ h1 {
 #top .offer .btn {
   text-transform: uppercase;
 }
+.d-none{
+  display:none! important;
+}
 @media (max-width: 991px) {
   #top .offer {
     margin-bottom: 10px;
