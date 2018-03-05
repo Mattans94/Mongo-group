@@ -33,6 +33,8 @@ const models = {
   'tool': toolModel
 }
 
+// Save json files into mongoDB.
+// ExtraKey is set when that key is not exist in json file, but exist in schema
 const save = async (json, modelName, extraKey = null) => {
   const savedObjects = [];
 
@@ -43,6 +45,8 @@ const save = async (json, modelName, extraKey = null) => {
       }
     }
 
+    // Create one of the models specified in models object
+    // (beanModel, powderModel, capsuleModel, toolModel)
     const model = new models[modelName](item);
     await model.save().then(item => {
       console.log(`${modelName} ${item.name} is saved.`);
@@ -51,9 +55,11 @@ const save = async (json, modelName, extraKey = null) => {
     savedObjects.push(model);
   }
 
+  // Use this for updating capsule and tool data later
   return savedObjects;
 }
 
+// Fillin capsule.tools by toolModel, judged by the type in both capsule and tool
 const capsuleUpdate = async (savedCapsules, savedTools) => {
   for (const capsule of savedCapsules) {
     capsule.types.forEach(type => {
@@ -63,11 +69,12 @@ const capsuleUpdate = async (savedCapsules, savedTools) => {
       });
     });
     await capsule.save().then(item => {
-      console.log(`capsule ${item.name} is updated!!!!`);
+      console.log(`capsule ${item.name} is updated!`);
     });
   };
 }
 
+// Fillin tool.capsules by capsuleModel, judged by the type in both capsule and tool
 const toolUpdate = async (savedCapsules, savedTools) => {
   for (const tool of savedTools) {
     savedCapsules.forEach(capsule => {
@@ -78,7 +85,7 @@ const toolUpdate = async (savedCapsules, savedTools) => {
       });
     });
     await tool.save().then(item => {
-      console.log(`tool ${item.name} is updated!!!!!!`);
+      console.log(`tool ${item.name} is updated!`);
     });
   };
 }
@@ -106,6 +113,7 @@ const saveModels = () => {
         savedTools = obj;
       });
 
+      // Capsules json and tools json should be saved before updating
       await capsuleUpdate(savedCapsules, savedTools);
       await toolUpdate(savedCapsules, savedTools);
       process.exit();
