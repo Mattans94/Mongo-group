@@ -2,6 +2,9 @@ const beansJson = require('./beans.json');
 const powdersJson = require('./powders.json');
 const capsulesJson = require('./capsules.json');
 const toolsJson = require('./tools.json');
+const profileJson = require('./profile.json');//login information and orders
+const orderJson = require('./order.json');//all orders
+const cartJson = require('./cart.json');//shopping cart storage. still remain after refresh
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -20,24 +23,33 @@ const Bean = require('./classes/Bean.class');
 const Powder = require('./classes/Powder.class');
 const Capsule = require('./classes/Capsule.class');
 const Tool = require('./classes/Tool.class');
+const CartAPI = require('./classes/CartAPI.class');
+const OrderAPI = require('./classes/OrderAPI.class');
+const ProfileAPI = require('/classes/ProfileAPI.class');
 
 const beanModel = new Bean(app).myModel;
 const powderModel = new Powder(app).myModel;
 const capsuleModel = new Capsule(app).myModel;
 const toolModel = new Tool(app).myModel;
+const cartModel = new CartAPI(app).myModel;
+const orderModel = new OrderAPI(app).myModel;
+const profileModel = new ProfileAPI(app).myModel;
 
 const models = {
   'bean': beanModel,
   'powder': powderModel,
   'capsule': capsuleModel,
-  'tool': toolModel
+  'tool': toolModel,
+  'cart':cartModel,
+  'order':orderModel,
+  'profile':profileModel
 }
 
 const save = (json, modelName, extraKey = null) => {
   const savedObjects = [];
   json.forEach((item, index) => {
     if (extraKey) {
-      for(const key in extraKey) {
+      for (const key in extraKey) {
         item[key] = extraKey[key];
       }
     }
@@ -89,18 +101,18 @@ const saveModels = async () => {
   });
   let savedCapsules;
   await capsuleModel.remove({}, () => {
-    savedCapsules = save(capsulesJson, 'capsule', {'tools': []});
+    savedCapsules = save(capsulesJson, 'capsule', { 'tools': [] });
   });
   let savedTools;
   await toolModel.remove({}, () => {
-    savedTools = save(toolsJson, 'tool', {'capsules': []});
+    savedTools = save(toolsJson, 'tool', { 'capsules': [] });
   })
   // fix it later
   setTimeout(() => {
     capsuleUpdate(savedCapsules, savedTools);
     toolUpdate(savedCapsules, savedTools);
   }, 1000);
-//  process.exit();
+  //  process.exit();
 }
 
 saveModels();
