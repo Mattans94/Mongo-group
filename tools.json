@@ -1,22 +1,22 @@
 [
   {
-    "name": "Brazil Fort Aleza Lösvikt",
+    "name": "tool",
     "image": "123.jpg",
     "description": "En väl balanserad tvättad mellanrost med toner av hasselnötter och karamell. Underbart gott både varm- och kallbryggd!",
     "price": 70,
     "quantity": 250,
     "flavor": "Söt & Smakrik",
     "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
-    "types": [1]
+    "type": 1
   },
   {
-    "name": "Brazil Fort Aleza Lösvikt",
+    "name": "toollll",
     "image": "123.jpg",
     "description": "En väl balanserad tvättad mellanrost med toner av hasselnötter och karamell. Underbart gott både varm- och kallbryggd!",
     "price": 70,
     "quantity": 250,
     "flavor": "Söt & Smakrik",
     "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
-    "types": [1, 2]
+    "type": 2
   }
 ]
