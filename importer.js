@@ -95,8 +95,11 @@ const saveModels = async () => {
   await toolModel.remove({}, () => {
     savedTools = save(toolsJson, 'tool', {'capsules': []});
   })
-  capsuleUpdate(savedCapsules, savedTools);
-  toolUpdate(savedCapsules, savedTools);
+  // fix it later
+  setTimeout(() => {
+    capsuleUpdate(savedCapsules, savedTools);
+    toolUpdate(savedCapsules, savedTools);
+  }, 1000);
 //  process.exit();
 }
 
