@@ -26,17 +26,18 @@ module.exports = class ModelAndRoutes {
     this.setupPutRoute();
   }
 
-  setupImportRoute(arrayOfObjects){
-    this.expressApp.get(`/import/${this.routeName}`, (req, res)=>{
-      // empty old items in collection
-      this.myModel.remove({}, ()=>{
-        // perform a new clean import
-        this.myModel.create(arrayOfObjects, ()=>{
-          res.json('imported data');
-        });
-      });
-    });
-  }
+  // User doesn't use import function. Use importer.js instead.
+  // setupImportRoute(arrayOfObjects){
+  //   this.expressApp.get(`/import/${this.routeName}`, (req, res)=>{
+  //     // empty old items in collection
+  //     this.myModel.remove({}, ()=>{
+  //       // perform a new clean import
+  //       this.myModel.create(arrayOfObjects, ()=>{
+  //         res.json('imported data');
+  //       });
+  //     });
+  //   });
+  // }
 
   setupPostRoute(){
     this.expressApp.post(`/admin/${this.routeName}`, (req, res) =>{
