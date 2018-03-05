@@ -1,0 +1,122 @@
+[
+	{
+		"name": "Miscela d'Oro Espresso Natura - Nespresso",
+		"image": "espresso-natura.jpg",
+		"description": "Miscela d'Oro Espresso Natura innehåller espressokaffe, som är både ekologiskt odlat (Krav-märkt) samt Fairtrade-certifierat. Smaken är en traditionell italiensk espresso med bra intensitet, kraftig arom och låg syrlighet. Blandningen innehåller 50 % Arabica och 50 % Robusta, och kaffet är rostat på sicilianskt vis till ett mörkostad, mjuk smakupplevelse. Förpackningen innehåller 10 st Nespresso-kompatibla kapslar.",
+		"price": 46,
+		"quantity": 10,
+		"flavor": "Elegant & Mjuk",
+		"countryOfOrigin": "Mellan- och Sydamerika",
+		"type": [1]
+	},
+	{
+		"name": "Miscela d'Oro Espresso Intenso - Nespresso",
+		"image": "espresso-intenso.jpg",
+		"description": "Miscela d'Oro Espresso Intenso är sitt namn troget ett intensivt och starkt kaffe med mjuk och fyllig munkänsla. Detta mörkrostade sicilianska espressokaffe innehåller 100 % Robusta, vilket ger dig en rejäl kick med energi. Nespresso-kompatibel kapsel.",
+		"price": 46,
+		"quantity": 10,
+		"flavor": "Mjuk & Fyllig",
+		"countryOfOrigin": "Mellan- och Sydamerika",
+		"type": [1]
+	},
+	{
+		"name": "Mokasirs Oro - Nespresso",
+		"image": "mokasirs-oro.jpg",
+		"description": "MokaSirs Oro är en mjuk blandning av Arabica-sorter från Brasilien och Centralamerika, samt indisk Robusta. Andelen Robusta i kaffeblandningen är 10 %. Pregiato är ett behagligt och fylligt kaffe med toner av kakao och nötighet. Oro är ett mångsidigt val till såväl lungo, espresso och mjölkkaffen.",
+		"price": 46,
+		"quantity": 10,
+		"flavor": "Mjuk & Fyllig",
+		"countryOfOrigin": "Brasilien, Centralamerika och Indien",
+		"type": [1]
+	},
+	{
+		"name": "MokaSirs Pregiato - Nespresso",
+		"image": "mokasirs-pregiato.jpg",
+		"description": "MokaSirs Pregiato är en kryddig blandning av Arabica-sorter från Brasilien och Centralamerika, samt indisk Robusta. Andelen Robusta i kaffeblandningen är 30 %, vilket ger en trevlig djup och kryddighet till kaffet. Pregiato är ett välbalanserat kaffe med fyllighet, en lätt syrlighet, kryddighet och toner av kakao. Pregiato är ett mycket omtyckt kaffe både bland dem som avnjuter sitt kaffe som espresso som bland dem som gärna dricker mjölkbaserade kaffedrycker, såsom cappuccinon och latte macchiaton.",
+		"price": 46,
+		"quantity": 10,
+		"flavor": "Kryddig & Fyllig",
+		"countryOfOrigin": "Brasilien, Centralamerika och Indien",
+		"type": [1]
+	},
+	{
+		"name": "illy Iperespresso",
+		"image": "illy-iperespresso.png",
+		"description": "illy Iperespresso kaffekapslar kännetecknas av en finkorning, rödbrun crema och en varierad, behagligt kryddig, mjuk och rund smak. Eftersmaken är lång, rund och elegant. Ger en perfekt espressokaffe.",
+		"price": 129,
+		"quantity": 21,
+		"flavor": "Fruktig & Söt",
+		"countryOfOrigin": "Syd-och Centralamerika, Indien",
+		"type": [2, 3]
+	},
+	{
+		"name": "illy Iperespresso mörkrost",
+		"image": "iperespresso-dark.png",
+		"description": "illy Iperespresso mörkrost kaffekapslar är illys klassiska kaffe men lite hårdare rostad för att få fram en något kraftigare smak. Ett klassiskt espressokaffe med smak av södra Italien.",
+		"price": 129,
+		"quantity": 21,
+		"flavor": "Kraftig",
+		"countryOfOrigin": "Syd-och Centralamerika, Indien",
+		"type": [2, 3]
+	},
+	{
+		"name": "Gevalia Mellanrost - Tassimo",
+		"image": "gevalia-mellanrost.png",
+		"description": "Gevalia Mellanrost Tassimo kaffekapslar (t discs) är ett välbalanserat kaffe med härlig arom och en lätt syrlig eftersmak. 65% av bönblandningen kommer redan idag från gårdar som är Rainforest Alliance certifierade.",
+		"price": 53,
+		"quantity": 16,
+		"flavor": "Syrlig & Elegant",
+		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
+		"type": [3]
+	},
+	{
+		"name": "Gevalia Caramel Macchiato - Tassimo",
+		"image": "caramel-macchiato.png",
+		"description": "Gevalia Caramel Macchiato Tassimo kaffekapslar (t discs) njut denna dryck som är baserad på espresso med sammetslen mjölk med smak av karamell toppad med ett fint skum. Resultatet blir en effekfull 3 lagers Caramel Macchiato.",
+		"price": 59,
+		"quantity": 8,
+		"flavor": "Krämig & Söt",
+		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
+		"type": [3]
+	},
+	{
+		"name": "Gevalia Cappuccino - Tassimo",
+		"image": "gevalia-cappuccino.png",
+		"description": "Gevalia Cappuccino Tassimo kaffekapslar (t discs) i förmånligt storpack är en kombination av intensiv espresso och mjölk toppad med ett luftigt skum. 60% av espressobönorna kommer redan idag från gårdar som är Rainforest Alliance certifierade.",
+		"price": 260,
+		"quantity": 40,
+		"flavor": "Krämig & Kraftig",
+		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
+		"type": [3]
+	},
+	{
+		"name": "Lavazza A Modo Mio Espresso Delizioso",
+		"image": "delizioso.png",
+		"description": "Lavazza A Modo Mio Espresso Delizioso kaffekapslar är ett ovanligt balanserat kaffe med arom, styrka och inte en antydan till bitterhet. Denna väl avrundad blandning ger ett kaffe som är perfekt format och som erbjuder dig en bukett av dofter och intensitet som alltid är i harmoni.",
+		"price": 52,
+		"quantity": 16,
+		"flavor": "Bitter & Kraftig",
+		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
+		"type": [4]
+	},
+	{
+		"name": "Lavazza A Modo Mio Espresso Divino",
+		"image": "divino.png",
+		"description": "Lavazza A Modo Mio Espresso Divino kaffekapslar har, med sin fyllighet och rondör, en speciell karaktär med lång eftersmak och en antydan av choklad. Rostningen ger en kraftfull smak som sötats genom en lång och beprövad process som förstärker detta härliga kaffes inneboende smaker.",
+		"price": 54,
+		"quantity": 16,
+		"flavor": "Chokladig & Kraftig",
+		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
+		"type": [4]
+	},
+	{
+		"name": "Lavazza A Modo Mio Espresso Passionale",
+		"image": "passionale.png",
+		"description": "Lavazza A Modo Mio Espresso Passionale kaffekapslar är Lavazzas originalkaffe för espresso. Detta kaffe ger en mörk, fyllig, rund och aromrik espresso med en sammetslen ton. En espresso gjord av A Modo Mio Espresso Passionale är en klassisk smakupplevelse som visar på Lavazzas höga kvalitet.",
+		"price": 52,
+		"quantity": 16,
+		"flavor": "Fyllig & Aromrik",
+		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
+		"type": [4]
+	}
+]
