@@ -1,37 +1,61 @@
 [
 	{
-		"name": "Nespresso",
-		"image": "",
-		"description": "",
-		"price": ,
-		"type": [1]
+		"name": "Nespresso Essenza",
+		"image": "nespresso-essenza.jpg",
+		"type": 1
 	},
 	{
-		"name": "Nespresso",
-		"image": "",
-		"description": "",
-		"price": ,
-		"type": [2] "Passar till Francis Francis X8 och Francis Francis Y1 samt Francis Francis X1 och Francis Francis X7 anpassade"
+		"name": "Nespresso Pixie",
+		"image": "nespresso-pixie.jpg",
+		"type": 1
 	},
 	{
-		"name": "Nespresso",
-		"image": "",
-		"description": "",
-		"price": ,
-		"type": [3] "illy"
+		"name": "Nespresso Citiz",
+		"image": "nesspresso-citiz.jpg",
+		"type": 1
 	},
 	{
-		"name": "Nespresso",
-		"image": "",
-		"description": "",
-		"price": ,
-		"type": [4] "Lavazza A Modo Mio"
+		"name": "Francis Francis X7",
+		"image": "francis-x7.jpg",
+		"type": 2 
 	},
 	{
-		"name": "Nespresso",
-		"image": "",
-		"description": "",
-		"price": ,
-		"type": [5] "Lavazza A Modo Mio"
+		"name": "Francis Francis X8",
+		"image": "francis-x8.jpg",
+		"type": 2
+	},
+	{
+		"name": "Francis Francis X1",
+		"image": "francis-x1.jpg",
+		"type": 2
+	},{
+		"name": "Francis Francis Y1",
+		"image": "francis-y1.jpg",
+		"type": 2
+	},
+	{
+		"name": "Bosch Tassiomo Suny",
+		"image": "tassiomo-suny.png",
+		"type": 3
+	},
+	{
+		"name": "Bosch Tassimo Vivy T12",
+		"image": "tassimo-vivy.jpg",
+		"type": 3
+	},
+	{
+		"name": "Bosch Tassimo Joy T43",
+		"image": "tassimo-joy.jpg",
+		"type": 3
+	},
+	{
+		"name": "SAECO Lavazza A Modo Mio Premium",
+		"image": "saeco-lava.png",
+		"type": 4
+	},
+	{
+		"name": "Electrolux Favola A Modo Mio Plus ELM5200",
+		"image": "lava-favola.jpg",
+		"type": 4
 	}
 ]

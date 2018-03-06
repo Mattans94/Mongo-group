@@ -7,7 +7,7 @@
 		"quantity": 10,
 		"flavor": "Elegant & Mjuk",
 		"countryOfOrigin": "Mellan- och Sydamerika",
-		"type": [1]
+		"type": 1
 	},
 	{
 		"name": "Miscela d'Oro Espresso Intenso - Nespresso",
@@ -17,27 +17,27 @@
 		"quantity": 10,
 		"flavor": "Mjuk & Fyllig",
 		"countryOfOrigin": "Mellan- och Sydamerika",
-		"type": [1]
+		"type": 1
 	},
 	{
 		"name": "Mokasirs Oro - Nespresso",
 		"image": "mokasirs-oro.jpg",
-		"description": "MokaSirs Oro är en mjuk blandning av Arabica-sorter från Brasilien och Centralamerika, samt indisk Robusta. Andelen Robusta i kaffeblandningen är 10 %. Pregiato är ett behagligt och fylligt kaffe med toner av kakao och nötighet. Oro är ett mångsidigt val till såväl lungo, espresso och mjölkkaffen.",
+		"description": "MokaSirs Oro är en mjuk blandning av Arabica-sorter från Brasilien och Centralamerika, samt indisk Robusta. Andelen Robusta i kaffeblandningen är 10 %. Pregiato är ett behagligt och fylligt kaffe med toner av kakao och nötighet. Oro är ett mångsidigt val till såväl lungo, espresso och mjölkkaffen. De här kaffekapslarna är kompatibla med Nespresso-kaffemaskiner.",
 		"price": 46,
 		"quantity": 10,
 		"flavor": "Mjuk & Fyllig",
 		"countryOfOrigin": "Brasilien, Centralamerika och Indien",
-		"type": [1]
+		"type": 1
 	},
 	{
 		"name": "MokaSirs Pregiato - Nespresso",
 		"image": "mokasirs-pregiato.jpg",
-		"description": "MokaSirs Pregiato är en kryddig blandning av Arabica-sorter från Brasilien och Centralamerika, samt indisk Robusta. Andelen Robusta i kaffeblandningen är 30 %, vilket ger en trevlig djup och kryddighet till kaffet. Pregiato är ett välbalanserat kaffe med fyllighet, en lätt syrlighet, kryddighet och toner av kakao. Pregiato är ett mycket omtyckt kaffe både bland dem som avnjuter sitt kaffe som espresso som bland dem som gärna dricker mjölkbaserade kaffedrycker, såsom cappuccinon och latte macchiaton.",
+		"description": "MokaSirs Pregiato är en kryddig blandning av Arabica-sorter från Brasilien och Centralamerika, samt indisk Robusta. Andelen Robusta i kaffeblandningen är 30 %, vilket ger en trevlig djup och kryddighet till kaffet. Pregiato är ett välbalanserat kaffe med fyllighet, en lätt syrlighet, kryddighet och toner av kakao. Pregiato är ett mycket omtyckt kaffe både bland dem som avnjuter sitt kaffe som espresso som bland dem som gärna dricker mjölkbaserade kaffedrycker, såsom cappuccinon och latte macchiaton. De här kaffekapslarna är kompatibla med Nespresso-kaffemaskiner.",
 		"price": 46,
 		"quantity": 10,
 		"flavor": "Kryddig & Fyllig",
 		"countryOfOrigin": "Brasilien, Centralamerika och Indien",
-		"type": [1]
+		"type": 1
 	},
 	{
 		"name": "illy Iperespresso",
@@ -47,7 +47,7 @@
 		"quantity": 21,
 		"flavor": "Fruktig & Söt",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien",
-		"type": [2, 3]
+		"type": 2
 	},
 	{
 		"name": "illy Iperespresso mörkrost",
@@ -57,7 +57,7 @@
 		"quantity": 21,
 		"flavor": "Kraftig",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien",
-		"type": [2, 3]
+		"type": 2
 	},
 	{
 		"name": "Gevalia Mellanrost - Tassimo",
@@ -67,7 +67,7 @@
 		"quantity": 16,
 		"flavor": "Syrlig & Elegant",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": [3]
+		"type": 3
 	},
 	{
 		"name": "Gevalia Caramel Macchiato - Tassimo",
@@ -77,7 +77,7 @@
 		"quantity": 8,
 		"flavor": "Krämig & Söt",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": [3]
+		"type": 3
 	},
 	{
 		"name": "Gevalia Cappuccino - Tassimo",
@@ -87,7 +87,7 @@
 		"quantity": 40,
 		"flavor": "Krämig & Kraftig",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": [3]
+		"type": 3
 	},
 	{
 		"name": "Lavazza A Modo Mio Espresso Delizioso",
@@ -97,7 +97,7 @@
 		"quantity": 16,
 		"flavor": "Bitter & Kraftig",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": [4]
+		"type": 4
 	},
 	{
 		"name": "Lavazza A Modo Mio Espresso Divino",
@@ -107,7 +107,7 @@
 		"quantity": 16,
 		"flavor": "Chokladig & Kraftig",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": [4]
+		"type": 4
 	},
 	{
 		"name": "Lavazza A Modo Mio Espresso Passionale",
@@ -117,6 +117,6 @@
 		"quantity": 16,
 		"flavor": "Fyllig & Aromrik",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": [4]
+		"type": 4
 	}
 ]
