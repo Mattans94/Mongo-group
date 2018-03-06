@@ -1,143 +1,45 @@
 Object.assign(Admin.prototype, { template(){ return `
-<div id="all">
 
-  <div id="content">
-    <div class="container">
-
-      <div class="col-md-12">
-
-        <ul class="breadcrumb">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>My orders</li>
-        </ul>
-
-      </div>
-
-      <div class="col-md-3">
-        <!-- *** CUSTOMER MENU ***
-_________________________________________________________ -->
-        <div class="panel panel-default sidebar-menu">
-
-          <div class="panel-heading">
-            <h3 class="panel-title">Customer section</h3>
-          </div>
-
-          <div class="panel-body">
-
-            <ul class="nav nav-pills nav-stacked">
-              <li class="active">
-                <a href="customer-orders.html">
-                  <i class="fa fa-list"></i> My orders</a>
-              </li>
-              <li>
-                <a href="customer-wishlist.html">
-                  <i class="fa fa-heart"></i> My wishlist</a>
-              </li>
-              <li>
-                <a href="customer-account.html">
-                  <i class="fa fa-user"></i> My account</a>
-              </li>
-              <li>
-                <a href="index.html">
-                  <i class="fa fa-sign-out"></i> Logout</a>
-              </li>
-            </ul>
-          </div>
-
+<div class="container admin">
+  <div class="row">
+    <div class="col-12">
+      <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link pop active" href="/admin">Beställning</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pop" href="/admin/add">Addera</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pop" href="/admin/change">Ändra</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pop" href="/admin/delete">Ta bort</a>
+            </li>
+          </ul>
         </div>
-        <!-- /.col-md-3 -->
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Order Nummer</th>
+                <th scope="col">Datum</th>
+                <th scope="col">Antal</th>
+                <th scope="col">Pris</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
 
-        <!-- *** CUSTOMER MENU END *** -->
-      </div>
-
-      <div class="col-md-9" id="customer-orders">
-        <div class="box">
-          <h1>My orders</h1>
-
-          <p class="lead">Your orders on one place.</p>
-          <p class="text-muted">If you have any questions, please feel free to
-            <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
-
-          <hr>
-
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Order</th>
-                  <th>Date</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th># 1735</th>
-                  <td>22/06/2013</td>
-                  <td>$ 150.00</td>
-                  <td>
-                    <span class="label label-info">Being prepared</span>
-                  </td>
-                  <td>
-                    <a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
-                  </td>
-                </tr>
-                <tr>
-                  <th># 1735</th>
-                  <td>22/06/2013</td>
-                  <td>$ 150.00</td>
-                  <td>
-                    <span class="label label-info">Being prepared</span>
-                  </td>
-                  <td>
-                    <a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
-                  </td>
-                </tr>
-                <tr>
-                  <th># 1735</th>
-                  <td>22/06/2013</td>
-                  <td>$ 150.00</td>
-                  <td>
-                    <span class="label label-success">Received</span>
-                  </td>
-                  <td>
-                    <a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
-                  </td>
-                </tr>
-                <tr>
-                  <th># 1735</th>
-                  <td>22/06/2013</td>
-                  <td>$ 150.00</td>
-                  <td>
-                    <span class="label label-danger">Cancelled</span>
-                  </td>
-                  <td>
-                    <a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
-                  </td>
-                </tr>
-                <tr>
-                  <th># 1735</th>
-                  <td>22/06/2013</td>
-                  <td>$ 150.00</td>
-                  <td>
-                    <span class="label label-warning">On hold</span>
-                  </td>
-                  <td>
-                    <a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
-
     </div>
-    <!-- /.container -->
   </div>
-  <!-- /#content -->
+</div>
 
-  `;}});
+`;}});
