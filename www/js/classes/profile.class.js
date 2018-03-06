@@ -1,4 +1,4 @@
-class Profile extends Base {
+class Profile extends REST {
     constructor() {
         super();
         this.changeInput();
