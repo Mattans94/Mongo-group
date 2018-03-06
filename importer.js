@@ -2,6 +2,9 @@ const beansJson = require('./beans.json');
 const powdersJson = require('./powders.json');
 const capsulesJson = require('./capsules.json');
 const toolsJson = require('./tools.json');
+const profileJson = require('./profile.json');//login information and orders
+const orderJson = require('./order.json');//all orders
+const cartJson = require('./cart.json');//shopping cart storage. still remain after refresh
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -20,17 +23,26 @@ const Bean = require('./classes/Bean.class');
 const Powder = require('./classes/Powder.class');
 const Capsule = require('./classes/Capsule.class');
 const Tool = require('./classes/Tool.class');
+const Cart = require('./classes/Cart.class');
+const Order = require('./classes/Order.class');
+const Profile = require('./classes/Profile.class');
 
 const beanModel = new Bean(app).myModel;
 const powderModel = new Powder(app).myModel;
 const capsuleModel = new Capsule(app).myModel;
 const toolModel = new Tool(app).myModel;
+const cartModel = new Cart(app).myModel;
+const orderModel = new Order(app).myModel;
+const profileModel = new Profile(app).myModel;
 
 const models = {
   'bean': beanModel,
   'powder': powderModel,
   'capsule': capsuleModel,
-  'tool': toolModel
+  'tool': toolModel,
+  'cart':cartModel,
+  'order':orderModel,
+  'profile':profileModel
 }
 
 // Save json files into mongoDB.
@@ -40,7 +52,7 @@ const save = async (json, modelName, extraKey = null) => {
 
   for (const item of json) {
     if (extraKey) {
-      for(const key in extraKey) {
+      for (const key in extraKey) {
         item[key] = extraKey[key];
       }
     }

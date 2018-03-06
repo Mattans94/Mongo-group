@@ -1,0 +1,66 @@
+Object.assign(Cart.prototype, { templateCheckOut(){ return `
+<div id="all">
+    <div id="content">
+        <div class="container">
+
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>Checkout</li>
+                </ul>
+            </div>
+
+            <div class="col-md-9" id="checkout">
+
+                <div class="box">
+                    <form>
+                        <h1>Checkout</h1>
+                        <ul class="nav nav-pills nav-justified">
+                            <li class="active checkOut-btns address-btn">
+                                <a>
+                                    <i class="fa fa-map-marker"></i>
+                                    <br>Adress</a>
+                            </li>
+                            <li class="checkOut-btns delivery-btn">
+                                <a>
+                                    <i class="fa fa-truck "></i>
+                                    <br>Leveransmetod</a>
+                            </li>
+                            <li class="checkOut-btns payment-btn">
+                                <a>
+                                    <i class="fa fa-money"></i>
+                                    <br>Betalningsmetod</a>
+                            </li>
+                            <li class="checkOut-btns review-btn">
+                                <a>
+                                    <i class="fa fa-eye"></i>
+                                    <br>Orderrecension</a>
+                            </li>
+                        </ul>
+
+                        <div class="content stepBox">
+
+                        </div>
+
+                        
+                    </form>
+                </div>
+                <!-- /.box -->
+
+
+            </div>
+            <!-- /.col-md-9 -->
+
+            <div class="col-md-3">
+
+                <div class="box" id="order-summary">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+`;}});

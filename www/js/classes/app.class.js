@@ -37,7 +37,6 @@ class App extends REST {
       // Create pages
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
-      this.rest = new REST();
       this.profile = new Profile();
       this.cart = new Cart(this.rest, this.profile);
       this.admin = new Admin(this);
@@ -46,3 +45,4 @@ class App extends REST {
       this.popState = new PopStateHandler(this);
     }
 }
+

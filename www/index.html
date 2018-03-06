@@ -6,22 +6,31 @@
   <meta charset="utf-8">
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 
   <!-- styles -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <!-- <link href="css/font-awesome.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+  <link href="css/owl.carousel.css" rel="stylesheet">
+  <link href="css/owl.theme.css" rel="stylesheet"> -->
 
-  <link href="css/style.css" rel="stylesheet">
+  <!-- theme stylesheet -->
+  <link href="css/style.css" rel="stylesheet" id="theme-stylesheet">
 
+  <!-- your stylesheet with modifications -->
+  <link href="css/custom.css" rel="stylesheet">
 
   <!-- <script src="js/respond.min.js"></script> -->
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.png">
 
 </head>
 
@@ -29,33 +38,47 @@
   <header>
     <div class="modal-container-login"></div>
   </header>
-  <main class="container">
+  <main>
     <h1>Welcome to cafe</h1>
+    <button href="/checkout">checkout</button>
   </main>
 
-  <footer></footer>
+
   <!--  Javascript files  -->
   <script src="/js/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="/js/classes/array.methods.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- <script src="/js/bootstrap.min.js"></script> -->
   <script src="/js/classes/base.class.js"></script>
   <script src="/js/classes/REST.class.js"></script>
   <script src="/js/classes/app.class.js"></script>
-  <script src="/js/classes/pop-state-handler.class.js"></script>
-  <script src="/js/classes/startsida.class.js"></script>
   <script src="/js/classes/cart.class.js"></script>
   <script src="/js/classes/profile.class.js"></script>
-  <script src="/js/classes/navbar.class.js"></script>
-  <script src="/js/classes/navbar-item.class.js"></script>
+  <script src="/js/classes/array.methods.js"></script>
+  <script src="/js/classes/pop-state-handler.class.js"></script>
   <script src="/js/classes/bean.class.js"></script>
   <script src="/js/classes/powder.class.js"></script>
   <script src="/js/classes/capsule.class.js"></script>
   <script src="/js/classes/tool.class.js"></script>
+  <script src="/js/classes/startsida.class.js"></script>
+  <script src="/js/classes/navbar-item.class.js"></script>
+  <script src="/js/classes/navbar.class.js"></script>
   <script src="/js/classes/footer.class.js"></script>
   <script src="/js/classes/admin.class.js"></script>
 
   <!-- Templates -->
+  <!-- <script src="/templates/kassaShoppingList.html"></script> -->
+  <script src="/templates/cart-class/basket.html"></script>
+  <script src="/templates/profile-class/login.html"></script>
+  <script src="/templates/profile-class/register.html"></script>
+  <script src="/templates/cart-class/checkout.html"></script>
+  <script src="/templates/profile-class/address.html"></script>
+  <script src="/templates/cart-class/deliveryMethod.html"></script>
+  <script src="/templates/cart-class/payment.html"></script>
+  <script src="/templates/cart-class/orderReview.html"></script>
+  <script src="/templates/cart-class/orderSummary.html"></script>
   <script src="/templates/startsidan-class/startsida.html"></script>
   <script src="/templates/startsidan-class/carousel.html"></script>
   <script src="/templates/nav-item-class/navbar-item.html"></script>
