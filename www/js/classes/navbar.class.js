@@ -9,7 +9,7 @@ class Navbar extends REST{
     ];
   }
 
-  async setActive(url){
+  setActive(url){
     for(let item of this.items){
       item.active = url == item.url;
     }

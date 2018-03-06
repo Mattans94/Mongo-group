@@ -8,51 +8,65 @@ header .d-lg-none {
   width: 150px;
 }
 header nav {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   background-color: #fff;
-}
-header nav .container .logo-mobile {
-  margin: 10px auto;
+  /*    .container{
+      .logo-mobile{
+        margin: 10px auto;
+      }
+    }
+
+    .nav-item.active{
+      font-weight: bold;
+    }
+
+    background-color: #fff;
+    a{
+      color: white;
+      &:hover, &:active, &:focus, &.btn:hover{
+        color: @lightorange !important;
+      }
+    }
+    .btn-outline-secondary{
+      color: white;
+      border-color: @lightorange;
+      &:hover{
+        background-color: @lightorange;
+        color: #000;
+      }
+    }
+    .yellow {
+      background-color: @lightorange;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    .log{
+      background-color: @bg-gray;
+      width: 300px;
+      a, a:hover{
+        color: black !important;
+      }
+    }
+    .show>.btn-outline-secondary.dropdown-toggle{
+      background-color: #0b0c10;
+      border-color: @lightorange;
+      &:focus{
+        box-shadow: 0 0 0 2px rgba(193, 175, 15, 0.55);
+      }
+    }*/
 }
 header nav .nav-item.active {
+  background-color: #4fbfa8;
   font-weight: bold;
 }
-header nav a {
-  color: white;
+header nav .nav-item {
+  padding: 10px;
 }
-header nav a:hover,
-header nav a:active,
-header nav a:focus,
-header nav a.btn:hover {
-  color: #f2b600 !important;
-}
-header nav .btn-outline-secondary {
-  color: white;
-  border-color: #f2b600;
-}
-header nav .btn-outline-secondary:hover {
-  background-color: #f2b600;
-  color: #000;
-}
-header nav .yellow {
-  background-color: #f2b600;
-}
-header nav .yellow:hover {
-  opacity: 0.7;
-}
-header nav .log {
-  background-color: #262626;
-  width: 300px;
-}
-header nav .log a,
-header nav .log a:hover {
-  color: black !important;
-}
-header nav .show > .btn-outline-secondary.dropdown-toggle {
-  background-color: #0b0c10;
-  border-color: #f2b600;
-}
-header nav .show > .btn-outline-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 2px rgba(193, 175, 15, 0.55);
+header nav .nav-item.active,
+header nav:active {
+  font-weight: bold;
 }
 .karusell a {
   color: white;
