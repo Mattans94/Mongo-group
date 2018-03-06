@@ -1,22 +1,37 @@
 [
-  {
-    "name": "tool",
-    "image": "123.jpg",
-    "description": "En väl balanserad tvättad mellanrost med toner av hasselnötter och karamell. Underbart gott både varm- och kallbryggd!",
-    "price": 70,
-    "quantity": 250,
-    "flavor": "Söt & Smakrik",
-    "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
-    "type": 1
-  },
-  {
-    "name": "toollll",
-    "image": "123.jpg",
-    "description": "En väl balanserad tvättad mellanrost med toner av hasselnötter och karamell. Underbart gott både varm- och kallbryggd!",
-    "price": 70,
-    "quantity": 250,
-    "flavor": "Söt & Smakrik",
-    "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
-    "type": 2
-  }
+	{
+		"name": "Nespresso",
+		"image": "",
+		"description": "",
+		"price": ,
+		"type": [1]
+	},
+	{
+		"name": "Nespresso",
+		"image": "",
+		"description": "",
+		"price": ,
+		"type": [2] "Passar till Francis Francis X8 och Francis Francis Y1 samt Francis Francis X1 och Francis Francis X7 anpassade"
+	},
+	{
+		"name": "Nespresso",
+		"image": "",
+		"description": "",
+		"price": ,
+		"type": [3] "illy"
+	},
+	{
+		"name": "Nespresso",
+		"image": "",
+		"description": "",
+		"price": ,
+		"type": [4] "Lavazza A Modo Mio"
+	},
+	{
+		"name": "Nespresso",
+		"image": "",
+		"description": "",
+		"price": ,
+		"type": [5] "Lavazza A Modo Mio"
+	}
 ]

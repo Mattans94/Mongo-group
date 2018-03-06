@@ -2,7 +2,6 @@ class PopStateHandler {
 
   // Note: Only instantiate PopStateHandler once!
   constructor(app){
-
     this.app = app;
     // Add event handlers for a.pop-links once
     this.addEventHandler();
@@ -52,19 +51,9 @@ class PopStateHandler {
     // on which url
     let urls = {
       '/': 'startsidan',
-      '/biljetter': 'biljetter',
-      '/om_oss': 'OmOss',
-      '/filmer': 'calendar',
-      '/mina_sidor': 'userPage',
-      '/film/The_Martian': 'filmInfo',
-      '/film/Call_Me_by_Your_Name': 'filmInfo',
-      '/film/Star_Wars:_The_Last_Jedi': 'filmInfo',
-      '/film/Thor:_Ragnarok': 'filmInfo',
-      '/film/Interstellar': 'filmInfo',
-      '/film/The_Incredibles': 'filmInfo',
-      '/film/Downsizing': 'filmInfo',
-      '/film/Three_Billboards_Outside_Ebbing,_Missouri': 'filmInfo',
-      '/mina_sidor': 'userPage'
+      '/shoppingCart': 'shoppingCart',
+      '/register': 'register',
+      '/checkout': 'checkout'
     };
 
     // Call the right method
@@ -84,7 +73,7 @@ class PopStateHandler {
   }
 
   startsidan(){
-    $('title').text('Filmvisarna');
+    $('title').text('CoffeeDB');
     $('.karusell').empty();
     $('main').empty();
     this.app.startsidan.render('.karusell', '2');
@@ -92,74 +81,25 @@ class PopStateHandler {
     this.app.startsidan.callCarousel();
   }
 
-  filmInfo(){
-    let url = location.pathname;
-    let numbers = {
-      '/film/The_Martian': 0,
-      '/film/Call_Me_by_Your_Name': 1,
-      '/film/Star_Wars:_The_Last_Jedi': 2,
-      '/film/Thor:_Ragnarok': 3,
-      '/film/Interstellar': 4,
-      '/film/The_Incredibles': 5,
-      '/film/Downsizing': 6,
-      '/film/Three_Billboards_Outside_Ebbing,_Missouri': 7
-    };
-    $('.karusell').empty();
+  shoppingCart(){
     $('main').empty();
-    $('#booking-modal').remove();
-    $(document).on("hidden.bs.modal", "#booking-modal", () => {
-      $('div.modal-backdrop').remove();
-    });
-    this.app.movies[numbers[url]].render('main','3');
-    $('title').text($('h2').text()+ ' - Filmvisarna');
+    this.app.cart.render('main', 'Basket');
+    this.app.cart.renderShoppingList();
+    this.app.cart.renderTotalPriceWithVAT();
   }
 
-  biljetter(){
-    $('.karusell').empty();
+  register(){
     $('main').empty();
-    this.app.biljetter.render('main');
-    $('title').text('Biljetter - Filmvisarna');
+    this.app.profile.render('main', 'Register');
   }
 
-  OmOss(){
-    $('.karusell').empty();
+  checkout(){
     $('main').empty();
-    this.app.omOss.render('main');
-    $('title').text('Om oss - Filmvisarna');
+    this.app.cart.render('main', 'CheckOut');
+    this.app.cart.renderTotalPriceWithVAT();
+    this.app.profile.render('.stepBox','Address');
   }
 
-  calendar(){
-    $('.karusell').empty();
-    $('main').empty();
-    this.app.startsidan.render('.karusell', '2');
-    $('title').text('Filmer - Filmvisarna');
-    this.app.filmer.render('main');
-    this.app.startsidan.callCarousel();
-  }
 
-  async userPage(){
-    //Need to check if user is logged in, else the user
-    //can type /mina_sidor into the url
-    if(await this.app.userPage.isLoggedIn()){
-      $('.karusell').empty();
-      this.app.userPage.filterOrdersByDate(); //Run method that gets all orders the user have done
-    } else{
-      this.startsidan();
-      $('.access-denied-modal').modal('show');
-      setTimeout(() => {
-        $('.access-denied-modal').modal('hide');
-      }, 3000);
-    }
-  }
-
-  async renderCorrectNav(){
-    if(await this.app.userPage.isLoggedIn()){
-      $('header').empty();
-      this.app.navbar.render('header', '2');
-    } else if(!(await this.app.userPage.isLoggedIn())) {
-      $('header').empty();
-      await this.app.navbar.render('header')
-    }
-  }
 
 }

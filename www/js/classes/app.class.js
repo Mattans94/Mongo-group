@@ -1,13 +1,11 @@
 class App extends Base {
     constructor() {
         super();
-        this.rest = new REST();
-        this.profile=new Profile();
-        this.cart = new Cart(this.rest, this.profile);
-        this.changePage();
+        this.start();
         this.clickEvents();
     }
 
+<<<<<<< HEAD
     checkout()
     {
         $('main').empty();
@@ -38,6 +36,8 @@ class App extends Base {
 
 
     }
+=======
+>>>>>>> develop
     clickEvents() {
         let that=this;
         $(document).on("click", '#loginModalToggle', function () {
@@ -45,5 +45,12 @@ class App extends Base {
         });
 
 
+    }
+
+    start(){
+      this.rest = new REST();
+      this.profile = new Profile();
+      this.cart = new Cart(this.rest, this.profile);
+      this.popState = new PopStateHandler(this);
     }
 }
