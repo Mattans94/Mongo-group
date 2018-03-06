@@ -88,6 +88,7 @@ class PopStateHandler {
 
   produkter(){
     $('main').empty();
+    this.app.product.render('main');
   }
 
   omOss(){

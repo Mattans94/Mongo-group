@@ -37,6 +37,7 @@ class App extends REST {
 
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
+      this.product = new Product();
       this.profile = new Profile();
       this.cart = new Cart(this.rest, this.profile);
       this.popState = new PopStateHandler(this);
