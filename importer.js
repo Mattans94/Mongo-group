@@ -111,21 +111,6 @@ const saveModels = () => {
   });
 
   let savedCapsules;
-<<<<<<< HEAD
-  await capsuleModel.remove({}, () => {
-    savedCapsules = save(capsulesJson, 'capsule', { 'tools': [] });
-  });
-  let savedTools;
-  await toolModel.remove({}, () => {
-    savedTools = save(toolsJson, 'tool', { 'capsules': [] });
-  })
-  // fix it later
-  setTimeout(() => {
-    capsuleUpdate(savedCapsules, savedTools);
-    toolUpdate(savedCapsules, savedTools);
-  }, 1000);
-  //  process.exit();
-=======
   let savedTools;
 
   capsuleModel.remove({}, () => {
@@ -146,7 +131,6 @@ const saveModels = () => {
       process.exit();
     });
   });
->>>>>>> develop
 }
 
 saveModels();

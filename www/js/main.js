@@ -1,6 +1,4 @@
 const app = new App();
-<<<<<<< HEAD
-=======
 
 async function test() {
 
@@ -23,4 +21,3 @@ async function test() {
 }
 
 test();
->>>>>>> develop
