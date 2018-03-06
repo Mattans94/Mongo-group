@@ -1,0 +1,7 @@
+Object.assign(NavbarItem.prototype, { template(){ return `
+
+	<li class="${this.active ? 'active' : ''}">
+		<a class="pop" href="${this.url}">${this.name}</a>
+	</li>
+
+`;}});
