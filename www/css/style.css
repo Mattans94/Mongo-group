@@ -92,15 +92,21 @@ footer p a.text-light:hover {
   text-decoration: none;
 }
 footer .myheight {
-  height: 100px;
+  height: 60px;
 }
 h2 {
   color: #4fbfa8;
   text-align: center;
 }
 .empty-space {
-  background-color: white;
-  margin-bottom: 15px;
+  margin-top: 85px;
+}
+.card-btn {
+  background-color: #4fbfa8;
+  border-color: #41b39c;
+}
+.card-news {
+  padding: 0 !important;
 }
 .karusell a {
   color: white;
@@ -215,7 +221,8 @@ html {
   min-height: 100%;
 }
 body {
-  background-color: #000;
+  background-color: #f0f0f0;
+  overflow-x: hidden;
 }
 body .btn {
   cursor: pointer;
