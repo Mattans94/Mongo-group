@@ -5,17 +5,18 @@ module.exports = class Order extends ModelAndRoutes {
 
     static get schema() {
         return {
+            orderNumber:Number,
             product: String,
             img:String,
             quantity: Number,
-            unitPrice: String,
+            unitPrice: Number,
             total: Number,
             vat: Number,
             shippingMethod:String,
             shippingFee:Number,
             paymentMethod:String,
             cardNumber: Number,
-            cardMonth:Number,
+            cardMonth:String,
             cardYear:Number,
             cvCode:Number,
             profile: [{

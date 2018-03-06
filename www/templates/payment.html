@@ -1,12 +1,13 @@
 Object.assign(Cart.prototype, { templatePayment(){ return `
 <div class="content">
-    <div class="row">
-        <!-- <div class="col-sm-6">
+    <div class="row justify-content-md-center">
+        <form id="pay-radio">
+        <div class="col-sm-6">
             <div class="box payment-method">
 
                 <h4>Paypal</h4>
 
-                <p>We like it all.</p>
+                <p>Ett enkelt och tryggt sätt att betala.</p>
 
                 <div class="box-footer text-center">
 
@@ -19,39 +20,63 @@ Object.assign(Cart.prototype, { templatePayment(){ return `
 
                 <h4>Payment gateway</h4>
 
-                <p>VISA and Mastercard only.</p>
+                <p>Endast VISA och Mastercard accepteras.</p>
 
                 <div class="box-footer text-center">
 
                     <input type="radio" name="payment" value="payment2">
                 </div>
             </div>
-        </div> -->
+        </div>
+    </form>
+    </div>    <!-- /.row -->
+    <div class="row paypal">
+        <div class="paypal-box">
+            <span class="paypal-logo">
+              <i>Pay</i><i>Pal</i>
+            </span>
+            
+            <br />
+            
+            <button class="paypal-button review-btn">
+              <span class="paypal-button-title">
+                Buy now with
+              </span>
+              <span class="paypal-logo ">
+                <i>Pay</i><i>Pal</i>
+              </span>
+            </button>
+          </div>
+    </div>
 
-        <!-- <div class="col-sm-6"> -->
-            <div class="credit-card credit-card--with-stripe credit-card--visa l-centered">
+    <div class="row">
+        <div class="card d-none">
+            <div class=" credit-card credit-card--with-stripe credit-card--visa l-centered ">
                 <h4 class="credit-card__title">
-                  Payment Details
+                    Payment Details
                 </h4>
                 <form class="credit-card__form">
-                  <input class="credit-card__number" placeholder="Card Number" type="text" />
-                  <fieldset>
-                    <input class="credit-card__expiry-month" maxLength="2" placeholder="MM" type="text" /><input class="credit-card__expiry-year" maxLength="2" placeholder="YY" type="text" /><input class="credit-card__cv-code pull-right" maxLength="3" placeholder="123" type="text" />
-                  </fieldset>
+                    <input class="credit-card__number" placeholder="Card Number" type="text" />
+                    <fieldset>
+                        <input class="credit-card__expiry-month" maxLength="2" placeholder="MM" type="text" />
+                        <input class="credit-card__expiry-year" maxLength="2" placeholder="YY" type="text" />
+                        <input class="credit-card__cv-code pull-right" maxLength="3" placeholder="123" type="text" />
+                    </fieldset>
                 </form>
-              </div>
+            </div>
         </div>
-    <!-- </div> -->
+
+    </div>
     <!-- /.row -->
 
 </div>
 <div class="box-footer">
     <div class="pull-left">
-        <a  class="btn btn-default delivery-btn">
-            <i class="fa fa-chevron-left"></i>Back to Shipping method</a>
+        <a class="btn btn-default delivery-btn">
+            <i class="fa fa-chevron-left"></i>TILLBAKA</a>
     </div>
     <div class="pull-right">
-        <button  class="btn btn-primary review-btn">Continue to Order review
+        <button class="btn btn-primary review-btn">FORTSÄTT
             <i class="fa fa-chevron-right"></i>
         </button>
     </div>

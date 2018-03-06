@@ -8,9 +8,9 @@ const Bean = require('./classes/Bean.class');
 const Powder = require('./classes/Powder.class');
 const Capsule = require('./classes/Capsule.class');
 const Tool = require('./classes/Tool.class');
-const Cart = require('./classes/CartAPI.class');
-const Profile = require('./classes/ProfileAPI.class');
-const Order = require('./classes/OrderAPI.class');
+const Cart = require('./classes/Cart.class');
+const Profile = require('./classes/Profile.class');
+const Order = require('./classes/Order.class');
 
 const bean = new Bean(app);
 const powder = new Powder(app);
