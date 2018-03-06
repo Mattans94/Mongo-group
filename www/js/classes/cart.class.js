@@ -1,4 +1,4 @@
-class Cart extends Base {
+class Cart extends REST {
     constructor(rest, profile) {
         super();
         this.rest = rest;
@@ -55,4 +55,8 @@ class Cart extends Base {
 
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> develop

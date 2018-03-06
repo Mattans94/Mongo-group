@@ -1,0 +1,286 @@
+header .dropdown-item:hover {
+  background-color: #66717b !important;
+}
+header .navbar-brand {
+  width: 50px;
+}
+header .d-lg-none {
+  width: 150px;
+}
+header nav {
+  background-color: #262626;
+}
+header nav .container .logo-mobile {
+  margin: 10px auto;
+}
+header nav .nav-item.active {
+  font-weight: bold;
+}
+header nav a {
+  color: white;
+}
+header nav a:hover,
+header nav a:active,
+header nav a:focus,
+header nav a.btn:hover {
+  color: #f2b600 !important;
+}
+header nav .btn-outline-secondary {
+  color: white;
+  border-color: #f2b600;
+}
+header nav .btn-outline-secondary:hover {
+  background-color: #f2b600;
+  color: #000;
+}
+header nav .yellow {
+  background-color: #f2b600;
+}
+header nav .yellow:hover {
+  opacity: 0.7;
+}
+header nav .log {
+  background-color: #262626;
+  width: 300px;
+}
+header nav .log a,
+header nav .log a:hover {
+  color: black !important;
+}
+header nav .show > .btn-outline-secondary.dropdown-toggle {
+  background-color: #0b0c10;
+  border-color: #f2b600;
+}
+header nav .show > .btn-outline-secondary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 2px rgba(193, 175, 15, 0.55);
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: auto;
+  line-height: 30px;
+  /* Vertically center the text there */
+  background-color: #262626;
+}
+footer p {
+  line-height: 1.6em;
+  margin-bottom: 0;
+}
+footer p .fa {
+  line-height: 30px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+footer p a.text-light:hover {
+  color: #f2b600 !important;
+  text-decoration: none;
+}
+footer .myheight {
+  height: 100px;
+}
+h2 {
+  color: #4fbfa8;
+  text-align: center;
+}
+.empty-space {
+  background-color: white;
+  margin-bottom: 15px;
+}
+.karusell a {
+  color: white;
+}
+.karusell a:hover {
+  color: #f2b600;
+  text-decoration: none;
+}
+.karusell .container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+.karusell .carousel-caption {
+  top: auto;
+  bottom: 10px;
+  right: 900px;
+}
+.karusell .first-carousel-caption {
+  top: auto;
+  bottom: 20px;
+  right: 700px;
+  color: #fff;
+}
+.karusell .carousel-caption-avatar {
+  top: auto;
+  bottom: 10px;
+  right: 950px;
+}
+.karusell .film-title {
+  font-size: 50px;
+  font-family: 'Exo', sans-serif;
+  font-weight: 900;
+  text-shadow: 2px 2px #000;
+}
+@media screen and (max-width: 1035px) {
+  .karusell .film-title {
+    font-size: 25px;
+    font-family: 'Exo', sans-serif;
+    font-weight: 900;
+    text-shadow: 2px 2px #000;
+  }
+}
+.karusell .film-title-color {
+  color: #000;
+}
+.karusell .carousel-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 43px;
+}
+.karusell .empty-space {
+  padding-top: 70px;
+}
+/* Start of fading transition*/
+.carousel-fade .carousel-item {
+  opacity: 0;
+  -webkit-transition-duration: .6s;
+  transition-duration: .6s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+}
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  opacity: 0;
+}
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+@supports (transform-style: preserve-3d) {
+  .carousel-fade .carousel-item-next,
+  .carousel-fade .carousel-item-prev,
+  .carousel-fade .carousel-item.active,
+  .carousel-fade .active.carousel-item-left,
+  .carousel-fade .active.carousel-item-prev {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* End of fading transition */
+.om-oss {
+  background-color: #262626;
+  border-radius: 5px;
+  padding: 50px;
+  height: 100%;
+}
+@media only screen and (max-width: 576px) {
+  .om-oss {
+    padding: 20px;
+  }
+}
+.om-oss h2,
+.om-oss h3 {
+  font-family: 'Oswald', sans-serif;
+  text-decoration: none;
+  border-bottom: 3px solid #f2b600;
+  display: inline-block;
+  line-height: 1.5;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  background-color: #000;
+}
+body .btn {
+  cursor: pointer;
+}
+.user-page {
+  margin-top: 80px;
+}
+.user-page .heading {
+  padding: 0;
+}
+.user-page .heading h1 {
+  font-family: 'Oswald', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.5;
+  padding: 20px;
+}
+.user-page .heading .fa-user-circle {
+  font-size: 50px;
+}
+.user-page .heading .card {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.user-page .content {
+  background-color: #262626;
+  padding: 20px 50px;
+}
+.user-page .content h2 {
+  font-family: 'Oswald', sans-serif;
+  text-decoration: none;
+  border-bottom: 3px solid #f2b600;
+  display: inline-block;
+  line-height: 1.5;
+}
+.user-page .content .bokningar .card {
+  height: 100%;
+}
+.user-page .content .bokningar h5,
+.user-page .content .bokningar a {
+  font-family: 'Oswald', sans-serif;
+  color: #f2b600;
+}
+.user-page .content .bokningar h5:hover,
+.user-page .content .bokningar a:hover {
+  text-decoration: none;
+}
+.user-page .content .bokningar li {
+  color: #fff;
+  font-weight: normal;
+}
+.user-page .order-history-div .order-history-list .history-list {
+  font-family: 'Oswald', sans-serif;
+  background-color: #f2b600;
+  border-color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+button.cancel-btn-card {
+  background-color: #f2b600;
+}
+#cancel-order-modal .cancel-modal {
+  background-color: #262626;
+  max-width: 80%;
+}
+#cancel-order-modal .cancel-modal h4 {
+  color: white;
+}
+#cancel-order-modal .cancel-modal .cancel-modal-header {
+  background-color: #f2b600;
+}
+#cancel-order-modal .cancel-modal .cancel-modal-header h5 {
+  font-family: 'Oswald', sans-serif;
+}
+#cancel-order-modal .cancel-modal button.cancel-order {
+  color: #000000;
+  border-color: #f2b600;
+  background-color: #f2b600;
+}
