@@ -74,7 +74,7 @@ class Profile extends REST {
 
     clicklogin(event, element, instance) {  
         if ($(event.target).hasClass('lgin')) {
-            this.checkLogin(this.usName);   
+            this.checkLogin(this.usName); 
         }
     }
 
@@ -160,10 +160,4 @@ class Profile extends REST {
         
     }
 
-    toggleSignupModal() {
-        let that = this;
-        that.render('.modal-container-signup', 'signup');
-        $('#loginModal').modal('toggle');
-        $('#signupModal').modal('toggle');
-    }
 }

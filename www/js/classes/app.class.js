@@ -2,7 +2,7 @@ class App extends REST {
     constructor() {
         super();
         this.load();
-        this.clickEvents();
+       
     }
 
     clickEvents() {
@@ -40,6 +40,7 @@ class App extends REST {
       this.profile = new Profile();
       this.cart = new Cart(this.rest, this.profile);
       this.popState = new PopStateHandler(this);
+      this.clickEvents();
     }
 }
 

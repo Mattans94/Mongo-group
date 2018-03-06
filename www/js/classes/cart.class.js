@@ -45,6 +45,7 @@ class Cart extends REST {
             $('.stepBox').empty();
             that.render('.stepBox', 'Review');
             that.renderShoppingList();
+
         });
 
         $('#pay-radio').on('change', function () {

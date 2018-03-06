@@ -1,18 +1,19 @@
 Object.assign(Profile.prototype, {templateRegister(){ return `
-<div>
-    <div class="container">
+<div id="content">
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-12">
 
-        <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>Ny kund / Logga in</li>
+                </ul>
 
-            <ul class="breadcrumb">
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>Ny kund / Logga in</li>
-            </ul>
-
+            </div>
         </div>
-
+        <div class="row">
         <div class="col-md-6">
             <div class="box">
                 <h1>Ny kund</h1>
@@ -21,7 +22,7 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
                 <p>With registration with us new world of fashion, fantastic discounts and much more opens to you! The whole
                     process will not take you more than a minute!</p>
                 <p class="text-muted">If you have any questions, please feel free to
-                    <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+                    <a href="/">contact us</a>, our customer service center is working for you 24/7.</p>
 
                 <hr>
 
@@ -45,7 +46,7 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
                         <small class="repassCheck d-none">Kontrollera lösenordet!</small>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-primary signupbtn">
+                        <button class="btn btn-next signupbtn">
                             <i class="fa fa-user-md"></i> Registrera</button>
                     </div>
                 </form>
@@ -73,13 +74,13 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
                         <input type="password" class="form-control lgPass" required>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-primary pop lgin">
+                        <button class="btn btn-next pop lgin">
                             <i class="fa fa-sign-in"></i> Logga in</button>
                     </div>
                 </form>
             </div>
         </div>
-
+    </div>
 
     </div>
     <!-- /.container -->
