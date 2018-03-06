@@ -51,6 +51,7 @@ class PopStateHandler {
     // on which url
     let urls = {
       '/': 'startsidan',
+      '/produkter': 'produkter',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout'
@@ -81,6 +82,10 @@ class PopStateHandler {
     $('title').text('CoffeeDB');
     $('main').empty();
     this.app.startsida.render('main');
+  }
+
+  produkter(){
+    $('main').empty();
   }
 
   shoppingCart(){
