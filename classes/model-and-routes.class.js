@@ -43,7 +43,7 @@ module.exports = class ModelAndRoutes {
   // }
 
   setupPostRoute(){
-    this.expressApp.post(`/admin/${this.routeName}`, (req, res) =>{
+    this.expressApp.post(`/${this.routeName}`, (req, res) =>{
       const entity = new this.myModel(req.body);
       entity.save(() => {
         // Newly created and saved Mongoose object
@@ -70,7 +70,7 @@ module.exports = class ModelAndRoutes {
       // get params
       params = params || qs.parse(req.params[0]);
 
-      console.log("PPPP",params)
+      console.log(`${this.routeName}`,params)
 
       // Get populate instructions
       // and then delete them from the Mongo query params
@@ -89,7 +89,7 @@ module.exports = class ModelAndRoutes {
 
   setupDeleteRoute(){
 
-    this.expressApp.delete(`/admin/${this.routeName}/?*`, (req, res) => {
+    this.expressApp.delete(`/${this.routeName}/?*`, (req, res) => {
       // get params
       const params = qs.parse(req.params[0]);
       this.myModel.find(params, (err, data) => {
@@ -127,7 +127,7 @@ module.exports = class ModelAndRoutes {
   }
 
   setupPutRoute(){
-    this.expressApp.put(`/admin/${this.routeName}/?*`, (req, res) => {
+    this.expressApp.put(`/${this.routeName}/?*`, (req, res) => {
       // get params
       const params = qs.parse(req.params[0]);
       this.myModel.find(params, (err, data) => {
