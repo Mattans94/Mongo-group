@@ -64,7 +64,7 @@ class PopStateHandler {
     this.app.navbar.setActive(url);
 
     //Render correct navbar depending if you're logged in or not
-    window.onload = () => this.renderCorrectNav();
+    window.onload = () => this.renderNav();
 
     //Scroll to top of page
     window.scrollTo(0, 0);
@@ -72,13 +72,15 @@ class PopStateHandler {
 
   }
 
+  renderNav(){
+    $('header').empty();
+    this.app.navbar.render('header');
+  }
+
   startsidan(){
     $('title').text('CoffeeDB');
-    $('.karusell').empty();
     $('main').empty();
-    this.app.startsidan.render('.karusell', '2');
-    this.app.startsidan.render('main');
-    this.app.startsidan.callCarousel();
+    this.app.startsida.render('main');
   }
 
   shoppingCart(){
@@ -91,6 +93,7 @@ class PopStateHandler {
   register(){
     $('main').empty();
     this.app.profile.render('main', 'Register');
+
   }
 
   checkout(){
