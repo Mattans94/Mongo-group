@@ -55,8 +55,4 @@ class Cart extends REST {
 
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> develop
