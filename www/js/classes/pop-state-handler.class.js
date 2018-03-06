@@ -56,7 +56,8 @@ class PopStateHandler {
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
-      '/admin': 'admin'
+      '/admin/order': 'adminOrder',
+      '/admin/add': 'adminAdd'
     };
 
     // Call the right method
@@ -115,9 +116,15 @@ class PopStateHandler {
     this.app.profile.render('.stepBox','Address');
   }
 
-  admin(){
+  adminOrder(){
     $('main').empty();
     this.app.admin.render('main');
+  }
+
+  adminAdd(){
+    console.log('add called')
+    $('main').empty();
+    this.app.admin.render('main', 2);
   }
 
 
