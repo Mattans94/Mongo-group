@@ -7,11 +7,6 @@ module.exports = class Tool extends ModelAndRoutes {
     return {
       name: String,
       image: String,
-      description: String,
-      price: Number,
-      quantity: Number,
-      flavor: String,
-      countryOfOrigin: String,
       type: Number,
       capsules: [{
         type: Schema.Types.ObjectId,
