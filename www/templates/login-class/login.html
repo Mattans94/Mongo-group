@@ -1,0 +1,27 @@
+Object.assign(LogIn.prototype, { template(){ return `
+
+	<ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+	  <li class="dropdown order-1">
+	    <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Logga in<span class="caret"></span></button>
+	    <ul class="dropdown-menu dropdown-menu-right mt-1 text-white log">
+	      <li class="p-3">
+	        <form class="px-3 py-2" id="loginForm">
+						<div class="form-group">
+					    <label for="exampleInputEmail1">Email address</label>
+					    <input type="email" class="form-control" id="userLogin" aria-describedby="emailHelp" placeholder="Enter email">
+					  </div>
+						<div class="form-group">
+					    <label for="exampleInputPassword1">Lösenord</label>
+					    <input type="password" class="form-control" id="userPW" placeholder="Password">
+					  </div>
+						<div class="errorMessageLogin d-none">
+							<p>Användarnamnet eller lösenordet stämmer inte</p>
+						</div>
+	          <input type="submit" class="btn btn-block yellow login pop" value="Logga in"></input>
+						<button type="button" class="btn skapa-konto btn-sm btn-block yellow" data-toggle="modal" data-target="#register-modal">Skapa konto <i class="far fa-plus-square"></i></button>
+	        </form>
+	      </li>
+	    </ul>
+	  </li>
+	</ul>
+`;}});

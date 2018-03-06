@@ -1,4 +1,4 @@
-class App extends Base {
+class App extends REST {
     constructor() {
         super();
         this.start();
@@ -15,6 +15,8 @@ class App extends Base {
     }
 
     start(){
+      this.navbar = new Navbar(this);
+      this.startsida = new Startsida(this);
       this.rest = new REST();
       this.profile = new Profile();
       this.cart = new Cart(this.rest, this.profile);
