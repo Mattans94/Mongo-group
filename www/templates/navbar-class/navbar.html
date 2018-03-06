@@ -1,18 +1,19 @@
 Object.assign(Navbar.prototype, { template(){ return `
+	<div class="row">
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top col-12">
+			<div class="container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <a href="/" class="pop nav-logo d-none d-lg-block ml-1"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
+				<a href="/" class="pop nav-logo logo-mobile d-lg-none"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
+			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			    <ul class="navbar-nav ml-4">
+			      ${this.items.render()}
+			    </ul>
 
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-		<div class="container">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <a href="/" class="pop nav-logo d-none d-lg-block ml-1"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
-			<a href="/" class="pop nav-logo logo-mobile d-lg-none"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
-		  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-		    <ul class="navbar-nav ml-4">
-		      ${this.items.render()}
-		    </ul>
-
-		  </div>
-		</div>
-	</nav>
+			  </div>
+			</div>
+		</nav>
+	</div>
 `;}});
