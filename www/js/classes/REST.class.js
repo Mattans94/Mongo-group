@@ -1,6 +1,7 @@
-class REST {
+class REST extends Base{
 
   constructor(obj){
+    super();
     Object.assign(this, obj);
   }
 
