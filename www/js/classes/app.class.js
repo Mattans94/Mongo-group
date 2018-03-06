@@ -8,6 +8,14 @@ class App extends Base {
         this.clickEvents();
     }
 
+    checkout()
+    {
+        $('main').empty();
+        this.cart.render('main', 'CheckOut');
+        this.cart.renderTotalPriceWithVAT();
+        this.profile.render('.stepBox','Address');
+    }
+
     changePage() {
         let url = location.pathname;
         if (url == '/shoppingCart') {

@@ -34,6 +34,10 @@ class Cart extends Base {
             $(".payment-btn").addClass("active");
             $('.stepBox').empty();
             that.render('.stepBox','Payment');
+
+            // $.get('/getVisa', (data)=>{
+            //     console.log(data);
+            // });
         });
         $(document).on("click", '.review-btn', function () {
             $(".checkOut-btns").removeClass("active");

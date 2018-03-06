@@ -23,17 +23,17 @@ const Bean = require('./classes/Bean.class');
 const Powder = require('./classes/Powder.class');
 const Capsule = require('./classes/Capsule.class');
 const Tool = require('./classes/Tool.class');
-const CartAPI = require('./classes/CartAPI.class');
-const OrderAPI = require('./classes/OrderAPI.class');
-const ProfileAPI = require('/classes/ProfileAPI.class');
+const Cart = require('./classes/CartAPI.class');
+const Order = require('./classes/OrderAPI.class');
+const Profile = require('/classes/ProfileAPI.class');
 
 const beanModel = new Bean(app).myModel;
 const powderModel = new Powder(app).myModel;
 const capsuleModel = new Capsule(app).myModel;
 const toolModel = new Tool(app).myModel;
-const cartModel = new CartAPI(app).myModel;
-const orderModel = new OrderAPI(app).myModel;
-const profileModel = new ProfileAPI(app).myModel;
+const cartModel = new Cart(app).myModel;
+const orderModel = new Order(app).myModel;
+const profileModel = new Profile(app).myModel;
 
 const models = {
   'bean': beanModel,

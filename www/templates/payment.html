@@ -1,7 +1,7 @@
 Object.assign(Cart.prototype, { templatePayment(){ return `
 <div class="content">
     <div class="row">
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
             <div class="box payment-method">
 
                 <h4>Paypal</h4>
@@ -26,22 +26,22 @@ Object.assign(Cart.prototype, { templatePayment(){ return `
                     <input type="radio" name="payment" value="payment2">
                 </div>
             </div>
+        </div> -->
+
+        <!-- <div class="col-sm-6"> -->
+            <div class="credit-card credit-card--with-stripe credit-card--visa l-centered">
+                <h4 class="credit-card__title">
+                  Payment Details
+                </h4>
+                <form class="credit-card__form">
+                  <input class="credit-card__number" placeholder="Card Number" type="text" />
+                  <fieldset>
+                    <input class="credit-card__expiry-month" maxLength="2" placeholder="MM" type="text" /><input class="credit-card__expiry-year" maxLength="2" placeholder="YY" type="text" /><input class="credit-card__cv-code pull-right" maxLength="3" placeholder="123" type="text" />
+                  </fieldset>
+                </form>
+              </div>
         </div>
-
-        <div class="col-sm-6">
-            <div class="box payment-method">
-
-                <h4>Cash on delivery</h4>
-
-                <p>You pay when you get it.</p>
-
-                <div class="box-footer text-center">
-
-                    <input type="radio" name="payment" value="payment3">
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- </div> -->
     <!-- /.row -->
 
 </div>

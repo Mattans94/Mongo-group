@@ -5,7 +5,7 @@
 const Schema = require('mongoose').Schema;
 const ModelAndRoutes = require('./model-and-routes.class');
 
-module.exports = class CartAPI extends ModelAndRoutes {
+module.exports = class Cart extends ModelAndRoutes {
 
     static get schema() {
         return {
@@ -13,7 +13,7 @@ module.exports = class CartAPI extends ModelAndRoutes {
             img:String,
             quantity: Number,
             unitPrice: String,
-            total: Number,
+            total: Number
         }
     }
 
