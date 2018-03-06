@@ -44,8 +44,8 @@ class PopStateHandler {
     let url = location.pathname;
 
     // Change which menu link that is active
-    $('header a').removeClass('active');
-    $(`header a[href="${url}"]`).addClass('active');
+    // $('header a').removeClass('active');
+    // $(`header a[href="${url}"]`).addClass('active');
 
     // A small "dictionary" of what method to call
     // on which url
@@ -63,9 +63,8 @@ class PopStateHandler {
     // Set the right menu item active
     //this.app.navbar.setActive(url);
 
-    //Render correct navbar depending if you're logged in or not
-   
-    window.onload = () => this.renderNav();
+    //Render navbar
+    this.renderNav();
 
     //Scroll to top of page
     window.scrollTo(0, 0);
