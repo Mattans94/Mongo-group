@@ -33,42 +33,50 @@ const models = {
   'tool': toolModel
 }
 
-const save = (json, modelName, extraKey = null) => {
+// Save json files into mongoDB.
+// ExtraKey is set when that key is not exist in json file, but exist in schema
+const save = async (json, modelName, extraKey = null) => {
   const savedObjects = [];
-  json.forEach((item, index) => {
+
+  for (const item of json) {
     if (extraKey) {
       for(const key in extraKey) {
         item[key] = extraKey[key];
       }
     }
 
+    // Create one of the models specified in models object
+    // (beanModel, powderModel, capsuleModel, toolModel)
     const model = new models[modelName](item);
-    model.save((err, item) => {
-      if (err) {
-        console.log(`${modelName} ${index + 1} is not saved!!`);
-      } else {
-        console.log(`${modelName} ${index + 1} is saved.`);
-      }
+    await model.save().then(item => {
+      console.log(`${modelName} ${item.name} is saved.`);
     });
+
     savedObjects.push(model);
-  });
+  }
+
+  // Use this for updating capsule and tool data later
   return savedObjects;
 }
 
-const capsuleUpdate = (savedCapsules, savedTools) => {
-  savedCapsules.forEach(capsule => {
+// Fillin capsule.tools by toolModel, judged by the type in both capsule and tool
+const capsuleUpdate = async (savedCapsules, savedTools) => {
+  for (const capsule of savedCapsules) {
     capsule.types.forEach(type => {
       const sameTypeTools = savedTools.filter(tool => tool.type === type);
       sameTypeTools.forEach(tool => {
         capsule.tools.push(tool._id);
       });
     });
-    capsule.save();
-  });
+    await capsule.save().then(item => {
+      console.log(`capsule ${item.name} is updated!`);
+    });
+  };
 }
 
-const toolUpdate = (savedCapsules, savedTools) => {
-  savedTools.forEach(tool => {
+// Fillin tool.capsules by capsuleModel, judged by the type in both capsule and tool
+const toolUpdate = async (savedCapsules, savedTools) => {
+  for (const tool of savedTools) {
     savedCapsules.forEach(capsule => {
       capsule.types.forEach(type => {
         if (type === tool.type) {
@@ -76,31 +84,41 @@ const toolUpdate = (savedCapsules, savedTools) => {
         }
       });
     });
-    tool.save();
-  });
+    await tool.save().then(item => {
+      console.log(`tool ${item.name} is updated!`);
+    });
+  };
 }
 
-const saveModels = async () => {
-  await beanModel.remove({}, () => {
+const saveModels = () => {
+  beanModel.remove({}, () => {
     save(beansJson, 'bean');
   });
-  await powderModel.remove({}, () => {
+  powderModel.remove({}, () => {
     save(powdersJson, 'powder');
   });
+
   let savedCapsules;
-  await capsuleModel.remove({}, () => {
-    savedCapsules = save(capsulesJson, 'capsule', {'tools': []});
-  });
   let savedTools;
-  await toolModel.remove({}, () => {
-    savedTools = save(toolsJson, 'tool', {'capsules': []});
-  })
-  // fix it later
-  setTimeout(() => {
-    capsuleUpdate(savedCapsules, savedTools);
-    toolUpdate(savedCapsules, savedTools);
-  }, 1000);
-//  process.exit();
+
+  capsuleModel.remove({}, () => {
+    toolModel.remove({}, async () => {
+      await save(capsulesJson, 'capsule', {'tools': []})
+      .then(obj => {
+        savedCapsules = obj;
+      });
+
+      await save(toolsJson, 'tool', {'capsules': []})
+      .then(obj => {
+        savedTools = obj;
+      });
+
+      // Capsules json and tools json should be saved before updating
+      await capsuleUpdate(savedCapsules, savedTools);
+      await toolUpdate(savedCapsules, savedTools);
+      process.exit();
+    });
+  });
 }
 
 saveModels();
