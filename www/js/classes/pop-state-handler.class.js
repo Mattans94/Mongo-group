@@ -64,12 +64,8 @@ class PopStateHandler {
     //this.app.navbar.setActive(url);
 
     //Render correct navbar depending if you're logged in or not
-<<<<<<< HEAD
    
     window.onload = () => this.renderNav();
-=======
-    //window.onload = () => this.renderCorrectNav();
->>>>>>> parent of bc84636... Merge branch 'develop' into kassa
 
     //Scroll to top of page
     window.scrollTo(0, 0);

@@ -55,8 +55,4 @@ class Cart extends Base {
 
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> parent of bc84636... Merge branch 'develop' into kassa
