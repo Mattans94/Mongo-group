@@ -52,6 +52,7 @@ class PopStateHandler {
     let urls = {
       '/': 'startsidan',
       '/produkter': 'produkter',
+      '/om_oss' : 'omOss',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout'
@@ -85,6 +86,10 @@ class PopStateHandler {
   }
 
   produkter(){
+    $('main').empty();
+  }
+
+  omOss(){
     $('main').empty();
   }
 
