@@ -15,6 +15,12 @@ class App extends REST {
     }
 
     start(){
+      // Create a footer
+      this.footer = new Footer();
+      $('footer').empty();
+      this.footer.render('footer');
+
+
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
       this.rest = new REST();
