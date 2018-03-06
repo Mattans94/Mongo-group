@@ -11,8 +11,10 @@ Object.assign(Navbar.prototype, { template(){ return `
 		    <ul class="navbar-nav ml-4">
 		      ${this.items.render()}
 		    </ul>
-
-		  </div>
+			</div>
+			<div class="modal-container-login">
+				<button id="loginModalToggle">login</button>
+			</div>
 		</div>
 	</nav>
 `;}});
