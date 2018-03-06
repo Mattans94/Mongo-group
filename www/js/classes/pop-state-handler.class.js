@@ -55,7 +55,8 @@ class PopStateHandler {
       '/om_oss' : 'omOss',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
-      '/checkout': 'checkout'
+      '/checkout': 'checkout',
+      '/admin': 'admin'
     };
 
     // Call the right method
@@ -114,6 +115,10 @@ class PopStateHandler {
     this.app.profile.render('.stepBox','Address');
   }
 
+  admin(){
+    $('main').empty();
+    this.app.admin.render('main');
+  }
 
 
 }
