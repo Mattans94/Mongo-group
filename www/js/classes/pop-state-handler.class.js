@@ -64,7 +64,7 @@ class PopStateHandler {
     //this.app.navbar.setActive(url);
 
     //Render navbar
-    this.renderNav();
+    //this.renderNav();
 
     //Scroll to top of page
     window.scrollTo(0, 0);
