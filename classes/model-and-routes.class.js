@@ -19,6 +19,9 @@ module.exports = class ModelAndRoutes {
     const schema = new mongoose.Schema(this.constructor.schema);
     this.modelName = this.constructor.name;
     this.routeName = this.modelName.toLowerCase() + 's';
+
+    console.log(this.routeName);
+
     this.myModel = mongoose.model(this.modelName, schema);
     this.setupPostRoute();
     this.setupGetRoute();

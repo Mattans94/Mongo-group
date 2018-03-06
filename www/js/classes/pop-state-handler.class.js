@@ -65,8 +65,8 @@ class PopStateHandler {
     // Set the right menu item active
     this.app.navbar.setActive(url);
 
-    //Render correct navbar depending if you're logged in or not
-    window.onload = () => this.renderNav();
+    //Render navbar
+    this.renderNav();
 
     //Scroll to top of page
     window.scrollTo(0, 0);
@@ -117,3 +117,4 @@ class PopStateHandler {
 
 
 }
+

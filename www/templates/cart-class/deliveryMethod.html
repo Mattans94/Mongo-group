@@ -1,0 +1,75 @@
+Object.assign(Cart.prototype, { templateDelivery(){ return `
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="box shipping-method">
+
+                                            <h4>Hämta ut i butiken:</h4>
+
+                                            <p>Leverans mellan den måndag 12 och den onsdag 14. Kostnadsfri.</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="delivery" value="delivery1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="box shipping-method">
+
+                                            <h4>Standard Hem Leverans:
+                                            </h4>
+
+                                            <p>Leverans mellan den fredag 09 och den tisdag 13. Kostnad: 49SEK</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="delivery" value="delivery2">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="box shipping-method">
+
+                                            <h4>Express Hem Leverans:
+                                            </h4>
+
+                                            <p>Leverans mellan den torsdag 08 och den fredag 09. Kostnad: 99SEK</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="delivery" value="delivery3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+
+                            </div>
+                            <!-- /.content -->
+
+                            <div class="box-footer">
+                                <div class="pull-left">
+                                    <a class="btn btn-default address-btn"><i class="fa fa-chevron-left"></i>TILLBAKA</a>
+                                </div>
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-primary payment-btn">FORTSÄTT<i class="fa fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box -->
+
+
+                </div>
+                <!-- /.col-md-9 -->
+
+             
+
+            </div>
+            <!-- /.container -->
+        </div>
+    <!-- /.row -->
+`;}});

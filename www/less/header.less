@@ -5,7 +5,7 @@ header {
   }
 
   .navbar-brand{
-    width: 200px;
+    width: 50px;
   }
 
   .d-lg-none{
@@ -13,7 +13,28 @@ header {
   }
 
   nav{
-    .container{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: #fff;
+   .nav-item.active{
+      background-color: #4fbfa8;
+      font-weight: bold;
+    }
+    .nav-item{
+      padding: 10px;
+    }
+    .nav-item.active, &:active,{
+      font-weight: bold;
+    }
+
+
+
+
+
+
+
+
+/*    .container{
       .logo-mobile{
         margin: 10px auto;
       }
@@ -22,10 +43,8 @@ header {
     .nav-item.active{
       font-weight: bold;
     }
-    .container a{
 
-    }
-    background-color: @bg-gray;
+    background-color: #fff;
     a{
       color: white;
       &:hover, &:active, &:focus, &.btn:hover{
@@ -59,6 +78,6 @@ header {
       &:focus{
         box-shadow: 0 0 0 2px rgba(193, 175, 15, 0.55);
       }
-    }
+    }*/
   }
 }
