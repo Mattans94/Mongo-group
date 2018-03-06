@@ -66,11 +66,8 @@ class PopStateHandler {
     //this.app.navbar.setActive(url);
 
     //Render correct navbar depending if you're logged in or not
-<<<<<<< HEAD
-    //window.onload = () => this.renderCorrectNav();
-=======
+   
     window.onload = () => this.renderNav();
->>>>>>> develop
 
     //Scroll to top of page
     window.scrollTo(0, 0);
