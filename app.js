@@ -17,7 +17,7 @@ const tool = new Tool(app);
 // Serve index.html if req has no file extension.
 // (to work with SPA)
 app.get(/^[^\.]*$/, (req, res) => {
-  res.sendFile(__dirname + './www/index.html');
+  res.sendFile(__dirname + '/www/index.html');
 });
 
 

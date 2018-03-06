@@ -1,4 +1,4 @@
-// const app = new App();
+const app = new App();
 
 async function test() {
 
