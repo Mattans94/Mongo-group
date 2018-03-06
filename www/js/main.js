@@ -14,7 +14,7 @@ async function test() {
 
   // test populate with tools
   const capsules = await Capsule.find({
-    name: /^M/g,
+    name: /Brazil/g,
     populate: 'tools'
   });
   console.log('Capsules are', capsules);

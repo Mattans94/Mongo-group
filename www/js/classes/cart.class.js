@@ -1,4 +1,4 @@
-class Cart extends REST {
+class Cart extends Base {
     constructor(rest, profile) {
         super();
         this.rest = rest;
@@ -55,4 +55,8 @@ class Cart extends REST {
 
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of bc84636... Merge branch 'develop' into kassa
