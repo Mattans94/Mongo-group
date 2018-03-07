@@ -87,7 +87,9 @@ class PopStateHandler {
     $('title').text('CoffeeDB');
     $('main').empty();
     this.app.startsida.render('main');
-    this.app.startsida.render('main', 2);
+    this.app.startsida.render('.carousel-container', 2); // Carousel
+    this.app.startsida.render('.card-container', 3); // Cards
+    this.app.startsida.callCarousel();
   }
 
   produkter(){

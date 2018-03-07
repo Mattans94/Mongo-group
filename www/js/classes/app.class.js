@@ -30,9 +30,6 @@ class App extends REST {
 
     start(){
       // Create a footer
-      this.footer = new Footer();
-      $('footer').empty();
-      this.footer.render('footer');
 
       // Create pages
       this.navbar = new Navbar(this);
@@ -43,6 +40,10 @@ class App extends REST {
 
       // Initiate handling of SPA push/pop-state
       this.popState = new PopStateHandler(this);
+
+      this.footer = new Footer();
+      $('footer').empty();
+      this.footer.render('footer');
       this.clickEvents();
     }
 }

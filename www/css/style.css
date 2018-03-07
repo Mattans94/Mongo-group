@@ -96,15 +96,30 @@ footer p a.text-light:hover {
   text-decoration: none;
 }
 footer .myheight {
-  height: 100px;
+  height: 60px;
 }
 h2 {
   color: #4fbfa8;
   text-align: center;
 }
 .empty-space {
-  background-color: white;
-  margin-bottom: 15px;
+  margin-top: 85px;
+}
+.card-btn {
+  background-color: #4fbfa8;
+  border-color: #41b39c;
+}
+.card-btn:hover {
+  background-color: #3da892;
+  border-color: #318675;
+}
+.card-news {
+  padding: 0 !important;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
 }
 .karusell a {
   color: white;
@@ -220,6 +235,7 @@ html {
 }
 body {
   background-color: #f0f0f0;
+  overflow-x: hidden;
 }
 body .btn {
   cursor: pointer;
