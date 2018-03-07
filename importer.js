@@ -101,6 +101,20 @@ const toolUpdate = async (savedCapsules, savedTools) => {
     });
   };
 }
+// Fillin order.profile by toolModel, judged by the type in both profile and order
+// const orderUpdate = async (savedOrder, savedProfile) => {
+//   for (const capsule of savedCapsules) {
+//     capsule.types.forEach(type => {
+//       const sameTypeTools = savedTools.filter(tool => tool.type === type);
+//       sameTypeTools.forEach(tool => {
+//         capsule.tools.push(tool._id);
+//       });
+//     });
+//     await capsule.save().then(item => {
+//       console.log(`capsule ${item.name} is updated!`);
+//     });
+//   };
+// }
 
 const saveModels = () => {
   beanModel.remove({}, () => {

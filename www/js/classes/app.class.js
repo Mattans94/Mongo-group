@@ -26,6 +26,15 @@ class App extends REST {
       this.tools = await Tool.find({});
       console.log('Tools are', this.tools);
 
+      this.carts = await Cart.find({});
+      console.log('Shopping Cart', this.carts);
+
+      this.profiles = await Profile.find({});
+      console.log('Profiles', this.profiles);
+
+    //   this.orders = await Order.find({});
+    //   console.log('Orders', this.orders);
+
       this.start();
 
     }

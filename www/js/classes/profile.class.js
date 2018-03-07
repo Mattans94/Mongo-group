@@ -1,7 +1,7 @@
 class Profile extends REST {
     constructor() {
         super();
-        this.changeInput();
+        //this.changeInput();
     }
 
     get email() {
