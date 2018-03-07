@@ -243,6 +243,26 @@ h2 {
   border: none;
   border-radius: 0;
 }
+.om-oss .card {
+  border: none;
+}
+.om-oss .card .card-body {
+  padding: 40px;
+}
+@media screen and (max-width: 700px) {
+  .om-oss .card .card-body {
+    padding: 20px;
+  }
+}
+.om-oss .btn-link {
+  color: #000;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.om-oss .btn-link:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
 html {
   position: relative;
   min-height: 100%;
