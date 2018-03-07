@@ -207,7 +207,33 @@ h2 {
 }
 /* End of fading transition */
 .product-page {
-  background-color: #fff;
+  padding-top: 30px;
+}
+.product-page h2 {
+  color: #4fbfa8;
+  text-align: center;
+}
+.product-page .empty-space {
+  margin-top: 85px;
+}
+.product-page .card-btn {
+  background-color: #4fbfa8;
+  border-color: #41b39c;
+}
+.product-page .card-btn:hover {
+  background-color: #3da892;
+  border-color: #318675;
+}
+.product-page .card-news {
+  padding: 0 !important;
+}
+.product-page .row.no-gutters > [class^="col-"],
+.product-page .row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+.product-page .dropdown-menu {
+  font-size: .9rem;
 }
 .om-oss {
   border-radius: 5px;
