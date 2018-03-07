@@ -2,7 +2,7 @@ class App extends REST {
     constructor() {
         super();
         this.load();
-        this.clickEvents();
+       
     }
 
     clickEvents() {
@@ -34,13 +34,17 @@ class App extends REST {
       $('footer').empty();
       this.footer.render('footer');
 
-
+      // Create pages
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
       this.product = new Product(this);
       this.profile = new Profile();
       this.cart = new Cart(this.rest, this.profile);
+      this.admin = new Admin(this);
+
+      // Initiate handling of SPA push/pop-state
       this.popState = new PopStateHandler(this);
+      this.clickEvents();
     }
 }
 

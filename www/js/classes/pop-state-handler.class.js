@@ -56,7 +56,11 @@ class PopStateHandler {
       '/om_oss' : 'omOss',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
-      '/checkout': 'checkout'
+      '/checkout': 'checkout',
+      '/admin': 'admin',
+      '/admin/add': 'adminAdd',
+      '/admin/change': 'adminChange',
+      '/admin/delete': 'adminDelete'
     };
 
     // Call the right method
@@ -120,6 +124,25 @@ class PopStateHandler {
     this.app.profile.render('.stepBox','Address');
   }
 
+  admin(){
+    $('main').empty();
+    this.app.admin.render('main');
+  }
+
+  adminAdd(){
+    $('main').empty();
+    this.app.admin.render('main', 2);
+  }
+
+  adminChange(){
+    $('main').empty();
+    this.app.admin.render('main', 3);
+  }
+
+  adminDelete(){
+    $('main').empty();
+    this.app.admin.render('main', 4);
+  }
 
 
 }
