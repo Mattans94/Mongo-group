@@ -6,7 +6,7 @@ class Footer extends REST{
 	}
 
 	static footerFix(){
-    let height = $('footer').outerHeight() + 190;
+    let height = $('footer').outerHeight() + 280;
     $('body').css({marginBottom: height});
   }
 

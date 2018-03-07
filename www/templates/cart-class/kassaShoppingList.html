@@ -1,0 +1,44 @@
+Object.assign(Cart.prototype, {templateShoppingList(){ return `
+    <table class="table" >        
+    <thead>
+            <tr>
+                <th colspan="2">Dina varor</th>
+                <th>Antal</th>
+                <th>Enhetspris</th>
+                <th>Rabatt</th>
+                <th colspan="2">Totalsumma</th>
+            </tr>
+        </thead>
+        <tbody >
+                <tr>
+                        <td>
+                            <a href="#">White Blouse Armani</a>
+                        </td>
+                        <td>
+                            <input type="number" value="2" class="form-control">
+                        </td>
+                        <td>$123.00</td>
+                        <td>$0.00</td>
+                        <td>$246.00</td>
+                        <td>
+                            <a href="#">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="5">Total</th>
+                <th colspan="2">$446.00</th>
+            </tr>
+        </tfoot>
+    </table>
+   
+   
+    
+   
+    
+        `;}});
+  

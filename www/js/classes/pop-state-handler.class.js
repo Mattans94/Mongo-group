@@ -55,7 +55,11 @@ class PopStateHandler {
       '/om_oss' : 'omOss',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
-      '/checkout': 'checkout'
+      '/checkout': 'checkout',
+      '/admin': 'admin',
+      '/admin/add': 'adminAdd',
+      '/admin/change': 'adminChange',
+      '/admin/delete': 'adminDelete'
     };
 
     // Call the right method
@@ -65,8 +69,8 @@ class PopStateHandler {
     // Set the right menu item active
     this.app.navbar.setActive(url);
 
-    //Render correct navbar depending if you're logged in or not
-    window.onload = () => this.renderNav();
+    //Render navbar
+    this.renderNav();
 
     //Scroll to top of page
     window.scrollTo(0, 0);
@@ -83,7 +87,9 @@ class PopStateHandler {
     $('title').text('CoffeeDB');
     $('main').empty();
     this.app.startsida.render('main');
-    this.app.startsida.render('main', 2);
+    this.app.startsida.render('.carousel-container', 2); // Carousel
+    this.app.startsida.render('.card-container', 3); // Cards
+    this.app.startsida.callCarousel();
   }
 
   produkter(){
@@ -91,7 +97,10 @@ class PopStateHandler {
   }
 
   omOss(){
+    $('.karusell').empty();
     $('main').empty();
+    this.app.omOss.render('main');
+    $('title').text('Om oss');
   }
 
   shoppingCart(){
@@ -114,6 +123,26 @@ class PopStateHandler {
     this.app.profile.render('.stepBox','Address');
   }
 
+  admin(){
+    $('main').empty();
+    this.app.admin.render('main');
+  }
+
+  adminAdd(){
+    $('main').empty();
+    this.app.admin.render('main', 2);
+  }
+
+  adminChange(){
+    $('main').empty();
+    this.app.admin.render('main', 3);
+  }
+
+  adminDelete(){
+    $('main').empty();
+    this.app.admin.render('main', 4);
+  }
 
 
 }
+
