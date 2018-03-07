@@ -1,15 +1,23 @@
-Object.assign(Product.prototype, {templateCartContent(){ return `
-<tr>
-  <td>
-      <a href="#">${this.name}</a>
-  </td>
-  
-  <td>${this.quantity}</td>
-  <td>${this.price}</td>
-  <td>
-      <a href="#">
-          <i class="fa fa-trash-o"></i>
-      </a>
-  </td>
-</tr>
-`;}});
+Object.assign(Cart.prototype, {templateCartContent(){
+
+  let html = "";
+
+  for (let obj of this.products ){
+    html += `<tr>
+      <td>
+          <a href="#">${obj.name}</a>
+      </td>
+      <td>
+          <input type="number" value="0" class="form-control">
+      </td>
+      <td>${obj.price}</td>
+      <td>
+          <a href="#">
+              <i class="fa fa-trash-o"></i>
+          </a>
+      </td>
+    </tr>`
+  }
+
+  return html
+  ;}});

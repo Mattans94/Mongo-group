@@ -3,7 +3,12 @@ class Cart extends REST {
         super();
         this.rest = rest;
         this.profile = profile;
+        this.products = [];
         this.clickEvents();
+    }
+
+    addProductToArray(product){
+      this.products.push(product);
     }
 
     renderShoppingList() {

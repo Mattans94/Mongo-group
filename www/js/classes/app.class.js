@@ -42,7 +42,7 @@ class App extends REST {
       this.product = new Product(this);
       this.profile = new Profile();
       this.omOss = new OmOss(this);
-      this.cart = new Cart(this.rest, this.profile);
+      this.cart = new Cart(null, this.profile);
       this.popState = new PopStateHandler(this);
     }
 }
