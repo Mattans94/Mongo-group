@@ -312,7 +312,7 @@ button.cancel-btn-card {
   background-color: #4fbfa8;
   opacity: 0.8;
   border: 0px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 #00000033;
   color: white;
 }
 .admin button:hover {
