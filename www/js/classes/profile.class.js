@@ -64,6 +64,10 @@ class Profile extends REST {
         this.postNumber=val;
     }
 
+    set Region(val){
+        this.country=val;
+    }
+    // get data from login modal and register page
     keyuplogin(event) {
         if ($(event.target).hasClass('lginEmail')) {
             this.email = $(".lginEmail").val();
@@ -72,7 +76,7 @@ class Profile extends REST {
             this.password = $(".lgPass").val();
         }
     }
-
+    // get data from register page
     keyupRegister(event) {
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
@@ -87,6 +91,7 @@ class Profile extends REST {
        
     }
 
+    //data from address page
     keyupAddress(event){
         if ($(event.target).hasClass('firstname')) {
             this.firstName = $(".firstname").val();
@@ -100,10 +105,14 @@ class Profile extends REST {
         if ($(event.target).hasClass('zip')) {
             this.zip = $(".zip").val();
         }
+        if ($(event.target).hasClass('country')) {
+            this.country = $(".country").val();
+        }
+        
 
     }
-
-    changeInput() {
+    //change login modal
+    changelogin() {
         $('.lginEmail').on('change', function () {
             this.email = $(".lginEmail").val();
         });
@@ -112,6 +121,16 @@ class Profile extends REST {
         });
       
     }
+    //change register page
+    changeRegister() {
+        $('.lginEmail').on('change', function () {
+            this.email = $(".lginEmail").val();
+        });
+        $('.signUpEmail').on('change', function () {
+            this.email = $(".signUpEmail").val();
+        });
+    }
+
 
     clicklogin(event, element, instance) {
         if ($(event.target).hasClass('lgin')) {
