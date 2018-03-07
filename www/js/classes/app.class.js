@@ -35,6 +35,7 @@ class App extends REST {
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
       this.profile = new Profile();
+      this.omOss = new OmOss();
       this.cart = new Cart(this.rest, this.profile);
       this.admin = new Admin(this);
 

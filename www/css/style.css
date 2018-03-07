@@ -207,23 +207,38 @@ h2 {
 }
 /* End of fading transition */
 .om-oss {
-  background-color: #262626;
   border-radius: 5px;
-  padding: 50px;
-  height: 100%;
+  padding: 30px;
 }
 @media only screen and (max-width: 576px) {
   .om-oss {
     padding: 20px;
   }
 }
+.om-oss .om-oss-text {
+  background-color: #fff;
+  padding: 30px;
+}
 .om-oss h2,
 .om-oss h3 {
   font-family: 'Oswald', sans-serif;
+  background-color: #4fbfa8;
   text-decoration: none;
-  border-bottom: 3px solid #f2b600;
-  display: inline-block;
-  line-height: 1.5;
+  color: #fff;
+  padding: 10px;
+  display: block;
+}
+.om-oss img {
+  padding: 10px;
+  width: 300px;
+}
+.om-oss .list-group-item.active {
+  background-color: #4fbfa8;
+  font-weight: bold;
+}
+.om-oss .list-group-item {
+  border: none;
+  border-radius: 0;
 }
 html {
   position: relative;
@@ -235,6 +250,9 @@ body {
 }
 body .btn {
   cursor: pointer;
+}
+main {
+  margin-top: 75px;
 }
 .user-page {
   margin-top: 80px;
