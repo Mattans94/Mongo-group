@@ -333,13 +333,19 @@ button.cancel-btn-card {
   background-color: #f2b600;
 }
 .admin {
-  margin-top: 120px;
+  padding-top: 30px;
 }
 .admin .card-header {
   background-color: #4fbfa8;
 }
-.admin .card-header a {
+.admin .card-header a.nav-link {
   color: #333;
+}
+@media only screen and (max-width: 576px) {
+  .admin .card-header a.nav-link {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 .admin button {
   background-color: #4fbfa8;
