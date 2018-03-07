@@ -15,6 +15,11 @@ class Cart extends REST {
         this.render('#order-summary', 'OrderSummary');
 
     }
+
+    renderCartContent(){
+      $('.cart-content').empty();
+      this.render('.cart-content', 'CartContent');
+    }
     clickEvents() {
         let that = this;
         $(document).on("click", '.address-btn', function () {

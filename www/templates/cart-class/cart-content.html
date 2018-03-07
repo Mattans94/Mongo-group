@@ -1,0 +1,15 @@
+Object.assign(Product.prototype, {templateCartContent(){ return `
+<tr>
+  <td>
+      <a href="#">${this.name}</a>
+  </td>
+  
+  <td>${this.quantity}</td>
+  <td>${this.price}</td>
+  <td>
+      <a href="#">
+          <i class="fa fa-trash-o"></i>
+      </a>
+  </td>
+</tr>
+`;}});
