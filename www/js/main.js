@@ -2,7 +2,7 @@ const app = new App();
 
 async function addProduct(){
   let product = await Bean.findOne({
-    _id: '5a9e673c272733142767ff3c'
+    _id: '5aa0015093f288266e047869'
   });
   let productIns = new Product(app);
   console.log(product);

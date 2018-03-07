@@ -41,11 +41,11 @@ class App extends REST {
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
       this.product = new Product(this);
+      this.cart = await new Cart(this, this.profile);
       this.profile = new Profile();
       this.omOss = new OmOss(this);
       this.conditions = new Conditions();
       this.admin = new Admin(this);
       this.popState = new PopStateHandler(this);
-      this.cart = await new Cart(this, this.profile);
     }
 }
