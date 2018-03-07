@@ -11,51 +11,6 @@ header nav {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   background-color: #fff;
-  /*    .container{
-      .logo-mobile{
-        margin: 10px auto;
-      }
-    }
-
-    .nav-item.active{
-      font-weight: bold;
-    }
-
-    background-color: #fff;
-    a{
-      color: white;
-      &:hover, &:active, &:focus, &.btn:hover{
-        color: @lightorange !important;
-      }
-    }
-    .btn-outline-secondary{
-      color: white;
-      border-color: @lightorange;
-      &:hover{
-        background-color: @lightorange;
-        color: #000;
-      }
-    }
-    .yellow {
-      background-color: @lightorange;
-      &:hover {
-        opacity: 0.7;
-      }
-    }
-    .log{
-      background-color: @bg-gray;
-      width: 300px;
-      a, a:hover{
-        color: black !important;
-      }
-    }
-    .show>.btn-outline-secondary.dropdown-toggle{
-      background-color: #0b0c10;
-      border-color: @lightorange;
-      &:focus{
-        box-shadow: 0 0 0 2px rgba(193, 175, 15, 0.55);
-      }
-    }*/
 }
 header nav .nav-item.active {
   background-color: #4fbfa8;
@@ -63,6 +18,12 @@ header nav .nav-item.active {
 }
 header nav .nav-item {
   padding: 10px;
+}
+header nav .shopping-cart a {
+  color: #4fbfa8;
+}
+header nav .fa-sign-in-alt {
+  color: #4fbfa8;
 }
 footer {
   position: absolute;
@@ -233,7 +194,8 @@ body {
   background-color: #f0f0f0;
   overflow-x: hidden;
 }
-body .btn {
+body .btn,
+body a {
   cursor: pointer;
 }
 .user-page {
