@@ -204,6 +204,26 @@ h2 {
   border: none;
   border-radius: 0;
 }
+.om-oss .card {
+  border: none;
+}
+.om-oss .card .card-body {
+  padding: 40px;
+}
+@media screen and (max-width: 700px) {
+  .om-oss .card .card-body {
+    padding: 20px;
+  }
+}
+.om-oss .btn-link {
+  color: #000;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.om-oss .btn-link:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
 html {
   position: relative;
   min-height: 100%;
@@ -295,13 +315,19 @@ button.cancel-btn-card {
   background-color: #f2b600;
 }
 .admin {
-  margin-top: 120px;
+  padding-top: 30px;
 }
 .admin .card-header {
   background-color: #4fbfa8;
 }
-.admin .card-header a {
+.admin .card-header a.nav-link {
   color: #333;
+}
+@media only screen and (max-width: 576px) {
+  .admin .card-header a.nav-link {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 .admin button {
   background-color: #4fbfa8;
