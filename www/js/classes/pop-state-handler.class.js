@@ -100,7 +100,7 @@ class PopStateHandler {
     $('.karusell').empty();
     $('main').empty();
     this.app.omOss.render('main');
-    $('title').text('Om oss - Filmvisarna');
+    $('title').text('Om oss');
   }
 
   shoppingCart(){
