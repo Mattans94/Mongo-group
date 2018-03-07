@@ -213,6 +213,10 @@ h2 {
   padding: 10px;
   display: block;
 }
+.om-oss img {
+  padding: 10px;
+  width: 300px;
+}
 .om-oss .list-group-item.active {
   background-color: #4fbfa8;
   font-weight: bold;
