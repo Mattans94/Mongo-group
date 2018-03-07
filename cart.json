@@ -4,6 +4,7 @@
         "img":"",
         "quantity": 0,
         "unitPrice": 0,
-        "total": 0
+        "total": 0,
+        "profile": ""
     }
 ]

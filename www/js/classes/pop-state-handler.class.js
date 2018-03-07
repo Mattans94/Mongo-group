@@ -12,6 +12,7 @@ class PopStateHandler {
     // from an arrow function to keep "this"
     // inside changePage pointing to the PopStateHandler object
     window.addEventListener('popstate', () => this.changePage());
+    console.log("1111");
 
   }
 
@@ -94,10 +95,15 @@ class PopStateHandler {
 
   produkter(){
     $('main').empty();
+    this.app.product.render('main');
+    console.log('Körs');
   }
 
   omOss(){
+    $('.karusell').empty();
     $('main').empty();
+    this.app.omOss.render('main');
+    $('title').text('Om oss');
   }
 
   shoppingCart(){
@@ -142,4 +148,3 @@ class PopStateHandler {
 
 
 }
-

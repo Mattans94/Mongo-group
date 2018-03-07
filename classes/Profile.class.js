@@ -20,6 +20,10 @@ module.exports = class Profile extends ModelAndRoutes {
             order: [{
                 type: Schema.Types.ObjectId,
                 ref: 'order'
+            }],
+            cart:[{
+                type:Schema.Types.ObjectId,
+                ref:'cart'
             }]
         }
     }
