@@ -21,21 +21,26 @@ Object.assign(Admin.prototype, { template(){ return `
           </ul>
         </div>
         <div class="card-body">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Order Nummer</th>
-                <th scope="col">Datum</th>
-                <th scope="col">Antal</th>
-                <th scope="col">Pris</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-          </table>
+          <div class="d-flex justify-content-around p-2">
+            <div class="px-5">
+              <h6>Order Nummer</h6>
+            </div>
+            <div class="px-5">
+              <h6>Datum</h6>
+            </div>
+            <div class="px-5">
+              <h6>Antal</h6>
+            </div>
+            <div class="px-5">
+              <h6>Pris</h6>
+            </div>
+            <div class="px-5">
+              <h6>Status</h6>
+            </div>
+          </div>
+          <ul class="p-0">
+            ${this.app.admin.render('', 1)}
+          </ul>
         </div>
       </div>
     </div>
