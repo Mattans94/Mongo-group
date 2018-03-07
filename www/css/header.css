@@ -1,38 +1,17 @@
-header {
-
-  .dropdown-item:hover{
-    background-color: #66717b !important;
-  }
-
-  .navbar-brand{
-    width: 50px;
-  }
-
-  .d-lg-none{
-    width: 150px;
-  }
-
-  nav{
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    background-color: #fff;
-   .nav-item.active{
-      background-color: #4fbfa8;
-      font-weight: bold;
-    }
-    .nav-item{
-      padding: 10px;
-    }
-    
-
-
-
-
-
-
-
-
-/*    .container{
+header .dropdown-item:hover {
+  background-color: #66717b !important;
+}
+header .navbar-brand {
+  width: 50px;
+}
+header .d-lg-none {
+  width: 150px;
+}
+header nav {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: #fff;
+  /*    .container{
       .logo-mobile{
         margin: 10px auto;
       }
@@ -77,5 +56,11 @@ header {
         box-shadow: 0 0 0 2px rgba(193, 175, 15, 0.55);
       }
     }*/
-  }
+}
+header nav .nav-item.active {
+  background-color: #4fbfa8;
+  font-weight: bold;
+}
+header nav .nav-item {
+  padding: 10px;
 }

@@ -64,10 +64,6 @@ header nav .nav-item.active {
 header nav .nav-item {
   padding: 10px;
 }
-header nav .nav-item.active,
-header nav:active {
-  font-weight: bold;
-}
 footer {
   position: absolute;
   bottom: 0;
@@ -96,15 +92,30 @@ footer p a.text-light:hover {
   text-decoration: none;
 }
 footer .myheight {
-  height: 100px;
+  height: 60px;
 }
 h2 {
   color: #4fbfa8;
   text-align: center;
 }
 .empty-space {
-  background-color: white;
-  margin-bottom: 15px;
+  margin-top: 85px;
+}
+.card-btn {
+  background-color: #4fbfa8;
+  border-color: #41b39c;
+}
+.card-btn:hover {
+  background-color: #3da892;
+  border-color: #318675;
+}
+.card-news {
+  padding: 0 !important;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
 }
 .karusell a {
   color: white;
@@ -196,23 +207,38 @@ h2 {
 }
 /* End of fading transition */
 .om-oss {
-  background-color: #262626;
   border-radius: 5px;
-  padding: 50px;
-  height: 100%;
+  padding: 30px;
 }
 @media only screen and (max-width: 576px) {
   .om-oss {
     padding: 20px;
   }
 }
+.om-oss .om-oss-text {
+  background-color: #fff;
+  padding: 30px;
+}
 .om-oss h2,
 .om-oss h3 {
   font-family: 'Oswald', sans-serif;
+  background-color: #4fbfa8;
   text-decoration: none;
-  border-bottom: 3px solid #f2b600;
-  display: inline-block;
-  line-height: 1.5;
+  color: #fff;
+  padding: 10px;
+  display: block;
+}
+.om-oss img {
+  padding: 10px;
+  width: 300px;
+}
+.om-oss .list-group-item.active {
+  background-color: #4fbfa8;
+  font-weight: bold;
+}
+.om-oss .list-group-item {
+  border: none;
+  border-radius: 0;
 }
 html {
   position: relative;
@@ -220,9 +246,13 @@ html {
 }
 body {
   background-color: #f0f0f0;
+  overflow-x: hidden;
 }
 body .btn {
   cursor: pointer;
+}
+main {
+  margin-top: 75px;
 }
 .user-page {
   margin-top: 80px;
@@ -298,6 +328,25 @@ button.cancel-btn-card {
   color: #000000;
   border-color: #f2b600;
   background-color: #f2b600;
+}
+.admin {
+  margin-top: 120px;
+}
+.admin .card-header {
+  background-color: #4fbfa8;
+}
+.admin .card-header a {
+  color: #333;
+}
+.admin button {
+  background-color: #4fbfa8;
+  opacity: 0.8;
+  border: 0px;
+  box-shadow: 0 4px 8px 0 #00000033;
+  color: white;
+}
+.admin button:hover {
+  opacity: 1;
 }
 #content #checkout .nav {
   margin-bottom: 20px;

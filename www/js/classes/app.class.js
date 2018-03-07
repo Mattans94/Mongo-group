@@ -30,16 +30,21 @@ class App extends REST {
 
     start(){
       // Create a footer
-      this.footer = new Footer();
-      $('footer').empty();
-      this.footer.render('footer');
 
-
+      // Create pages
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
       this.profile = new Profile();
+      this.omOss = new OmOss();
       this.cart = new Cart(this.rest, this.profile);
+      this.admin = new Admin(this);
+
+      // Initiate handling of SPA push/pop-state
       this.popState = new PopStateHandler(this);
+
+      this.footer = new Footer();
+      $('footer').empty();
+      this.footer.render('footer');
       this.clickEvents();
     }
 }

@@ -1,26 +1,21 @@
-h2{
+h2 {
   color: #4fbfa8;
   text-align: center;
 }
-
-.empty-space{
+.empty-space {
   margin-top: 85px;
 }
-
-.card-btn{
+.card-btn {
   background-color: #4fbfa8;
   border-color: #41b39c;
-  &:hover {
-    background-color: #3da892;
-    border-color: #318675;
-  }
 }
-
-
+.card-btn:hover {
+  background-color: #3da892;
+  border-color: #318675;
+}
 .card-news {
-  padding:0 !important;
+  padding: 0 !important;
 }
-
 .row.no-gutters > [class^="col-"],
 .row.no-gutters > [class*=" col-"] {
   padding-right: 0;
