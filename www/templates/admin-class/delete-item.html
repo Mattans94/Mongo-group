@@ -6,7 +6,7 @@ Object.assign(Admin.prototype, { template4(){ return `
       <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
-            <a class="nav-link pop" href="/admin">Beställning</a>
+            <a class="nav-link pop" href="/admin">Order</a>
           </li>
           <li class="nav-item">
             <a class="nav-link pop" href="/admin/add">Addera</a>
@@ -20,60 +20,22 @@ Object.assign(Admin.prototype, { template4(){ return `
         </ul>
       </div>
       <div class="card-body">
-        <h5 class="my-4">Välja en categori och fyll i information</h5>
-
-        <div class="mb-4">
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline1">Bönor</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline2">Pulver</label>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline3">Kapslar</label>
-          </div>
-        </div>
+        <h5 class="py-5">Fyll i prudukt namn och välja en categori</h5>
 
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <input type="name" class="form-control" id="inputName" placeholder="Namn">
+              <input type="name" class="form-control" id="inputName" placeholder="Ange produkt namn">
             </div>
             <div class="form-group col-md-6">
-              <input type="photo" class="form-control" id="inputPhoto" placeholder="Bild">
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="description" class="form-control" id="inputDescription" placeholder="Beskrivning">
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <input type="price" class="form-control" id="inputPrice" placeholder="Pris">
-            </div>
-            <div class="form-group col-md-6">
-              <input type="quantity" class="form-control" id="inputQuantity" placeholder="Antal (g)">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="inputFlavor">Smak</label>
-              <select id="inputFlavor" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
+              <select id="inputType" class="form-control">
+                <option selected>Bönor</option>
+                <option>Bryggkaffe</option>
+                <option>Kapslar</option>
               </select>
             </div>
-            <div class="form-group col-md-4">
-              <label for="inputCountry">Land</label>
-              <input type="country" class="form-control" id="inputCountry">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputType">Typ</label>
-              <input type="type" class="form-control" id="inputType">
-            </div>
           </div>
+
           <button type="submit" class="btn btn-lg mt-5">Ta bort</button>
         </form>
 

@@ -6,7 +6,7 @@ Object.assign(Admin.prototype, { template2(){ return `
       <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
-            <a class="nav-link pop" href="/admin">Beställning</a>
+            <a class="nav-link pop" href="/admin">Order</a>
           </li>
           <li class="nav-item">
             <a class="nav-link pop active" href="/admin/add">Addera</a>
@@ -29,7 +29,7 @@ Object.assign(Admin.prototype, { template2(){ return `
           </div>
           <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline2">Pulver</label>
+            <label class="custom-control-label" for="customRadioInline2">Bryggkaffe</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
@@ -60,10 +60,7 @@ Object.assign(Admin.prototype, { template2(){ return `
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="inputFlavor">Smak</label>
-              <select id="inputFlavor" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
+              <input type="flavor" class="form-control" id="inputFlavor">
             </div>
             <div class="form-group col-md-4">
               <label for="inputCountry">Land</label>
@@ -71,10 +68,14 @@ Object.assign(Admin.prototype, { template2(){ return `
             </div>
             <div class="form-group col-md-4">
               <label for="inputType">Typ</label>
-              <input type="type" class="form-control" id="inputType">
+              <select id="inputType" class="form-control">
+                <option selected>Bönor</option>
+                <option>Bryggkaffe</option>
+                <option>Kapslar</option>
+              </select>
             </div>
           </div>
-          <button type="submit" class="btn btn-lg mt-5">Addera</button>
+          <button id="add-btn" type="submit" class="btn btn-lg mt-5">Addera</button>
         </form>
 
       </div>
