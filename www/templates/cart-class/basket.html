@@ -1,71 +1,57 @@
 Object.assign(Cart.prototype, { templateBasket(){ return `
 <div id="all">
     <div id="content">
+
         <div class="container">
+            <div class="row">
+                <div class="col-lg-9" id="basket">
 
-            <div class="col-md-12">
-                <ul class="breadcrumb">
-                    <li>
-                        <a href="#">Start</a>
-                    </li>
-                    <li>Kassa</li>
+                    <div class="box">
 
-                    <!-- /.just for test -->
-                    <li id=loginModalToggle>
-                        <button>Login</button>
-                    </li>
-                    <!--will be removed after nav finished-->
-                </ul>
-            </div>
+                        <form>
+
+                            <h1>SHOPPINGBAG</h1>
+                            <p class="text-muted">Du har för närvarande ${this.totalQuantity} artiklar i din kundvagn.</p>
+                            <div class="table-responsive" id="shoppingList">
 
 
-            <div class="col-md-9" id="basket">
-
-                <div class="box">
-
-                    <form>
-
-                        <h1>SHOPPINGBAG</h1>
-                        <p class="text-muted">Du har för närvarande ${this.totalQuantity} artiklar i din kundvagn.</p>
-                        <div class="table-responsive" id="shoppingList">
-
-
-                        </div>
-                        <!-- /.table-responsive -->
-
-                        <div class="box-footer">
-                            <div class="pull-left">
-                                <a href="/" class="btn btn-last">
-                                    <i class="fa fa-chevron-left"></i> Continue shopping</a>
                             </div>
-                            <div class="pull-right">
-                                <button class="btn btn-last">
-                                    <i class="fa fa-refresh"></i> Update basket</button>
-                                <button type="submit" class="btn btn-next">Proceed to checkout
-                                    <i class="fa fa-chevron-right"></i>
-                                </button>
+                            <!-- /.table-responsive -->
+
+                            <div class="box-footer">
+                                <div class="pull-left">
+                                    <button href="/" class="btn btn-last">
+                                        <i class="fa fa-chevron-left"></i> Continue shopping</button>
+                                </div>
+                                <div class="pull-right">
+                                    <button class="btn btn-last">
+                                        <i class="fa fa-refresh"></i> Update basket</button>
+                                    <button class="btn btn-next">Proceed to checkout
+                                        <i class="fa fa-chevron-right"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                    </form>
+                        </form>
 
+                    </div>
                 </div>
-            </div>
-            <!-- /.col-md-9 -->
+                <!-- /.col-md-9 -->
 
 
-            <div class="col-md-3">
-                <div class="box" id="order-summary">
+                <div class="col-lg-3">
+                    <div class="box" id="order-summary">
 
 
+                    </div>
                 </div>
+                <!-- /.col-md-3 -->
+
+
             </div>
-            <!-- /.col-md-3 -->
-
-
-
+            <!-- /.row -->
         </div>
-        <!-- /.row -->
+
 
 
     </div>

@@ -103,7 +103,10 @@ class PopStateHandler {
   }
 
   omOss(){
+    $('.karusell').empty();
     $('main').empty();
+    this.app.omOss.render('main');
+    $('title').text('Om oss');
   }
 
   shoppingCart(){
