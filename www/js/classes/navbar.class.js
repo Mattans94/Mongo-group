@@ -5,7 +5,8 @@ class Navbar extends REST{
     this.items = [
       new NavbarItem('Startsidan', '/'),
       new NavbarItem('Produkter', '/produkter'),
-      new NavbarItem('Om oss', '/om_oss')
+      new NavbarItem('Om oss', '/om_oss'),
+      new NavbarItem('Köpvillkor', '/kopvillkor')
     ];
   }
 
