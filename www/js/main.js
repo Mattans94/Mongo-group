@@ -8,7 +8,6 @@ async function addProduct(){
   console.log(product);
   Object.assign(productIns, product);
   console.log(productIns);
-  // app.cart.addProductToArray(productIns);
   app.cart.addProductToArray(productIns);
 }
 

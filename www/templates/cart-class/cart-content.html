@@ -3,14 +3,18 @@ Object.assign(Cart.prototype, {templateCartContent(){
   let html = "";
 
   for (let obj of this.products ){
+
+    let totalPrice = obj.price * 2;
+
     html += `<tr>
-      <td>
+      <td colspan="2">
           <a href="#">${obj.name}</a>
       </td>
       <td>
-          <input type="number" value="0" class="form-control">
+          <input type="number" value="1" min="0" class="form-control quantity-control">
       </td>
       <td>${obj.price}</td>
+      <td>${totalPrice}</td>
       <td>
           <a href="#">
               <i class="fa fa-trash-o"></i>

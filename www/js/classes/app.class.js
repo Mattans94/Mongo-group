@@ -14,6 +14,8 @@ class App extends REST {
     }
 
     async load(){
+      await this.start();
+
       this.beans = await Bean.find({});
       console.log('Beans are', this.beans);
 
@@ -26,23 +28,22 @@ class App extends REST {
       this.tools = await Tool.find({});
       console.log('Tools are', this.tools);
 
-      this.start();
 
     }
 
-    start(){
+    async start(){
       // Create a footer
-      this.footer = new Footer();
+      this.footer = await new Footer();
       $('footer').empty();
       this.footer.render('footer');
 
 
-      this.navbar = new Navbar(this);
-      this.startsida = new Startsida(this);
-      this.product = new Product(this);
-      this.profile = new Profile();
-      this.omOss = new OmOss(this);
-      this.cart = new Cart(null, this.profile);
-      this.popState = new PopStateHandler(this);
+      this.navbar = await new Navbar(this);
+      this.startsida = await new Startsida(this);
+      this.product = await new Product(this);
+      this.profile = await new Profile();
+      this.omOss = await new OmOss(this);
+      this.cart = await new Cart(this, this.profile);
+      this.popState = await new PopStateHandler(this);
     }
 }

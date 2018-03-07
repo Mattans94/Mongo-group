@@ -5,12 +5,11 @@ Object.assign(Cart.prototype, {templateShoppingList(){ return `
                 <th colspan="2">Dina varor</th>
                 <th>Antal</th>
                 <th>Enhetspris</th>
-                <th>Rabatt</th>
                 <th colspan="2">Totalsumma</th>
             </tr>
         </thead>
         <tbody class="cart-content">
-          ${this.products.render()};
+
         </tbody>
         <tfoot>
             <tr>

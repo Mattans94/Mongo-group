@@ -1,7 +1,7 @@
 class Cart extends REST {
-    constructor(rest, profile) {
+    constructor(app, profile) {
         super();
-        this.rest = rest;
+        this.app = app;
         this.profile = profile;
         this.products = [];
         this.clickEvents();
@@ -9,6 +9,7 @@ class Cart extends REST {
 
     addProductToArray(product){
       this.products.push(product);
+      this.renderCartContent();
     }
 
     renderShoppingList() {
@@ -22,6 +23,7 @@ class Cart extends REST {
     }
 
     renderCartContent(){
+      console.log('Hejsan');
       $('.cart-content').empty();
       this.render('.cart-content', 'CartContent');
     }
