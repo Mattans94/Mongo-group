@@ -44,8 +44,8 @@ class PopStateHandler {
     let url = location.pathname;
 
     // Change which menu link that is active
-    // $('header a').removeClass('active');
-    // $(`header a[href="${url}"]`).addClass('active');
+    $('header a').removeClass('active');
+    $(`header a[href="${url}"]`).addClass('active');
 
     // A small "dictionary" of what method to call
     // on which url
@@ -55,7 +55,11 @@ class PopStateHandler {
       '/om_oss' : 'omOss',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
-      '/checkout': 'checkout'
+      '/checkout': 'checkout',
+      '/admin': 'admin',
+      '/admin/add': 'adminAdd',
+      '/admin/change': 'adminChange',
+      '/admin/delete': 'adminDelete'
     };
 
     // Call the right method
@@ -83,7 +87,9 @@ class PopStateHandler {
     $('title').text('CoffeeDB');
     $('main').empty();
     this.app.startsida.render('main');
-    this.app.startsida.render('main', 2);
+    this.app.startsida.render('.carousel-container', 2); // Carousel
+    this.app.startsida.render('.card-container', 3); // Cards
+    this.app.startsida.callCarousel();
   }
 
   produkter(){
@@ -117,6 +123,26 @@ class PopStateHandler {
     this.app.profile.render('.stepBox','Address');
   }
 
+  admin(){
+    $('main').empty();
+    this.app.admin.render('main');
+  }
+
+  adminAdd(){
+    $('main').empty();
+    this.app.admin.render('main', 2);
+  }
+
+  adminChange(){
+    $('main').empty();
+    this.app.admin.render('main', 3);
+  }
+
+  adminDelete(){
+    $('main').empty();
+    this.app.admin.render('main', 4);
+  }
 
 
 }
+
