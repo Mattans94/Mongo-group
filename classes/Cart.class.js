@@ -13,7 +13,11 @@ module.exports = class Cart extends ModelAndRoutes {
             img:String,
             quantity: Number,
             unitPrice: String,
-            total: Number
+            total: Number,
+            profile:[{
+                type:Schema.Types.ObjectId,
+                ref:'profile'
+            }]
         }
     }
 

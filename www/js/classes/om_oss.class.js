@@ -1,4 +1,4 @@
-class OmOss extends Base {
+class OmOss extends REST {
 	constructor(){
 		super();
 	}

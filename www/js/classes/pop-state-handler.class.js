@@ -73,9 +73,6 @@ class PopStateHandler {
     //Render navbar
     this.renderNav();
 
-    // Render product
-    this.produkter();
-
     //Scroll to top of page
     window.scrollTo(0, 0);
 
@@ -151,4 +148,3 @@ class PopStateHandler {
 
 
 }
-
