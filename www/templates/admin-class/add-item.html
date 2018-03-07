@@ -1,84 +1,82 @@
 Object.assign(Admin.prototype, { template2(){ return `
 
-<div class="container admin">
-  <div class="row">
-    <div class="col-12">
-      <div class="card text-center">
-        <div class="card-header">
-          <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-              <a class="nav-link pop" href="/admin">Beställning</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link pop active" href="/admin/add">Addera</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link pop" href="/admin/change">Ändra</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link pop" href="/admin/delete">Ta bort</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card-body">
-          <h5 class="my-4">Välja en categori och fyll i information</h5>
+<div class="row admin">
+  <div class="col-12">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin">Beställning</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop active" href="/admin/add">Addera</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/change">Ändra</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/delete">Ta bort</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <h5 class="my-4">Välja en categori och fyll i information</h5>
 
-          <div class="mb-4">
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-              <label class="custom-control-label" for="customRadioInline1">Bönor</label>
+        <div class="mb-4">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">Bönor</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">Pulver</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline3">Kapslar</label>
+          </div>
+        </div>
+
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="name" class="form-control" id="inputName" placeholder="Namn">
             </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-              <label class="custom-control-label" for="customRadioInline2">Pulver</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
-              <label class="custom-control-label" for="customRadioInline3">Kapslar</label>
+            <div class="form-group col-md-6">
+              <input type="photo" class="form-control" id="inputPhoto" placeholder="Bild">
             </div>
           </div>
+          <div class="form-group">
+            <input type="description" class="form-control" id="inputDescription" placeholder="Beskrivning">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="price" class="form-control" id="inputPrice" placeholder="Pris">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="quantity" class="form-control" id="inputQuantity" placeholder="Antal (g)">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputFlavor">Smak</label>
+              <select id="inputFlavor" class="form-control">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCountry">Land</label>
+              <input type="country" class="form-control" id="inputCountry">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputType">Typ</label>
+              <input type="type" class="form-control" id="inputType">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-lg mt-5">Addera</button>
+        </form>
 
-          <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="name" class="form-control" id="inputName" placeholder="Namn">
-              </div>
-              <div class="form-group col-md-6">
-                <input type="photo" class="form-control" id="inputPhoto" placeholder="Bild">
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="description" class="form-control" id="inputDescription" placeholder="Beskrivning">
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="price" class="form-control" id="inputPrice" placeholder="Pris">
-              </div>
-              <div class="form-group col-md-6">
-                <input type="quantity" class="form-control" id="inputQuantity" placeholder="Antal (g)">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="inputFlavor">Smak</label>
-                <select id="inputFlavor" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputCountry">Land</label>
-                <input type="country" class="form-control" id="inputCountry">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputType">Typ</label>
-                <input type="type" class="form-control" id="inputType">
-              </div>
-            </div>
-            <button type="submit" class="btn btn-lg mt-5">Addera</button>
-          </form>
-
-        </div>
       </div>
     </div>
   </div>
