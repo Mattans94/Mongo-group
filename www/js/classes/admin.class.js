@@ -1,21 +1,39 @@
 class Admin extends REST {
-  constructor(app){
+  constructor(app) {
     super();
     this.app = app;
   }
 
+  getProductContents() {
+    return {
+      name: $('#inputName').val(),
+      image: $('#inputPhoto').val(),
+      description: $('#inputDescription').val(),
+      price: parseInt($('#inputPrice').val()),
+      quantity: parseInt($('#inputQuantity').val()),
+      flavor: $('#inputFlavor').val(),
+      countryOfOrigin: $('#inputCountry').val(),
+      type: $('#inputType').val()
+    };
+  }
+
   click2(event) {
-    event.preventDefault();
+    const selectedCategori = $("input:radio[name=radio]:checked").val();
     if ($(event.target).is('#add-btn')) {
-      const product = {};
-      product.name = $('#inputName').val();
-      product.image = $('#inputPhoto').val();
-      product.description = $('#inputDescription').val();
-      product.price = parseInt($('#inputPrice').val());
-      product.quantity = parseInt($('#inputQuantity').val());
-      product.flavor = $('#inputFlavor').val();
-      product.countryOfOrigin = $('#inputCountry').val();
-      product.type = $('#inputType').val();
+      switch (selectedCategori) {
+        case 'Bönor':
+          Bean.create(this.getProductContents());
+          break;
+        case 'Bryggkaffe':
+          Powder.create(this.getProductContents());
+          break;
+        case 'Kapslar':
+          Capsule.create(this.getProductContents());
+          break;
+      }
+    }
+  }
+
 
       console.log(product);
       Bean.create(product);
