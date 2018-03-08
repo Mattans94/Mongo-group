@@ -138,21 +138,25 @@ class PopStateHandler {
   admin(){
     $('main').empty();
     this.app.admin.render('main');
+    this.app.admin.selectedCategori = '';
   }
 
   adminAdd(){
     $('main').empty();
     this.app.admin.render('main', 2);
+    this.app.admin.selectedCategori = '';
   }
 
   adminChange(){
     $('main').empty();
     this.app.admin.render('main', 3);
+    this.app.admin.selectedCategori = '';
   }
 
   adminDelete(){
     $('main').empty();
     this.app.admin.render('main', 4);
+    this.app.admin.selectedCategori = '';
   }
 
 
