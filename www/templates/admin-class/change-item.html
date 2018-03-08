@@ -40,7 +40,8 @@ Object.assign(Admin.prototype, { template3(){ return `
         <form>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <input type="name" class="form-control" id="inputName" placeholder="Namn">
+              <select id="inputName" class="form-control">
+              </select>
             </div>
             <div class="form-group col-md-6">
               <input type="photo" class="form-control" id="inputPhoto" placeholder="Bild">
@@ -60,10 +61,7 @@ Object.assign(Admin.prototype, { template3(){ return `
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="inputFlavor">Smak</label>
-              <select id="inputFlavor" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
+              <input type="flavor" class="form-control" id="inputFlavor">
             </div>
             <div class="form-group col-md-4">
               <label for="inputCountry">Land</label>
@@ -72,13 +70,10 @@ Object.assign(Admin.prototype, { template3(){ return `
             <div class="form-group col-md-4">
               <label for="inputType">Typ</label>
               <select id="inputType" class="form-control">
-                <option selected>Bönor</option>
-                <option>Bryggkaffe</option>
-                <option>Kapslar</option>
               </select>
             </div>
           </div>
-          <button type="submit" class="btn btn-lg mt-5">Ändra</button>
+          <button id="change-btn" type="submit" class="btn btn-lg mt-5">Ändra</button>
         </form>
 
       </div>
