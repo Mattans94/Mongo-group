@@ -1,0 +1,27 @@
+.product-page {
+  padding-top: 30px;
+}
+.product-page .card-btn {
+  background-color: #4fbfa8;
+  border-color: #41b39c;
+}
+.product-page .card-btn:hover {
+  background-color: #3da892;
+  border-color: #318675;
+}
+.product-page .dropdown-menu {
+  font-size: .9rem;
+}
+.product-page p.description {
+  color: red !important;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.product-page .test {
+  color: red;
+}
+.product-page .card-footer {
+  background-color: unset;
+}
