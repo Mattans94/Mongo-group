@@ -17,8 +17,28 @@ class Admin extends REST {
     };
   }
 
+  getType(selectedCategori) {
+    if (selectedCategori !== 'Kapslar') {
+      $('#inputType').empty();
+      $('#inputType').append(`
+        <option>${selectedCategori}</option>
+        `);
+    } else {
+      $('#inputType').empty();
+      $('#inputType').append(`
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        `);
+    }
+  }
+
   click2(event) {
     const selectedCategori = $("input:radio[name=radio]:checked").val();
+    if ($(event.target).hasClass('custom-control-input')) {
+      this.getType(selectedCategori);
+    }
     if ($(event.target).is('#add-btn')) {
       switch (selectedCategori) {
         case 'Bönor':
