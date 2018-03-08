@@ -17,7 +17,7 @@ class Admin extends REST {
     };
   }
 
-  getType(selectedCategori) {
+  changeType(selectedCategori) {
     if (selectedCategori !== 'Kapslar') {
       $('#inputType').empty();
       $('#inputType').append(`
@@ -37,7 +37,7 @@ class Admin extends REST {
   click2(event) {
     const selectedCategori = $("input:radio[name=radio]:checked").val();
     if ($(event.target).hasClass('custom-control-input')) {
-      this.getType(selectedCategori);
+      this.changeType(selectedCategori);
     }
 
     if ($(event.target).is('#add-btn')) {
