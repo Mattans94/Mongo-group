@@ -39,7 +39,9 @@ class Admin extends REST {
     if ($(event.target).hasClass('custom-control-input')) {
       this.getType(selectedCategori);
     }
+
     if ($(event.target).is('#add-btn')) {
+      event.preventDefault();
       switch (selectedCategori) {
         case 'Bönor':
           Bean.create(this.getProductContents());
