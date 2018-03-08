@@ -2,6 +2,7 @@ class Admin extends REST {
   constructor(app) {
     super();
     this.app = app;
+    this.selectedCategori = '';
   }
 
   getProductContents() {
@@ -17,11 +18,11 @@ class Admin extends REST {
     };
   }
 
-  changeType(selectedCategori) {
-    if (selectedCategori !== 'Kapslar') {
+  changeType() {
+    if (this.selectedCategori !== 'Kapslar') {
       $('#inputType').empty();
       $('#inputType').append(`
-        <option>${selectedCategori}</option>
+        <option>${this.selectedCategori}</option>
         `);
     } else {
       $('#inputType').empty();
@@ -35,14 +36,10 @@ class Admin extends REST {
   }
 
   click2(event) {
-    const selectedCategori = $("input:radio[name=radio]:checked").val();
-    if ($(event.target).hasClass('custom-control-input')) {
-      this.changeType(selectedCategori);
-    }
-
     if ($(event.target).is('#add-btn')) {
       event.preventDefault();
-      switch (selectedCategori) {
+
+      switch (this.selectedCategori) {
         case 'Bönor':
           Bean.create(this.getProductContents());
           break;
