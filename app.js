@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const flexjson = require('jsonflex')();
 const app = express();
+
 app.use(bodyParser.json()) // needed to post json
 app.use(express.static('www'));
+app.use(flexjson);
 
 const Bean = require('./classes/Bean.class');
 const Powder = require('./classes/Powder.class');

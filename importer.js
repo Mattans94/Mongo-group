@@ -10,7 +10,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-mongoose.connect('mongodb+srv://admin:testcluster@coffeedb-ajdfy.mongodb.net/', {dbName: 'CoffeeDB'});
+mongoose.connect('mongodb://localhost/coffeeDB');
 const db = mongoose.connection;
 db.on('error', (e) => {
   console.error(e);

@@ -14,6 +14,7 @@ class App extends REST {
     }
 
     async load(){
+      // await JSON._classes('Product');
       await this.start();
 
       this.beans = await Bean.find({});

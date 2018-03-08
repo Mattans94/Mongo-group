@@ -1,12 +1,6 @@
-Object.assign(Cart.prototype, {templateCartContent(){
-
-  let html = "";
-
-  for (let obj of this.products ){
-
-    let totalPrice = obj.price * 2;
-
-    html += `<tr>
+Object.assign(Product.prototype, {templateCartContent(){
+return
+    `<tr>
       <td colspan="2">
           <a href="#">${obj.name}</a>
       </td>
@@ -21,7 +15,4 @@ Object.assign(Cart.prototype, {templateCartContent(){
           </a>
       </td>
     </tr>`
-  }
-
-  return html
   ;}});
