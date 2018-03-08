@@ -14,8 +14,8 @@ Object.assign(Product.prototype, { template(){ return `
 	</div>
 	<div class="col-6 col-md-3 d-flex justify-content-around mb-3">
 		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle font-weight-bold" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-			 aria-expanded="false">
+			<button class="btn btn-secondary dropdown-toggle font-weight-bold" type="button" id="dropdownMenu2" data-toggle="dropdown"
+			 aria-haspopup="true" aria-expanded="false">
 				Sortering
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -29,17 +29,45 @@ Object.assign(Product.prototype, { template(){ return `
 </div>
 <!-- </div> -->
 
+<p class="test">test</p>
+
+
 
 <div class="row mt-4">
 
 	<!-- 1 -->
-	<div class="col-12 col-lg-3 mb-4">
+	<div class="col-6 col-lg-3 mb-4">
 		<div class="card border-0 mb-3">
 			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
 			<div class="card-body">
 				<h5 class="card-title">Espresso Bella</h5>
-				<p class="card-text">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna baristan blir rikligt belönad.</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
+				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
+					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
+					baristan blir rikligt belönad.</p>
+				<!-- <a href="#" class="btn btn-primary card-btn float-right">KÖP</a> -->
+				<div class="card-footer">
+					<p class="float-left font-weight-bold">45,00 kr</p>
+					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="col-6	 col-lg-3 mb-4">
+		<div class="card border-0 mb-3">
+			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Espresso Bella</h5>
+				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
+					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
+					baristan blir rikligt belönad.</p>
+				<!-- <a href="#" class="btn btn-primary card-btn float-right">KÖP</a> -->
+				<div class="card-footer">
+					<p class="float-left align-text-bottom">45,00 kr</p>
+					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -49,18 +77,7 @@ Object.assign(Product.prototype, { template(){ return `
 			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
 			<div class="card-body">
 				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 col-lg-3 mb-4">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
+				<p class="card-text description">HÄR ÄR DINA BÖNOR</p>
 				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
 			</div>
 		</div>
