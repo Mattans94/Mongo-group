@@ -1,39 +1,56 @@
 .product-page{
-
-	// background-color: #fff;
+	
 	padding-top: 30px; 
 
-
-	h2{
-		color: #4fbfa8;
-		text-align: center;
-	}
+	// h2{
+	// 	color: #4fbfa8;
+	// 	text-align: center;
+	// }
 	
-	.empty-space{
-		margin-top: 85px;
-	}
+	// .empty-space{
+	// 	margin-top: 85px;
+	// }
 	
 	.card-btn{
 		background-color: #4fbfa8;
 		border-color: #41b39c;
+
 		&:hover {
 			background-color: #3da892;
 			border-color: #318675;
 		}
 	}
+
 		
-	.card-news {
-		padding:0 !important;
-	}
+	// .card-news {
+	// 	padding:0 !important;
+	// }
 	
-	.row.no-gutters > [class^="col-"],
-	.row.no-gutters > [class*=" col-"] {
-		padding-right: 0;
-		padding-left: 0;
-	}
+	// .row.no-gutters > [class^="col-"],
+	// .row.no-gutters > [class*=" col-"] {
+	// 	padding-right: 0;
+	// 	padding-left: 0;
+	// }
 
 	.dropdown-menu {
-		font-size: .9rem;
+		font-size: .9rem;  // rätt!
 	}
-	
+
+	// ここから反映されない
+	p.description {
+		color: red !important;   // test 
+	  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+	}
+
+	.test {
+		color: red;
+	}
+
+	.card-footer {
+		background-color: unset;
+	}
+
 }
