@@ -56,9 +56,35 @@ class Admin extends REST {
     }
   }
 
+  addChoice(categori) {
+    $('#inputName').empty();
+    categori.forEach(val => {
+      $('#inputName').append(`
+      <option>${val.name}</option>
+    `);
+    });
+  }
 
-      console.log(product);
-      Bean.create(product);
+  click3(event) {
+    const selectedCategori = $("input:radio[name=radio]:checked").val();
+    if ($(event.target).hasClass('custom-control-input')) {
+      this.changeType(selectedCategori);
+      switch (selectedCategori) {
+        case 'Bönor':
+          this.addChoice(this.app.beans);
+          break;
+        case 'Bryggkaffe':
+          this.addChoice(this.app.powders);
+          break;
+        case 'Kapslar':
+          this.addChoice(this.app.capsules);
+          break;
+      }
+
+      if ($(event.target).is('#change-btn')) {
+        event.preventDefault();
+
+      }
     }
   }
 
