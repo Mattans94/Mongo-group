@@ -50,6 +50,9 @@ class Admin extends REST {
           Capsule.create(this.getProductContents());
           break;
       }
+      return;
+    }
+  }
 
   change2(event) {
     if ($(event.target).hasClass('custom-control-input')) {
@@ -61,34 +64,67 @@ class Admin extends REST {
 
   addChoice(categori) {
     $('#inputName').empty();
-    categori.forEach(val => {
-      $('#inputName').append(`
-      <option>${val.name}</option>
-    `);
+    categori.forEach(item => {
+      $('#inputName').append(`<option>${item.name}</option>`);
     });
   }
 
+  setCurrentItemValue(categori) {
+    const currentItemName = $('#inputName').val();
+    const currentItem = categori.find(item => {
+      return item.name === currentItemName;
+    });
+
+    $('#inputPhoto').val(currentItem.image);
+    $('#inputDescription').val(currentItem.description);
+    $('#inputPrice').val(currentItem.price);
+    $('#inputQuantity').val(currentItem.quantity);
+    $('#inputFlavor').val(currentItem.flavor);
+    $('#inputCountry').val(currentItem.countryOfOrigin);
+  }
+
   click3(event) {
-    const selectedCategori = $("input:radio[name=radio]:checked").val();
-    if ($(event.target).hasClass('custom-control-input')) {
-      this.changeType(selectedCategori);
-      switch (selectedCategori) {
-        case 'Bönor':
-          this.addChoice(this.app.beans);
-          break;
-        case 'Bryggkaffe':
-          this.addChoice(this.app.powders);
-          break;
-        case 'Kapslar':
-          this.addChoice(this.app.capsules);
-          break;
-      }
-
-      if ($(event.target).is('#change-btn')) {
-        event.preventDefault();
-
-      }
+    if ($(event.target).is('#change-btn')) {
+      event.preventDefault();
+      return;
     }
   }
 
+  change3(event) {
+    if ($(event.target).hasClass('custom-control-input')) {
+      this.selectedCategori = $("input:radio[name=radio]:checked").val();
+      this.changeType();
+
+      switch (this.selectedCategori) {
+        case 'Bönor':
+          this.addChoice(this.app.beans);
+          this.setCurrentItemValue(this.app.beans);
+          break;
+        case 'Bryggkaffe':
+          this.addChoice(this.app.powders);
+          this.setCurrentItemValue(this.app.powders);
+          break;
+        case 'Kapslar':
+          this.addChoice(this.app.capsules);
+          this.setCurrentItemValue(this.app.capsules);
+          break;
+      }
+      return;
+    }
+
+    if ($(event.target).is('#inputName')) {
+      switch (this.selectedCategori) {
+        case 'Bönor':
+          this.setCurrentItemValue(this.app.beans);
+          break;
+        case 'Bryggkaffe':
+          this.setCurrentItemValue(this.app.powders);
+          break;
+        case 'Kapslar':
+          this.setCurrentItemValue(this.app.capsules);
+          break;
+      }
+      return;
+    }
+  }
 }
