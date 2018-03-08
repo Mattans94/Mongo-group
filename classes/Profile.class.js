@@ -17,10 +17,10 @@ module.exports = class Profile extends ModelAndRoutes {
             zip: Number,
             country: String,
             telephone: Number,
-            // order: [{
-            //     type: Schema.Types.ObjectId,
-            //     ref: 'order'
-            // }],
+            order: [{
+                type: Schema.Types.ObjectId,
+                ref: 'order'
+            }],
             cart:[{
                 type:Schema.Types.ObjectId,
                 ref:'cart'

@@ -40,9 +40,9 @@ const models = {
   'powder': powderModel,
   'capsule': capsuleModel,
   'tool': toolModel,
-  'cart':cartModel,
-  'order':orderModel,
-  'profile':profileModel
+  'cart': cartModel,
+  'order': orderModel,
+  'profile': profileModel
 }
 
 // Save json files into mongoDB.
@@ -90,6 +90,7 @@ const capsuleUpdate = async (savedCapsules, savedTools) => {
 const toolUpdate = async (savedCapsules, savedTools) => {
   for (const tool of savedTools) {
     savedCapsules.forEach(capsule => {
+     
       capsule.types.forEach(type => {
         if (type === tool.type) {
           tool.capsules.push(capsule._id);
@@ -105,12 +106,19 @@ const toolUpdate = async (savedCapsules, savedTools) => {
 // Fillin cart.profiles by toolModel, judged by the type in both capsule and tool
 const cartUpdate = async (savedCarts, savedProfiles) => {
   for (const cart of savedCarts) {
-    cart.emails.forEach(email => {
-      const sameEmailProfiles = savedProfiles.filter(profile => profile.email === email);
-      sameEmailProfiles.forEach(profile => {
-        cart.profiles.push(profile._id);
+    savedCarts.forEach(cart => {
+      cart.email.forEach(email => {
+        if (email === profile.email) {
+          profile.cart.push(cart._id);
+        }
       });
     });
+    // cart.email.forEach(email => {
+    //   const sameEmailProfiles = savedProfiles.filter(profile => profile.email === email);
+    //   sameEmailProfile.forEach(profile => {
+    //     cart.profile.push(profile._id);
+    //   });
+    // });
     await cart.save().then(item => {
       console.log(`cart ${item.product} is updated!`);
     });
@@ -120,9 +128,9 @@ const cartUpdate = async (savedCarts, savedProfiles) => {
 const profileUpdate = async (savedProfiles, savedCarts) => {
   for (const profile of savedProfiles) {
     savedCarts.forEach(cart => {
-      cart.emails.forEach(email => {
+      cart.email.forEach(email => {
         if (email === profile.email) {
-          profile.carts.push(cart._id);
+          profile.cart.push(cart._id);
         }
       });
     });
@@ -148,15 +156,15 @@ const saveModels = () => {
 
   capsuleModel.remove({}, () => {
     toolModel.remove({}, async () => {
-      await save(capsulesJson, 'capsule', {'tools': []})
-      .then(obj => {
-        savedCapsules = obj;
-      });
+      await save(capsulesJson, 'capsule', { 'tools': [] })
+        .then(obj => {
+          savedCapsules = obj;
+        });
 
-      await save(toolsJson, 'tool', {'capsules': []})
-      .then(obj => {
-        savedTools = obj;
-      });
+      await save(toolsJson, 'tool', { 'capsules': [] })
+        .then(obj => {
+          savedTools = obj;
+        });
 
       // Capsules json and tools json should be saved before updating
       await capsuleUpdate(savedCapsules, savedTools);
@@ -169,14 +177,15 @@ const saveModels = () => {
     profileModel.remove({}, async () => {
       let profile;
       let cart;
-      await save(profileJson, 'profile', {'cart':[]})
-      .then(obj => {
-        savedProfiles = obj;
-      });
-      await save(cartJson, 'cart',{'profile':[]})
-      .then(obj => {
-        savedCarts = obj;
-        });    
+      await save(profileJson, 'profile', { 'carts': [] })
+        .then(obj => {
+          savedProfiles = obj;
+        });
+      await save(cartJson, 'cart', { 'profiles': [] })
+        .then(obj => {
+          savedCarts = obj;
+          
+        });
       // profile[0].cart.push(cart[0]._id);
       // cart[0].profile.push(profile[0]._id);
       // await profile[0].save();
@@ -187,5 +196,64 @@ const saveModels = () => {
     });
   });
 }
+
+//experimental 
+// orderModel.remove({}, ()=> {
+//   profileModel.remove({}, ()=> {start();
+//   });
+// });
+
+// function start(){
+
+//   // Author mem - to avoid duplicates
+//   let profileMen = {};
+
+//   // Import authors and store their ids in the db
+//   for (let order of orderJson){
+
+//     if(profileMen[order.profile]){
+//       continue;
+//     }
+
+//     let a = new profileModel({
+//       order: order._id,
+//       email: order.email,
+//       name: "Test",
+//       password: "Coffee1",
+//       firstName: "Test",
+//       lastName: "Coffee",
+//       street: "Storgatan 1",
+//       zip: "12345",
+//       country: "Sverig",
+//       telephone: "0000000000",
+//       product: "coffee bean"
+//     });
+
+//     a.save();
+
+//     profileMen[order.profile] = a;
+
+//   }
+
+//   // Import books and store in db with their connection to an author
+//   for (let order of orderJson){
+
+//     let temp = order;
+//     order.profile = profileMen[temp.profile]._id;
+
+//     let b = new cartModel(temp);
+
+//     b.save(() => {
+//       // Look up the author again and add the book id
+//       profileModel.find({_id: temp.profile}, (err,a) => {
+//         a = a[0];
+
+//         a.order.push(b);
+//         a.save();
+//       });
+//     });
+
+
+//   }
 
 saveModels();

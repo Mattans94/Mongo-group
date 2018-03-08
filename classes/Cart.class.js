@@ -14,6 +14,7 @@ module.exports = class Cart extends ModelAndRoutes {
             quantity: Number,
             unitPrice: Number,
             total: Number,
+            email:String,
             // profile:String
             profile:[{
                 type:Schema.Types.ObjectId,
