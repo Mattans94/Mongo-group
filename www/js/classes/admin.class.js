@@ -53,6 +53,12 @@ class Admin extends REST {
           Capsule.create(this.getProductContents());
           break;
       }
+
+  change2(event) {
+    if ($(event.target).hasClass('custom-control-input')) {
+      this.selectedCategori = $("input:radio[name=radio]:checked").val();
+      this.changeType(this.selectedCategori);
+      return;
     }
   }
 
