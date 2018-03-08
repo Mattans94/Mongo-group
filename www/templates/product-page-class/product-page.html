@@ -1,20 +1,29 @@
 Object.assign(Product.prototype, { template(){ return `
 
 
-<div class="row d-flex justify-content-around product-page">
+<div class="row product-page">
 	<!-- <div> -->
-	<div class="col-6 col-md-3 d-flex justify-content-around mb-3">
-		<button type="button" class="btn btn-secondary font-weight-bold">Kaffebönor</button>
+
+	<div class="col-sm-9 d-flex justify-content-start">
+		<p class="font-weight-bold mr-3 category-text">Kategorier:</p>
+		<div class="col-4 col-md-2 custom-control custom-radio custom-control-inline mr-0 mr-md-4 mr-lg-0">
+			<input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline1">Kaffebönor</label>
+		</div>
+		<div class="col-4 col-md-2 custom-control custom-radio custom-control-inline mr-0 mr-md-4 mr-lg-0">
+			<input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline2">Bryggkaffe</label>
+		</div>
+		<div class="col-4 col-md-2 custom-control custom-radio custom-control-inline mr-0 mr-md-4 mr-lg-0">
+			<input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline3">Kaffekapslar</label>
+		</div>
 	</div>
-	<div class="col-6 col-md-3 d-flex justify-content-around mb-3">
-		<button type="button" class="btn btn-secondary font-weight-bold">Bryggkaffe</button>
-	</div>
-	<div class="col-6 col-md-3 d-flex justify-content-around mb-3">
-		<button type="button" class="btn btn-secondary font-weight-bold">Kaffekapslar</button>
-	</div>
-	<div class="col-6 col-md-3 d-flex justify-content-around mb-3">
+
+	<div class="col-sm-3 mb-4">
+		<!-- <div class="col-6 col-md-2 d-flex justify-content-around mb-3"> -->
 		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle font-weight-bold" type="button" id="dropdownMenu2" data-toggle="dropdown"
+			<button class="btn btn-secondary dropdown-toggle font-weight-bold float-right mt-3 mt-sm-5 mt-md-0" type="button" id="dropdownMenu2" data-toggle="dropdown"
 			 aria-haspopup="true" aria-expanded="false">
 				Sortering
 			</button>
@@ -25,17 +34,118 @@ Object.assign(Product.prototype, { template(){ return `
 				<button class="dropdown-item" type="button">Högssta pris</button>
 			</div>
 		</div>
+		<!-- </div> -->
 	</div>
-</div>
-<!-- </div> -->
 
-<p class="test">test</p>
-
-
-
-<div class="row mt-4">
-
+	<!-- <div class="row mt-4"> -->
 	<!-- 1 -->
+	<div class="col-6 col-lg-3 mb-4">
+		<div class="card border-0 mb-3">
+			<a href="#">
+				<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
+			</a>
+			<div class="card-body pb-0">
+				<h5 class="card-title">
+					<a href="#">Espresso Bella1</a>
+				</h5>
+				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
+					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
+					baristan blir rikligt belönad.
+				</p>
+				<div class="card-footer d-flex justify-content-sm-between px-0">
+					<div>
+						<p class="float-left font-weight-bold ml-sm-3 mt-2">45 kr</p>
+					</div>
+					<div class="ml-3">
+						<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-6 col-lg-3 mb-4">
+		<div class="card border-0 mb-3">
+			<a href="#">
+				<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
+			</a>
+			<div class="card-body pb-0">
+				<h5 class="card-title">
+					<a href="#">Espresso Bella1</a>
+				</h5>
+				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
+					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
+					baristan blir rikligt belönad.
+				</p>
+				<div class="card-footer d-flex justify-content-sm-between px-0">
+					<div>
+						<p class="float-left font-weight-bold ml-sm-3 mt-2">45 kr</p>
+					</div>
+					<div class="ml-3">
+						<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-6 col-lg-3 mb-4">
+		<div class="card border-0 mb-3">
+			<a href="#">
+				<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
+			</a>
+			<div class="card-body pb-0">
+				<h5 class="card-title">
+					<a href="#">Espresso Bella1</a>
+				</h5>
+				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
+					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
+					baristan blir rikligt belönad.
+				</p>
+				<div class="card-footer d-flex justify-content-sm-between px-0">
+					<div>
+						<p class="float-left font-weight-bold ml-sm-3 mt-2">45 kr</p>
+					</div>
+					<div class="ml-3">
+						<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-6 col-lg-3 mb-4">
+		<div class="card border-0 mb-3">
+			<a href="#">
+				<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
+			</a>
+			<div class="card-body pb-0">
+				<h5 class="card-title">
+					<a href="#">Espresso Bella1</a>
+				</h5>
+				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
+					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
+					baristan blir rikligt belönad.
+				</p>
+				<div class="card-footer d-flex justify-content-sm-between px-0">
+					<div>
+						<p class="float-left font-weight-bold ml-sm-3 mt-2">45 kr</p>
+					</div>
+					<div class="ml-3">
+						<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<!-- 2 -->
+
 	<div class="col-6 col-lg-3 mb-4">
 		<div class="card border-0 mb-3">
 			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
@@ -43,197 +153,75 @@ Object.assign(Product.prototype, { template(){ return `
 				<h5 class="card-title">Espresso Bella</h5>
 				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
 					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
-					baristan blir rikligt belönad.</p>
-				<!-- <a href="#" class="btn btn-primary card-btn float-right">KÖP</a> -->
+					baristan blir rikligt belönad.
+				</p>
 				<div class="card-footer">
 					<p class="float-left font-weight-bold">45,00 kr</p>
 					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
 				</div>
-
 			</div>
 		</div>
 	</div>
 
-	<div class="col-6	 col-lg-3 mb-4">
+	<div class="col-6 col-lg-3 mb-4">
 		<div class="card border-0 mb-3">
 			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
 			<div class="card-body">
 				<h5 class="card-title">Espresso Bella</h5>
 				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
 					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
-					baristan blir rikligt belönad.</p>
-				<!-- <a href="#" class="btn btn-primary card-btn float-right">KÖP</a> -->
+					baristan blir rikligt belönad.
+				</p>
 				<div class="card-footer">
-					<p class="float-left align-text-bottom">45,00 kr</p>
+					<p class="float-left font-weight-bold">45,00 kr</p>
 					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
 				</div>
-
 			</div>
 		</div>
 	</div>
 
-	<div class="col-12 col-lg-3 mb-4">
+	<div class="col-6 col-lg-3 mb-4">
 		<div class="card border-0 mb-3">
 			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
 			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text description">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
+				<h5 class="card-title">Espresso Bella</h5>
+				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
+					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
+					baristan blir rikligt belönad.
+				</p>
+				<div class="card-footer">
+					<p class="float-left font-weight-bold">45,00 kr</p>
+					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="col-12 col-lg-3 mb-4">
+	<div class="col-6 col-lg-3 mb-4">
 		<div class="card border-0 mb-3">
 			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
 			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
+				<h5 class="card-title">Espresso Bella</h5>
+				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
+					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
+					baristan blir rikligt belönad.
+				</p>
+				<div class="card-footer">
+					<p class="float-left font-weight-bold">45,00 kr</p>
+					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+				</div>
 			</div>
 		</div>
 	</div>
-
-	<!-- 2 -->
-	<div class="col-12 col-lg-3 mb-4">
-		<div class="card border-0">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<p class="card-text">50 kr</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 col-lg-3 mb-4">
-		<div class="card border-0">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 col-lg-3 mb-4">
-		<div class="card border-0">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 col-lg-3 mb-4">
-		<div class="card border-0">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
-
 	<!-- 3 -->
-	<div class="col-12 col-lg-3">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 col-lg-3">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 col-lg-3">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 col-lg-3">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
-
 	<!-- 4 -->
-	<div class="col-12 col-lg-3">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
 
-	<div class="col-12 col-lg-3">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
 
-	<div class="col-12 col-lg-3">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
 
-	<div class="col-12 col-lg-3">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Kaffebönor</h5>
-				<p class="card-text">HÄR ÄR DINA BÖNOR</p>
-				<a href="#" class="btn btn-primary card-btn float-right">KÖP BÖNOR</a>
-			</div>
-		</div>
-	</div>
 
 	<!-- 4 end -->
 
 </div>
-
 
 
 `;}});
