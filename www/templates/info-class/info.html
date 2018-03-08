@@ -1,5 +1,5 @@
 
-Object.assign(info.prototype, { template(){ return `
+Object.assign(Info.prototype, { template(){ return `
 <div class="row">
   <div class="col-12 col-lg-4">
     <div class="film-info" style="min-height: 450px;">
@@ -56,8 +56,6 @@ Object.assign(info.prototype, { template(){ return `
 </div>
 <div class="container mt-5 mb-5">
   <div class="video-wrapper">
-  <iframe class="mx-auto mt-0 mb-3" src="https://www.youtube.com/embed/{{:movies[pathParams].videos.results[0].key}}"
-    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </div>
 

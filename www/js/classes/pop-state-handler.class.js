@@ -96,6 +96,12 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
+  info(){
+    $('main').empty();
+    this.app.info.render('main');
+    console.log('Körs');
+  }
+
   produkter(){
     $('main').empty();
     this.app.product.render('main');
