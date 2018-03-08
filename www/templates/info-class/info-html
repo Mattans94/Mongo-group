@@ -1,0 +1,64 @@
+
+Object.assign(info.prototype, { template(){ return `
+<div class="row">
+  <div class="col-12 col-lg-4">
+    <div class="film-info" style="min-height: 450px;">
+      <figure class="figure d-inline-block float-left mr-5 mb-2" style="max-height: 500px; max-width: 300px; display:">
+        <img src="" class="figure-img img-fluid rounded"
+          alt="A generic square placeholder image with rounded corners in a figure.">
+      </figure>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4 text-left mb-4">
+    <h1 class="pr-5"></h1>
+    <p class="text-left pr-5 mb-3"></p>
+    <div>
+      <span>
+        <span class="h5">TMdb Betyg</span></span>
+    </div>
+    <div>
+      <span>
+        <span class="h5">Director</span></span>
+    </div>
+    <div>
+      <span>
+        <span class="h5">Actors</span></span>
+    </div>
+    <div>
+      <span>
+        <span class="h5">Release Date</span></span>
+    </div>
+    <div>
+      <span>
+        <span class="h5">Length</span> min</span>
+    </div>
+    <div>
+      <span>
+        <span class="h5">Genres</span>
+      </span>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4 text-left text-lg-center">
+    <h2>Priser</h2>
+    <p class="mb-0">Vuxna: 85kr</p>
+    <p class="mb-0">Pensionärer: 75kr</p>
+    <p class="mb-4">Barn: 65kr</p>
+    <h2>Föreställningar</h2>
+    <div class="dropdown">
+      <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Datum
+      </button>
+      <div class="dropdown-menu" id="up-coming-movies" aria-labelledby="dropdownMenuButton">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5 mb-5">
+  <div class="video-wrapper">
+  <iframe class="mx-auto mt-0 mb-3" src="https://www.youtube.com/embed/{{:movies[pathParams].videos.results[0].key}}"
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+	`;}});

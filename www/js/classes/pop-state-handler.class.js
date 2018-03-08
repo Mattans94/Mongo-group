@@ -55,6 +55,7 @@ class PopStateHandler {
       '/': 'startsidan',
       '/produkter': 'produkter',
       '/om_oss' : 'omOss',
+      '/info' : 'info',
       '/kopvillkor': 'conditions',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
