@@ -1,14 +1,13 @@
 Object.assign(Product.prototype, {templateCartContent(){
-return
-    `<tr>
+return `<tr>
       <td colspan="2">
-          <a href="#">${obj.name}</a>
+          <a href="#">${this.name}</a>
       </td>
       <td>
           <input type="number" value="1" min="0" class="form-control quantity-control">
       </td>
-      <td>${obj.price}</td>
-      <td>${totalPrice}</td>
+      <td>${this.price}</td>
+      <td>HEJ</td>
       <td>
           <a href="#">
               <i class="fa fa-trash-o"></i>

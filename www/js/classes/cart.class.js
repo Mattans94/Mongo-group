@@ -26,7 +26,7 @@ class Cart extends REST {
       console.log('Hejsan');
       $('.cart-content').empty();
       console.log('HAllå', this.products);
-      // this.products.render('.cart-content', 'CartContent');
+      console.log(this.products.render('.cart-content', 'CartContent'));
     }
     clickEvents() {
         let that = this;
