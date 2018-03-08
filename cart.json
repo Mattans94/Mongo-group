@@ -1,10 +1,10 @@
 [
     {
-        "product": "",
-        "img":"",
-        "quantity": 0,
-        "unitPrice": 0,
-        "total": 0,
-        "profile": ""
+        "product": "coffee bean",
+        "img":"jjj",
+        "quantity": 10,
+        "unitPrice": 50,
+        "total": 500,
+        "email": "test@coffee.com"
     }
 ]

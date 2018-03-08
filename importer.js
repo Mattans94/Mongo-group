@@ -101,20 +101,37 @@ const toolUpdate = async (savedCapsules, savedTools) => {
     });
   };
 }
-// Fillin order.profile by toolModel, judged by the type in both profile and order
-// const orderUpdate = async (savedOrder, savedProfile) => {
-//   for (const capsule of savedCapsules) {
-//     capsule.types.forEach(type => {
-//       const sameTypeTools = savedTools.filter(tool => tool.type === type);
-//       sameTypeTools.forEach(tool => {
-//         capsule.tools.push(tool._id);
-//       });
-//     });
-//     await capsule.save().then(item => {
-//       console.log(`capsule ${item.name} is updated!`);
-//     });
-//   };
-// }
+
+// Fillin cart.profiles by toolModel, judged by the type in both capsule and tool
+const cartUpdate = async (savedCarts, savedProfiles) => {
+  for (const cart of savedCarts) {
+    cart.emails.forEach(email => {
+      const sameEmailProfiles = savedProfiles.filter(profile => profile.email === email);
+      sameEmailProfiles.forEach(profile => {
+        cart.profiles.push(profile._id);
+      });
+    });
+    await cart.save().then(item => {
+      console.log(`cart ${item.product} is updated!`);
+    });
+  };
+}
+
+const profileUpdate = async (savedProfiles, savedCarts) => {
+  for (const profile of savedProfiles) {
+    savedCarts.forEach(cart => {
+      cart.emails.forEach(email => {
+        if (email === profile.email) {
+          profile.carts.push(cart._id);
+        }
+      });
+    });
+    await tool.save().then(item => {
+      console.log(`tool ${item.name} is updated!`);
+    });
+  };
+}
+
 
 const saveModels = () => {
   beanModel.remove({}, () => {
@@ -126,6 +143,8 @@ const saveModels = () => {
 
   let savedCapsules;
   let savedTools;
+  let savedCarts;
+  let savedProfiles;
 
   capsuleModel.remove({}, () => {
     toolModel.remove({}, async () => {
@@ -142,6 +161,28 @@ const saveModels = () => {
       // Capsules json and tools json should be saved before updating
       await capsuleUpdate(savedCapsules, savedTools);
       await toolUpdate(savedCapsules, savedTools);
+      process.exit();
+    });
+  });
+
+  cartModel.remove({}, () => {
+    profileModel.remove({}, async () => {
+      let profile;
+      let cart;
+      await save(profileJson, 'profile', {'cart':[]})
+      .then(obj => {
+        savedProfiles = obj;
+      });
+      await save(cartJson, 'cart',{'profile':[]})
+      .then(obj => {
+        savedCarts = obj;
+        });    
+      // profile[0].cart.push(cart[0]._id);
+      // cart[0].profile.push(profile[0]._id);
+      // await profile[0].save();
+      // await cart[0].save();
+      await cartUpdate(savedCarts, savedProfiles);
+      await profileUpdate(savedProfiles, savedCarts);
       process.exit();
     });
   });

@@ -1,6 +1,6 @@
 [
     {
-        "userName": "Test",
+        "name": "Test",
         "email": "test@coffee.com",
         "password": "Coffee1",
         "firstName": "Test",
@@ -9,7 +9,6 @@
         "zip": "12345",
         "country": "Sverig",
         "telephone": "0000000000",
-        "order": 10000001,
-        "cart": ""
+        "product": "coffee bean"
     }
 ]

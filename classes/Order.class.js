@@ -5,7 +5,7 @@ module.exports = class Order extends ModelAndRoutes {
 
     static get schema() {
         return {
-            orderNumber:Number,
+            name:Number, //change back to orderNumber later
             product: String,
             img:String,
             quantity: Number,

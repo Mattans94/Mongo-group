@@ -1,6 +1,8 @@
 class Profile extends REST {
-    constructor() {
+    constructor(rest, cart) {
         super();
+        this.rest=rest;
+        this.cart=cart;
         //this.changeInput();
     }
 
