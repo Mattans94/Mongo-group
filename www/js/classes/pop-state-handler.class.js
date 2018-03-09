@@ -43,6 +43,7 @@ class PopStateHandler {
 
     // Get the current url
     let url = location.pathname;
+    console.log(url);
 
     // Change which menu link that is active
     $('header a').removeClass('active');
@@ -54,6 +55,7 @@ class PopStateHandler {
       '/': 'startsidan',
       '/produkter': 'produkter',
       '/om_oss' : 'omOss',
+      '/kopvillkor': 'conditions',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
@@ -106,6 +108,13 @@ class PopStateHandler {
     $('title').text('Om oss');
   }
 
+  conditions(){
+    $('.karusell').empty();
+    $('main').empty();
+    this.app.conditions.render('main');
+    $('title').text('Köpvillkor');
+  }
+
   shoppingCart(){
     $('main').empty();
     this.app.cart.render('main', 'Basket');
@@ -129,21 +138,25 @@ class PopStateHandler {
   admin(){
     $('main').empty();
     this.app.admin.render('main');
+    this.app.admin.selectedCategori = '';
   }
 
   adminAdd(){
     $('main').empty();
     this.app.admin.render('main', 2);
+    this.app.admin.selectedCategori = '';
   }
 
   adminChange(){
     $('main').empty();
     this.app.admin.render('main', 3);
+    this.app.admin.selectedCategori = '';
   }
 
   adminDelete(){
     $('main').empty();
     this.app.admin.render('main', 4);
+    this.app.admin.selectedCategori = '';
   }
 
 

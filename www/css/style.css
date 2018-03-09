@@ -208,6 +208,52 @@ h2 {
 /* End of fading transition */
 .product-page {
   background-color: #fff;
+  margin-top: 110px;
+  padding: 40px;
+}
+.product-page .card-btn {
+  background-color: #4fbfa8;
+  border-color: #41b39c;
+}
+.product-page .card-btn:hover {
+  background-color: #3da892;
+  border-color: #318675;
+}
+.product-page .card {
+  height: 100%;
+}
+.product-page .card-body {
+  border: 1px solid #b5b0b08a;
+}
+.product-page .card-footer {
+  background-color: unset;
+}
+.product-page .dropdown-menu {
+  font-size: .9rem;
+}
+.product-page p.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.product-page .custom-control-label::before {
+  border: 1px solid #6c757d80;
+}
+.product-page .category-text {
+  display: none;
+}
+@media only screen and (min-width: 576px) {
+  .product-page .category-text {
+    display: block;
+  }
+}
+.product-page h5 a {
+  color: #000;
+}
+.product-page h5 a:hover {
+  color: #4fbfa8;
+  text-decoration: none;
 }
 .om-oss {
   border-radius: 5px;
@@ -242,6 +288,26 @@ h2 {
 .om-oss .list-group-item {
   border: none;
   border-radius: 0;
+}
+.om-oss .card {
+  border: none;
+}
+.om-oss .card .card-body {
+  padding: 40px;
+}
+@media screen and (max-width: 700px) {
+  .om-oss .card .card-body {
+    padding: 20px;
+  }
+}
+.om-oss .btn-link {
+  color: #000;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.om-oss .btn-link:hover {
+  text-decoration: none;
+  font-weight: bold;
 }
 html {
   position: relative;
@@ -333,13 +399,19 @@ button.cancel-btn-card {
   background-color: #f2b600;
 }
 .admin {
-  margin-top: 120px;
+  padding-top: 30px;
 }
 .admin .card-header {
   background-color: #4fbfa8;
 }
-.admin .card-header a {
+.admin .card-header a.nav-link {
   color: #333;
+}
+@media only screen and (max-width: 576px) {
+  .admin .card-header a.nav-link {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 .admin button {
   background-color: #4fbfa8;

@@ -13,6 +13,7 @@ class App extends REST {
         });
     }
 
+<<<<<<< HEAD
     async load() {
         this.beans = await Bean.find({});
         console.log('Beans are', this.beans);
@@ -22,6 +23,17 @@ class App extends REST {
 
         this.capsules = await Capsule.find({});
         console.log('Capsules are', this.capsules);
+=======
+    async load(){
+      this.beans = await Product.find({ type: 'Bean'});
+      console.log('Beans are', this.beans);
+
+      this.powders = await Product.find({ type: 'Powder'});
+      console.log('Powders are', this.powders);
+
+      this.capsules = await Product.find({ type: 'Capsule'});
+      console.log('Capsules are', this.capsules);
+>>>>>>> origin/feature/rebuildDB
 
         this.tools = await Tool.find({});
         console.log('Tools are', this.tools);
@@ -38,6 +50,7 @@ class App extends REST {
         this.start();
 
 
+<<<<<<< HEAD
     }
 
     start() {
@@ -56,5 +69,16 @@ class App extends REST {
         this.order = new Order(this);
         this.popState = new PopStateHandler(this);
        
+=======
+      this.navbar = new Navbar(this);
+      this.startsida = new Startsida(this);
+      this.product = new Product(this);
+      this.profile = new Profile();
+      this.omOss = new OmOss(this);
+      this.conditions = new Conditions();
+      this.cart = new Cart(this.rest, this.profile);
+      this.admin = new Admin(this);
+      this.popState = new PopStateHandler(this);
+>>>>>>> origin/feature/rebuildDB
     }
 }

@@ -7,7 +7,8 @@
     "quantity": 500,
     "flavor": "Frisk & Fruktig",
     "countryOfOrigin": "Etiopien, Indonesiens Sumatra och Nicaragua",
-    "type": "Bryggmalet kaffe"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Bourbon Jungle",
@@ -17,7 +18,8 @@
     "quantity": 500,
     "flavor": "Kraftfull & Bittersöt",
     "countryOfOrigin": "-",
-    "type": "Bryggmalet kaffe"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Urban Juice",
@@ -27,7 +29,8 @@
     "quantity": 500,
     "flavor": "Kraftfull & Bittersöt",
     "countryOfOrigin": "-",
-    "type": "Bryggmalet kaffe"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Kaffe Irish Cream",
@@ -37,7 +40,8 @@
     "quantity": 250,
     "flavor": "Krämig & Söt",
     "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
-    "type": "Bryggmalet kaffe: 100% Arabica"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Kaffe Wiener",
@@ -47,7 +51,8 @@
     "quantity": 250,
     "flavor": "Mjuk & Söt",
     "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
-    "type": "Bryggmalet kaffe: 100% Arabica"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Kaffe Valencia",
@@ -57,7 +62,8 @@
     "quantity": 250,
     "flavor": "Mjuk & Söt",
     "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
-    "type": "Bryggmalet kaffe: 100% Arabica"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Solo Kaffe La donna",
@@ -67,7 +73,8 @@
     "quantity": 500,
     "flavor": "Kraftig & Bittersöt",
     "countryOfOrigin": "Sydamerika, Indien och Karibien",
-    "type": "Bryggmalet kaffe: 60% Arabica 40% Robusta"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Passalacqua Mekico",
@@ -77,7 +84,8 @@
     "quantity": 250,
     "flavor": "Elegant & Smakrik",
     "countryOfOrigin": "Venezuela, Cuba, Etiopien och Indien",
-    "type": "Bryggmalet kaffe: 100 % Arabica"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Helsingfors Kafferosteri Blend No 3",
@@ -87,7 +95,8 @@
     "quantity": 250,
     "flavor": "Fyllig & Mjuk",
     "countryOfOrigin": "-",
-    "type": "Bryggmalet kaffe"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Crema Ethiopia Sidamo",
@@ -97,7 +106,8 @@
     "quantity": 250,
     "flavor": "Fyllig & Fruktig",
     "countryOfOrigin": "Etiopien",
-    "type": "Bryggmalet kaffe"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Lucaffé 100 % Arabica",
@@ -107,7 +117,8 @@
     "quantity": 250,
     "flavor": "Fyllig & Söt",
     "countryOfOrigin": "Sydamerika, Asien och Afrika",
-    "type": "Bryggmalet kaffe: 100 % Arabica"
+    "type": "Powder",
+    "connectType": null
 	},
 	{
     "name": "Lucaffé Decaffeinato koffeinfritt",
@@ -117,6 +128,7 @@
     "quantity": 250,
     "flavor": "Söt & Krämig",
     "countryOfOrigin": "Sydamerika, Asien och Afrika",
-    "type": "Bryggmalet kaffe"
+    "type": "Powder",
+    "connectType": null
   }
 ]
