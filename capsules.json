@@ -6,8 +6,9 @@
 		"price": 46,
 		"quantity": 10,
 		"flavor": "Elegant & Mjuk",
-		"countryOfOrigin": "Mellan- och Sydamerika",
-		"type": 1
+    "countryOfOrigin": "Mellan- och Sydamerika",
+    "type": "Capsule",
+    "connectTypes": [1]
 	},
 	{
 		"name": "Miscela d'Oro Espresso Intenso - Nespresso",
@@ -17,7 +18,8 @@
 		"quantity": 10,
 		"flavor": "Mjuk & Fyllig",
 		"countryOfOrigin": "Mellan- och Sydamerika",
-		"type": 1
+		"type": "Capsule",
+    "connectTypes": [1]
 	},
 	{
 		"name": "Mokasirs Oro - Nespresso",
@@ -27,7 +29,8 @@
 		"quantity": 10,
 		"flavor": "Mjuk & Fyllig",
 		"countryOfOrigin": "Brasilien, Centralamerika och Indien",
-		"type": 1
+		"type": "Capsule",
+    "connectTypes": [1]
 	},
 	{
 		"name": "MokaSirs Pregiato - Nespresso",
@@ -37,7 +40,8 @@
 		"quantity": 10,
 		"flavor": "Kryddig & Fyllig",
 		"countryOfOrigin": "Brasilien, Centralamerika och Indien",
-		"type": 1
+		"type": "Capsule",
+    "connectTypes": [1]
 	},
 	{
 		"name": "illy Iperespresso",
@@ -47,7 +51,8 @@
 		"quantity": 21,
 		"flavor": "Fruktig & Söt",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien",
-		"type": 2
+		"type": "Capsule",
+    "connectTypes": [2]
 	},
 	{
 		"name": "illy Iperespresso mörkrost",
@@ -57,7 +62,8 @@
 		"quantity": 21,
 		"flavor": "Kraftig",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien",
-		"type": 2
+    "type": "Capsule",
+    "connectTypes": [2]
 	},
 	{
 		"name": "Gevalia Mellanrost - Tassimo",
@@ -67,7 +73,8 @@
 		"quantity": 16,
 		"flavor": "Syrlig & Elegant",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": 3
+		"type": "Capsule",
+    "connectTypes": [3]
 	},
 	{
 		"name": "Gevalia Caramel Macchiato - Tassimo",
@@ -77,7 +84,8 @@
 		"quantity": 8,
 		"flavor": "Krämig & Söt",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": 3
+		"type": "Capsule",
+    "connectTypes": [3]
 	},
 	{
 		"name": "Gevalia Cappuccino - Tassimo",
@@ -87,7 +95,8 @@
 		"quantity": 40,
 		"flavor": "Krämig & Kraftig",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": 3
+		"type": "Capsule",
+    "connectTypes": [3]
 	},
 	{
 		"name": "Lavazza A Modo Mio Espresso Delizioso",
@@ -97,7 +106,8 @@
 		"quantity": 16,
 		"flavor": "Bitter & Kraftig",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": 4
+		"type": "Capsule",
+    "connectTypes": [4]
 	},
 	{
 		"name": "Lavazza A Modo Mio Espresso Divino",
@@ -107,7 +117,8 @@
 		"quantity": 16,
 		"flavor": "Chokladig & Kraftig",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": 4
+		"type": "Capsule",
+    "connectTypes": [4]
 	},
 	{
 		"name": "Lavazza A Modo Mio Espresso Passionale",
@@ -117,6 +128,7 @@
 		"quantity": 16,
 		"flavor": "Fyllig & Aromrik",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": 4
+		"type": "Capsule",
+    "connectTypes": [4]
 	}
 ]
