@@ -69,7 +69,6 @@ const save = async (json, modelName, extraKey = null) => {
 const productUpdate = async (savedProducts, savedTools) => {
   for (const savedProduct of savedProducts) {
     const matchedTypeTools = savedTools.filter(savedTool => savedTool.connectType === savedProduct.connectType);
-    console.log('machedTypeTools', matchedTypeTools)
     matchedTypeTools.forEach(tool => {
       savedProduct.tools.push(tool._id);
     });
@@ -79,7 +78,21 @@ const productUpdate = async (savedProducts, savedTools) => {
   };
 }
 
+// Fillin tool.capsules by productModel, judged by the type in both product and tool
+const toolUpdate = async (savedProducts, savedTools) => {
+  for (const savedTool of savedTools) {
+    const matchedTypeProducts = savedProducts.filter(savedProduct => savedProduct.connectType === savedTool.connectType);
+    matchedTypeProducts.forEach(product => {
+      savedTool.capsules.push(product._id);
+    });
+    await savedTool.save().then(item => {
+      console.log(`tool ${item.name} is updated!`);
+    })
+  }
+}
+
 const saveModels = () => {
+  // Gather all objects of three json files
   const productsJson = [];
   beansJson.forEach(bean => {productsJson.push(bean);});
   powdersJson.forEach(powder => {productsJson.push(powder);});
@@ -106,6 +119,7 @@ const saveModels = () => {
 
       // Capsules json and tools json should be saved before updating
       await productUpdate(savedProducts, savedTools);
+      await toolUpdate(savedProducts, savedTools);
       process.exit();
     });
   });
