@@ -8,7 +8,7 @@
     "flavor": "Frisk & Fruktig",
     "countryOfOrigin": "Etiopien, Indonesiens Sumatra och Nicaragua",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Bourbon Jungle",
@@ -19,7 +19,7 @@
     "flavor": "Kraftfull & Bittersöt",
     "countryOfOrigin": "-",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Urban Juice",
@@ -30,7 +30,7 @@
     "flavor": "Kraftfull & Bittersöt",
     "countryOfOrigin": "-",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Kaffe Irish Cream",
@@ -41,7 +41,7 @@
     "flavor": "Krämig & Söt",
     "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Kaffe Wiener",
@@ -52,7 +52,7 @@
     "flavor": "Mjuk & Söt",
     "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Kaffe Valencia",
@@ -63,7 +63,7 @@
     "flavor": "Mjuk & Söt",
     "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Solo Kaffe La donna",
@@ -74,7 +74,7 @@
     "flavor": "Kraftig & Bittersöt",
     "countryOfOrigin": "Sydamerika, Indien och Karibien",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Passalacqua Mekico",
@@ -85,7 +85,7 @@
     "flavor": "Elegant & Smakrik",
     "countryOfOrigin": "Venezuela, Cuba, Etiopien och Indien",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Helsingfors Kafferosteri Blend No 3",
@@ -96,7 +96,7 @@
     "flavor": "Fyllig & Mjuk",
     "countryOfOrigin": "-",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Crema Ethiopia Sidamo",
@@ -107,7 +107,7 @@
     "flavor": "Fyllig & Fruktig",
     "countryOfOrigin": "Etiopien",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Lucaffé 100 % Arabica",
@@ -118,7 +118,7 @@
     "flavor": "Fyllig & Söt",
     "countryOfOrigin": "Sydamerika, Asien och Afrika",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
 	},
 	{
     "name": "Lucaffé Decaffeinato koffeinfritt",
@@ -129,6 +129,6 @@
     "flavor": "Söt & Krämig",
     "countryOfOrigin": "Sydamerika, Asien och Afrika",
     "type": "Powder",
-    "connectTypes": []
+    "connectType": null
   }
 ]
