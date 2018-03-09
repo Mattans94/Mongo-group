@@ -208,7 +208,8 @@ h2 {
 /* End of fading transition */
 .product-page {
   background-color: #fff;
-  padding-top: 30px;
+  margin-top: 110px;
+  padding: 40px;
 }
 .product-page .card-btn {
   background-color: #4fbfa8;
