@@ -122,7 +122,7 @@ const profileUpdate = async (savedProfiles, savedCarts) => {
     savedCarts.forEach(cart => {
       cart.emails.forEach(email => {
         if (email === profile.email) {
-          profile.carts.push(cart._id);
+          profile.cart.push(cart._id);
         }
       });
     });
@@ -139,6 +139,9 @@ const saveModels = () => {
   });
   powderModel.remove({}, () => {
     save(powdersJson, 'powder');
+  });
+  orderModel.remove({}, () => {
+    save(orderJson, 'order');
   });
 
   let savedCapsules;

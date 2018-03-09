@@ -5,9 +5,8 @@ module.exports = class Order extends ModelAndRoutes {
 
     static get schema() {
         return {
-            name:Number, //change back to orderNumber later
+            orderNumber:Number, //change back to orderNumber later
             product: String,
-            img:String,
             quantity: Number,
             unitPrice: Number,
             total: Number,
@@ -18,11 +17,11 @@ module.exports = class Order extends ModelAndRoutes {
             cardNumber: Number,
             cardMonth:String,
             cardYear:Number,
-            cvCode:Number,
-            profile: [{
-                type: Schema.Types.ObjectId,
-                ref: 'profile'
-            }]
+            cvCode:Number
+            // profile: [{
+            //     type: Schema.Types.ObjectId,
+            //     ref: 'profile'
+            // }]
         }
     }
 

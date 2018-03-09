@@ -27,15 +27,16 @@ class App extends REST {
         console.log('Tools are', this.tools);
 
         this.carts = await Cart.find({});
-        console.log('Shopping Cart', this.carts);
+        console.log('Shopping Carts', this.carts);
 
         this.profiles = await Profile.find({});
         console.log('Profiles', this.profiles);
 
-        this.orders = await Order.find({});
-        console.log('Orders', this.orders);
+        // this.orders = await Order.find({});
+        // console.log('Orders', this.orders);
 
         this.start();
+
 
     }
 
@@ -51,7 +52,9 @@ class App extends REST {
         this.product = new Product(this);
         this.profile = new Profile(this.rest, this.cart);
         this.omOss = new OmOss(this);
-        this.cart = new Cart(this.rest, this.profile);
+        this.cart = new Cart();
+        this.order = new Order(this);
         this.popState = new PopStateHandler(this);
+       
     }
 }

@@ -14,18 +14,6 @@ class Profile extends REST {
         return `${this.pass}`;
     }
 
-    get firstName() {
-        return `${this.firstname}`;
-    }
-
-    get street() {
-        return `${this.streetName}`;
-    }
-
-    get zip(){
-        return`${this.postNumber}`;
-    }
-
     set email(val) {
         //email address control
         val = val.split('@');
@@ -54,21 +42,7 @@ class Profile extends REST {
         }
     }
 
-    set firstName(val) {
-        this.firstname = val;
-    }
-
-    set street(val) {
-        this.streetName = val;
-    }
-
-    set zip(val){
-        this.postNumber=val;
-    }
-
-    set Region(val){
-        this.country=val;
-    }
+  
     // get data from login modal and register page
     keyuplogin(event) {
         if ($(event.target).hasClass('lginEmail')) {
@@ -93,26 +67,6 @@ class Profile extends REST {
        
     }
 
-    //data from address page
-    keyupAddress(event){
-        if ($(event.target).hasClass('firstname')) {
-            this.firstName = $(".firstname").val();
-        }
-        if ($(event.target).hasClass('lastname')) {
-            this.lastName = $(".lastname").val();
-        }
-        if ($(event.target).hasClass('street')) {
-            this.street = $(".street").val();
-        }
-        if ($(event.target).hasClass('zip')) {
-            this.zip = $(".zip").val();
-        }
-        if ($(event.target).hasClass('country')) {
-            this.country = $(".country").val();
-        }
-        
-
-    }
     //change login modal
     changelogin() {
         $('.lginEmail').on('change', function () {
