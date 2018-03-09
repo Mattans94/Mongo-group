@@ -219,6 +219,9 @@ h2 {
   background-color: #3da892;
   border-color: #318675;
 }
+.product-page .card {
+  height: 100%;
+}
 .product-page .card-body {
   border: 1px solid #b5b0b08a;
 }
