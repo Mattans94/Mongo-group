@@ -61,37 +61,20 @@ const save = async (json, modelName, extraKey = null) => {
     savedObjects.push(model);
   }
 
-  // Use this for updating capsule and tool data later
+  // Use this for updating product and tool data later
   return savedObjects;
 }
 
-// Fillin capsule.tools by toolModel, judged by the type in both capsule and tool
-const capsuleUpdate = async (savedCapsules, savedTools) => {
-  for (const capsule of savedCapsules) {
-    capsule.types.forEach(type => {
-      const sameTypeTools = savedTools.filter(tool => tool.type === type);
-      sameTypeTools.forEach(tool => {
-        capsule.tools.push(tool._id);
-      });
+// Fillin product.tools by toolModel, judged by the type in both product and tool
+const productUpdate = async (savedProducts, savedTools) => {
+  for (const savedProduct of savedProducts) {
+    const matchedTypeTools = savedTools.filter(savedTool => savedTool.connectType === savedProduct.connectType);
+    console.log('machedTypeTools', matchedTypeTools)
+    matchedTypeTools.forEach(tool => {
+      savedProduct.tools.push(tool._id);
     });
-    await capsule.save().then(item => {
-      console.log(`capsule ${item.name} is updated!`);
-    });
-  };
-}
-
-// Fillin tool.capsules by capsuleModel, judged by the type in both capsule and tool
-const toolUpdate = async (savedCapsules, savedTools) => {
-  for (const tool of savedTools) {
-    savedCapsules.forEach(capsule => {
-      capsule.types.forEach(type => {
-        if (type === tool.type) {
-          tool.capsules.push(capsule._id);
-        }
-      });
-    });
-    await tool.save().then(item => {
-      console.log(`tool ${item.name} is updated!`);
+    await savedProduct.save().then(item => {
+      console.log(`product ${item.name} is updated!`);
     });
   };
 }
@@ -105,21 +88,24 @@ const saveModels = () => {
   let savedProducts;
   let savedTools;
 
-    productModel.remove({}, () => {
-      save(productsJson, 'product', {'tools': []})
-      .then(obj => {
-        savedProducts = obj;
-      })
-      });
+  productModel.remove({}, () => {
+    toolModel.remove({}, async () => {
+      await save(productsJson, 'product', {
+          'tools': []
+        })
+        .then(obj => {
+          savedProducts = obj;
+        });
 
-      await save(toolsJson, 'tool', {'capsules': []})
-      .then(obj => {
-        savedTools = obj;
-      });
+      await save(toolsJson, 'tool', {
+          'capsules': []
+        })
+        .then(obj => {
+          savedTools = obj;
+        });
 
       // Capsules json and tools json should be saved before updating
-      await capsuleUpdate(savedCapsules, savedTools);
-      await toolUpdate(savedCapsules, savedTools);
+      await productUpdate(savedProducts, savedTools);
       process.exit();
     });
   });
