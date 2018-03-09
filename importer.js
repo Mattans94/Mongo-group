@@ -10,7 +10,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-mongoose.connect('mongodb+srv://admin:testcluster@coffeedb-ajdfy.mongodb.net/', {dbName: 'CoffeeDB'});
+mongoose.connect('mongodb://localhost/coffeeDB');
 const db = mongoose.connection;
 db.on('error', (e) => {
   console.error(e);
@@ -19,33 +19,27 @@ db.once('open', () => {
   console.info('db connected');
 });
 
-const Bean = require('./classes/Bean.class');
-const Powder = require('./classes/Powder.class');
-const Capsule = require('./classes/Capsule.class');
+const Product = require('./classes/Product.class');
 const Tool = require('./classes/Tool.class');
 const Cart = require('./classes/Cart.class');
 const Order = require('./classes/Order.class');
 const Profile = require('./classes/Profile.class');
 
-const beanModel = new Bean(app).myModel;
-const powderModel = new Powder(app).myModel;
-const capsuleModel = new Capsule(app).myModel;
+const productModel = new Product(app).myModel;
 const toolModel = new Tool(app).myModel;
 const cartModel = new Cart(app).myModel;
 const orderModel = new Order(app).myModel;
 const profileModel = new Profile(app).myModel;
 
 const models = {
-  'bean': beanModel,
-  'powder': powderModel,
-  'capsule': capsuleModel,
+  'product': productModel,
   'tool': toolModel,
   'cart':cartModel,
   'order':orderModel,
   'profile':profileModel
 }
 
-// Save json files into mongoDB.
+// Save product's json files into mongoDB.
 // ExtraKey is set when that key is not exist in json file, but exist in schema
 const save = async (json, modelName, extraKey = null) => {
   const savedObjects = [];
@@ -58,7 +52,7 @@ const save = async (json, modelName, extraKey = null) => {
     }
 
     // Create one of the models specified in models object
-    // (beanModel, powderModel, capsuleModel, toolModel)
+    // (productModel, toolModel)
     const model = new models[modelName](item);
     await model.save().then(item => {
       console.log(`${modelName} ${item.name} is saved.`);
@@ -103,21 +97,19 @@ const toolUpdate = async (savedCapsules, savedTools) => {
 }
 
 const saveModels = () => {
-  beanModel.remove({}, () => {
-    save(beansJson, 'bean');
-  });
-  powderModel.remove({}, () => {
-    save(powdersJson, 'powder');
-  });
+  const productsJson = [];
+  beansJson.forEach(bean => {productsJson.push(bean);});
+  powdersJson.forEach(powder => {productsJson.push(powder);});
+  capsulesJson.forEach(capsule => {productsJson.push(capsule);});
 
-  let savedCapsules;
+  let savedProducts;
   let savedTools;
 
-  capsuleModel.remove({}, () => {
-    toolModel.remove({}, async () => {
-      await save(capsulesJson, 'capsule', {'tools': []})
+    productModel.remove({}, () => {
+      save(productsJson, 'product', {'tools': []})
       .then(obj => {
-        savedCapsules = obj;
+        savedProducts = obj;
+      })
       });
 
       await save(toolsJson, 'tool', {'capsules': []})
