@@ -2,9 +2,15 @@ Object.assign(Bean.prototype, { template(){ return `
 
 <div class="col-6 col-lg-3 mb-4">
 	<div class="card border-0 mb-3">
+
+<!-- test start -->
+<div class="card-holder">
 		<a href="#">
-			<img class="card-img-top" src="/imgs/beans/${this.image}" alt="Card image cap">
+			<img class="card-img-top rounded mx-auto d-block" src="/imgs/beans/${this.image}" alt="Card image cap">
 		</a>
+	</div>
+<!-- test end -->
+
 		<div class="card-body pb-0">
 			<h5 class="card-title">
 				<a href="#">${this.name}</a>
