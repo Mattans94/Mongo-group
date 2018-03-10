@@ -13,6 +13,7 @@ module.exports = class Product extends ModelAndRoutes {
       flavor: String,
       countryOfOrigin: String,
       type: String,
+      stock: Number,
       connectType: Number,
       tools: [{
         type: Schema.Types.ObjectId,

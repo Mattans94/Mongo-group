@@ -8,6 +8,7 @@
     "flavor": "Söt & Smakrik",
     "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -19,6 +20,7 @@
     "flavor": "Fyllig & Chokladig",
     "countryOfOrigin": "Brasilien Fazenda Sertao Yellow Bourbon, Indien Kelagur Estate AA, Nicaragua Royal, Etiopien Mudro Natural, Uganda Kaweri Plantation Robusta.",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -30,6 +32,7 @@
     "flavor": "Kraftfull & Söt",
     "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -41,6 +44,7 @@
     "flavor": "Mjuk & Finstämd",
     "countryOfOrigin": "El Salvador",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -52,6 +56,7 @@
     "flavor": "Fyllig & Chokladig",
     "countryOfOrigin": "Brasilien",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -63,6 +68,7 @@
     "flavor": "Piffig & Kryddig",
     "countryOfOrigin": "Indonesien",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -74,6 +80,7 @@
     "flavor": "Chokladig & Kryddig",
     "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -85,6 +92,7 @@
     "flavor": "Blommig & Fruktig",
     "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -96,6 +104,7 @@
     "flavor": "Chokladig & Söt",
     "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -107,6 +116,7 @@
     "flavor": "Bittersött & Lite rökigt",
     "countryOfOrigin": "Brasil Mogiana, Tanzania AA, Sumatra Old Brown Java, Sumatra Lintung, Monus Malabar",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -118,6 +128,7 @@
     "flavor": "Fyllig & Chokladig",
     "countryOfOrigin": "Indonesien, Etiopien, Sumatra, Rwanda",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   },
   {
@@ -129,6 +140,7 @@
     "flavor": "Söt & Smakrik",
     "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
     "type": "Bean",
+    "stock": 10,
     "connectType": null
   }
 ]
