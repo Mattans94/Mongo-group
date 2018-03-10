@@ -103,16 +103,12 @@ const saveModels = () => {
 
   productModel.remove({}, () => {
     toolModel.remove({}, async () => {
-      await save(productsJson, 'product', {
-          'tools': []
-        })
+      await save(productsJson, 'product', {'tools': []})
         .then(obj => {
           savedProducts = obj;
         });
 
-      await save(toolsJson, 'tool', {
-          'capsules': []
-        })
+      await save(toolsJson, 'tool', {'capsules': []})
         .then(obj => {
           savedTools = obj;
         });
