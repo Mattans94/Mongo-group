@@ -41,13 +41,13 @@ class Admin extends REST {
 
       switch (this.selectedCategori) {
         case 'Bönor':
-          Bean.create(this.getProductContents());
+          Product.create(this.getProductContents());
           break;
         case 'Bryggkaffe':
-          Powder.create(this.getProductContents());
+          Product.create(this.getProductContents());
           break;
         case 'Kapslar':
-          Capsule.create(this.getProductContents());
+          Product.create(this.getProductContents());
           break;
       }
       return;
@@ -57,7 +57,7 @@ class Admin extends REST {
   change2(event) {
     if ($(event.target).hasClass('custom-control-input')) {
       this.selectedCategori = $("input:radio[name=radio]:checked").val();
-      this.changeType(this.selectedCategori);
+      this.changeType();
       return;
     }
   }
