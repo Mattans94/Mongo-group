@@ -172,4 +172,19 @@ class Admin extends REST {
     }
   }
 
+  makeStockList() {
+    const stockList = [];
+    this.app.beans.forEach((bean, index) => {
+      stockList.push(`
+      <tr>
+        <th scope="row">${index + 1}</th>
+        <td>${bean.name}</td>
+        <td>${bean.price}</td>
+        <td>${bean.stock}</td>
+      </tr>
+      `)
+    });
+    return stockList.join('');
+  }
+
 }

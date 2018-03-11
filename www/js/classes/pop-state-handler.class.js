@@ -60,6 +60,7 @@ class PopStateHandler {
       '/register': 'register',
       '/checkout': 'checkout',
       '/admin': 'admin',
+      '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
       '/admin/change': 'adminChange',
       '/admin/delete': 'adminDelete'
@@ -139,6 +140,11 @@ class PopStateHandler {
     $('main').empty();
     this.app.admin.render('main');
     this.app.admin.selectedCategori = '';
+  }
+
+  adminStock() {
+    $('main').empty();
+    this.app.admin.render('main', 5);
   }
 
   adminAdd(){
