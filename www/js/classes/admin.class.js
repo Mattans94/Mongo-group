@@ -21,7 +21,7 @@ class Admin extends REST {
         <option>3</option>
         <option>4</option>
       </select>
-        `);
+      `);
     }
   }
 
@@ -69,25 +69,28 @@ class Admin extends REST {
   }
   // End of functions in add-item-page
 
+  // Functions in change-item-page
   addChoice(categori) {
     $('#inputName').empty();
-    categori.forEach(item => {
-      $('#inputName').append(`<option>${item.name}</option>`);
+    categori.forEach((item) => {
+      $('#inputName').append(`<option>${item.app.name}</option>`);
     });
   }
 
   setCurrentItemValue(categori) {
     const currentItemName = $('#inputName').val();
     const currentItem = categori.find(item => {
-      return item.name === currentItemName;
+      return item.app.name === currentItemName;
     });
 
-    $('#inputPhoto').val(currentItem.image);
-    $('#inputDescription').val(currentItem.description);
-    $('#inputPrice').val(currentItem.price);
-    $('#inputQuantity').val(currentItem.quantity);
-    $('#inputFlavor').val(currentItem.flavor);
-    $('#inputCountry').val(currentItem.countryOfOrigin);
+    $('#inputPhoto').val(currentItem.app.image);
+    $('#inputDescription').val(currentItem.app.description);
+    $('#inputPrice').val(currentItem.app.price);
+    $('#inputQuantity').val(currentItem.app.quantity);
+    $('#inputFlavor').val(currentItem.app.flavor);
+    $('#inputCountry').val(currentItem.app.countryOfOrigin);
+    $('#inputStock').val(currentItem.app.stock);
+    $('#inputConnectType').val(`${currentItem.app.connectType}`);
   }
 
   click3(event) {
@@ -100,7 +103,7 @@ class Admin extends REST {
   change3(event) {
     if ($(event.target).hasClass('custom-control-input')) {
       this.selectedCategori = $("input:radio[name=radio]:checked").val();
-      this.changeType();
+      this.AddInputConnectType();
 
       switch (this.selectedCategori) {
         case 'Bönor':
@@ -134,4 +137,6 @@ class Admin extends REST {
       return;
     }
   }
+  // End of functions in change-item-page
+
 }
