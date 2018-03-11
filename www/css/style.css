@@ -208,7 +208,8 @@ h2 {
 /* End of fading transition */
 .product-page {
   background-color: #fff;
-  padding-top: 30px;
+  margin-top: 110px;
+  padding: 40px;
 }
 .product-page .card-btn {
   background-color: #4fbfa8;
@@ -217,6 +218,14 @@ h2 {
 .product-page .card-btn:hover {
   background-color: #3da892;
   border-color: #318675;
+}
+.product-page .card-img-top {
+  max-width: 150px;
+  max-height: 200px;
+}
+.product-page .card-holder {
+  height: 200px;
+  width: 200px;
 }
 .product-page .card-body {
   border: 1px solid #b5b0b08a;

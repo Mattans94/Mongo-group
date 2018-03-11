@@ -1,122 +1,122 @@
 [
-  {
-    "name": "Buena Vista",
-    "image": "buena-vista.jpg",
-    "description": "Buena Vista är ett fairtrademärkt och ekologiskt bryggkaffe. Det välbalanserade och mjukt rostade kaffet innehållande bönor av exceptionella kvaliteter. Härliga aromer och smaker från ursprungskaffena finns med och presenterar en pigg, söt och lite lätt fruktig kropp. Buena Vista är en blandning av specialkaffe som tilltalar de flesta.",
-    "price": 179,
-    "quantity": 500,
-    "flavor": "Frisk & Fruktig",
-    "countryOfOrigin": "Etiopien, Indonesiens Sumatra och Nicaragua",
-    "type": "Bryggkaffe"
-	},
-	{
-    "name": "Bourbon Jungle",
-    "image": "bourbon-jungle.jpg",
-    "description": "Bourbon Jungle är ett kraftfullt, bittersött och nästan lite rökigt kaffe med en lång eftersmak. Kaffeblandningen är en modern tolkning av en traditionell mörkrost. Ett kaffe där högkvalitativa bönor från flera olika världsdelar, trots en mörkare rostning, sätter tydlig prägel på blandningen.",
-    "price": 179,
-    "quantity": 500,
-    "flavor": "Kraftfull & Bittersöt",
-    "countryOfOrigin": "-",
-    "type": "Bryggkaffe"
-	},
-	{
-    "name": "Urban Juice",
-    "image": "urban-juice.jpg",
-    "description": "Urban Juice är en ekologiskt certifierad kusin till vårt otroligt populära kaffe Bourbon Jungle. Det är en garanterad stämningshöjare, både för munnen och samvetet. Kraftfullt, bittersött och nästan lite rökigt och med en lång eftersmak. Drick det till tiofikat, trefikat eller närsomhelst under arbetsdagen då du behöver en smakrik och uppiggande stund.",
-    "price": 179,
-    "quantity": 500,
-    "flavor": "Kraftfull & Bittersöt",
-    "countryOfOrigin": "-",
-    "type": "Bryggkaffe"
-	},
-	{
-    "name": "Kaffe Irish Cream",
-    "image": "irish-cream.jpg",
-    "description": "Ett mjukt kaffe smaksatt med krämig Baileys! När man är sötsugen men också kaffesugen, testa att kallbrygga eller servera med isbitar för en svalkande, uppiggande drink!",
-    "price": 69,
-    "quantity": 250,
-    "flavor": "Krämig & Söt",
-    "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
-    "type": "Bryggkaffe: 100% Arabica"
-	},
-	{
-    "name": "Kaffe Wiener",
-    "image": "wiener.jpg",
-    "description": "Ett mjukt kaffe smaksatt med smörkola och vanilj! När man är sötsugen men också kaffesugen, testa att kallbrygga eller servera med isbitar för en svalkande, uppiggande drink!",
-    "price": 69,
-    "quantity": 250,
-    "flavor": "Mjuk & Söt",
-    "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
-    "type": "Bryggkaffe: 100% Arabica"
-	},
-	{
-    "name": "Kaffe Valencia",
-    "image": "valencia.jpg",
-    "description": "Ett mjukt kaffe smaksatt med kakao och apelsin! När man är sötsugen men också kaffesugen, testa att kallbrygga eller servera med isbitar för en svalkande, uppiggande drink!",
-    "price": 69,
-    "quantity": 250,
-    "flavor": "Mjuk & Söt",
-    "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
-    "type": "Bryggkaffe: 100% Arabica"
-	},
-	{
-    "name": "Solo Kaffe La donna",
-    "image": "la-donna.jpg",
-    "description": "Oöverträffad balans för espressoälskaren. En smakupplevelse med kraftig karaktär, bittersötma och exklusiv aroma. Underbart tjock crema. Rostat med kärlek och passion av vår Italienska kaffemästare.",
-    "price": 139,
-    "quantity": 500,
-    "flavor": "Kraftig & Bittersöt",
-    "countryOfOrigin": "Sydamerika, Indien och Karibien",
-    "type": "Bryggkaffe: 60% Arabica 40% Robusta"
-	},
-	{
-    "name": "Passalacqua Mekico",
-    "image": "mekico.jpg",
-    "description": "Passalacqua Mekico är en traditionell napolitansk arabica-blandning för espressobruk. Blandningen innehåller 7 olika högklassiga arabicasorter. Ett fylligt och elegant kaffe med fin smak och blommighet.",
-    "price": 88,
-    "quantity": 250,
-    "flavor": "Elegant & Smakrik",
-    "countryOfOrigin": "Venezuela, Cuba, Etiopien och Indien",
-    "type": "Bryggkaffe: 100 % Arabica"
-	},
-	{
-    "name": "Helsingfors Kafferosteri Blend No 3",
-    "image": "blend-no3.jpg",
-    "description": "Helsingfors Kafferosteri Blend No 3 är en fyllig, mjuk och balanserad kaffeblandning. Helsingfors Kafferosteri använder sig av säsongens kaffen i sina blandningar. Smakprofilen hålls så lika som möjligt året runt.",
-    "price": 87,
-    "quantity": 250,
-    "flavor": "Fyllig & Mjuk",
-    "countryOfOrigin": "-",
-    "type": "Bryggkaffe"
-	},
-	{
-    "name": "Crema Ethiopia Sidamo",
-    "image": "ethiopia-sidamo.jpg",
-    "description": "Vi rostar kaffet från Sidamo i Etiopien aningen ljusare. Då kompletteras den fylliga och mjuka smaken med en stor citrusfruktig saftighet. Vi rekommenderar kaffet till presskanna, kaffebryggare och andra motsvarande redskap.",
-    "price": 82,
-    "quantity": 250,
-    "flavor": "Fyllig & Fruktig",
-    "countryOfOrigin": "Etiopien",
-    "type": "Bryggkaffe"
-	},
-	{
-    "name": "Lucaffé 100 % Arabica",
-    "image": "lucaffe-black.jpg",
-    "description": "Detta medelfylliga kaffe med trevlig sötma och en fin crema samt en lång, behaglig eftersmak. Det gräddiga och balanserade espressokaffet har också en fin lätt syrlighet",
-    "price": 96,
-    "quantity": 250,
-    "flavor": "Fyllig & Söt",
-    "countryOfOrigin": "Sydamerika, Asien och Afrika",
-    "type": "Bryggkaffe: 100 % Arabica"
-	},
-	{
-    "name": "Lucaffé Decaffeinato koffeinfritt",
-    "image": "lucaffe-silver.jpg",
-    "description": "Lucaffés koffeinfria alternativ rostas av de sötaste och krämigaste kaffesorterna. Målsättningen är att kunna erbjuda samma espressonjutning som de koffeinhaltiga alternativen. En mjuk och fyllig espresso.",
-    "price": 110,
-    "quantity": 250,
-    "flavor": "Söt & Krämig",
-    "countryOfOrigin": "Sydamerika, Asien och Afrika",
-    "type": "Bryggkaffe"
-  }
-]
+    {
+      "name": "Buena Vista",
+      "image": "buena-vista.jpg",
+      "description": "Buena Vista är ett fairtrademärkt och ekologiskt bryggkaffe. Det välbalanserade och mjukt rostade kaffet innehållande bönor av exceptionella kvaliteter. Härliga aromer och smaker från ursprungskaffena finns med och presenterar en pigg, söt och lite lätt fruktig kropp. Buena Vista är en blandning av specialkaffe som tilltalar de flesta.",
+      "price": 179,
+      "quantity": 500,
+      "flavor": "Frisk & Fruktig",
+      "countryOfOrigin": "Etiopien, Indonesiens Sumatra och Nicaragua",
+      "type": "Bryggkaffe"
+      },
+      {
+      "name": "Bourbon Jungle",
+      "image": "bourbon-jungle.jpg",
+      "description": "Bourbon Jungle är ett kraftfullt, bittersött och nästan lite rökigt kaffe med en lång eftersmak. Kaffeblandningen är en modern tolkning av en traditionell mörkrost. Ett kaffe där högkvalitativa bönor från flera olika världsdelar, trots en mörkare rostning, sätter tydlig prägel på blandningen.",
+      "price": 179,
+      "quantity": 500,
+      "flavor": "Kraftfull & Bittersöt",
+      "countryOfOrigin": "-",
+      "type": "Bryggkaffe"
+      },
+      {
+      "name": "Urban Juice",
+      "image": "urban-juice.jpg",
+      "description": "Urban Juice är en ekologiskt certifierad kusin till vårt otroligt populära kaffe Bourbon Jungle. Det är en garanterad stämningshöjare, både för munnen och samvetet. Kraftfullt, bittersött och nästan lite rökigt och med en lång eftersmak. Drick det till tiofikat, trefikat eller närsomhelst under arbetsdagen då du behöver en smakrik och uppiggande stund.",
+      "price": 179,
+      "quantity": 500,
+      "flavor": "Kraftfull & Bittersöt",
+      "countryOfOrigin": "-",
+      "type": "Bryggkaffe"
+      },
+      {
+      "name": "Kaffe Irish Cream",
+      "image": "irish-cream.jpg",
+      "description": "Ett mjukt kaffe smaksatt med krämig Baileys! När man är sötsugen men också kaffesugen, testa att kallbrygga eller servera med isbitar för en svalkande, uppiggande drink!",
+      "price": 69,
+      "quantity": 250,
+      "flavor": "Krämig & Söt",
+      "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
+      "type": "Bryggkaffe: 100% Arabica"
+      },
+      {
+      "name": "Kaffe Wiener",
+      "image": "wiener.jpg",
+      "description": "Ett mjukt kaffe smaksatt med smörkola och vanilj! När man är sötsugen men också kaffesugen, testa att kallbrygga eller servera med isbitar för en svalkande, uppiggande drink!",
+      "price": 69,
+      "quantity": 250,
+      "flavor": "Mjuk & Söt",
+      "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
+      "type": "Bryggkaffe: 100% Arabica"
+      },
+      {
+      "name": "Kaffe Valencia",
+      "image": "valencia.jpg",
+      "description": "Ett mjukt kaffe smaksatt med kakao och apelsin! När man är sötsugen men också kaffesugen, testa att kallbrygga eller servera med isbitar för en svalkande, uppiggande drink!",
+      "price": 69,
+      "quantity": 250,
+      "flavor": "Mjuk & Söt",
+      "countryOfOrigin": "Brasilien, Colombia, Guatemala, Indonesien",
+      "type": "Bryggkaffe: 100% Arabica"
+      },
+      {
+      "name": "Solo Kaffe La donna",
+      "image": "la-donna.jpg",
+      "description": "Oöverträffad balans för espressoälskaren. En smakupplevelse med kraftig karaktär, bittersötma och exklusiv aroma. Underbart tjock crema. Rostat med kärlek och passion av vår Italienska kaffemästare.",
+      "price": 139,
+      "quantity": 500,
+      "flavor": "Kraftig & Bittersöt",
+      "countryOfOrigin": "Sydamerika, Indien och Karibien",
+      "type": "Bryggkaffe: 60% Arabica 40% Robusta"
+      },
+      {
+      "name": "Passalacqua Mekico",
+      "image": "mekico.jpg",
+      "description": "Passalacqua Mekico är en traditionell napolitansk arabica-blandning för espressobruk. Blandningen innehåller 7 olika högklassiga arabicasorter. Ett fylligt och elegant kaffe med fin smak och blommighet.",
+      "price": 88,
+      "quantity": 250,
+      "flavor": "Elegant & Smakrik",
+      "countryOfOrigin": "Venezuela, Cuba, Etiopien och Indien",
+      "type": "Bryggkaffe: 100 % Arabica"
+      },
+      {
+      "name": "Helsingfors Kafferosteri Blend No 3",
+      "image": "blend-no3.jpg",
+      "description": "Helsingfors Kafferosteri Blend No 3 är en fyllig, mjuk och balanserad kaffeblandning. Helsingfors Kafferosteri använder sig av säsongens kaffen i sina blandningar. Smakprofilen hålls så lika som möjligt året runt.",
+      "price": 87,
+      "quantity": 250,
+      "flavor": "Fyllig & Mjuk",
+      "countryOfOrigin": "-",
+      "type": "Bryggkaffe"
+      },
+      {
+      "name": "Crema Ethiopia Sidamo",
+      "image": "ethiopia-sidamo.jpg",
+      "description": "Vi rostar kaffet från Sidamo i Etiopien aningen ljusare. Då kompletteras den fylliga och mjuka smaken med en stor citrusfruktig saftighet. Vi rekommenderar kaffet till presskanna, kaffebryggare och andra motsvarande redskap.",
+      "price": 82,
+      "quantity": 250,
+      "flavor": "Fyllig & Fruktig",
+      "countryOfOrigin": "Etiopien",
+      "type": "Bryggkaffe"
+      },
+      {
+      "name": "Lucaffé 100 % Arabica",
+      "image": "lucaffe-black.jpg",
+      "description": "Detta medelfylliga kaffe med trevlig sötma och en fin crema samt en lång, behaglig eftersmak. Det gräddiga och balanserade espressokaffet har också en fin lätt syrlighet",
+      "price": 96,
+      "quantity": 250,
+      "flavor": "Fyllig & Söt",
+      "countryOfOrigin": "Sydamerika, Asien och Afrika",
+      "type": "Bryggkaffe: 100 % Arabica"
+      },
+      {
+      "name": "Lucaffé Decaffeinato koffeinfritt",
+      "image": "lucaffe-silver.jpg",
+      "description": "Lucaffés koffeinfria alternativ rostas av de sötaste och krämigaste kaffesorterna. Målsättningen är att kunna erbjuda samma espressonjutning som de koffeinhaltiga alternativen. En mjuk och fyllig espresso.",
+      "price": 110,
+      "quantity": 250,
+      "flavor": "Söt & Krämig",
+      "countryOfOrigin": "Sydamerika, Asien och Afrika",
+      "type": "Bryggkaffe"
+    }
+  ]
