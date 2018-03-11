@@ -97,9 +97,22 @@ class Admin extends REST {
     $('#inputConnectType').val(`${currentItem.connectType}`);
   }
 
-  click3(event) {
+  async click3(event) {
     if ($(event.target).is('#change-btn')) {
       event.preventDefault();
+
+      let currentItem = await Product.find({name: $('#inputName').val()})
+      .then(result => {
+        return result[0];
+      });
+
+      // update current item by user input
+      currentItem = { ...currentItem, ...this.getProductContents()};
+      const product = new Product(currentItem);
+      product.save()
+      .then(() => {
+        this.app.updateProducts();
+      });
       return;
     }
   }
