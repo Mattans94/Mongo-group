@@ -14,13 +14,13 @@ class App extends REST {
     }
 
     async load(){
-      this.beans = await Product.find({ type: 'Bean'});
+      this.beans = await Bean.find({});
       console.log('Beans are', this.beans);
 
-      this.powders = await Product.find({ type: 'Powder'});
+      this.powders = await Powder.find({});
       console.log('Powders are', this.powders);
 
-      this.capsules = await Product.find({ type: 'Capsule'});
+      this.capsules = await Capsule.find({});
       console.log('Capsules are', this.capsules);
 
       this.tools = await Tool.find({});
