@@ -7,8 +7,7 @@
     "quantity": 500,
     "flavor": "Söt & Smakrik",
     "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 100% Arabica"
   },
   {
     "name": "Espresso Isola",
@@ -18,8 +17,7 @@
     "quantity": 500,
     "flavor": "Fyllig & Chokladig",
     "countryOfOrigin": "Brasilien Fazenda Sertao Yellow Bourbon, Indien Kelagur Estate AA, Nicaragua Royal, Etiopien Mudro Natural, Uganda Kaweri Plantation Robusta.",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 25% Robusta 75% Arabica"
   },
   {
     "name": "Espresso Verde",
@@ -29,8 +27,7 @@
     "quantity": 500,
     "flavor": "Kraftfull & Söt",
     "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 15% Robusta 85% Arabica"
   },
   {
     "name": "El Salvador Menendea",
@@ -40,8 +37,7 @@
     "quantity": 250,
     "flavor": "Mjuk & Finstämd",
     "countryOfOrigin": "El Salvador",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: Arabica"
   },
   {
     "name": "Brazil Fortaleza",
@@ -51,8 +47,7 @@
     "quantity": 250,
     "flavor": "Fyllig & Chokladig",
     "countryOfOrigin": "Brasilien",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 100% Arabica"
   },
   {
     "name": "Sumatra gayo",
@@ -62,8 +57,7 @@
     "quantity": 250,
     "flavor": "Piffig & Kryddig",
     "countryOfOrigin": "Indonesien",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 100% Arabica"
   },
   {
     "name": "Mauro Premium",
@@ -73,8 +67,7 @@
     "quantity": 1000,
     "flavor": "Chokladig & Kryddig",
     "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 50% Arabica, 50% Robusta"
   },
   {
     "name": "Mauro Centropercento",
@@ -84,8 +77,7 @@
     "quantity": 1000,
     "flavor": "Blommig & Fruktig",
     "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 100% Arabica"
   },
   {
     "name": "Mauro De Luxe",
@@ -95,8 +87,7 @@
     "quantity": 1000,
     "flavor": "Chokladig & Söt",
     "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 70% Arabica, 30% Robusta"
   },
   {
     "name": "Bourbon Jungle lösvikt",
@@ -106,8 +97,7 @@
     "quantity": 250,
     "flavor": "Bittersött & Lite rökigt",
     "countryOfOrigin": "Brasil Mogiana, Tanzania AA, Sumatra Old Brown Java, Sumatra Lintung, Monus Malabar",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 100% Arabica"
   },
   {
     "name": "Mocca Java Blend Lösvikt",
@@ -117,8 +107,7 @@
     "quantity": 250,
     "flavor": "Fyllig & Chokladig",
     "countryOfOrigin": "Indonesien, Etiopien, Sumatra, Rwanda",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 100% Arabica"
   },
   {
     "name": "Espresso Verde Lösvikt",
@@ -128,7 +117,6 @@
     "quantity": 250,
     "flavor": "Söt & Smakrik",
     "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
-    "type": "Bean",
-    "connectType": null
+    "type": "Bönor: 15% Robusta 85% Arabica"
   }
 ]

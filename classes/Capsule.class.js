@@ -1,16 +1,21 @@
 const Schema = require('mongoose').Schema;
 const ModelAndRoutes = require('./model-and-routes.class');
 
-module.exports = class Tool extends ModelAndRoutes {
+module.exports = class Capsule extends ModelAndRoutes {
 
   static get schema() {
     return {
       name: String,
       image: String,
-      type: Number,
-      capsules: [{
+      description: String,
+      price: Number,
+      quantity: Number,
+      flavor: String,
+      countryOfOrigin: String,
+      types: [Number],
+      tools: [{
         type: Schema.Types.ObjectId,
-        ref: 'Capsule'
+        ref: 'Tool'
       }]
     }
   }
