@@ -1,4 +1,4 @@
-class Admin extends REST {
+class Admin extends Base {
   constructor(app) {
     super();
     this.app = app;
