@@ -2,12 +2,12 @@ class Admin extends REST {
   constructor(app) {
     super();
     this.app = app;
-    this.selectedCategori = '';
+    this.selectedCategory = '';
   }
 
   // Common function in add-item and change-item pages
   AddInputConnectType() {
-    if (this.selectedCategori !== 'Kapslar') {
+    if (this.selectedCategory !== 'Capsule') {
       $('#type').empty();
     } else {
       $('#type').empty();
@@ -35,10 +35,20 @@ class Admin extends REST {
       quantity: parseInt($('#inputQuantity').val()),
       flavor: $('#inputFlavor').val(),
       countryOfOrigin: $('#inputCountry').val(),
-      type: this.selectedCategori,
+      type: this.selectedCategory,
       stock: parseInt($('#inputStock').val()),
       connectType: parseInt($('#inputConnectType').val())
     };
+  }
+
+  // Common function in add-item and change-item pages
+  getSelectedCategory(category) {
+    const categories = {
+      'Bönor': 'Bean',
+      'Bryggkaffe': 'Powder',
+      'Kapslar': 'Capsule'
+    }
+    return this.selectedCategory = categories[category];
   }
 
   click2(event) {
@@ -62,7 +72,7 @@ class Admin extends REST {
 
   change2(event) {
     if ($(event.target).hasClass('custom-control-input')) {
-      this.selectedCategori = $("input:radio[name=radio]:checked").val();
+      this.selectedCategory = this.getSelectedCategory($("input:radio[name=radio]:checked").val());
       this.AddInputConnectType();
       return;
     }
@@ -102,19 +112,19 @@ class Admin extends REST {
 
   change3(event) {
     if ($(event.target).hasClass('custom-control-input')) {
-      this.selectedCategori = $("input:radio[name=radio]:checked").val();
+      this.selectedCategory = this.getSelectedCategory($("input:radio[name=radio]:checked").val());
       this.AddInputConnectType();
 
-      switch (this.selectedCategori) {
-        case 'Bönor':
+      switch (this.selectedCategory) {
+        case 'Bean':
           this.addChoice(this.app.beans);
           this.setCurrentItemValue(this.app.beans);
           break;
-        case 'Bryggkaffe':
+        case 'Powder':
           this.addChoice(this.app.powders);
           this.setCurrentItemValue(this.app.powders);
           break;
-        case 'Kapslar':
+        case 'Capsule':
           this.addChoice(this.app.capsules);
           this.setCurrentItemValue(this.app.capsules);
           break;
@@ -123,14 +133,14 @@ class Admin extends REST {
     }
 
     if ($(event.target).is('#inputName')) {
-      switch (this.selectedCategori) {
-        case 'Bönor':
+      switch (this.selectedCategory) {
+        case 'Bean':
           this.setCurrentItemValue(this.app.beans);
           break;
-        case 'Bryggkaffe':
+        case 'Powder':
           this.setCurrentItemValue(this.app.powders);
           break;
-        case 'Kapslar':
+        case 'Capsule':
           this.setCurrentItemValue(this.app.capsules);
           break;
       }
