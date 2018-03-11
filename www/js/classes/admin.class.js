@@ -172,15 +172,30 @@ class Admin extends Base {
     }
   }
 
+  // Functions in stock-list-page
+  change5(event) {
+    if ($(event.target).hasClass('custom-control-input')) {
+      this.selectedCategory = this.getSelectedCategory($("input:radio[name=radio]:checked").val());
+      $('#stock-list').empty();
+      $('#stock-list').append(this.makeStockList());
+    }
+  }
+
   makeStockList() {
+    const categoryInstances = {
+      'Bean': this.app.beans,
+      'Powder': this.app.powders,
+      'Capsule': this.app.capsules
+    };
+
     const stockList = [];
-    this.app.beans.forEach((bean, index) => {
+    categoryInstances[this.selectedCategory].forEach((item, index) => {
       stockList.push(`
       <tr>
         <th scope="row">${index + 1}</th>
-        <td>${bean.name}</td>
-        <td>${bean.price}</td>
-        <td>${bean.stock}</td>
+        <td>${item.name}</td>
+        <td>${item.price}</td>
+        <td>${item.stock}</td>
       </tr>
       `)
     });
