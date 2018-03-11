@@ -156,4 +156,20 @@ class Admin extends REST {
   }
   // End of functions in change-item-page
 
+  // Functions in delete-item-page
+  async click4(event) {
+    if ($(event.target).is('#delete-btn')){
+      const currentItem = await Product.find({name: $('#inputName').val()})
+      .then(result => {
+        return result[0];
+      });
+      const product = new Product(currentItem);
+      product.delete()
+      .then(() => {
+        this.app.updateProducts();
+      });
+      return;
+    }
+  }
+
 }
