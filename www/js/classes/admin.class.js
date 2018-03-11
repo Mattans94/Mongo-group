@@ -51,21 +51,15 @@ class Admin extends REST {
     return this.selectedCategory = categories[category];
   }
 
+  // Functions in add-item-page
   click2(event) {
     if ($(event.target).is('#add-btn')) {
       event.preventDefault();
 
-      switch (this.selectedCategori) {
-        case 'Bönor':
-          Product.create(this.getProductContents());
-          break;
-        case 'Bryggkaffe':
-          Product.create(this.getProductContents());
-          break;
-        case 'Kapslar':
-          Product.create(this.getProductContents());
-          break;
-      }
+      Product.create(this.getProductContents())
+      .then(() => {
+        this.app.updateProducts();
+      });
       return;
     }
   }
