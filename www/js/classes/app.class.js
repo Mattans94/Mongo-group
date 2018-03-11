@@ -27,7 +27,19 @@ class App extends REST {
       console.log('Tools are', this.tools);
 
       this.start();
+    }
 
+    async updateProducts() {
+      const types = {
+        beans: 'Bean',
+        powders: 'Powder',
+        capsules: 'Capsule',
+        tools: 'Tool'
+      };
+
+      for (const key in types) {
+        this[key] = await Product.find({ type: types[key] });
+      }
     }
 
     start(){
