@@ -25,7 +25,7 @@ class Admin extends REST {
     }
   }
 
-  // Functions in add-item-page
+  // Common function in add-item and change-item pages
   getProductContents() {
     return {
       name: $('#inputName').val(),
