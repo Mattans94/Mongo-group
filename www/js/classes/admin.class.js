@@ -46,7 +46,8 @@ class Admin extends Base {
     const categories = {
       'Bönor': 'Bean',
       'Bryggkaffe': 'Powder',
-      'Kapslar': 'Capsule'
+      'Kapslar': 'Capsule',
+      'Alla': 'All'
     }
     return this.selectedCategory = categories[category];
   }
@@ -183,21 +184,24 @@ class Admin extends Base {
 
   makeStockList() {
     const categoryInstances = {
-      'Bean': this.app.beans,
-      'Powder': this.app.powders,
-      'Capsule': this.app.capsules
+      'Bean': [this.app.beans],
+      'Powder': [this.app.powders],
+      'Capsule': [this.app.capsules],
+      'All': [this.app.beans, this.app.powders, this.app.capsules]
     };
 
     const stockList = [];
-    categoryInstances[this.selectedCategory].forEach((item, index) => {
-      stockList.push(`
-      <tr>
-        <th scope="row">${index + 1}</th>
-        <td>${item.name}</td>
-        <td>${item.price}</td>
-        <td>${item.stock}</td>
-      </tr>
-      `)
+    categoryInstances[this.selectedCategory].forEach(products => {
+      products.forEach((item, index) => {
+        stockList.push(`
+        <tr>
+          <th scope="row">${item.type} ${index + 1}</th>
+          <td>${item.name}</td>
+          <td>${item.price}</td>
+          <td>${item.stock}</td>
+        </tr>
+        `)
+      });
     });
     return stockList.join('');
   }
