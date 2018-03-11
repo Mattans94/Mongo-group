@@ -5,6 +5,27 @@ class Admin extends REST {
     this.selectedCategori = '';
   }
 
+  // Common function in add-item and change-item pages
+  AddInputConnectType() {
+    if (this.selectedCategori !== 'Kapslar') {
+      $('#type').empty();
+    } else {
+      $('#type').empty();
+      $('#type').append(`
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="connectType">Compatibility</span>
+      </div>
+      <select id="inputConnectType" class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+        `);
+    }
+  }
+
+  // Functions in add-item-page
   getProductContents() {
     return {
       name: $('#inputName').val(),
@@ -14,25 +35,10 @@ class Admin extends REST {
       quantity: parseInt($('#inputQuantity').val()),
       flavor: $('#inputFlavor').val(),
       countryOfOrigin: $('#inputCountry').val(),
-      type: $('#inputType').val()
+      type: this.selectedCategori,
+      stock: parseInt($('#inputStock').val()),
+      connectType: parseInt($('#inputConnectType').val())
     };
-  }
-
-  changeType() {
-    if (this.selectedCategori !== 'Kapslar') {
-      $('#inputType').empty();
-      $('#inputType').append(`
-        <option>${this.selectedCategori}</option>
-        `);
-    } else {
-      $('#inputType').empty();
-      $('#inputType').append(`
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        `);
-    }
   }
 
   click2(event) {
@@ -57,10 +63,11 @@ class Admin extends REST {
   change2(event) {
     if ($(event.target).hasClass('custom-control-input')) {
       this.selectedCategori = $("input:radio[name=radio]:checked").val();
-      this.changeType();
+      this.AddInputConnectType();
       return;
     }
   }
+  // End of functions in add-item-page
 
   addChoice(categori) {
     $('#inputName').empty();
