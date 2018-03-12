@@ -23,6 +23,7 @@ Object.assign(Admin.prototype, { template5(){ return `
         </ul>
       </div>
       <div class="card-body">
+        <h5 class="my-4">Välja en categori</h5>
 
         <div class="mb-4">
           <div class="custom-control custom-radio custom-control-inline">
@@ -43,19 +44,21 @@ Object.assign(Admin.prototype, { template5(){ return `
           </div>
         </div>
         <div class="card-body">
-          <table class="table text-left">
-            <thead>
-              <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Stock</th>
-              </tr>
-            </thead>
-            <tbody id="stock-list">
-
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table text-left">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Namn</th>
+                  <th scope="col">Pris</th>
+                  <th scope="col">Lager</th>
+                </tr>
+              </thead>
+              <tbody id="stock-list">
+                <!-- Stock list rendered here -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
