@@ -1,19 +1,18 @@
 Object.assign(Capsule.prototype, { template(){ return `
 
 <div class="row product-page">
-	<div class="col-sm-9 d-flex justify-content-start">
-		<p class="font-weight-bold mr-3 category-text">Kategorier:</p>
+	<div class="col-12 col-md-9 d-flex justify-content-start">
+		<p class="font-weight-bold mr-3">Kategorier:</p>
 		<form class="d-flex justify-content-start flex-wrap">
-
 			<div class="form-check col-4 col-md-2 mr-0 mr-md-4 mr-lg-0">
 				<input type="checkbox" class="form-check-input" id="exampleCheck1">
 				<label class="form-check-label" for="exampleCheck1">Alla</label>
 			</div>
-			<div class="form-check col-4 col-md-2 mr-0 mr-sm-2 mr-md-5 mr-lg-5">
+			<div class="form-check col-4 col-md-2 mr-2 mr-sm-3 mr-md-5">
 				<input type="checkbox" class="form-check-input" id="exampleCheck2">
 				<label class="form-check-label" for="exampleCheck2">Kaffebönor</label>
 			</div>
-			<div class="form-check col-4 col-md-2 mr-0 mr-sm-3 mr-md-5 mr-lg-5">
+			<div class="form-check col-4 col-md-2 mr-5">
 				<input type="checkbox" class="form-check-input" id="exampleCheck3">
 				<label class="form-check-label" for="exampleCheck3">Bryggkaffe</label>
 			</div>
@@ -24,10 +23,10 @@ Object.assign(Capsule.prototype, { template(){ return `
 		</form>
 	</div>
 
-	<div class="col-sm-3 mb-4">
+	<div class="col-12 col-md-3 mb-4">
 		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle font-weight-bold float-sm-right float-left mt-3 mt-sm-5 mt-md-0" type="button"
-			 id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button class="btn btn-secondary dropdown-toggle font-weight-bold float-md-right float-left mt-3 mt-md-0" type="button" id="dropdownMenu2"
+			 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Sortering
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -40,8 +39,6 @@ Object.assign(Capsule.prototype, { template(){ return `
 	</div>
 
 	<!-- ${this.app.product.render('main', 2)} -->
-				
-
 
 </div>
 
