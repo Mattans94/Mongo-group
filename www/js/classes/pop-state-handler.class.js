@@ -54,7 +54,8 @@ class PopStateHandler {
     let urls = {
       '/': 'startsidan',
       '/produkter': 'produkter',
-      '/om_oss': 'omOss',
+      '/om_oss' : 'omOss',
+      '/info' : 'info',
       '/kopvillkor': 'conditions',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
@@ -95,7 +96,13 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
-  produkter() {
+  info(){
+    $('main').empty();
+    this.app.info.render('main');
+    console.log('Körs');
+  }
+
+  produkter(){
     $('main').empty();
     this.app.product.render('main');
     console.log('Körs');
