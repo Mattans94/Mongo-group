@@ -69,7 +69,6 @@ const save = async (json, modelName, extraKey = null) => {
 const productUpdate = async (savedProducts, savedTools) => {
   for (const savedProduct of savedProducts) {
     const matchedTypeTools = savedTools.filter(savedTool => savedTool.connectType === savedProduct.connectType);
-    console.log('machedTypeTools', matchedTypeTools)
     matchedTypeTools.forEach(tool => {
       savedProduct.tools.push(tool._id);
     });
