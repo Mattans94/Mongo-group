@@ -2,6 +2,15 @@ class ProductPage extends Base {
   constructor(app) {
     super();
     this.app = app;
+    $(window).on('scroll', () => this.scrolling());
+  }
+
+  click(event){
+    $(event.target).hasClass('toTop') && $(window).scrollTop(0);
+  }
+
+  scrolling() {
+    ($(window).scrollTop() > 500) ? $('.toTop').show() : $('.toTop').hide();
   }
 
   change(event) {

@@ -211,6 +211,16 @@ h2 {
   margin-top: 110px;
   padding: 40px;
 }
+.product-page .toTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 3.5rem;
+  color: #4fbfa8;
+  cursor: pointer;
+}
 .product-page .card-btn {
   background-color: #4fbfa8;
   border-color: #41b39c;
