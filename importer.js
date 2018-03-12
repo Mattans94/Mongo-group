@@ -33,9 +33,8 @@ const profileModel = new Profile(app).myModel;
 const models = {
   'product': productModel,
   'tool': toolModel,
-  'cart':cartModel,
-  'order':orderModel,
-  'profile':profileModel
+  'order': orderModel,
+  'profile': profileModel
 }
 
 // Save product's json files into mongoDB.
@@ -90,61 +89,66 @@ const toolUpdate = async (savedProducts, savedTools) => {
   }
 }
 
-// Fillin cart.profiles by toolModel, judged by the type in both capsule and tool
-const cartUpdate = async (savedCarts, savedProfiles) => {
-  for (const cart of savedCarts) {
-    cart.emails.forEach(email => {
-      const sameEmailProfiles = savedProfiles.filter(profile => profile.email === email);
-      sameEmailProfiles.forEach(profile => {
-        cart.profiles.push(profile._id);
-      });
-    });
-    await cart.save().then(item => {
-      console.log(`cart ${item.product} is updated!`);
-    });
-  };
-}
+// Fillin order.profiles by toolModel, judged by the type in both capsule and tool
+// const orderUpdate = async (savedOrders, savedProfiles) => {
+//   for (const order of savedOrders) {
+//     order.emails.forEach(email => {
+//       const sameEmailProfiles = savedProfiles.filter(profile => profile.email === email);
+//       sameEmailProfiles.forEach(profile => {
+//         order.profiles.push(profile._id);
+//       });
+//     });
+//     await order.save().then(item => {
+//       console.log(`order ${item.product} is updated!`);
+//     });
+//   };
+// }
 
-const profileUpdate = async (savedProfiles, savedCarts) => {
-  for (const profile of savedProfiles) {
-    savedCarts.forEach(cart => {
-      cart.emails.forEach(email => {
-        if (email === profile.email) {
-          profile.cart.push(cart._id);
-        }
-      });
-    });
-    await tool.save().then(item => {
-      console.log(`tool ${item.name} is updated!`);
-    });
-  };
+const orderUpdate = async (savedProfiles, savedOrders) => {
+  // for (const profile of savedProfiles) {
+  //   savedOrders.forEach(order => {
+  //     order.emails.forEach(email => {
+  //       if (email === profile.email) {
+  //         profile.order.push(order._id);
+  //       }
+  //     });
+  //   });
+
+  console.log("here I am!");
+  savedOrders[0].profile.push(savedProfiles[0]._id);
+  console.log("savedOrders[0]"+savedOrders[0]);
+  await savedOrders[0].save();
+  // await profile.save().then(item => {
+   console.log(`profile is updated!`);
+  // });
+  // };
 }
 
 
 const saveModels = () => {
   // Gather all objects of three json files
   const productsJson = [];
-  beansJson.forEach(bean => {productsJson.push(bean);});
-  powdersJson.forEach(powder => {productsJson.push(powder);});
-  capsulesJson.forEach(capsule => {productsJson.push(capsule);});
+  beansJson.forEach(bean => { productsJson.push(bean); });
+  powdersJson.forEach(powder => { productsJson.push(powder); });
+  capsulesJson.forEach(capsule => { productsJson.push(capsule); });
 
   let savedProducts;
   let savedTools;
-  let savedCarts;
+  let savedOrders;
   let savedProfiles;
 
   productModel.remove({}, () => {
     toolModel.remove({}, async () => {
       await save(productsJson, 'product', {
-          'tools': []
-        })
+        'tools': []
+      })
         .then(obj => {
           savedProducts = obj;
         });
 
       await save(toolsJson, 'tool', {
-          'capsules': []
-        })
+        'capsules': []
+      })
         .then(obj => {
           savedTools = obj;
         });
@@ -156,24 +160,24 @@ const saveModels = () => {
     });
   });
 
-  cartModel.remove({}, () => {
+  orderModel.remove({}, () => {
     profileModel.remove({}, async () => {
       let profile;
-      let cart;
-      await save(profileJson, 'profile', {'cart':[]})
-      .then(obj => {
-        savedProfiles = obj;
-      });
-      await save(cartJson, 'cart',{'profile':[]})
-      .then(obj => {
-        savedCarts = obj;
-        });    
+      let order;
+      await save(profileJson, 'profile', { 'order': [] })
+        .then(obj => {
+          savedProfiles = obj;
+        });
+      await save(orderJson, 'order', { 'profile': [] })
+        .then(obj => {
+          savedOrders = obj;
+        });
       // profile[0].cart.push(cart[0]._id);
       // cart[0].profile.push(profile[0]._id);
       // await profile[0].save();
       // await cart[0].save();
-      await cartUpdate(savedCarts, savedProfiles);
-      await profileUpdate(savedProfiles, savedCarts);
+      await orderUpdate(savedProfiles, savedOrders);
+      // await profileUpdate(savedProfiles, savedOrders);
       process.exit();
     });
   });

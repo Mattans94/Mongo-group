@@ -26,8 +26,8 @@ class App extends REST {
         this.tools = await Tool.find({});
         console.log('Tools are', this.tools);
 
-        this.carts = await Cart.find({});
-        console.log('Shopping Carts', this.carts);
+        // this.carts = await Cart.find({});
+        // console.log('Shopping Carts', this.carts);
 
         this.profiles = await Profile.find({});
         console.log('Profiles', this.profiles);
@@ -47,7 +47,7 @@ class App extends REST {
         this.conditions = new Conditions();
         this.cart = new Cart(this.rest, this.profile);
         this.admin = new Admin(this);
-        this.order = new Order(this);
+        this.checkout = new Checkout(this);
         this.popState = new PopStateHandler(this);
     }
 }

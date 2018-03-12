@@ -130,8 +130,8 @@ class PopStateHandler {
 
   checkout(){
     $('main').empty();
-    this.app.order.render('main', 'CheckOut');
-    this.app.order.render('.stepBox','Address');
+    this.app.checkout.render('main', 'CheckOut');
+    this.app.checkout.render('.stepBox','Address');
     this.app.cart.renderTotalPriceWithVAT();
   }
 
