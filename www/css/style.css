@@ -221,17 +221,18 @@ h2 {
 }
 .product-page .card-img-top {
   max-width: 150px;
-  max-height: 200px;
+  max-height: 180px;
 }
 .product-page .card-holder {
   height: 200px;
   width: 200px;
 }
-.product-page .card-body {
-  border: 1px solid #b5b0b08a;
+.product-page .card {
+  height: 100%;
 }
 .product-page .card-footer {
   background-color: unset;
+  border-top: none;
 }
 .product-page .dropdown-menu {
   font-size: .9rem;
@@ -244,14 +245,6 @@ h2 {
 }
 .product-page .custom-control-label::before {
   border: 1px solid #6c757d80;
-}
-.product-page .category-text {
-  display: none;
-}
-@media only screen and (min-width: 576px) {
-  .product-page .category-text {
-    display: block;
-  }
 }
 .product-page h5 a {
   color: #000;
