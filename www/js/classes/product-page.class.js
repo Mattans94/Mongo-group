@@ -9,10 +9,8 @@ class ProductPage extends Base {
       const selectedCategories = [];
       const checkedElements = $('input[name="check"]');
       for(let i = 0 ; i < checkedElements.length ; i++){
-        console.log(checkedElements);
         (checkedElements[i].checked == true) && selectedCategories.push(checkedElements[i].value);
       }
-
       this.makeCards(selectedCategories);
     }
   }
@@ -34,21 +32,21 @@ class ProductPage extends Base {
               <div class="card mb-3">
                 <div class="card-holder rounded mx-auto d-block">
                   <a href="#">
-                    <img class="card-img-top rounded mx-auto d-block mt-4" src="/imgs/${item.app.type}/${item.app.image}" alt="Card image cap">
+                    <img class="card-img-top rounded mx-auto d-block mt-4" src="/imgs/${item.type}/${item.image}" alt="Card image cap">
                   </a>
                 </div>
                 <div class="card-body pb-0 mt-1">
                   <div class="title-holder rounded mx-auto d-block">
                     <h5 class="card-title">
-                      <a href="#">${item.app.name}</a>
+                      <a href="#">${item.name}</a>
                     </h5>
                   </div>
-                  <p class="card-text description">${item.app.description}
+                  <p class="card-text description">${item.description}
                   </p>
                 </div>
                 <div class="card-footer d-flex justify-content-around px-0">
                   <div>
-                    <p class="float-left font-weight-bold ml-sm-3 mt-2">${item.app.price} kr</p>
+                    <p class="float-left font-weight-bold ml-sm-3 mt-2">${item.price} kr</p>
                   </div>
                   <div class="ml-3">
                     <a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
