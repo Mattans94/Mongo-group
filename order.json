@@ -1,0 +1,19 @@
+[
+    {
+        "orderNumber":10000001,
+        "product": "coffee bean",
+        "img": "",
+        "quantity": 1,
+        "unitPrice": 50,
+        "total": 50,
+        "vat": 12.5,
+        "shippingMethod": "POSTEN",
+        "shippingFee": 49,
+        "paymentMethod": "Card",
+        "cardNumber": 1234567890,
+        "cardMonth": "01",
+        "cardYear": 2019,
+        "cvCode": 123,
+        "profile": "Test"
+    }
+]

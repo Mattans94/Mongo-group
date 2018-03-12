@@ -1,0 +1,3 @@
+class Bean extends REST {
+
+}

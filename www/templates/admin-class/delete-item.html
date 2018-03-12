@@ -1,0 +1,47 @@
+Object.assign(Admin.prototype, { template4(){ return `
+
+<div class="row admin">
+  <div class="col-12">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin">Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/add">Addera</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/change">Ändra</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop active" href="/admin/delete">Ta bort</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <h5 class="py-5">Fyll i prudukt namn och välja en categori</h5>
+
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="name" class="form-control" id="inputName" placeholder="Ange produkt namn">
+            </div>
+            <div class="form-group col-md-6">
+              <select id="inputType" class="form-control">
+                <option selected>Bönor</option>
+                <option>Bryggkaffe</option>
+                <option>Kapslar</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-lg mt-5">Ta bort</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+`;}});

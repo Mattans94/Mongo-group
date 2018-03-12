@@ -1,0 +1,18 @@
+class Footer extends REST{
+	constructor(){
+		super();
+		Footer.footerFix();
+		this.fixOnResize();
+	}
+
+	static footerFix(){
+    let height = $('footer').outerHeight() + 280;
+    $('body').css({marginBottom: height});
+  }
+
+  fixOnResize(){
+    $(window).on('resize',function(){
+      Footer.footerFix();
+    });
+  }
+}

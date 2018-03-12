@@ -1,0 +1,37 @@
+Object.assign(Profile.prototype, {templatelogin(){ return `
+<div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-index" role="document">
+        <div class="modal-content " id="content">
+            <div class="modal-header">
+             
+                <h4 class="modal-title " id="Login">Logga in</h4>
+                <button type="button" class="close float-fight" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
+            </div>
+            <div class="modal-body">
+                <form class="mb-4" id="loginForm">
+                    <div class="form-group">
+                        <input type="email" class="form-control lginEmail" aria-describedby="emailHelp" placeholder="Ange mailadress">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control lgPass" id="exampleInputPassword1" placeholder="Ange lösenord">
+                    </div>
+                    <p class="text-center">
+                        <button class="btn btn-next pop lgin">
+                            <i class="fa fa-sign-in"></i> Logga in</button>
+                    </p>
+                </form>
+                <small class="loginFail text-danger d-none">Kontrollera mailadress och lösenord!</small> 
+                <p class="text-center text-muted"> Ny kund?</p>
+                <p class="text-center text-muted">
+                    <a href="/register">
+                        <strong>Registrera ny användare</strong></a>! 
+                        Det är enkelt och tar 1 minut och ger dig tillgång till specialrabatter och mycket mer!</p>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+`; }});

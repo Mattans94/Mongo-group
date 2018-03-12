@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Espresso Bella",
+    "image": "espresso-bella.jpg",
+    "description": "Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna baristan blir rikligt belönad.",
+    "price": 139,
+    "quantity": 500,
+    "flavor": "Söt & Smakrik",
+    "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Espresso Isola",
+    "image": "espresso-isola.jpg",
+    "description": "En harmonisk blandning som de flesta associerar med en tydlig smak av choklad. Man hittar också en touch av karamelliserad frukt och i eftersmaken toner av bittermandel. Isola är en storsäljare i espressosortimentet och en favorit med sin klassiska men ändå spännande smak. Ett kaffe som tilltalar alla, från den kräsne espressoälskaren till den lattedrickande storstadshipstern.",
+    "price": 139,
+    "quantity": 500,
+    "flavor": "Fyllig & Chokladig",
+    "countryOfOrigin": "Brasilien Fazenda Sertao Yellow Bourbon, Indien Kelagur Estate AA, Nicaragua Royal, Etiopien Mudro Natural, Uganda Kaweri Plantation Robusta.",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Espresso Verde",
+    "image": "espresso-verde.jpg",
+    "description": "Verde är en ekologisk espresso, med kaffebönor från 100% ekologiskt certifierade kaffegårdar. Smakrik, krämig och med ett fint bett i eftersmaken. Med sin fina fyllighet och avvägda fruktsyra är den även perfekt med mjölk.",
+    "price": 139,
+    "quantity": 500,
+    "flavor": "Kraftfull & Söt",
+    "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "El Salvador Menendea",
+    "image": "el-salvador-menendez.png",
+    "description": "Detta Kaffe är till karaktären krämigt och sött med toner av mjölkchoklad. Eftersmaken påminner om karamell. Ett rasande elegant kaffe med karaktär som är omedelbart intagande. Drick det gärna som espresso eller som bistro/brygg/Aeropress.",
+    "price": 69,
+    "quantity": 250,
+    "flavor": "Mjuk & Finstämd",
+    "countryOfOrigin": "El Salvador",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Brazil Fortaleza",
+    "image": "brazil-fortaleza.png",
+    "description": "Brazil Fortaleza är exceptionellt balanserat kaffe med tydliga toner av choklad, hasselnöt och karamell. Detta är mellanrostade kaffebönor och är ett kaffe som passar bra som espresso, Aeropress och brygg!",
+    "price": 69,
+    "quantity": 250,
+    "flavor": "Fyllig & Chokladig",
+    "countryOfOrigin": "Brasilien",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Sumatra gayo",
+    "image": "sumatra-gayo.png",
+    "description": "Nobelkaffet 2012-2016! Sumatra Gayo är känt för sina mustiga aromer av kryddor, örter och färska fikon. Kaffet är påfallande fylligt, välbalanserat och har en mild mjukhet i avslutning. Kaffet är fairtrade- och ekologiskt certifierat.",
+    "price": 79,
+    "quantity": 250,
+    "flavor": "Piffig & Kryddig",
+    "countryOfOrigin": "Indonesien",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Mauro Premium",
+    "image": "mauro-premium.jpg",
+    "description": "En klassisk, italiensk espressoblandning med hälften Robustabönor och hälften Arabica. Smaken är intensiv och mustig, tonerna går åt en kryddig, karaktär med en underliggande, chokladig sötma. Robustan ger en fyllig crema och en lång, härlig eftersmak.",
+    "price": 329,
+    "quantity": 1000,
+    "flavor": "Chokladig & Kryddig",
+    "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Mauro Centropercento",
+    "image": "mauro-centropercento.png",
+    "description": "En blommigt fruktig espresso på 100% Arabica, den har dessutom aningens lägre koffeinhalt som gör den extra lämplig för känsliga magar och kvällstid. De kvalitativa bönorna ger en underbart blommig smakupplevelse som ligger kvar i munnen långt efter att koppen är tom. Den är också gjord för att passa lika bra som espresso som pressmalet, testa vilken bryggmetod som blir din favorit!",
+    "price": 329,
+    "quantity": 1000,
+    "flavor": "Blommig & Fruktig",
+    "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Mauro De Luxe",
+    "image": "mauro-de-luxe.jpg",
+    "description": "En riktig favorit från Mauro! En mumsig, fyllig espressoblandning med 30% Robustabönor som lämpar sig lika väl till ren som blandad med mjölk. Smaken är söt och balanserad med tydliga kakaotoner och  underliggande blommighet.",
+    "price": 329,
+    "quantity": 1000,
+    "flavor": "Chokladig & Söt",
+    "countryOfOrigin": "Brasilien, Guatemala, Costa Rica, Nicaragua, Colombia, Venezuela, Indien, Thailand, Malaysia, Indonesien",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Bourbon Jungle lösvikt",
+    "image": "bourbon-jungle-losvikt.jpg",
+    "description": "Bakgrunden till denna blandning var att vi längtade efter ett riktigt mörkrostat kaffe som innehåller högkvalitativa bönor som - trots den mörka rostningen - har kvar de flesta av sina aromer. Kaffet har en rundhet samtidigt som det är bittersött, nästan lite rökigt. Eftersmaken är kraftig och lång med rökiga toner. Drick det gärna i presskanna, eller varför inte som espresso eller mocka.",
+    "price": 63,
+    "quantity": 250,
+    "flavor": "Bittersött & Lite rökigt",
+    "countryOfOrigin": "Brasil Mogiana, Tanzania AA, Sumatra Old Brown Java, Sumatra Lintung, Monus Malabar",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Mocca Java Blend Lösvikt",
+    "image": "moca-java.png",
+    "description": "Mocha Java består av en perfekt avvägning av bönor som kombinerar fylligheten från Java, chokladtoner från Jemen och den friska örtigheten från Etiopien. Det räcker med att insupa den rika aromen från detta kaffe för att förstå varför denna blandning har överlevt i över 400 år.",
+    "price": 70,
+    "quantity": 250,
+    "flavor": "Fyllig & Chokladig",
+    "countryOfOrigin": "Indonesien, Etiopien, Sumatra, Rwanda",
+    "type": "Bean",
+    "connectType": null
+  },
+  {
+    "name": "Espresso Verde Lösvikt",
+    "image": "verde-losvikt.jpg",
+    "description": "En ekologisk espresso med mustiga, jordiga toner och chokladkaraktär. Smakrik och krämig ekologiskt odlad espresso med fint bett i eftersmaken. Ger en söt, mjuk och kraftfull kick. Underbar både som ren espresso eller blandat med mjölk.",
+    "price": 80,
+    "quantity": 250,
+    "flavor": "Söt & Smakrik",
+    "countryOfOrigin": "Brasilien Yellow Bourbon, Nicaragua Royal, El Salvador Finca Rosario, Etiopien Mudro Natural",
+    "type": "Bean",
+    "connectType": null
+  }
+]

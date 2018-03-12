@@ -1,8 +1,7 @@
 class PopStateHandler {
 
   // Note: Only instantiate PopStateHandler once!
-  constructor(app){
-
+  constructor(app) {
     this.app = app;
     // Add event handlers for a.pop-links once
     this.addEventHandler();
@@ -16,13 +15,13 @@ class PopStateHandler {
 
   }
 
-  addEventHandler(){
+  addEventHandler() {
 
     // make "that" the PopStateHandler object
     // (since this will be the a tag inside the click function)
     let that = this;
 
-    $(document).on('click','a.pop',function(e){
+    $(document).on('click', 'a.pop', function (e) {
 
       // Create a push state event
       let href = $(this).attr('href');
@@ -37,7 +36,7 @@ class PopStateHandler {
     });
   }
 
-   changePage(){
+  changePage() {
     // React on page changed
     // (replace part of the DOM etc.)
 
@@ -52,19 +51,16 @@ class PopStateHandler {
     // on which url
     let urls = {
       '/': 'startsidan',
-      '/biljetter': 'biljetter',
-      '/om_oss': 'OmOss',
-      '/filmer': 'calendar',
-      '/mina_sidor': 'userPage',
-      '/film/The_Martian': 'filmInfo',
-      '/film/Call_Me_by_Your_Name': 'filmInfo',
-      '/film/Star_Wars:_The_Last_Jedi': 'filmInfo',
-      '/film/Thor:_Ragnarok': 'filmInfo',
-      '/film/Interstellar': 'filmInfo',
-      '/film/The_Incredibles': 'filmInfo',
-      '/film/Downsizing': 'filmInfo',
-      '/film/Three_Billboards_Outside_Ebbing,_Missouri': 'filmInfo',
-      '/mina_sidor': 'userPage'
+      '/produkter': 'produkter',
+      '/om_oss': 'omOss',
+      '/kopvillkor': 'conditions',
+      '/shoppingCart': 'shoppingCart',
+      '/register': 'register',
+      '/checkout': 'checkout',
+      '/admin': 'admin',
+      '/admin/add': 'adminAdd',
+      '/admin/change': 'adminChange',
+      '/admin/delete': 'adminDelete'
     };
 
     // Call the right method
@@ -74,8 +70,8 @@ class PopStateHandler {
     // Set the right menu item active
     this.app.navbar.setActive(url);
 
-    //Render correct navbar depending if you're logged in or not
-    window.onload = () => this.renderCorrectNav();
+    //Render navbar
+    this.renderNav();
 
     //Scroll to top of page
     window.scrollTo(0, 0);
@@ -83,83 +79,82 @@ class PopStateHandler {
 
   }
 
-  startsidan(){
-    $('title').text('Filmvisarna');
-    $('.karusell').empty();
-    $('main').empty();
-    this.app.startsidan.render('.karusell', '2');
-    this.app.startsidan.render('main');
-    this.app.startsidan.callCarousel();
+  renderNav() {
+    $('header').empty();
+    this.app.navbar.render('header');
   }
 
-  filmInfo(){
-    let url = location.pathname;
-    let numbers = {
-      '/film/The_Martian': 0,
-      '/film/Call_Me_by_Your_Name': 1,
-      '/film/Star_Wars:_The_Last_Jedi': 2,
-      '/film/Thor:_Ragnarok': 3,
-      '/film/Interstellar': 4,
-      '/film/The_Incredibles': 5,
-      '/film/Downsizing': 6,
-      '/film/Three_Billboards_Outside_Ebbing,_Missouri': 7
-    };
-    $('.karusell').empty();
+  startsidan() {
+    $('title').text('CoffeeDB');
     $('main').empty();
-    $('#booking-modal').remove();
-    $(document).on("hidden.bs.modal", "#booking-modal", () => {
-      $('div.modal-backdrop').remove();
-    });
-    this.app.movies[numbers[url]].render('main','3');
-    $('title').text($('h2').text()+ ' - Filmvisarna');
+    this.app.startsida.render('main');
+    this.app.startsida.render('.carousel-container', 2); // Carousel
+    this.app.startsida.render('.card-container', 3); // Cards
+    this.app.startsida.callCarousel();
   }
 
-  biljetter(){
-    $('.karusell').empty();
+  produkter() {
     $('main').empty();
-    this.app.biljetter.render('main');
-    $('title').text('Biljetter - Filmvisarna');
+    this.app.product.render('main');
   }
 
-  OmOss(){
+  omOss() {
     $('.karusell').empty();
     $('main').empty();
     this.app.omOss.render('main');
-    $('title').text('Om oss - Filmvisarna');
+    $('title').text('Om oss');
   }
 
-  calendar(){
+  conditions() {
     $('.karusell').empty();
     $('main').empty();
-    this.app.startsidan.render('.karusell', '2');
-    $('title').text('Filmer - Filmvisarna');
-    this.app.filmer.render('main');
-    this.app.startsidan.callCarousel();
+    this.app.conditions.render('main');
+    $('title').text('Köpvillkor');
   }
 
-  async userPage(){
-    //Need to check if user is logged in, else the user
-    //can type /mina_sidor into the url
-    if(await this.app.userPage.isLoggedIn()){
-      $('.karusell').empty();
-      this.app.userPage.filterOrdersByDate(); //Run method that gets all orders the user have done
-    } else{
-      this.startsidan();
-      $('.access-denied-modal').modal('show');
-      setTimeout(() => {
-        $('.access-denied-modal').modal('hide');
-      }, 3000);
-    }
+  shoppingCart() {
+    $('main').empty();
+    this.app.cart.render('main', 'Basket');
+    this.app.cart.renderShoppingList();
+    this.app.cart.renderTotalPriceWithVAT();
   }
 
-  async renderCorrectNav(){
-    if(await this.app.userPage.isLoggedIn()){
-      $('header').empty();
-      this.app.navbar.render('header', '2');
-    } else if(!(await this.app.userPage.isLoggedIn())) {
-      $('header').empty();
-      await this.app.navbar.render('header')
-    }
+  register() {
+    $('main').empty();
+    this.app.profile.render('main', 'Register');
+
   }
+
+  checkout() {
+    $('main').empty();
+    this.app.cart.render('main', 'CheckOut');
+    this.app.cart.renderTotalPriceWithVAT();
+    this.app.profile.render('.stepBox', 'Address');
+  }
+
+  admin() {
+    $('main').empty();
+    this.app.admin.render('main');
+    this.app.admin.selectedCategori = '';
+  }
+
+  adminAdd() {
+    $('main').empty();
+    this.app.admin.render('main', 2);
+    this.app.admin.selectedCategori = '';
+  }
+
+  adminChange() {
+    $('main').empty();
+    this.app.admin.render('main', 3);
+    this.app.admin.selectedCategori = '';
+  }
+
+  adminDelete() {
+    $('main').empty();
+    this.app.admin.render('main', 4);
+    this.app.admin.selectedCategori = '';
+  }
+
 
 }
