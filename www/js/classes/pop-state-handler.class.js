@@ -12,7 +12,6 @@ class PopStateHandler {
     // from an arrow function to keep "this"
     // inside changePage pointing to the PopStateHandler object
     window.addEventListener('popstate', () => this.changePage());
-    console.log("1111");
 
   }
 
@@ -43,7 +42,6 @@ class PopStateHandler {
 
     // Get the current url
     let url = location.pathname;
-    console.log(url);
 
     // Change which menu link that is active
     $('header a').removeClass('active');
@@ -98,7 +96,6 @@ class PopStateHandler {
   produkter() {
     $('main').empty();
     this.app.product.render('main');
-    console.log('Körs');
   }
 
   omOss() {
