@@ -1,5 +1,5 @@
 class Login extends REST{
-    constructor{
+    constructor(){
         super();
     }
 }
