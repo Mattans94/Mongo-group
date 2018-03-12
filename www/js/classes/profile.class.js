@@ -1,4 +1,5 @@
-class Profile extends REST {
+//Profile class only use for render and get, set 
+class Profile extends Base {
     constructor(rest, cart) {
         super();
         this.rest=rest;

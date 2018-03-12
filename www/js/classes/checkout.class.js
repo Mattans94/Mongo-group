@@ -1,3 +1,4 @@
+//Checkout class only used to render templates and get set all the variables
 class Checkout extends Base {
     constructor(app) {
         super();
