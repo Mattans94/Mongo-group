@@ -4,7 +4,6 @@ const capsulesJson = require('./capsules.json');
 const toolsJson = require('./tools.json');
 const profileJson = require('./profile.json');//login information and orders
 const orderJson = require('./order.json');//all orders
-const cartJson = require('./cart.json');//shopping cart can use cookies
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
