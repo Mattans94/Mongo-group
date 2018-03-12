@@ -98,7 +98,7 @@ class PopStateHandler {
 
   produkter() {
     $('main').empty();
-    this.app.product.render('main');
+    this.app.productPage.render('main');
     console.log('Körs');
   }
 

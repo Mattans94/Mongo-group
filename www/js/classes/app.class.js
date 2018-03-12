@@ -53,7 +53,7 @@ class App extends REST {
 
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
-      this.product = new Product(this);
+      this.productPage = new ProductPage(this);
       this.profile = new Profile();
       this.omOss = new OmOss(this);
       this.conditions = new Conditions();
