@@ -7,10 +7,11 @@ module.exports = class Tool extends ModelAndRoutes {
     return {
       name: String,
       image: String,
-      type: Number,
+      type: String,
+      connectType: Number,
       capsules: [{
         type: Schema.Types.ObjectId,
-        ref: 'Capsule'
+        ref: 'Product'
       }]
     }
   }
