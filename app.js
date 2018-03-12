@@ -7,17 +7,13 @@ app.use(bodyParser.json()) // needed to post json
 app.use(express.static('www'));
 app.use(flexjson);
 
-const Bean = require('./classes/Bean.class');
-const Powder = require('./classes/Powder.class');
-const Capsule = require('./classes/Capsule.class');
+const Product = require('./classes/Product.class');
 const Tool = require('./classes/Tool.class');
 const Cart = require('./classes/Cart.class');
 const Profile = require('./classes/Profile.class');
 const Order = require('./classes/Order.class');
 
-const bean = new Bean(app);
-const powder = new Powder(app);
-const capsule = new Capsule(app);
+const product = new Product(app);
 const tool = new Tool(app);
 const cart = new Cart(app);
 const profile = new Profile(app);

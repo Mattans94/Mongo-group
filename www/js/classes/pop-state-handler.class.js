@@ -1,7 +1,7 @@
 class PopStateHandler {
 
   // Note: Only instantiate PopStateHandler once!
-  constructor(app){
+  constructor(app) {
     this.app = app;
     // Add event handlers for a.pop-links once
     this.addEventHandler();
@@ -16,13 +16,13 @@ class PopStateHandler {
 
   }
 
-  addEventHandler(){
+  addEventHandler() {
 
     // make "that" the PopStateHandler object
     // (since this will be the a tag inside the click function)
     let that = this;
 
-    $(document).on('click','a.pop',function(e){
+    $(document).on('click', 'a.pop', function (e) {
 
       // Create a push state event
       let href = $(this).attr('href');
@@ -37,7 +37,7 @@ class PopStateHandler {
     });
   }
 
-   changePage(){
+  changePage() {
     // React on page changed
     // (replace part of the DOM etc.)
 
@@ -54,12 +54,13 @@ class PopStateHandler {
     let urls = {
       '/': 'startsidan',
       '/produkter': 'produkter',
-      '/om_oss' : 'omOss',
+      '/om_oss': 'omOss',
       '/kopvillkor': 'conditions',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
       '/admin': 'admin',
+      '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
       '/admin/change': 'adminChange',
       '/admin/delete': 'adminDelete'
@@ -81,12 +82,12 @@ class PopStateHandler {
 
   }
 
-  renderNav(){
+  renderNav() {
     $('header').empty();
     this.app.navbar.render('header');
   }
 
-  startsidan(){
+  startsidan() {
     $('title').text('CoffeeDB');
     $('main').empty();
     this.app.startsida.render('main');
@@ -95,27 +96,27 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
-  produkter(){
+  produkter() {
     $('main').empty();
     this.app.product.render('main');
     console.log('Körs');
   }
 
-  omOss(){
+  omOss() {
     $('.karusell').empty();
     $('main').empty();
     this.app.omOss.render('main');
     $('title').text('Om oss');
   }
 
-  conditions(){
+  conditions() {
     $('.karusell').empty();
     $('main').empty();
     this.app.conditions.render('main');
     $('title').text('Köpvillkor');
   }
 
-  shoppingCart(){
+  shoppingCart() {
     $('main').empty();
     this.app.cart.render('main', 'Basket');
     this.app.cart.renderShoppingList();
@@ -123,37 +124,47 @@ class PopStateHandler {
     this.app.cart.renderCartContent();
   }
 
-  register(){
+  register() {
     $('main').empty();
     this.app.profile.render('main', 'Register');
 
   }
 
-  checkout(){
+  checkout() {
     $('main').empty();
     this.app.cart.render('main', 'CheckOut');
     this.app.cart.renderTotalPriceWithVAT();
-    this.app.profile.render('.stepBox','Address');
+    this.app.profile.render('.stepBox', 'Address');
   }
 
-  admin(){
+  admin() {
     $('main').empty();
     this.app.admin.render('main');
+    this.app.admin.selectedCategory = '';
   }
 
-  adminAdd(){
+  adminStock() {
+    $('main').empty();
+    this.app.admin.render('main', 5);
+    this.app.admin.selectedCategory = '';
+  }
+
+  adminAdd() {
     $('main').empty();
     this.app.admin.render('main', 2);
+    this.app.admin.selectedCategory = '';
   }
 
-  adminChange(){
+  adminChange() {
     $('main').empty();
     this.app.admin.render('main', 3);
+    this.app.admin.selectedCategory = '';
   }
 
-  adminDelete(){
+  adminDelete() {
     $('main').empty();
     this.app.admin.render('main', 4);
+    this.app.admin.selectedCategory = '';
   }
 
 

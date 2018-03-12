@@ -14,22 +14,32 @@ class App extends REST {
     }
 
     async load(){
-      // await JSON._classes('Product');
-      await this.start();
-
-      this.beans = await Bean.find({});
+      this.beans = await Product.find({ type: 'Bean'});
       console.log('Beans are', this.beans);
 
-      this.powders = await Powder.find({});
+      this.powders = await Product.find({ type: 'Powder'});
       console.log('Powders are', this.powders);
 
-      this.capsules = await Capsule.find({});
+      this.capsules = await Product.find({ type: 'Capsule'});
       console.log('Capsules are', this.capsules);
 
       this.tools = await Tool.find({});
       console.log('Tools are', this.tools);
 
+      this.start();
+    }
 
+    async updateProducts() {
+      const types = {
+        beans: 'Bean',
+        powders: 'Powder',
+        capsules: 'Capsule',
+        tools: 'Tool'
+      };
+
+      for (const key in types) {
+        this[key] = await Product.find({ type: types[key] });
+      }
     }
 
     async start(){
