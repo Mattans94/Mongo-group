@@ -14,6 +14,8 @@ class App extends REST {
     }
 
     async load(){
+      this.products = await Product.find({});
+
       this.beans = await Product.find({ type: 'Bean'});
       console.log('Beans are', this.beans);
 
