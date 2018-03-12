@@ -1,210 +1,43 @@
-Object.assign(Product.prototype, { template(){ return `
-
-
+Object.assign(ProductPage.prototype, { template(){ return `
 <div class="row product-page">
-	<!-- <div> -->
-
-	<div class="col-sm-9 d-flex justify-content-start">
-		<p class="font-weight-bold mr-3 category-text">Kategorier:</p>
-		<form class="d-flex justify-content-start flex-wrap">
-
-			<div class="form-check col-4 col-md-2 mr-0 mr-md-4 mr-lg-0">
-				<input type="checkbox" class="form-check-input" id="exampleCheck1">
-				<label class="form-check-label" for="exampleCheck1">Alla</label>
-			</div>
-			<div class="form-check col-4 col-md-2 mr-0 mr-sm-2 mr-md-5 mr-lg-5">
-				<input type="checkbox" class="form-check-input" id="exampleCheck2">
-				<label class="form-check-label" for="exampleCheck2">Kaffebönor</label>
-			</div>
-			<div class="form-check col-4 col-md-2 mr-0 mr-sm-3 mr-md-5 mr-lg-5">
-				<input type="checkbox" class="form-check-input" id="exampleCheck3">
-				<label class="form-check-label" for="exampleCheck3">Bryggkaffe</label>
-			</div>
-			<div class="form-check col-4 col-md-2 mr-0 mr-md-4 mr-lg-0">
-				<input type="checkbox" class="form-check-input" id="exampleCheck4">
-				<label class="form-check-label" for="exampleCheck4">Kaffekapslar</label>
-			</div>
-
-		</form>
-
-
-		<!-- <div class="col-4 col-md-2 custom-control custom-radio custom-control-inline mr-0 mr-md-4 mr-lg-0">
-			<input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-			<label class="custom-control-label" for="customRadioInline1">Kaffebönor</label>
-		</div>
-		<div class="col-4 col-md-2 custom-control custom-radio custom-control-inline mr-0 mr-md-4 mr-lg-0">
-			<input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-			<label class="custom-control-label" for="customRadioInline2">Bryggkaffe</label>
-		</div>
-		<div class="col-4 col-md-2 custom-control custom-radio custom-control-inline mr-0 mr-md-4 mr-lg-0">
-			<input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
-			<label class="custom-control-label" for="customRadioInline3">Kaffekapslar</label>
-		</div> -->
-
-
-
-	</div>
-
-
-
-
-
-	<div class="col-sm-3 mb-4">
-		<!-- <div class="col-6 col-md-2 d-flex justify-content-around mb-3"> -->
-		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle font-weight-bold float-sm-right float-left mt-3 mt-sm-5 mt-md-0" type="button" id="dropdownMenu2"
-			 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Sortering
-			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-				<button class="dropdown-item" type="button">Produktnamn A-Ö</button>
-				<button class="dropdown-item" type="button">Produktnamn Ö-A</button>
-				<button class="dropdown-item" type="button">Lägsta pris</button>
-				<button class="dropdown-item" type="button">Högssta pris</button>
-			</div>
-		</div>
-		<!-- </div> -->
-	</div>
-
-	<!-- <div class="row mt-4"> -->
-	<!-- 1 -->
-	<div class="col-6 col-lg-3 mb-4">
-		<div class="card border-0 mb-3">
-			<a href="#">
-				<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			</a>
-			<div class="card-body pb-0">
-				<h5 class="card-title">
-					<a href="#">${this.app.beans[0].name}</a>
-				</h5>
-				<p class="card-text description">${this.app.beans[0].description}
-				</p>
-				<div class="card-footer d-flex justify-content-sm-between px-0">
-					<div>
-						<p class="float-left font-weight-bold ml-sm-3 mt-2">${this.app.beans[0].price} kr</p>
-					</div>
-					<div class="ml-3">
-						<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-	<div class="col-6 col-lg-3 mb-4">
-		<div class="card border-0 mb-3">
-			<a href="#">
-				<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			</a>
-			<div class="card-body pb-0">
-				<h5 class="card-title">
-					<a href="#">Name --- Espresso Bella1</a>
-				</h5>
-				<p class="card-text description">Discription --- Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en
-					utpräglad mjukhet mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning.
-					Den kvalitetsmedvetna baristan blir rikligt belönad.
-				</p>
-				<div class="card-footer d-flex justify-content-sm-between px-0">
-					<div>
-						<p class="float-left font-weight-bold ml-sm-3 mt-2">?? kr</p>
-					</div>
-					<div class="ml-3">
-						<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-
-
-
-
-	<!-- 2 -->
-
-	<div class="col-6 col-lg-3 mb-4">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Espresso Bella</h5>
-				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
-					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
-					baristan blir rikligt belönad.
-				</p>
-				<div class="card-footer">
-					<p class="float-left font-weight-bold">45,00 kr</p>
-					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-6 col-lg-3 mb-4">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Espresso Bella</h5>
-				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
-					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
-					baristan blir rikligt belönad.
-				</p>
-				<div class="card-footer">
-					<p class="float-left font-weight-bold">45,00 kr</p>
-					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-6 col-lg-3 mb-4">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Espresso Bella</h5>
-				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
-					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
-					baristan blir rikligt belönad.
-				</p>
-				<div class="card-footer">
-					<p class="float-left font-weight-bold">45,00 kr</p>
-					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-6 col-lg-3 mb-4">
-		<div class="card border-0 mb-3">
-			<img class="card-img-top" src="/imgs/beans/coffee-beans-card.jpg" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">Espresso Bella</h5>
-				<p class="card-text description">Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet
-					mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna
-					baristan blir rikligt belönad.
-				</p>
-				<div class="card-footer">
-					<p class="float-left font-weight-bold">45,00 kr</p>
-					<a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 3 -->
-	<!-- 4 -->
-
-
-
-
-	<!-- 4 end -->
-
+    <div class="col-12 col-md-9 d-flex justify-content-start">
+        <p class="font-weight-bold mr-3">Kategorier:</p>
+        <form class="d-flex justify-content-start flex-wrap">
+            <div class="form-check col-4 col-md-2 mr-0 mr-md-4 mr-lg-0">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" value="All" name="check">
+                <label class="form-check-label" for="exampleCheck1">Alla</label>
+            </div>
+            <div class="form-check col-4 col-md-2 mr-2 mr-sm-3 mr-md-5">
+                <input type="checkbox" class="form-check-input" id="exampleCheck2" value="Bean" name="check">
+                <label class="form-check-label" for="exampleCheck2">Kaffebönor</label>
+            </div>
+            <div class="form-check col-4 col-md-2 mr-5">
+                <input type="checkbox" class="form-check-input" id="exampleCheck3" value="Powder" name="check">
+                <label class="form-check-label" for="exampleCheck3">Bryggkaffe</label>
+            </div>
+            <div class="form-check col-4 col-md-2 mr-0 mr-md-4 mr-lg-0">
+                <input type="checkbox" class="form-check-input" id="exampleCheck4" value="Capsule" name="check">
+                <label class="form-check-label" for="exampleCheck4">Kaffekapslar</label>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 col-md-3 mb-4">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle font-weight-bold float-md-right float-left mt-3 mt-md-0" type="button" id="dropdownMenu2"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sortering
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Produktnamn A-Ö</button>
+                <button class="dropdown-item" type="button">Produktnamn Ö-A</button>
+                <button class="dropdown-item" type="button">Lägsta pris</button>
+                <button class="dropdown-item" type="button">Högssta pris</button>
+            </div>
+        </div>
+    </div>
+    <i class="fas fa-arrow-alt-circle-up toTop"></i>
+    <div class="cards row">
+      ${this.app.products.render('','2')}
+    </div>
 </div>
-
-
 `;}});

@@ -1,26 +1,26 @@
 [
 	{
 		"name": "Nespresso Essenza",
-    "image": "nespresso-essenza.jpg",
-		"type": "Tool",
+		"image": "nespresso-essenza.jpg",
+    "type": "Tool",
     "connectType": 1
 	},
 	{
 		"name": "Nespresso Pixie",
 		"image": "nespresso-pixie.jpg",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 1
 	},
 	{
 		"name": "Nespresso Citiz",
 		"image": "nesspresso-citiz.jpg",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 1
 	},
 	{
 		"name": "Francis Francis X7",
 		"image": "francis-x7.jpg",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 2
 	},
 	{
@@ -32,42 +32,43 @@
 	{
 		"name": "Francis Francis X1",
 		"image": "francis-x1.jpg",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 2
-	},{
+  },
+  {
 		"name": "Francis Francis Y1",
 		"image": "francis-y1.jpg",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 2
 	},
 	{
 		"name": "Bosch Tassiomo Suny",
 		"image": "tassiomo-suny.png",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 3
 	},
 	{
 		"name": "Bosch Tassimo Vivy T12",
 		"image": "tassimo-vivy.jpg",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 3
 	},
 	{
 		"name": "Bosch Tassimo Joy T43",
 		"image": "tassimo-joy.jpg",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 3
 	},
 	{
 		"name": "SAECO Lavazza A Modo Mio Premium",
 		"image": "saeco-lava.png",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 4
 	},
 	{
 		"name": "Electrolux Favola A Modo Mio Plus ELM5200",
 		"image": "lava-favola.jpg",
-    "type": "Tool",
+		"type": "Tool",
     "connectType": 4
 	}
 ]

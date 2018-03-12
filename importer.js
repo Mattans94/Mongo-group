@@ -85,8 +85,8 @@ const toolUpdate = async (savedProducts, savedTools) => {
     });
     await savedTool.save().then(item => {
       console.log(`tool ${item.name} is updated!`);
-    })
-  }
+    });
+  };
 }
 
 // Fillin order.profiles by toolModel, judged by the type in both capsule and tool
@@ -139,16 +139,12 @@ const saveModels = () => {
 
   productModel.remove({}, () => {
     toolModel.remove({}, async () => {
-      await save(productsJson, 'product', {
-        'tools': []
-      })
+      await save(productsJson, 'product', {'tools': []})
         .then(obj => {
           savedProducts = obj;
         });
 
-      await save(toolsJson, 'tool', {
-        'capsules': []
-      })
+      await save(toolsJson, 'tool', {'capsules': []})
         .then(obj => {
           savedTools = obj;
         });

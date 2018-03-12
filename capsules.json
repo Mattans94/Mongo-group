@@ -8,6 +8,7 @@
 		"flavor": "Elegant & Mjuk",
     "countryOfOrigin": "Mellan- och Sydamerika",
     "type": "Capsule",
+    "stock": 10,
     "connectType": 1
 	},
 	{
@@ -18,7 +19,8 @@
 		"quantity": 10,
 		"flavor": "Mjuk & Fyllig",
 		"countryOfOrigin": "Mellan- och Sydamerika",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 1
 	},
 	{
@@ -29,7 +31,8 @@
 		"quantity": 10,
 		"flavor": "Mjuk & Fyllig",
 		"countryOfOrigin": "Brasilien, Centralamerika och Indien",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 1
 	},
 	{
@@ -40,7 +43,8 @@
 		"quantity": 10,
 		"flavor": "Kryddig & Fyllig",
 		"countryOfOrigin": "Brasilien, Centralamerika och Indien",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 1
 	},
 	{
@@ -51,7 +55,8 @@
 		"quantity": 21,
 		"flavor": "Fruktig & Söt",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 2
 	},
 	{
@@ -63,6 +68,7 @@
 		"flavor": "Kraftig",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien",
     "type": "Capsule",
+    "stock": 10,
     "connectType": 2
 	},
 	{
@@ -73,7 +79,8 @@
 		"quantity": 16,
 		"flavor": "Syrlig & Elegant",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 3
 	},
 	{
@@ -84,7 +91,8 @@
 		"quantity": 8,
 		"flavor": "Krämig & Söt",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 3
 	},
 	{
@@ -95,7 +103,8 @@
 		"quantity": 40,
 		"flavor": "Krämig & Kraftig",
 		"countryOfOrigin": "Syd-och Centralamerika, Indien, Etiopien och Vietnam",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 3
 	},
 	{
@@ -106,7 +115,8 @@
 		"quantity": 16,
 		"flavor": "Bitter & Kraftig",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 4
 	},
 	{
@@ -117,7 +127,8 @@
 		"quantity": 16,
 		"flavor": "Chokladig & Kraftig",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 4
 	},
 	{
@@ -128,7 +139,8 @@
 		"quantity": 16,
 		"flavor": "Fyllig & Aromrik",
 		"countryOfOrigin": "Brazilien, Asien, Syd-och Centralamerika",
-		"type": "Capsule",
+    "type": "Capsule",
+    "stock": 10,
     "connectType": 4
 	}
 ]

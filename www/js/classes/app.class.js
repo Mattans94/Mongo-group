@@ -13,9 +13,11 @@ class App extends REST {
         });
     }
 
-    async load() {
-        this.beans = await Product.find({ type: 'Bean' });
-        console.log('Beans are', this.beans);
+    async load(){
+      this.products = await Product.find({});
+
+      this.beans = await Product.find({ type: 'Bean'});
+      console.log('Beans are', this.beans);
 
         this.powders = await Product.find({ type: 'Powder' });
         console.log('Powders are', this.powders);
@@ -26,28 +28,38 @@ class App extends REST {
         this.tools = await Tool.find({});
         console.log('Tools are', this.tools);
 
-        // this.carts = await Cart.find({});
-        // console.log('Shopping Carts', this.carts);
-
-        this.profiles = await Profile.find({});
-        console.log('Profiles', this.profiles);
-
-        // this.orders = await Order.find({});
-        // console.log('Orders', this.orders);
-
-        this.start();
+      this.start();
     }
 
-    start() {
-        this.navbar = new Navbar(this);
-        this.startsida = new Startsida(this);
-        this.product = new Product(this);
-        this.profile = new Profile();
-        this.omOss = new OmOss(this);
-        this.conditions = new Conditions();
-        this.cart = new Cart(this.rest, this.profile);
-        this.admin = new Admin(this);
-        this.checkout = new Checkout(this);
-        this.popState = new PopStateHandler(this);
+    async updateProducts() {
+      const types = {
+        beans: 'Bean',
+        powders: 'Powder',
+        capsules: 'Capsule',
+        tools: 'Tool'
+      };
+
+      for (const key in types) {
+        this[key] = await Product.find({ type: types[key] });
+      }
+    }
+
+    start(){
+      // Create a footer
+      this.footer = new Footer();
+      $('footer').empty();
+      this.footer.render('footer');
+
+
+      this.navbar = new Navbar(this);
+      this.startsida = new Startsida(this);
+      this.productPage = new ProductPage(this);
+      this.profile = new Profile();
+      this.omOss = new OmOss(this);
+      this.conditions = new Conditions();
+      this.cart = new Cart(this.rest, this.profile);
+      this.checkout = new Checkout(this);
+      this.admin = new Admin(this);
+      this.popState = new PopStateHandler(this);
     }
 }
