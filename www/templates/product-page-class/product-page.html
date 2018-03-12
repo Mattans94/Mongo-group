@@ -35,6 +35,8 @@ Object.assign(Product.prototype, { template(){ return `
             </div>
         </div>
     </div>
-  ${this.app.products.render('', '2')}
+    <div class="cards row">
+      ${this.app.products.render('','2')}
+    </div>
 </div>
 `;}});
