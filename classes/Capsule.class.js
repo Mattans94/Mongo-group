@@ -12,7 +12,9 @@ module.exports = class Capsule extends ModelAndRoutes {
       quantity: Number,
       flavor: String,
       countryOfOrigin: String,
-      types: [Number],
+      type: String,
+      stock: Number,
+      connectType: Number,
       tools: [{
         type: Schema.Types.ObjectId,
         ref: 'Tool'

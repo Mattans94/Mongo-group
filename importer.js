@@ -115,15 +115,15 @@ const saveModels = () => {
 
   capsuleModel.remove({}, () => {
     toolModel.remove({}, async () => {
-      await save(capsulesJson, 'capsule', {'tools': []})
-      .then(obj => {
-        savedCapsules = obj;
-      });
+      await save(productsJson, 'product', {'tools': []})
+        .then(obj => {
+          savedProducts = obj;
+        });
 
       await save(toolsJson, 'tool', {'capsules': []})
-      .then(obj => {
-        savedTools = obj;
-      });
+        .then(obj => {
+          savedTools = obj;
+        });
 
       // Capsules json and tools json should be saved before updating
       await capsuleUpdate(savedCapsules, savedTools);
