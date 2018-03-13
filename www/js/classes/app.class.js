@@ -28,6 +28,8 @@ class App extends REST {
         this.tools = await Tool.find({});
         console.log('Tools are', this.tools);
 
+
+
       this.start();
     }
 
@@ -56,6 +58,7 @@ class App extends REST {
       this.productPage = new ProductPage(this);
       this.profile = new Profile();
       this.omOss = new OmOss(this);
+      this.info = new Info(this);
       this.conditions = new Conditions();
       this.cart = new Cart(this.rest, this.profile);
       this.checkout = new Checkout(this);
