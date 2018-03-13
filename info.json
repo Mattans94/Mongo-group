@@ -4,11 +4,41 @@
   		"name": "brazil-fortaleza",
   		"image": "brazil-fortaleza.png",
   		"description": "",
-  		"price": ,
-  		"quantity": ,
-  		"flavor": "",
+  		"price": 45,
+  		"quantity": 10,
+  		"flavor": "coffe",
   		"countryOfOrigin": "Brasilien",
   		"type": 1
-  	}
+  	},
+    {
+      "name": "el-salvador-menendez",
+      "image": "el-salvador-menendez.png",
+      "description": "",
+      "price": 40,
+      "quantity": 10,
+      "flavor": "coffe",
+      "countryOfOrigin": "El-salvador",
+      "type": 1
+    },
+    {
+      "name": "sumatra-gayo",
+      "image": "sumatra-gayo.png",
+      "description": "",
+      "price": 35,
+      "quantity": 9,
+      "flavor": "coffe",
+      "countryOfOrigin": "El-salvador",
+      "type": 1
+    },
+    {
+      "name": "sumatra-gayo",
+      "image": "sumatra-gayo.png",
+      "description": "",
+      "price": 35,
+      "quantity": 9,
+      "flavor": "coffe",
+      "countryOfOrigin": "El-salvador",
+      "type": 1
+    },
 
 ]
