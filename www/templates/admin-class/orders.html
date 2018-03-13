@@ -23,6 +23,17 @@ Object.assign(Admin.prototype, { template(){ return `
         </ul>
       </div>
       <div class="card-body">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle font-weight-bold float-md-right float-left m-3 mt-md-0" type="button" id="dropdownMenu2"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filtering
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button" value="Beställt">Beställt</button>
+            <button class="dropdown-item" type="button" value="Beställt">På väg</button>
+            <button class="dropdown-item" type="button" value="Beställt">Klar</button>
+          </div>
+        </div>
         <div class="table-responsive">
           <table class="table text-left">
             <thead>
@@ -36,20 +47,6 @@ Object.assign(Admin.prototype, { template(){ return `
             </thead>
             <tbody id="order-list">
               <!-- Order list rendered here -->
-              <tr>
-                <th>87364464646</th>
-                <td>espresso</td>
-                <td>67</td>
-                <td>2</td>
-                <td>klar</td>
-              </tr>
-              <tr>
-                <th>11111111116</th>
-                <td>god kaffe</td>
-                <td>59</td>
-                <td>3</td>
-                <td>klar</td>
-              </tr>
             </tbody>
           </table>
         </div>

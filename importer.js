@@ -104,25 +104,25 @@ const toolUpdate = async (savedProducts, savedTools) => {
 //   };
 // }
 
-const orderUpdate = async (savedProfiles, savedOrders) => {
-  // for (const profile of savedProfiles) {
-  //   savedOrders.forEach(order => {
-  //     order.emails.forEach(email => {
-  //       if (email === profile.email) {
-  //         profile.order.push(order._id);
-  //       }
-  //     });
-  //   });
+// const orderUpdate = async (savedProfiles, savedOrders) => {
+//   // for (const profile of savedProfiles) {
+//   //   savedOrders.forEach(order => {
+//   //     order.emails.forEach(email => {
+//   //       if (email === profile.email) {
+//   //         profile.order.push(order._id);
+//   //       }
+//   //     });
+//   //   });
 
-  console.log("here I am!");
-  savedOrders[0].profile.push(savedProfiles[0]._id);
-  console.log("savedOrders[0]"+savedOrders[0]);
-  await savedOrders[0].save();
-  // await profile.save().then(item => {
-   console.log(`profile is updated!`);
-  // });
-  // };
-}
+//   console.log("here I am!");
+//   savedOrders[0].profile.push(savedProfiles[0]._id);
+//   console.log("savedOrders[0]"+savedOrders[0]);
+//   await savedOrders[0].save();
+//   // await profile.save().then(item => {
+//    console.log(`profile is updated!`);
+//   // });
+//   // };
+// }
 
 
 const saveModels = () => {
@@ -156,27 +156,27 @@ const saveModels = () => {
     });
   });
 
-  orderModel.remove({}, () => {
-    profileModel.remove({}, async () => {
-      let profile;
-      let order;
-      await save(profileJson, 'profile', { 'order': [] })
-        .then(obj => {
-          savedProfiles = obj;
-        });
-      await save(orderJson, 'order', { 'profile': [] })
-        .then(obj => {
-          savedOrders = obj;
-        });
-      // profile[0].cart.push(cart[0]._id);
-      // cart[0].profile.push(profile[0]._id);
-      // await profile[0].save();
-      // await cart[0].save();
-      await orderUpdate(savedProfiles, savedOrders);
-      // await profileUpdate(savedProfiles, savedOrders);
-      process.exit();
-    });
-  });
+  // orderModel.remove({}, () => {
+  //   profileModel.remove({}, async () => {
+  //     let profile;
+  //     let order;
+  //     await save(profileJson, 'profile', { 'order': [] })
+  //       .then(obj => {
+  //         savedProfiles = obj;
+  //       });
+  //     await save(orderJson, 'order', { 'profile': [] })
+  //       .then(obj => {
+  //         savedOrders = obj;
+  //       });
+  //     // profile[0].cart.push(cart[0]._id);
+  //     // cart[0].profile.push(profile[0]._id);
+  //     // await profile[0].save();
+  //     // await cart[0].save();
+  //     await orderUpdate(savedProfiles, savedOrders);
+  //     // await profileUpdate(savedProfiles, savedOrders);
+  //     process.exit();
+  //   });
+  // });
 }
 
 saveModels();
