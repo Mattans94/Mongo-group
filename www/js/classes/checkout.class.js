@@ -121,6 +121,7 @@ class Checkout extends Base {
 
 
 
+
     keyupAddress(event) {
         if ($(event.target).hasClass('firstname')) {
             this.firstName = $(".firstname").val();
@@ -183,17 +184,17 @@ class Checkout extends Base {
             $(".delivery-btn").addClass("active");
             $('.stepBox').empty();
             that.render('.stepBox', 'Delivery');
-            that.dMethod="delivery1";
+            that.dMethod = "delivery1";
         });
         $(document).on("click", '.payment-btn', function () {
             that.dMethod = $('input[name="delivery"]:checked').val();
             let method = that.dMethod;// get delivery method
             that.calculateShipping(method);// get delivery fee
-            that.pMethod="paypal"; // if payment method has not been chosen, paypal is selected
-            that._cardNumber="";
-            that._cardMonth="";
-            that._cardYear="";
-            that._cvCode="";
+            that.pMethod = "paypal"; // if payment method has not been chosen, paypal is selected
+            that._cardNumber = "";
+            that._cardMonth = "";
+            that._cardYear = "";
+            that._cvCode = "";
             $(".checkOut-btns").removeClass("active");
             $(".payment-btn").addClass("active");
             $('.stepBox').empty();
@@ -206,9 +207,11 @@ class Checkout extends Base {
             // });
         });
         $(document).on("click", '.review-btn', function () {
+            // event.preventDefault();
             that.pMethod = $('input[name="payment"]:checked').val();
             //TODO: as above
-
+            let ifCreditCard=that.pMethod;
+            that.checkCreditCard(ifCreditCard);
             $(".checkOut-btns").removeClass("active");
             $(".review-btn").addClass("active");
             $('.stepBox').empty();
@@ -270,19 +273,20 @@ class Checkout extends Base {
         newOrder.cardMonth = this._cardMonth;
         newOrder.cardYear = this._cardYear;
         newOrder.cvCode = this._cvCode;
-        newOrder.firstName=this.firstname;
-        newOrder.lastName=this.lastname;
-        newOrder.street=this.streetName;
-        newOrder.zip=this.postNumber;
-        newOrder.region=this.country;
-        newOrder.phoneNumber=this.telephone;        
+        newOrder.firstName = this.firstname;
+        newOrder.lastName = this.lastname;
+        newOrder.street = this.streetName;
+        newOrder.zip = this.postNumber;
+        newOrder.region = this.country;
+        newOrder.phoneNumber = this.telephone;
+        newOrder.status = "Beställt";
         console.log(newOrder);
         return newOrder;
-        
+
     }
     //------------------Order Number Creater-------------------//
     getOrderNumber() {
-        this._orderNumber=new Date().getTime();
+        this._orderNumber = new Date().getTime();
         return this._orderNumber;
     }
 
@@ -301,10 +305,20 @@ class Checkout extends Base {
         if (chosen == "credit-card") {
             $('#myPay').empty();
             that.render('#myPay', 'CreditCard');
+
         }
     }
 
-
+    checkCreditCard(check) {
+        if(check=="credit-card"){
+            let exDate=`20${this._cardYear}/${this._cardMonth}`;
+            let cardExp = new Date(exDate);
+            if(cardExp=="Invalid Date"){
+                alert("Please check your credit card!");
+            }
+        }
+       
+    }
 
 
 }
