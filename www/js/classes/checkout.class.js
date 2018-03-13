@@ -270,8 +270,13 @@ class Checkout extends Base {
         newOrder.cardMonth = this._cardMonth;
         newOrder.cardYear = this._cardYear;
         newOrder.cvCode = this._cvCode;
+        newOrder.firstName=this.firstname;
+        newOrder.lastName=this.lastname;
+        newOrder.street=this.streetName;
+        newOrder.zip=this.postNumber;
+        newOrder.region=this.country;
+        newOrder.phoneNumber=this.telephone;        
         console.log(newOrder);
-        
         return newOrder;
         
     }
