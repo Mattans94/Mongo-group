@@ -9,6 +9,9 @@ Object.assign(Admin.prototype, { template4(){ return `
             <a class="nav-link pop" href="/admin">Order</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link pop" href="/admin/stock">Lager</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link pop" href="/admin/add">Addera</a>
           </li>
           <li class="nav-item">
@@ -20,23 +23,16 @@ Object.assign(Admin.prototype, { template4(){ return `
         </ul>
       </div>
       <div class="card-body">
-        <h5 class="py-5">Fyll i prudukt namn och välja en categori</h5>
+        <h5 class="my-4">Fyll i produkt namn</h5>
 
         <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <input type="name" class="form-control" id="inputName" placeholder="Ange produkt namn">
+          <div class="input-group mb-5">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="name">Namn</span>
             </div>
-            <div class="form-group col-md-6">
-              <select id="inputType" class="form-control">
-                <option selected>Bönor</option>
-                <option>Bryggkaffe</option>
-                <option>Kapslar</option>
-              </select>
-            </div>
+            <input id="inputName" type="text" class="form-control" aria-label="Default" aria-describedby="name">
           </div>
-
-          <button type="submit" class="btn btn-lg mt-5">Ta bort</button>
+          <button id="delete-btn" type="submit" class="btn btn-lg">Ta bort</button>
         </form>
 
       </div>

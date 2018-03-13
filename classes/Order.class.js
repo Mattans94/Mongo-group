@@ -5,25 +5,34 @@ module.exports = class Order extends ModelAndRoutes {
 
     static get schema() {
         return {
-            orderNumber:Number,
-            product: String,
-            img:String,
-            quantity: Number,
-            unitPrice: Number,
-            total: Number,
-            vat: Number,
-            shippingMethod:String,
-            shippingFee:Number,
-            paymentMethod:String,
+            orderNumber: Number, //change back to orderNumber later
+            orderDetails: [{
+                type: Schema.Types.ObjectId,
+                ref: 'OrderDetail'
+            }],
+            orderTime: Date,
+            firstName: String,
+            lastName: String,
+            street: String,
+            zip: Number,
+            region: String,
+            phoneNumber: Number,
+            deliveryMethod: String,
+            deliveryFee: Number,
+            paymentMethod: String,
             cardNumber: Number,
-            cardMonth:String,
-            cardYear:Number,
-            cvCode:Number,
+            cardMonth: String,
+            cardYear: Number,
+            cvCode: Number,
+            total: Number,
+            productVAT: Number,
+            deliveryVAT: Number,
             profile: [{
                 type: Schema.Types.ObjectId,
-                ref: 'profile'
+                ref: 'Profile'
             }]
         }
     }
 
 }
+
