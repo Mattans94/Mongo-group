@@ -1,6 +1,7 @@
 class Info extends REST {
 	constructor(){
 		super();
-    this.app = app;
+		this.app = app;
 	}
+
 }
