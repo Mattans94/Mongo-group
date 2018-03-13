@@ -1,4 +1,4 @@
-class ProductPage extends Base {
+class ProductPage extends REST {
   constructor(app) {
     super();
     this.app = app;
