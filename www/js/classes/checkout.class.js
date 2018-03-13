@@ -182,17 +182,17 @@ class Checkout extends Base {
             $(".delivery-btn").addClass("active");
             $('.stepBox').empty();
             that.render('.stepBox', 'Delivery');
-            that.dMethod="delivery1";
+            that.dMethod = "delivery1";
         });
         $(document).on("click", '.payment-btn', function () {
             that.dMethod = $('input[name="delivery"]:checked').val();
             let method = that.dMethod;// get delivery method
             that.calculateShipping(method);// get delivery fee
-            that.pMethod="paypal"; // if payment method has not been chosen, paypal is selected
-            that._cardNumber="";
-            that._cardMonth="";
-            that._cardYear="";
-            that._cvCode="";
+            that.pMethod = "paypal"; // if payment method has not been chosen, paypal is selected
+            that._cardNumber = "";
+            that._cardMonth = "";
+            that._cardYear = "";
+            that._cvCode = "";
             $(".checkOut-btns").removeClass("active");
             $(".payment-btn").addClass("active");
             $('.stepBox').empty();
@@ -218,6 +218,7 @@ class Checkout extends Base {
         $(document).on("click", '.order-btn', function (event) {
             event.preventDefault();
             that.getOrderNumber();
+            that.getOrderTime();
             Order.create(that.createOrder());
 
         });
@@ -257,6 +258,7 @@ class Checkout extends Base {
     createOrder() {
         let newOrder = {};
         newOrder.orderNumber = this.getOrderNumber();
+        newOrder.orderTime = this._orderTime;
         newOrder.product = "White Blouse Armani";
         newOrder.quantity = 1;
         newOrder.unitPrice = 10000;
@@ -270,14 +272,22 @@ class Checkout extends Base {
         newOrder.cardYear = this._cardYear;
         newOrder.cvCode = this._cvCode;
         console.log(newOrder);
-        
+
         return newOrder;
-        
+
     }
-    //------------------Order Number Creater-------------------//
+    //------------------Order Number/ Order Time Creater-------------------//
     getOrderNumber() {
-        this._orderNumber=new Date().getTime();
+        this._orderNumber = new Date().getTime();
         return this._orderNumber;
+    }
+
+    getOrderTime() {
+        let month = new Date().getMonth()+1;
+        let date = new Date().getDate();
+        let year = new Date().getFullYear();
+        this._orderTime = month + "/" + date + "/" + year;
+        
     }
 
     //-------------------Payment------------------------//
