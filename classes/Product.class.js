@@ -1,7 +1,7 @@
 const Schema = require('mongoose').Schema;
 const ModelAndRoutes = require('./model-and-routes.class');
 
-module.exports = class Bean extends ModelAndRoutes {
+module.exports = class Product extends ModelAndRoutes {
 
   static get schema() {
     return {
@@ -12,8 +12,13 @@ module.exports = class Bean extends ModelAndRoutes {
       quantity: Number,
       flavor: String,
       countryOfOrigin: String,
-      type: String
+      type: String,
+      stock: Number,
+      connectType: Number,
+      tools: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Tool'
+      }]
     }
   }
-
 }

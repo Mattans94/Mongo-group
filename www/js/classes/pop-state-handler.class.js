@@ -61,6 +61,7 @@ class PopStateHandler {
       '/register': 'register',
       '/checkout': 'checkout',
       '/admin': 'admin',
+      '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
       '/admin/change': 'adminChange',
       '/admin/delete': 'adminDelete'
@@ -104,7 +105,7 @@ class PopStateHandler {
 
   produkter(){
     $('main').empty();
-    this.app.product.render('main');
+    this.app.productPage.render('main');
     console.log('Körs');
   }
 
@@ -137,33 +138,40 @@ class PopStateHandler {
 
   checkout() {
     $('main').empty();
-    this.app.cart.render('main', 'CheckOut');
+    this.app.checkout.render('main', 'CheckOut');
+    this.app.checkout.render('.stepBox','Address');
     this.app.cart.renderTotalPriceWithVAT();
-    this.app.profile.render('.stepBox', 'Address');
+    // this.app.profile.render('.stepBox', 'Address');
   }
 
   admin() {
     $('main').empty();
     this.app.admin.render('main');
-    this.app.admin.selectedCategori = '';
+    this.app.admin.selectedCategory = '';
+  }
+
+  adminStock() {
+    $('main').empty();
+    this.app.admin.render('main', 5);
+    this.app.admin.selectedCategory = '';
   }
 
   adminAdd() {
     $('main').empty();
     this.app.admin.render('main', 2);
-    this.app.admin.selectedCategori = '';
+    this.app.admin.selectedCategory = '';
   }
 
   adminChange() {
     $('main').empty();
     this.app.admin.render('main', 3);
-    this.app.admin.selectedCategori = '';
+    this.app.admin.selectedCategory = '';
   }
 
   adminDelete() {
     $('main').empty();
     this.app.admin.render('main', 4);
-    this.app.admin.selectedCategori = '';
+    this.app.admin.selectedCategory = '';
   }
 
 
