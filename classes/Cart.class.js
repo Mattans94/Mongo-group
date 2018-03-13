@@ -10,10 +10,11 @@ module.exports = class Cart extends ModelAndRoutes {
     static get schema() {
         return {
             product: String,
-            img:String,
+            img: String,
             quantity: Number,
-            unitPrice: String,
+            unitPrice: Number,
             total: Number,
+            // profile:String
             profile:[{
                 type:Schema.Types.ObjectId,
                 ref:'profile'

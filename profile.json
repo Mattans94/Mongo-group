@@ -1,14 +1,13 @@
 [
-    {"userName": "Test",
-            "email": "test@coffee.com",
-            "password": "Coffee1",
-            "firstName": "Test",
-            "lastName": "Coffee",
-            "street": "Storgatan 1",
-            "zip": "12345",
-            "country": "Sverig",
-            "telephone": "0000000000",
-            "order":10000001,
-            "cart":""
-        }
+    {
+        "name": "Test",
+        "email": "test@coffee.com",
+        "password": "Coffee1",
+        "firstName": "Test",
+        "lastName": "Coffee",
+        "street": "Storgatan 1",
+        "zip": "12345",
+        "country": "Sverig",
+        "telephone": "0000000000"
+    }
 ]

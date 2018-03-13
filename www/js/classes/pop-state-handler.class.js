@@ -54,7 +54,8 @@ class PopStateHandler {
     let urls = {
       '/': 'startsidan',
       '/produkter': 'produkter',
-      '/om_oss': 'omOss',
+      '/om_oss' : 'omOss',
+      '/info' : 'info',
       '/kopvillkor': 'conditions',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
@@ -96,9 +97,15 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
-  produkter() {
+  info(){
     $('main').empty();
-    this.app.product.render('main');
+    this.app.info.render('main');
+    console.log('Körs');
+  }
+
+  produkter(){
+    $('main').empty();
+    this.app.productPage.render('main');
     console.log('Körs');
   }
 
@@ -131,9 +138,10 @@ class PopStateHandler {
 
   checkout() {
     $('main').empty();
-    this.app.cart.render('main', 'CheckOut');
+    this.app.checkout.render('main', 'CheckOut');
+    this.app.checkout.render('.stepBox','Address');
     this.app.cart.renderTotalPriceWithVAT();
-    this.app.profile.render('.stepBox', 'Address');
+    // this.app.profile.render('.stepBox', 'Address');
   }
 
   admin() {
