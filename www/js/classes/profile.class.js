@@ -5,6 +5,7 @@ class Profile extends Base {
         this.rest = rest;
         this.cart = cart;
         this.currentUser = "Unknow User";
+        this.clickSign();
         //this.changeInput();
     }
 
@@ -102,12 +103,37 @@ class Profile extends Base {
     }
 
 
-    clicklogin(event, element, instance) {
-        if ($(event.target).hasClass('lgin')) {
-            this.finishLogin();
-            event.preventDefault();
-        }
+    // clicklogin(event, element, instance) {
+    //     if ($(event.target).hasClass('lgin')) {
+    //         //this.finishLogin();
+    //         event.preventDefault();
+    //     }
+    // }
+
+    clickSign(){
+        $('button').click(async function(){
+            let email, password, propsToChange;
+            let demo = $(this).text();
+            if(['logga in', 'Registrera'].includes(demo)){
+              email = prompt(this.email);
+              password = prompt(this.password);
+            }
+            if(demo == 'change'){
+              propsToChange = {password: prompt(this.password)};
+            }
+            let result = await UserHandler[demo](
+              propsToChange || email, password
+            );
+            $('pre').text(
+              'Result:\n' + JSON.stringify(result,'','  ') + '\n\n' +
+              'Info:\n' + JSON.stringify(result.info,'','  ')
+            );
+          });
+        
+          $('button').first().click();
     }
+  
+   
 
 
 
@@ -132,22 +158,22 @@ class Profile extends Base {
         });
     }
 
-    clickRegister(event, element, instance) {
-        if ($(event.target).hasClass('cancelbtn')) {
-            $('#signupModal').modal('toggle');
-        }
-        if ($(event.target).hasClass('signupbtn')) {
-            this.sign().then(function () {
-                alert("You are now registed!");
-            }).then(() => {
-                this.finishLogin();
-            })
+    // clickRegister(event, element, instance) {
+    //     if ($(event.target).hasClass('cancelbtn')) {
+    //         $('#signupModal').modal('toggle');
+    //     }
+    //     if ($(event.target).hasClass('signupbtn')) {
+    //         this.sign().then(function () {
+    //             alert("You are now registed!");
+    //         }).then(() => {
+    //             this.finishLogin();
+    //         })
 
-        }
-        if ($(event.target).hasClass('lgin')) {
-            this.finishLogin();
-        }
-    }
+    //     }
+    //     if ($(event.target).hasClass('lgin')) {
+    //         this.finishLogin();
+    //     }
+    // }
 
     sign() {
         let register = {

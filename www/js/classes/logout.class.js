@@ -1,0 +1,1 @@
+class Logout extends REST {}
