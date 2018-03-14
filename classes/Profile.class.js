@@ -17,15 +17,7 @@ module.exports = class Profile extends ModelAndRoutes {
             street: String,
             zip: Number,
             country: String,
-            telephone: Number,
-            order: [{
-                type: Schema.Types.ObjectId,
-                ref: 'order'
-            }],
-            cart:[{
-                type:Schema.Types.ObjectId,
-                ref:'cart'
-            }]
+            telephone: Number
         }
     }
 

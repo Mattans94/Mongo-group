@@ -48,25 +48,4 @@ class Cart extends REST {
             $('.stepBox').empty();
             that.render('.stepBox', 'Payment');
 
-            // $.get('/getVisa', (data)=>{
-            //     console.log(data);
-            // });
-        });
-        $(document).on("click", '.review-btn', function () {
-            $(".checkOut-btns").removeClass("active");
-            $(".review-btn").addClass("active");
-            $('.stepBox').empty();
-            that.render('.stepBox', 'Review');
-            that.renderShoppingList();
-
-        });
-
-        $('#pay-radio').on('change', function () {
-            let chosen = $('input[name=radioName]:checked').val();
-            console.log(chosen);
-        });
-
-
-    }
-
 }

@@ -1,2 +1,3 @@
-class Product extends REST{
+class Product extends REST {
+
 }
