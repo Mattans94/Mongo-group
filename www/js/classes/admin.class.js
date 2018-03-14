@@ -160,6 +160,7 @@ class Admin extends Base {
   // Functions in delete-item-page
   async click4(event) {
     if ($(event.target).is('#delete-btn')){
+      event.preventDefault();
       const currentItem = await Product.find({name: $('#inputName').val()})
       .then(result => {
         return result[0];
