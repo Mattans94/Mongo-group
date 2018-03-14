@@ -1,7 +1,7 @@
 [
   {
     "name": "Espresso Bella",
-    "image": "espresso-bella.jpg",
+    "image": "espresso-bella.png",
     "description": "Bella är 100% arabica för den kräsne espressoälskaren. Kaffet är sött, rundt, fylligt och uppvisar en utpräglad mjukhet mot gommen. Karaktären i blandningen hänger kvar i munnen länge och ger en lång och angenäm avslutning. Den kvalitetsmedvetna baristan blir rikligt belönad.",
     "price": 139,
     "quantity": 500,
@@ -13,7 +13,7 @@
   },
   {
     "name": "Espresso Isola",
-    "image": "espresso-isola.jpg",
+    "image": "espresso-isola.png",
     "description": "En harmonisk blandning som de flesta associerar med en tydlig smak av choklad. Man hittar också en touch av karamelliserad frukt och i eftersmaken toner av bittermandel. Isola är en storsäljare i espressosortimentet och en favorit med sin klassiska men ändå spännande smak. Ett kaffe som tilltalar alla, från den kräsne espressoälskaren till den lattedrickande storstadshipstern.",
     "price": 139,
     "quantity": 500,
@@ -25,7 +25,7 @@
   },
   {
     "name": "Espresso Verde",
-    "image": "espresso-verde.jpg",
+    "image": "espresso-verde.png",
     "description": "Verde är en ekologisk espresso, med kaffebönor från 100% ekologiskt certifierade kaffegårdar. Smakrik, krämig och med ett fint bett i eftersmaken. Med sin fina fyllighet och avvägda fruktsyra är den även perfekt med mjölk.",
     "price": 139,
     "quantity": 500,
@@ -36,13 +36,13 @@
     "connectType": null
   },
   {
-    "name": "El Salvador Menendea",
-    "image": "el-salvador-menendez.png",
-    "description": "Detta Kaffe är till karaktären krämigt och sött med toner av mjölkchoklad. Eftersmaken påminner om karamell. Ett rasande elegant kaffe med karaktär som är omedelbart intagande. Drick det gärna som espresso eller som bistro/brygg/Aeropress.",
+    "name": "Ethiopia Guji",
+    "image": "ethiopia-guji.png",
+    "description": "Ethiopia Guji kännetecknar allt vad Etiopiskt specialkaffe kan vara. Smakrikt, sött och med påträngande inslag av jordgubbe,blåbär och vanilj. Efter plockning torkas bären på upphöjda bäddar och att producera dessa natural-processade kaffen av kvaliteten Grade 1 är synnerligen en utmaning.",
     "price": 69,
     "quantity": 250,
-    "flavor": "Mjuk & Finstämd",
-    "countryOfOrigin": "El Salvador",
+    "flavor": "Smakrik & Söt",
+    "countryOfOrigin": "Etiopien",
     "type": "Bean",
     "stock": 10,
     "connectType": null
@@ -73,7 +73,7 @@
   },
   {
     "name": "Mauro Premium",
-    "image": "mauro-premium.jpg",
+    "image": "mauro-premium.png",
     "description": "En klassisk, italiensk espressoblandning med hälften Robustabönor och hälften Arabica. Smaken är intensiv och mustig, tonerna går åt en kryddig, karaktär med en underliggande, chokladig sötma. Robustan ger en fyllig crema och en lång, härlig eftersmak.",
     "price": 329,
     "quantity": 1000,
@@ -97,7 +97,7 @@
   },
   {
     "name": "Mauro De Luxe",
-    "image": "mauro-de-luxe.jpg",
+    "image": "mauro-de-luxe.png",
     "description": "En riktig favorit från Mauro! En mumsig, fyllig espressoblandning med 30% Robustabönor som lämpar sig lika väl till ren som blandad med mjölk. Smaken är söt och balanserad med tydliga kakaotoner och  underliggande blommighet.",
     "price": 329,
     "quantity": 1000,
