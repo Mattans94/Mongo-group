@@ -213,8 +213,7 @@ class Admin extends Base {
     targets.forEach(target => {
       orderList.unshift(`
       <tr>
-        <th>${target.orderNumber}</th>
-        <td>${target.orderTime}</td>
+        <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
         <td>'Antal'</td>
         <td>${target.total}</td>
         <td>
