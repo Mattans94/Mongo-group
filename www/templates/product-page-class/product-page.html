@@ -18,22 +18,19 @@ Object.assign(ProductPage.prototype, { template(){ return `
         </form>
     </div>
     <div class="col-12 col-md-3 mb-4">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle font-weight-bold float-md-right float-left mt-3 mt-md-0" type="button" id="dropdownMenu2"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sortering
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Produktnamn A-Ö</button>
-                <button class="dropdown-item" type="button">Produktnamn Ö-A</button>
-                <button class="dropdown-item" type="button">Lägsta pris</button>
-                <button class="dropdown-item" type="button">Högssta pris</button>
-            </div>
+        <div class="form-group">
+            <select class="form-control selectSorting">
+                <option class="dropdown" value="sortering">Sortering</option>
+                <option class="dropdown" data-property="name" value="ascendingOrder">Produktnamn A-Ö</option>
+                <option class="dropdown" data-property="name" value="descendingOrder">Produktnamn Ö-A</option>
+                <option class="dropdown" data-property="price" value="ascendingOrder">Lägsta pris</option>
+                <option class="dropdown" data-property="price" value="descendingOrder">Högsta pris</option>
+            </select>
         </div>
     </div>
     <i class="fas fa-arrow-alt-circle-up toTop"></i>
     <div class="cards row">
-      ${this.app.products.render('','2')}
+      ${this.cards.join('')}
     </div>
 </div>
 `;}});
