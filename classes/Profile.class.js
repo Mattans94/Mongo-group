@@ -3,6 +3,7 @@
 //address management
 const Schema = require('mongoose').Schema;
 const ModelAndRoutes = require('./model-and-routes.class');
+const user = require('./user.class.js');
 
 module.exports = class Profile extends ModelAndRoutes {
 

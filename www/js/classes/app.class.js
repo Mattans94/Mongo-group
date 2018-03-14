@@ -12,7 +12,7 @@ class App extends REST {
             that.profile.toggleLoginModal();
         });
     }
-
+    
     async load(){
       this.beans = await Product.find({ type: 'Bean'});
       console.log('Beans are', this.beans);
