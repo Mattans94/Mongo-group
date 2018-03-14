@@ -34,6 +34,13 @@ class Cart extends REST {
       return priceWithoutVAT;
     }
 
+    // Ger moms-satsen av ett givet pris
+    getVATFromTotalPrice(price) {
+      let priceWithoutVAT = price / 1.12;
+      let VAT = price - priceWithoutVAT;
+      return VAT;
+    }
+
     clickEvents() {
         let that = this;
         $(document).on("click", '.address-btn', function () {
