@@ -23,15 +23,34 @@ Object.assign(Admin.prototype, { template(){ return `
         </ul>
       </div>
       <div class="card-body">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle font-weight-bold float-md-right float-left m-3 mt-md-0" type="button" id="dropdownMenu2"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Filtering
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button" value="Beställt">Beställt</button>
-            <button class="dropdown-item" type="button" value="Beställt">På väg</button>
-            <button class="dropdown-item" type="button" value="Beställt">Klar</button>
+        <div class="row m-3">
+          <div class="col-md-8 mb-4">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio" name="radio" class="custom-control-input" value="Alla">
+              <label class="custom-control-label" for="radio">Alla</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio1" name="radio" class="custom-control-input" value="Beställt">
+              <label class="custom-control-label" for="radio1">Beställt</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio2" name="radio" class="custom-control-input" value="På väg">
+              <label class="custom-control-label" for="radio2">På väg</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio3" name="radio" class="custom-control-input" value="Klar">
+              <label class="custom-control-label" for="radio3">Klar</label>
+            </div>
+          </div>
+          <div class="input-group mb-3 col-md-4">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="input-sort">Sort</label>
+            </div>
+            <select class="custom-select" id="input-sort">
+              <option selected>Choose...</option>
+              <option>Äldsta överst</option>
+              <option>Nyaste överst</option>
+            </select>
           </div>
         </div>
         <div class="table-responsive">

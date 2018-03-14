@@ -15,7 +15,7 @@ class Admin extends Base {
       <div class="input-group-prepend">
         <span class="input-group-text" id="connectType">Compatibility</span>
       </div>
-      <select id="inputConnectType" class="form-control">
+      <select id="inputConnectType" class="custom-select">
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -160,6 +160,7 @@ class Admin extends Base {
   // Functions in delete-item-page
   async click4(event) {
     if ($(event.target).is('#delete-btn')){
+      event.preventDefault();
       const currentItem = await Product.find({name: $('#inputName').val()})
       .then(result => {
         return result[0];
@@ -207,21 +208,21 @@ class Admin extends Base {
   }
 
   // Functions in orders page
-  makeOrderList() {
+  makeOrderList(targets) {
     const orderList = [];
-    this.app.orders.forEach(order => {
-      orderList.push(`
+    targets.forEach(target => {
+      orderList.unshift(`
       <tr>
-        <th>${order.orderNumber}</th>
-        <td>${order.orderTime}</td>
+        <th id="orderNumber">${target.orderNumber}</th>
+        <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
         <td>'Antal'</td>
-        <td>${order.total}</td>
+        <td>${target.total}</td>
         <td>
           <div class="input-group mb-3">
-            <select class="custom-select" id="inputStatus">
-              <option value="ordered" selected>Beställt</option>
-              <option value="on the way">På väg</option>
-              <option value="finish">Klar</option>
+            <select class="custom-select" id="inputStatus${target.orderNumber}">
+              <option>Beställt</option>
+              <option>På väg</option>
+              <option>Klar</option>
             </select>
           </div>
         </td>
@@ -235,10 +236,48 @@ class Admin extends Base {
 
   }
 
-  click(event) {
-    if ($(event.target).hasClass('dropdown-item')) {
-      $('#order-list').empty();
-      $('#order-list').append(this.makeOrderList());
+  async change(event) {
+    if ($(event.target).hasClass('custom-control-input')) {
+      const currentStatus = $("input:radio[name=radio]:checked").val();
+
+      if (currentStatus !== 'Alla') {
+        const filterTargets = this.app.orders.filter(order => {
+          return order.status === currentStatus;
+        });
+        $('#order-list').empty();
+        $('#order-list').append(this.makeOrderList(filterTargets));
+        filterTargets.forEach(target => {
+          $(`#inputStatus${target.orderNumber}`).val(`${target.status}`);
+        })
+      } else {
+        $('#order-list').empty();
+        $('#order-list').append(this.makeOrderList(this.app.orders));
+        this.app.orders.forEach(target => {
+          $(`#inputStatus${target.orderNumber}`).val(`${target.status}`);
+        })
+      }
+    }
+
+    if ($(event.target).is("select[id^='inputStatus']")) {
+      event.preventDefault();
+
+      const orderNumber = $(event.target).parents("td").siblings("th")[0].innerText;
+      let targetOrder = await Order.find({orderNumber})
+      .then(result => {
+        return result[0];
+      });
+      targetOrder.status = $(`#inputStatus${orderNumber}`).val();
+
+      // update current status by user input
+      const order = new Order(targetOrder);
+      await order.save()
+      .then(() => {
+        this.app.updateOrders();
+      });
+      return;
+    }
+
+      }
     }
   }
 
