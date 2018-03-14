@@ -19,7 +19,6 @@ class Cart extends REST {
     renderTotalPriceWithVAT() {
         $('#order-summary').empty();
         this.render('#order-summary', 'OrderSummary');
-
     }
 
     renderCartContent(){
@@ -28,6 +27,13 @@ class Cart extends REST {
       console.log('HAllå', this.products);
       console.log(this.products.render('.cart-content', 'CartContent'));
     }
+
+    // Ger priset på en vara utan moms
+    getPriceWithoutVAT(price) {
+      let priceWithoutVAT = price / 1.12;
+      return priceWithoutVAT;
+    }
+
     clickEvents() {
         let that = this;
         $(document).on("click", '.address-btn', function () {
