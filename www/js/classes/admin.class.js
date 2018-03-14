@@ -258,6 +258,25 @@ class Admin extends Base {
       }
     }
 
+    if ($(event.target).is("select[id^='inputStatus']")) {
+      event.preventDefault();
+
+      const orderNumber = $(event.target).parents("td").siblings("th")[0].innerText;
+      let targetOrder = await Order.find({orderNumber})
+      .then(result => {
+        return result[0];
+      });
+      targetOrder.status = $(`#inputStatus${orderNumber}`).val();
+
+      // update current status by user input
+      const order = new Order(targetOrder);
+      await order.save()
+      .then(() => {
+        this.app.updateOrders();
+      });
+      return;
+    }
+
       }
     }
   }
