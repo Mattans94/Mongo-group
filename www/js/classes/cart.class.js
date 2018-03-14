@@ -31,14 +31,14 @@ class Cart extends REST {
     // Ger priset på en vara utan moms
     getPriceWithoutVAT(price) {
       let priceWithoutVAT = price / 1.12;
-      return priceWithoutVAT;
+      return priceWithoutVAT.toFixed(2);
     }
 
     // Ger moms-satsen av ett givet pris
     getVATFromTotalPrice(price) {
       let priceWithoutVAT = price / 1.12;
       let VAT = price - priceWithoutVAT;
-      return VAT;
+      return VAT.toFixed(2);
     }
 
     clickEvents() {
