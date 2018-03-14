@@ -138,9 +138,12 @@ class PopStateHandler {
 
   checkout() {
     $('main').empty();
-    this.app.checkout.render('main', 'CheckOut');
-    this.app.checkout.render('.stepBox','Address');
-    this.app.cart.renderTotalPriceWithVAT();
+    this.app.checkout.getLastOrder().then(()=>{
+      this.app.checkout.render('main', 'CheckOut');
+      this.app.checkout.render('.stepBox','Address');
+      this.app.cart.renderTotalPriceWithVAT();
+    });
+    
     // this.app.profile.render('.stepBox', 'Address');
   }
 
