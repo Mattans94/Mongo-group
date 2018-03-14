@@ -43,6 +43,22 @@ class ProductPage extends Base {
       categoryData[category].forEach( products => this.products.push(products) );
     });
 
+    // call the sorting method
+    this.sorting();
+
+    // take the sorted products or not sorted products
+    // empty out main and render out a card for each product 
+    this.products.forEach( product => this.html(product) );
+    $('.cards').empty();
+
+    // if this.cards is an empty array (when page first loads or when all checkboxes are unchecked)
+    // this.makeCards function gets called with the parameter default value and 
+    // this.cards thats in the template product.page.html gets rendered out
+    // else if this.cards is not an empty array the this.cards gets appended to the main.
+    (this.cards.length == 0) ? this.makeCards() : $('.cards').append(this.cards.join(''));
+  }
+
+  sorting(){
     // sorting methods
     const sortingFuncs = {
       ascendingOrder: (property) => {
@@ -68,18 +84,8 @@ class ProductPage extends Base {
     // if sorting is true and not equal to "sortering" option
     // call the sorting method from the sortingFuncs object.
     (typeOfSorting && typeOfSorting != 'sortering') && sortingFuncs[typeOfSorting](property);
-  
-    // take the sorted products or not sorted products
-    // empty out main and render out a card for each product 
-    this.products.forEach( product => this.html(product) );
-    $('.cards').empty();
-
-    // if this.cards is an empty array (when page first loads or when all checkboxes are unchecked)
-    // this.makeCards function gets called with the parameter default value and 
-    // this.cards thats in the template product.page.html gets rendered out
-    // else if this.cards is not an empty array the this.cards gets appended to the main.
-    (this.cards.length == 0) ? this.makeCards() : $('.cards').append(this.cards.join(''));
   }
+
 
   html(product){
     this.cards.push(`
