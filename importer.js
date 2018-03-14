@@ -34,7 +34,8 @@ const models = {
   'product': productModel,
   'tool': toolModel,
   'order': orderModel,
-  'profile': profileModel
+  'profile': profileModel,
+  'cart': cartModel
 }
 
 // Save product's json files into mongoDB.

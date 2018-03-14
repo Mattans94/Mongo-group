@@ -18,7 +18,8 @@ module.exports = class Cart extends ModelAndRoutes {
             profile:[{
                 type:Schema.Types.ObjectId,
                 ref:'profile'
-            }]
+            }],
+            sessionId: String
         }
     }
 

@@ -49,5 +49,15 @@ class Cart extends REST {
             that.render('.stepBox', 'Payment');
 
       });
+
+      $(document).on("click", '.card-btn', function () {
+        let dataId = $(this).data('id');
+          Cart.create({product: dataId, sessionId: Cart.getSessionId() });
+
+      });
+  }
+
+  static getSessionId(){
+    return document.cookie.substr('session='.length);
   }
 }

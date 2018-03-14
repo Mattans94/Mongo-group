@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const cart = require('./Cart.class.js');
+const Cart = require('./Cart.class.js');
 const Session = mongoose.model('Session', new Schema({
   data: Schema.Types.Mixed
 }));
@@ -12,7 +12,7 @@ async function session(req, res, next){
     // see https://expressjs.com/en/4x/api.html#res.cookie
     res.cookie('session', mySession._id, {
       path: '/',
-      httpOnly: true
+      httpOnly: false
     });
     console.log(req.cookies.session);
     mySession.save();

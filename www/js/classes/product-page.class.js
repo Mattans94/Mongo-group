@@ -58,7 +58,7 @@ class ProductPage extends Base {
                     <p class="float-left font-weight-bold ml-sm-3 mt-2">${item.price} kr</p>
                   </div>
                   <div class="ml-3">
-                    <a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+                    <a href="#" class="btn btn-primary card-btn float-right" data-id=${item._id}>KÖP</a>
                   </div>
                 </div>
               </div>

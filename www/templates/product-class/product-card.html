@@ -20,7 +20,7 @@ Object.assign(Product.prototype, { template2(){ return `
                     <p class="float-left font-weight-bold ml-sm-3 mt-2">${this.price} kr</p>
                   </div>
                   <div class="ml-3">
-                    <a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+                    <a href="#" class="btn btn-primary card-btn float-right" data-id=${this._id}>KÖP</a>
                   </div>
                 </div>
               </div>

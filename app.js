@@ -19,12 +19,13 @@ const Product = require('./classes/Product.class');
 const Tool = require('./classes/Tool.class');
 const Profile = require('./classes/Profile.class');
 const Order = require('./classes/Order.class');
+const Cart = require('./classes/Cart.class');
 
 const product = new Product(app);
 const tool = new Tool(app);
 const profile = new Profile(app);
 const order = new Order(app);
-
+const cart = new Cart(app);
 
 
 // app.get('/getVisa', (req,res)=>{
