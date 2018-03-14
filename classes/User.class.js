@@ -10,16 +10,21 @@ module.exports = class User {
 
     static get schema() {
         return {
-            name: String,
-            email: String,
-            password: String
+            email: { type: String, required: true, unique: true },
+            password: { type: String, required: true },
+            name: { type: String, required: true }
         }
     }
     constructor(expressApp) {
         const schema = new mongoose.Schema(this.constructor.schema);
         const myModel = mongoose.model('User', schema);
+        this.loginRoute();
+        this.logoutRoute();
+        this.registerRoute();
+    }
 
-        expressApp.post('/register', (req, res) => {
+    registerRoute() {
+        this.expressApp.post('/register', (req, res) => {
             //Success, save the user into db
             const entity = new myModel(req.body);
             entity.save(() => {
@@ -28,9 +33,12 @@ module.exports = class User {
                 res.json(entity);
             });
         });
+    }
 
-        expressApp.post('/login', (req, res) => {
-            console.log("req " + req);
+
+    loginRoute() {
+        this.expressApp.post('/login', (req, res) => {
+            
             let query = myModel.findOne({ "email": req.body.email });
             console.log("query " + query);
             query.select('email password name');
@@ -40,15 +48,16 @@ module.exports = class User {
                     return;
                 }
                 if (person.password == req.body.password) {
-                     res.json({result:person.name});
+                    res.json({ result: person.name });
                 } else {
                     res.json({ result: 'Login fail!' });
                 }
 
             });
         });
-
     }
 
 }
+
+
 
