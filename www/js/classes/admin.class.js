@@ -15,7 +15,7 @@ class Admin extends Base {
       <div class="input-group-prepend">
         <span class="input-group-text" id="connectType">Compatibility</span>
       </div>
-      <select id="inputConnectType" class="form-control">
+      <select id="inputConnectType" class="custom-select">
         <option>1</option>
         <option>2</option>
         <option>3</option>
