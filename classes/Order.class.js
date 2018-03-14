@@ -27,6 +27,7 @@ module.exports = class Order extends ModelAndRoutes {
             total: Number,
             productVAT: Number,
             deliveryVAT: Number,
+            status:String,
             profile: [{
                 type: Schema.Types.ObjectId,
                 ref: 'Profile'

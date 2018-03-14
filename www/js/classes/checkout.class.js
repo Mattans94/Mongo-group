@@ -1,3 +1,4 @@
+//Checkout class only used to render templates and get set all the variables
 class Checkout extends Base {
     constructor(app) {
         super();
@@ -120,6 +121,7 @@ class Checkout extends Base {
 
 
 
+
     keyupAddress(event) {
         if ($(event.target).hasClass('firstname')) {
             this.firstName = $(".firstname").val();
@@ -205,9 +207,11 @@ class Checkout extends Base {
             // });
         });
         $(document).on("click", '.review-btn', function () {
+            // event.preventDefault();
             that.pMethod = $('input[name="payment"]:checked').val();
             //TODO: as above
-
+            let ifCreditCard=that.pMethod;
+            that.checkCreditCard(ifCreditCard);
             $(".checkOut-btns").removeClass("active");
             $(".review-btn").addClass("active");
             $('.stepBox').empty();
@@ -257,6 +261,7 @@ class Checkout extends Base {
     //--------------------Order creater --------------------//
     createOrder() {
         let newOrder = {};
+        newOrder.user=this.app.profile.currentUser;
         newOrder.orderNumber = this.getOrderNumber();
         newOrder.orderTime = this._orderTime;
         newOrder.product = "White Blouse Armani";
@@ -271,8 +276,14 @@ class Checkout extends Base {
         newOrder.cardMonth = this._cardMonth;
         newOrder.cardYear = this._cardYear;
         newOrder.cvCode = this._cvCode;
+        newOrder.firstName = this.firstname;
+        newOrder.lastName = this.lastname;
+        newOrder.street = this.streetName;
+        newOrder.zip = this.postNumber;
+        newOrder.region = this.country;
+        newOrder.phoneNumber = this.telephone;
+        newOrder.status = "Beställt";
         console.log(newOrder);
-
         return newOrder;
 
     }
@@ -305,10 +316,20 @@ class Checkout extends Base {
         if (chosen == "credit-card") {
             $('#myPay').empty();
             that.render('#myPay', 'CreditCard');
+
         }
     }
 
-
+    checkCreditCard(check) {
+        if(check=="credit-card"){
+            let exDate=`20${this._cardYear}/${this._cardMonth}`;
+            let cardExp = new Date(exDate);
+            if(cardExp=="Invalid Date"){
+                alert("Please check your credit card!");
+            }
+        }
+       
+    }
 
 
 }
