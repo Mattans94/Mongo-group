@@ -207,21 +207,21 @@ class Admin extends Base {
   }
 
   // Functions in orders page
-  makeOrderList() {
+  makeOrderList(targets) {
     const orderList = [];
-    this.app.orders.forEach(order => {
+    targets.forEach(target => {
       orderList.push(`
       <tr>
-        <th>${order.orderNumber}</th>
-        <td>${order.orderTime}</td>
+        <th>${target.orderNumber}</th>
+        <td>${target.orderTime}</td>
         <td>'Antal'</td>
-        <td>${order.total}</td>
+        <td>${target.total}</td>
         <td>
           <div class="input-group mb-3">
             <select class="custom-select" id="inputStatus">
-              <option value="ordered" selected>Beställt</option>
-              <option value="on the way">På väg</option>
-              <option value="finish">Klar</option>
+              <option>Beställt</option>
+              <option>På väg</option>
+              <option>Klar</option>
             </select>
           </div>
         </td>
@@ -235,10 +235,20 @@ class Admin extends Base {
 
   }
 
-  click(event) {
-    if ($(event.target).hasClass('dropdown-item')) {
-      $('#order-list').empty();
-      $('#order-list').append(this.makeOrderList());
+  change(event) {
+    if ($(event.target).hasClass('custom-control-input')) {
+      const currentStatus = $("input:radio[name=radio]:checked").val();
+
+      if (currentStatus !== 'Alla') {
+        const filterTarget = this.app.orders.filter(order => {
+          return order.status === currentStatus;
+        });
+        $('#order-list').empty();
+        $('#order-list').append(this.makeOrderList(filterTarget));
+      } else {
+        $('#order-list').empty();
+        $('#order-list').append(this.makeOrderList(this.app.orders));
+      }
     }
   }
 
