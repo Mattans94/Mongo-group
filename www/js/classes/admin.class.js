@@ -210,7 +210,7 @@ class Admin extends Base {
   makeOrderList(targets) {
     const orderList = [];
     targets.forEach(target => {
-      orderList.push(`
+      orderList.unshift(`
       <tr>
         <th>${target.orderNumber}</th>
         <td>${target.orderTime}</td>
