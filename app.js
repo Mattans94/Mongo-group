@@ -1,18 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const session = require('./session.js');
-global.mongoose = require('mongoose');
 const app = express();
-app.use(bodyParser.json());// needed to post json
+app.use(bodyParser.json()) // needed to post json
 app.use(express.static('www'));
-app.use(session);
 
 const Product = require('./classes/Product.class');
 const Tool = require('./classes/Tool.class');
 const Order = require('./classes/Order.class');
 const User = require('./classes/User.class');
-
 const product = new Product(app);
 const tool = new Tool(app);
 const order = new Order(app);
