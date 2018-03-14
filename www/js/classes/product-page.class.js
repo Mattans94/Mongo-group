@@ -61,12 +61,12 @@ class ProductPage extends Base {
       }
     };
 
-    // get the value of the selected option
+    // get the value and data of the selected option
     let typeOfSorting = $( ".selectSorting option:selected" ).val();
     let property = $( ".selectSorting option:selected" ).attr('data-property');
 
     // if sorting is true and not equal to "sortering" option
-    // get the sorting function from the sortingFuncs object.
+    // call the sorting method from the sortingFuncs object.
     (typeOfSorting && typeOfSorting != 'sortering') && sortingFuncs[typeOfSorting](property);
   
     // take the sorted products or not sorted products
