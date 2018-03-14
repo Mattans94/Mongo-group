@@ -48,14 +48,13 @@ class PopStateHandler {
     // Change which menu link that is active
     $('header a').removeClass('active');
     $(`header a[href="${url}"]`).addClass('active');
-
     // A small "dictionary" of what method to call
     // on which url
     let urls = {
       '/': 'startsidan',
       '/produkter': 'produkter',
       '/om_oss' : 'omOss',
-      '/info' : 'info',
+      '/produkter/' : 'info',
       '/kopvillkor': 'conditions',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
@@ -100,13 +99,12 @@ class PopStateHandler {
   info(){
     $('main').empty();
     this.app.info.render('main');
-    console.log('Körs');
+    console.log('pop handler info');
   }
 
   produkter(){
     $('main').empty();
     this.app.productPage.render('main');
-    console.log('Körs');
   }
 
   omOss() {

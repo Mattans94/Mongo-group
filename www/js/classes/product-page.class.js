@@ -3,13 +3,23 @@ class ProductPage extends Base {
     super();
     this.app = app;
     $(window).on('scroll', () => this.scrolling());
+    $(document).on('click', '.product-information', (e) => this.findProduct(e));
     this.makeCards();
+  }
+
+  async findProduct(e){
+    let productName = $(e.target).attr('data-name');
+    console.log(productName,'product page name');
+    Info.getProduct(productName);
   }
 
   click(event){
     $(event.target).hasClass('toTop') && $(window).scrollTop(0);
+    $(event.target).hasClass('product-information') && console.log('funkaaar');
   }
 
+  // scroll arrow to appear when you have scrolled 
+  //down more than 5000 otherwise hide it
   scrolling() {
     ($(window).scrollTop() > 500) ? $('.toTop').show() : $('.toTop').hide();
   }
@@ -92,14 +102,14 @@ class ProductPage extends Base {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
       <div class="card mb-3">
         <div class="card-holder rounded mx-auto d-block">
-          <a href="#">
-            <img class="card-img-top rounded mx-auto d-block mt-4" src="/imgs/${product.type}/${product.image}" alt="Card image cap">
+          <a class="pop product-information" href="/produkter/">
+            <img class="card-img-top rounded mx-auto d-block mt-4" data-name="${product.name}" src="/imgs/${product.type}/${product.image}" alt="Card image cap">
           </a>
         </div>
         <div class="card-body pb-0 mt-1">
           <div class="title-holder rounded mx-auto d-block">
             <h5 class="card-title">
-              <a href="#">${product.name}</a>
+              <a class="pop product-information" data-name="${product.name}" href="/produkter/">${product.name}</a>
             </h5>
           </div>
           <p class="card-text description">${product.description}
