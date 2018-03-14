@@ -48,4 +48,6 @@ class Cart extends REST {
             $('.stepBox').empty();
             that.render('.stepBox', 'Payment');
 
+      });
+  }
 }
