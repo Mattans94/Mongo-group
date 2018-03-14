@@ -213,12 +213,13 @@ class Admin extends Base {
     targets.forEach(target => {
       orderList.unshift(`
       <tr>
+        <th id="orderNumber">${target.orderNumber}</th>
         <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
         <td>'Antal'</td>
         <td>${target.total}</td>
         <td>
           <div class="input-group mb-3">
-            <select class="custom-select" id="inputStatus">
+            <select class="custom-select" id="inputStatus${target.orderNumber}">
               <option>Beställt</option>
               <option>På väg</option>
               <option>Klar</option>
@@ -235,19 +236,28 @@ class Admin extends Base {
 
   }
 
-  change(event) {
+  async change(event) {
     if ($(event.target).hasClass('custom-control-input')) {
       const currentStatus = $("input:radio[name=radio]:checked").val();
 
       if (currentStatus !== 'Alla') {
-        const filterTarget = this.app.orders.filter(order => {
+        const filterTargets = this.app.orders.filter(order => {
           return order.status === currentStatus;
         });
         $('#order-list').empty();
-        $('#order-list').append(this.makeOrderList(filterTarget));
+        $('#order-list').append(this.makeOrderList(filterTargets));
+        filterTargets.forEach(target => {
+          $(`#inputStatus${target.orderNumber}`).val(`${target.status}`);
+        })
       } else {
         $('#order-list').empty();
         $('#order-list').append(this.makeOrderList(this.app.orders));
+        this.app.orders.forEach(target => {
+          $(`#inputStatus${target.orderNumber}`).val(`${target.status}`);
+        })
+      }
+    }
+
       }
     }
   }
