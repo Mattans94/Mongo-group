@@ -206,4 +206,40 @@ class Admin extends Base {
     return stockList.join('');
   }
 
+  // Functions in orders page
+  makeOrderList() {
+    const orderList = [];
+    this.app.orders.forEach(order => {
+      orderList.push(`
+      <tr>
+        <th>${order.orderNumber}</th>
+        <td>${order.orderTime}</td>
+        <td>'Antal'</td>
+        <td>${order.total}</td>
+        <td>
+          <div class="input-group mb-3">
+            <select class="custom-select" id="inputStatus">
+              <option value="ordered" selected>Beställt</option>
+              <option value="on the way">På väg</option>
+              <option value="finish">Klar</option>
+            </select>
+          </div>
+        </td>
+      </tr>
+      `);
+    });
+    return orderList.join('');
+  }
+
+  sortList() {
+
+  }
+
+  click(event) {
+    if ($(event.target).hasClass('dropdown-item')) {
+      $('#order-list').empty();
+      $('#order-list').append(this.makeOrderList());
+    }
+  }
+
 }

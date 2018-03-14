@@ -222,6 +222,7 @@ class Checkout extends Base {
         $(document).on("click", '.order-btn', function (event) {
             event.preventDefault();
             that.getOrderNumber();
+            that.getOrderTime();
             Order.create(that.createOrder());
 
         });
@@ -262,6 +263,7 @@ class Checkout extends Base {
         let newOrder = {};
         newOrder.user=this.app.profile.currentUser;
         newOrder.orderNumber = this.getOrderNumber();
+        newOrder.orderTime = this._orderTime;
         newOrder.product = "White Blouse Armani";
         newOrder.quantity = 1;
         newOrder.unitPrice = 10000;
@@ -285,10 +287,18 @@ class Checkout extends Base {
         return newOrder;
 
     }
-    //------------------Order Number Creater-------------------//
+    //------------------Order Number/ Order Time Creater-------------------//
     getOrderNumber() {
         this._orderNumber = new Date().getTime();
         return this._orderNumber;
+    }
+
+    getOrderTime() {
+        let month = new Date().getMonth()+1;
+        let date = new Date().getDate();
+        let year = new Date().getFullYear();
+        this._orderTime = month + "/" + date + "/" + year;
+        
     }
 
     //-------------------Payment------------------------//

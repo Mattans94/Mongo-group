@@ -19,16 +19,17 @@ class App extends REST {
       this.beans = await Product.find({ type: 'Bean'});
       console.log('Beans are', this.beans);
 
-        this.powders = await Product.find({ type: 'Powder' });
-        console.log('Powders are', this.powders);
+      this.powders = await Product.find({ type: 'Powder' });
+      console.log('Powders are', this.powders);
 
-        this.capsules = await Product.find({ type: 'Capsule' });
-        console.log('Capsules are', this.capsules);
+      this.capsules = await Product.find({ type: 'Capsule' });
+      console.log('Capsules are', this.capsules);
 
-        this.tools = await Tool.find({});
-        console.log('Tools are', this.tools);
+      this.tools = await Tool.find({});
+      console.log('Tools are', this.tools);
 
-
+      this.orders = await Order.find({});
+      console.log('Orders are', this.orders);
 
       this.start();
     }
