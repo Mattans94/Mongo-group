@@ -4,7 +4,7 @@ class Profile extends Base {
         super();
         this.rest = rest;
         this.cart = cart;
-        this.currentUser = "";
+        this.currentUser = "Unknow User";
         //this.changeInput();
     }
 
@@ -105,6 +105,7 @@ class Profile extends Base {
     clicklogin(event, element, instance) {
         if ($(event.target).hasClass('lgin')) {
             this.finishLogin();
+            event.preventDefault();
         }
     }
 
