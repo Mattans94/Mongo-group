@@ -26,18 +26,18 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
 
                 <hr>
 
-                <form>
+                <div>
                     <div class="form-group">
                         <label for="name">User Namn</label>
-                        <input type="text" class="form-control userName" required>
+                        <input type="text" class="form-control userName" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Mailadress</label>
-                        <input type="text" class="form-control signUpEmail" required>
+                        <input type="text" class="form-control signUpEmail" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Lösenord</label>
-                        <input type="password" class="form-control signUpPass" required>
+                        <input type="password" class="form-control signUpPass" name="password" required>
                         <small class="passControl">Måste vara minst 6 tecken, innehålla minst en siffra en stor och en liten bokstav!</small>
                     </div>
                     <div class="form-group">
@@ -49,7 +49,7 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
                         <button class="btn btn-next signupbtn">
                             <i class="fa fa-user-md"></i> Registrera</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
 
@@ -64,7 +64,7 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
 
                 <hr>
 
-                <form>
+                <div>
                     <div class="form-group">
                         <label for="email">Mailadress</label>
                         <input type="text" class="form-control lginEmail" required>
@@ -74,10 +74,10 @@ Object.assign(Profile.prototype, {templateRegister(){ return `
                         <input type="password" class="form-control lgPass" required>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-next pop lgin">
+                        <button class="btn btn-next lgin">
                             <i class="fa fa-sign-in"></i> Logga in</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

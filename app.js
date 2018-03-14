@@ -6,13 +6,12 @@ app.use(express.static('www'));
 
 const Product = require('./classes/Product.class');
 const Tool = require('./classes/Tool.class');
-const Profile = require('./classes/Profile.class');
 const Order = require('./classes/Order.class');
-
+const User = require('./classes/User.class');
 const product = new Product(app);
 const tool = new Tool(app);
-const profile = new Profile(app);
 const order = new Order(app);
+const user=new User(app);
 
 
 
@@ -30,6 +29,8 @@ const order = new Order(app);
 app.get(/^[^\.]*$/, (req, res) => {
   res.sendFile(__dirname + '/www/index.html');
 });
+
+
 
 
 app.listen(3000, () => {
