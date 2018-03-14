@@ -276,9 +276,5 @@ class Admin extends Base {
       });
       return;
     }
-
-      }
-    }
   }
-
 }
