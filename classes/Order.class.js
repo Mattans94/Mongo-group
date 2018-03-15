@@ -27,12 +27,23 @@ module.exports = class Order extends ModelAndRoutes {
             total: Number,
             productVAT: Number,
             deliveryVAT: Number,
-            profile: [{
-                type: Schema.Types.ObjectId,
-                ref: 'Profile'
-            }]
+            status:String,
+            ort:String,
+            user: String
         }
     }
 
+    constructor(expressApp){
+        super(expressApp);
+
+        expressApp.get('/getLastOrder', (req, res)=>{
+            let query = this.myModel.find().sort({_id:-1}).limit(1);
+            query.exec((err, data)=>{
+                res.json({
+                  result: data
+                });
+            });
+        });
+    }
 }
 

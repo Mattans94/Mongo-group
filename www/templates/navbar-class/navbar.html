@@ -24,8 +24,13 @@ Object.assign(Navbar.prototype, { template(){ return `
 		      ${this.items.render()}
 		    </ul>
 			</div>
+
+			<div class="shopping-cart mr-4 fa-lg">
+				<a class="pop" href="shoppingCart"><i class="fas fa-shopping-cart"></i></a>
+			</div>
+
 			<div class="modal-container-login">
-				<button id="loginModalToggle">login</button>
+				<button id="loginModalToggle" class="btn">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
 			</div>
 		</div>
 	</nav>

@@ -2,8 +2,6 @@ const beansJson = require('./beans.json');
 const powdersJson = require('./powders.json');
 const capsulesJson = require('./capsules.json');
 const toolsJson = require('./tools.json');
-const profileJson = require('./profile.json');//login information and orders
-const orderJson = require('./order.json');//all orders
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -20,21 +18,13 @@ db.once('open', () => {
 
 const Product = require('./classes/Product.class');
 const Tool = require('./classes/Tool.class');
-const Cart = require('./classes/Cart.class');
-const Order = require('./classes/Order.class');
-const Profile = require('./classes/Profile.class');
 
 const productModel = new Product(app).myModel;
 const toolModel = new Tool(app).myModel;
-const cartModel = new Cart(app).myModel;
-const orderModel = new Order(app).myModel;
-const profileModel = new Profile(app).myModel;
 
 const models = {
   'product': productModel,
-  'tool': toolModel,
-  'order': orderModel,
-  'profile': profileModel
+  'tool': toolModel
 }
 
 // Save product's json files into mongoDB.
@@ -89,42 +79,6 @@ const toolUpdate = async (savedProducts, savedTools) => {
   };
 }
 
-// Fillin order.profiles by toolModel, judged by the type in both capsule and tool
-// const orderUpdate = async (savedOrders, savedProfiles) => {
-//   for (const order of savedOrders) {
-//     order.emails.forEach(email => {
-//       const sameEmailProfiles = savedProfiles.filter(profile => profile.email === email);
-//       sameEmailProfiles.forEach(profile => {
-//         order.profiles.push(profile._id);
-//       });
-//     });
-//     await order.save().then(item => {
-//       console.log(`order ${item.product} is updated!`);
-//     });
-//   };
-// }
-
-const orderUpdate = async (savedProfiles, savedOrders) => {
-  // for (const profile of savedProfiles) {
-  //   savedOrders.forEach(order => {
-  //     order.emails.forEach(email => {
-  //       if (email === profile.email) {
-  //         profile.order.push(order._id);
-  //       }
-  //     });
-  //   });
-
-  console.log("here I am!");
-  savedOrders[0].profile.push(savedProfiles[0]._id);
-  console.log("savedOrders[0]"+savedOrders[0]);
-  await savedOrders[0].save();
-  // await profile.save().then(item => {
-   console.log(`profile is updated!`);
-  // });
-  // };
-}
-
-
 const saveModels = () => {
   // Gather all objects of three json files
   const productsJson = [];
@@ -156,27 +110,6 @@ const saveModels = () => {
     });
   });
 
-  orderModel.remove({}, () => {
-    profileModel.remove({}, async () => {
-      let profile;
-      let order;
-      await save(profileJson, 'profile', { 'order': [] })
-        .then(obj => {
-          savedProfiles = obj;
-        });
-      await save(orderJson, 'order', { 'profile': [] })
-        .then(obj => {
-          savedOrders = obj;
-        });
-      // profile[0].cart.push(cart[0]._id);
-      // cart[0].profile.push(profile[0]._id);
-      // await profile[0].save();
-      // await cart[0].save();
-      await orderUpdate(savedProfiles, savedOrders);
-      // await profileUpdate(savedProfiles, savedOrders);
-      process.exit();
-    });
-  });
 }
 
 saveModels();

@@ -128,6 +128,7 @@ class PopStateHandler {
     this.app.cart.render('main', 'Basket');
     this.app.cart.renderShoppingList();
     this.app.cart.renderTotalPriceWithVAT();
+    this.app.cart.renderCartContent();
   }
 
   register() {
@@ -138,9 +139,12 @@ class PopStateHandler {
 
   checkout() {
     $('main').empty();
-    this.app.checkout.render('main', 'CheckOut');
-    this.app.checkout.render('.stepBox','Address');
-    this.app.cart.renderTotalPriceWithVAT();
+    this.app.checkout.getLastOrder().then(()=>{
+      this.app.checkout.render('main', 'CheckOut');
+      this.app.checkout.render('.stepBox','Address');
+      this.app.cart.renderTotalPriceWithVAT();
+    });
+
     // this.app.profile.render('.stepBox', 'Address');
   }
 
@@ -172,6 +176,7 @@ class PopStateHandler {
     $('main').empty();
     this.app.admin.render('main', 4);
     this.app.admin.selectedCategory = '';
+    this.app.admin.setName(this.app.products);
   }
 
 

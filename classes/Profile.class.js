@@ -3,6 +3,7 @@
 //address management
 const Schema = require('mongoose').Schema;
 const ModelAndRoutes = require('./model-and-routes.class');
+const user = require('./user.class.js');
 
 module.exports = class Profile extends ModelAndRoutes {
 
@@ -16,7 +17,15 @@ module.exports = class Profile extends ModelAndRoutes {
             street: String,
             zip: Number,
             country: String,
-            telephone: Number
+            telephone: Number,
+            order: [{
+                type: Schema.Types.ObjectId,
+                ref: 'order'
+            }],
+            cart:[{
+                type:Schema.Types.ObjectId,
+                ref:'cart'
+            }]
         }
     }
 

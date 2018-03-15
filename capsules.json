@@ -48,8 +48,8 @@
     "connectType": 1
 	},
 	{
-		"name": "illy Iperespresso",
-		"image": "illy-iperespresso.png",
+		"name": "Illy Iperespresso",
+		"image": "Illy-iperespresso.png",
 		"description": "illy Iperespresso kaffekapslar kännetecknas av en finkorning, rödbrun crema och en varierad, behagligt kryddig, mjuk och rund smak. Eftersmaken är lång, rund och elegant. Ger en perfekt espressokaffe.",
 		"price": 129,
 		"quantity": 21,
@@ -60,7 +60,7 @@
     "connectType": 2
 	},
 	{
-		"name": "illy Iperespresso mörkrost",
+		"name": "Illy Iperespresso mörkrost",
 		"image": "iperespresso-dark.png",
 		"description": "illy Iperespresso mörkrost kaffekapslar är illys klassiska kaffe men lite hårdare rostad för att få fram en något kraftigare smak. Ett klassiskt espressokaffe med smak av södra Italien.",
 		"price": 129,
