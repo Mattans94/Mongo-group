@@ -215,7 +215,7 @@ class Admin extends Base {
       <tr>
         <th id="orderNumber">${target.orderNumber}</th>
         <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
-        <td>'Antal'</td>
+        <td>3</td>
         <td>${target.total}</td>
         <td>
           <div class="input-group mb-3">
