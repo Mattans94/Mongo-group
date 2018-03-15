@@ -7,6 +7,7 @@ class ProductPage extends Base {
     this.makeCards();
   }
 
+  async click(event){
   async findProduct(e){
     let productName = $(e.target).attr('data-name');
     console.log(productName,'product page name');
@@ -15,7 +16,22 @@ class ProductPage extends Base {
 
   click(event){
     $(event.target).hasClass('toTop') && $(window).scrollTop(0);
-    $(event.target).hasClass('product-information') && console.log('funkaaar');
+
+    //Add product to cart
+    if($(event.target).hasClass('card-btn')){
+      let dataId = $(event.target).data('id');
+      console.log('Hejsan', dataId);
+      console.log('_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}));
+      let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
+      if (!cartItem) {
+        Cart.create({product: dataId, sessionId: Cart.getSessionId()});
+      } else {
+        cartItem.quantity++;
+        let r = await cartItem.save();
+        console.log(r);
+      }
+
+    };
   }
 
   // scroll arrow to appear when you have scrolled 
@@ -57,12 +73,12 @@ class ProductPage extends Base {
     this.sorting();
 
     // take the sorted products or not sorted products
-    // empty out main and render out a card for each product 
+    // empty out main and render out a card for each product
     this.products.forEach( product => this.html(product) );
     $('.cards').empty();
 
     // if this.cards is an empty array (when page first loads or when all checkboxes are unchecked)
-    // this.makeCards function gets called with the parameter default value and 
+    // this.makeCards function gets called with the parameter default value and
     // this.cards thats in the template product.page.html gets rendered out
     // else if this.cards is not an empty array the this.cards gets appended to the main.
     (this.cards.length == 0) ? this.makeCards() : $('.cards').append(this.cards.join(''));
@@ -79,7 +95,7 @@ class ProductPage extends Base {
         })
       },
       descendingOrder: (property) => {
-        this.products.sort((a, b) => { 
+        this.products.sort((a, b) => {
             if(a[property] > b[property]) return -1;
             if(a[property] < b[property]) return 1;
             return 0;

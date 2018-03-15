@@ -1,0 +1,22 @@
+Object.assign(Product.prototype, {templateCartContent(){
+return `<tr>
+      <td>
+        <img src="/imgs/${this.type}/${this.image}" alt="">
+      </td>
+      <td colspan="1">
+          <a href="#">${this.name}</a>
+      </td>
+      <td>
+          <input data-id="${this._id}" type="number" value="${this.cartItem.quantity}" min="1" minlength="1" class="form-control quantity-control">
+      </td>
+      <td>${this.price}kr</td>
+      <td class="unit-total-price">
+        ${this.price * this.cartItem.quantity}kr
+      </td>
+      <td>
+          <a class="trash-item" data-id="${this._id}">
+              <i class="fa fa-trash-o"></i>
+          </a>
+      </td>
+    </tr>`
+  ;}});

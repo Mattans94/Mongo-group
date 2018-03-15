@@ -3,6 +3,7 @@ class Checkout extends Base {
     constructor(app) {
         super();
         this.app = app;
+        this.lastOrder = null;
         this.clickEvents();
     }
 
@@ -119,7 +120,13 @@ class Checkout extends Base {
         this._cardNumber = val;
     }
 
+    get ort() {
+        retrun`${this._ort}`;
+    }
 
+    set ort(val) {
+        this._ort = val;
+    }
 
 
     keyupAddress(event) {
@@ -140,6 +147,9 @@ class Checkout extends Base {
         }
         if ($(event.target).hasClass('telephone')) {
             this.telephone = $(".telephone").val();
+        }
+        if ($(event.target).hasClass('ort')) {
+            this.ort = $(".ort").val();
         }
 
     }
@@ -191,10 +201,10 @@ class Checkout extends Base {
             let method = that.dMethod;// get delivery method
             that.calculateShipping(method);// get delivery fee
             that.pMethod = "paypal"; // if payment method has not been chosen, paypal is selected
-            that._cardNumber = "";
-            that._cardMonth = "";
-            that._cardYear = "";
-            that._cvCode = "";
+            // that._cardNumber = "";
+            // that._cardMonth = "";
+            // that._cardYear = "";
+            // that._cvCode = "";
             $(".checkOut-btns").removeClass("active");
             $(".payment-btn").addClass("active");
             $('.stepBox').empty();
@@ -210,7 +220,7 @@ class Checkout extends Base {
             // event.preventDefault();
             that.pMethod = $('input[name="payment"]:checked').val();
             //TODO: as above
-            let ifCreditCard=that.pMethod;
+            let ifCreditCard = that.pMethod;
             that.checkCreditCard(ifCreditCard);
             $(".checkOut-btns").removeClass("active");
             $(".review-btn").addClass("active");
@@ -261,7 +271,7 @@ class Checkout extends Base {
     //--------------------Order creater --------------------//
     createOrder() {
         let newOrder = {};
-        newOrder.user=this.app.profile.currentUser;
+        newOrder.user = this.app.profile.currentUser;
         newOrder.orderNumber = this.getOrderNumber();
         newOrder.orderTime = this._orderTime;
         newOrder.product = "White Blouse Armani";
@@ -280,6 +290,7 @@ class Checkout extends Base {
         newOrder.lastName = this.lastname;
         newOrder.street = this.streetName;
         newOrder.zip = this.postNumber;
+        newOrder.ort = this._ort;
         newOrder.region = this.country;
         newOrder.phoneNumber = this.telephone;
         newOrder.status = "Beställt";
@@ -294,11 +305,11 @@ class Checkout extends Base {
     }
 
     getOrderTime() {
-        let month = new Date().getMonth()+1;
+        let month = new Date().getMonth() + 1;
         let date = new Date().getDate();
         let year = new Date().getFullYear();
         this._orderTime = month + "/" + date + "/" + year;
-        
+
     }
 
     //-------------------Payment------------------------//
@@ -321,15 +332,39 @@ class Checkout extends Base {
     }
 
     checkCreditCard(check) {
-        if(check=="credit-card"){
-            let exDate=`20${this._cardYear}/${this._cardMonth}`;
+        if (check == "credit-card") {
+            let exDate = `20${this._cardYear}/${this._cardMonth}`;
             let cardExp = new Date(exDate);
-            if(cardExp=="Invalid Date"){
+            if (cardExp == "Invalid Date") {
                 alert("Please check your credit card!");
             }
         }
-       
+
     }
 
+
+    getLastOrder() {
+        return $.ajax('/getLastOrder').then((data) => {
+            if (data.result && data.result.length > 0) {
+                //this.lastOrder = data.result;
+                let r = data.result[0];
+
+                this.dMethod = r.shippingMethod;
+                this.dFee = r.shippingFee;
+                this.pMethod = r.paymentMethod;
+                this._cardNumber = r.cardNumber;
+                this._cardMonth = r.cardMonth;
+                this._cardYear = r.cardYear;
+                this._cvCode = r.cvCode;
+                this.firstname = r.firstName;
+                this.lastname = r.lastName;
+                this.streetName = r.street;
+                this.postNumber = r.zip;
+                this.country = r.region;
+                this.telephone = r.phoneNumber;
+                this._ort = r.ort;
+            }
+        });
+    }
 
 }
