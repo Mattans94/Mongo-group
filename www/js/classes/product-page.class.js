@@ -6,8 +6,24 @@ class ProductPage extends Base {
     this.makeCards();
   }
 
-  click(event){
+  async click(event){
     $(event.target).hasClass('toTop') && $(window).scrollTop(0);
+
+    //Add product to cart
+    if($(event.target).hasClass('card-btn')){
+      let dataId = $(event.target).data('id');
+      console.log('Hejsan', dataId);
+      console.log('_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}));
+      let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
+      if (!cartItem) {
+        Cart.create({product: dataId, sessionId: Cart.getSessionId()});
+      } else {
+        cartItem.quantity++;
+        let r = await cartItem.save();
+        console.log(r);
+      }
+
+    };
   }
 
   scrolling() {
@@ -47,12 +63,12 @@ class ProductPage extends Base {
     this.sorting();
 
     // take the sorted products or not sorted products
-    // empty out main and render out a card for each product 
+    // empty out main and render out a card for each product
     this.products.forEach( product => this.html(product) );
     $('.cards').empty();
 
     // if this.cards is an empty array (when page first loads or when all checkboxes are unchecked)
-    // this.makeCards function gets called with the parameter default value and 
+    // this.makeCards function gets called with the parameter default value and
     // this.cards thats in the template product.page.html gets rendered out
     // else if this.cards is not an empty array the this.cards gets appended to the main.
     (this.cards.length == 0) ? this.makeCards() : $('.cards').append(this.cards.join(''));
@@ -69,7 +85,7 @@ class ProductPage extends Base {
         })
       },
       descendingOrder: (property) => {
-        this.products.sort((a, b) => { 
+        this.products.sort((a, b) => {
             if(a[property] > b[property]) return -1;
             if(a[property] < b[property]) return 1;
             return 0;
@@ -110,7 +126,7 @@ class ProductPage extends Base {
             <p class="float-left font-weight-bold ml-sm-3 mt-2">${product.price} kr</p>
           </div>
           <div class="ml-3">
-            <a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+            <a href="#" class="btn btn-primary card-btn float-right" data-id="${product._id}">KÖP</a>
           </div>
         </div>
       </div>

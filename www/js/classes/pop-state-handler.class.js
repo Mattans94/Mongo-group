@@ -128,6 +128,7 @@ class PopStateHandler {
     this.app.cart.render('main', 'Basket');
     this.app.cart.renderShoppingList();
     this.app.cart.renderTotalPriceWithVAT();
+    this.app.cart.renderCartContent();
   }
 
   register() {
