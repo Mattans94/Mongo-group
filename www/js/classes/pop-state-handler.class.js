@@ -12,8 +12,6 @@ class PopStateHandler {
     // from an arrow function to keep "this"
     // inside changePage pointing to the PopStateHandler object
     window.addEventListener('popstate', () => this.changePage());
-    console.log("1111");
-
   }
 
   addEventHandler() {
@@ -43,7 +41,7 @@ class PopStateHandler {
 
     // Get the current url
     let url = location.pathname;
-    console.log(url);
+    console.log(url,'url read from bar');
 
     // Change which menu link that is active
     $('header a').removeClass('active');
@@ -66,15 +64,14 @@ class PopStateHandler {
     };
 
     for (let i = 0; i < this.app.products.length; i++){
-      const url = `/produkter/${this.app.products[i].name.replace(/\s+/g, '-')}`;
+      const url = `/${this.app.products[i]._id}`;
       const method = 'info';
       Object.assign(urls, {[url] : method});
     }
 
     // Call the right method
     let methodName = urls[url];
-    let produktName = url.slice(11).replace(/-/g, ' ');
-    (methodName == 'info') ? this[methodName](produktName) : this[methodName]();
+    (methodName == 'info') ? this[methodName](url.slice(1)) : this[methodName]();
 
     // Set the right menu item active
     this.app.navbar.setActive(url);
@@ -102,12 +99,10 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
-  info(productName){
+  info(id){
     $('main').empty();
-    this.info = new Info();
-    this.info.getProduct(productName);
-    this.info.render('main');
-    console.log('pop handler info');
+    this.app.info.getProduct(id);
+    this.app.info.render('main');
   }
 
   produkter(){
