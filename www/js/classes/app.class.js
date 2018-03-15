@@ -4,6 +4,7 @@ class App extends REST {
         this.load();
         this.clickEvents();
         console.log("app");
+        this.currentUser = this.checkIfLogin();
     }
 
     clickEvents() {
@@ -58,12 +59,21 @@ class App extends REST {
       this.startsida = new Startsida(this);
       this.product = new Product(this);
       this.cart = new Cart(this, this.profile);
-      this.profile = new Profile();
+      this.profile = new Profile(app);
       this.productPage = new ProductPage(this);
       this.omOss = new OmOss(this);
       this.conditions = new Conditions();
-      this.admin = new Admin(this);
+     // this.admin = new Admin(this);
       this.checkout= new Checkout(this);
       this.popState = new PopStateHandler(this);
+    }
+
+    checkIfLogin(){
+      let userName = document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+      if(!userName){
+        return this.currentUser = "Unknow User";
+      }else{
+        return this.currentUser = userName;
+      }
     }
 }
