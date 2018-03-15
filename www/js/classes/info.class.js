@@ -6,12 +6,16 @@ class Info extends REST {
 
 	click(e) {
 		if ($(e.target).is('#plus-btn') || $(e.target).parent().is('#plus-btn')){
-			$("#quantity").val(parseInt($('#quantity').val())+1);
-		
+			let oldValue = parseInt($('#quantity').val());
+			if(oldValue <= 19){
+				$("#quantity").val(parseInt($('#quantity').val())+1);
+			}else{return;}
 		}
 		else if ($(e.target).is('#minus-btn') || $(e.target).parent().is('#minus-btn')){
-
-			$("#quantity").val(parseInt($('#quantity').val())-1)
+			let oldValue = parseInt($('#quantity').val());
+				if(oldValue >= 1){
+					$("#quantity").val(parseInt($('#quantity').val())-1);
+				}else{return;}
 		}
 	}
 }
