@@ -53,7 +53,6 @@ class Cart extends REST {
         cartTotal += parseInt($(this).text().replace('kr', ''));
       });
 
-      console.log(cartTotal);
       $('.cart-total-price').append(`${cartTotal}kr`);
     }
 
