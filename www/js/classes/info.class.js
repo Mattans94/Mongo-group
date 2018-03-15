@@ -13,7 +13,7 @@ class Info extends REST {
 		}
 		else if ($(e.target).is('#minus-btn') || $(e.target).parent().is('#minus-btn')){
 			let oldValue = parseInt($('#quantity').val());
-				if(oldValue >= 1){
+				if(oldValue >= 2){
 					$("#quantity").val(parseInt($('#quantity').val())-1);
 				}else{return;}
 		}
