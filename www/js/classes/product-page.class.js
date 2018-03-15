@@ -120,7 +120,8 @@ class ProductPage extends Base {
             <p class="float-left font-weight-bold ml-sm-3 mt-2">${product.price} kr</p>
           </div>
           <div class="ml-3">
-            <a href="#" class="btn btn-primary card-btn float-right">KÖP</a>
+          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ' <a href="#" class=" btn btn-primary card-btn float-right ">KÖP</a>'} 
+             
           </div>
         </div>
       </div>
