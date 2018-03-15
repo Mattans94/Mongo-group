@@ -1,15 +1,6 @@
 class Cart extends REST {
-    constructor(app, profile) {
-        super();
-        this.app = app;
-        this.profile = profile;
-        this.products = [];
-        this.clickEvents();
-    }
-
-    addProductToArray(product){
-      this.products.push(product);
-      this.renderCartContent();
+    constructor(cart) {
+        super(cart);
     }
 
     renderShoppingList() {
@@ -21,11 +12,24 @@ class Cart extends REST {
         this.render('#order-summary', 'OrderSummary');
     }
 
-    renderCartContent(){
-      console.log('Hejsan');
+    async renderCartContent(){
+      let session = Cart.getSessionId();
+      let sessionProducts = await Cart.find({
+        sessionId: session
+      });
+      let products = [];
+      for(let obj of sessionProducts){
+        for(let prodObj of app.products){
+          if(obj.product == prodObj._id){
+            prodObj.cartItem = obj;
+            products.push(prodObj);
+          }
+        }
+      }
+      console.log('Mina produkter', products);
       $('.cart-content').empty();
-      console.log('HAllå', this.products);
-      console.log(this.products.render('.cart-content', 'CartContent'));
+      products.render('.cart-content', 'CartContent');
+      this.calculateAndRenderTotalPrice();
     }
 
     // Ger priset på en vara utan moms
@@ -41,7 +45,21 @@ class Cart extends REST {
     //   return VAT.toFixed(2);
     // }
 
-    clickEvents() {
+    calculateAndRenderTotalPrice(){
+      $('.cart-total-price').empty();
+      let cartTotal = 0;
+
+      $('.unit-total-price').each(function(){
+        cartTotal += parseInt($(this).text().replace('kr', ''));
+      });
+
+      console.log(cartTotal);
+      $('.cart-total-price').append(`${cartTotal}kr`);
+    }
+
+
+    click() {
+      console.log('HELOOOO');
         let that = this;
         $(document).on("click", '.address-btn', function () {
             $(".checkOut-btns").removeClass("active");
@@ -63,14 +81,11 @@ class Cart extends REST {
 
       });
 
-      $(document).on("click", '.card-btn', function () {
-        let dataId = $(this).data('id');
-          Cart.create({product: dataId, sessionId: Cart.getSessionId() });
-
-      });
   }
 
+
+
   static getSessionId(){
-    return document.cookie.substr('session='.length);
+    return (document.cookie.substr('session='.length)).replace(/%/g,'');
   }
 }

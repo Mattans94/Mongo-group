@@ -5,8 +5,24 @@ class ProductPage extends Base {
     $(window).on('scroll', () => this.scrolling());
   }
 
-  click(event){
+  async click(event){
     $(event.target).hasClass('toTop') && $(window).scrollTop(0);
+
+    //Add product to cart
+    if($(event.target).hasClass('card-btn')){
+      let dataId = $(event.target).data('id');
+      console.log('Hejsan', dataId);
+      console.log('_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}));
+      let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
+      if (!cartItem) {
+        Cart.create({product: dataId, sessionId: Cart.getSessionId()});
+      } else {
+        cartItem.quantity++;
+        let r = await cartItem.save();
+        console.log(r);
+      }
+
+    };
   }
 
   scrolling() {

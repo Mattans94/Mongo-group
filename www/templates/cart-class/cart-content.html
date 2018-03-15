@@ -4,12 +4,14 @@ return `<tr>
           <a href="#">${this.name}</a>
       </td>
       <td>
-          <input type="number" value="1" min="0" class="form-control quantity-control">
+          <input data-id="${this._id}" type="number" value="${this.cartItem.quantity}" min="1" class="form-control quantity-control">
       </td>
-      <td>${this.price}</td>
-      <td>HEJ</td>
+      <td>${this.price}kr</td>
+      <td class="unit-total-price">
+        ${this.price * this.cartItem.quantity}kr
+      </td>
       <td>
-          <a href="#">
+          <a class="trash-item" data-id="${this._id}">
               <i class="fa fa-trash-o"></i>
           </a>
       </td>
