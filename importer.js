@@ -24,10 +24,7 @@ const toolModel = new Tool(app).myModel;
 
 const models = {
   'product': productModel,
-  'tool': toolModel,
-  'order': orderModel,
-  'profile': profileModel,
-  'cart': cartModel
+  'tool': toolModel
 }
 
 // Save product's json files into mongoDB.
