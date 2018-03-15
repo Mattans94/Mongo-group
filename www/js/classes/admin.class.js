@@ -208,7 +208,8 @@ class Admin extends Base {
   }
 
   // Functions in orders page
-  makeOrderList(targets = this.app.orders) {
+  makeOrderList(targets =  [...this.app.orders]) {
+    console.log(targets)
     const orderList = [];
     targets.forEach(target => {
       orderList.unshift(`
@@ -277,4 +278,5 @@ class Admin extends Base {
       return;
     }
   }
+  //test
 }
