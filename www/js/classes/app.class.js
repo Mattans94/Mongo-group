@@ -62,7 +62,6 @@ class App extends REST {
       this.cart = new Cart(this, this.profile);
       this.profile = new Profile();
       this.productPage = new ProductPage(this);
-      this.info = new Info(this);
       this.omOss = new OmOss(this);
       this.conditions = new Conditions();
       this.admin = new Admin(this);

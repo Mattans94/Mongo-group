@@ -54,7 +54,6 @@ class PopStateHandler {
       '/': 'startsidan',
       '/produkter': 'produkter',
       '/om_oss' : 'omOss',
-      '/produkter/' : 'info',
       '/kopvillkor': 'conditions',
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
@@ -66,9 +65,16 @@ class PopStateHandler {
       '/admin/delete': 'adminDelete'
     };
 
+    for (let i = 0; i < this.app.products.length; i++){
+      const url = `/produkter/${this.app.products[i].name.replace(/\s+/g, '-')}`;
+      const method = 'info';
+      Object.assign(urls, {[url] : method});
+    }
+
     // Call the right method
     let methodName = urls[url];
-    this[methodName]();
+    let produktName = url.slice(11).replace(/-/g, ' ');
+    (methodName == 'info') ? this[methodName](produktName) : this[methodName]();
 
     // Set the right menu item active
     this.app.navbar.setActive(url);
@@ -96,9 +102,11 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
-  info(){
+  info(productName){
     $('main').empty();
-    this.app.info.render('main');
+    this.info = new Info();
+    this.info.getProduct(productName);
+    this.info.render('main');
     console.log('pop handler info');
   }
 

@@ -10,7 +10,7 @@ class Info extends REST {
 		console.log(this.productInfo[0].name);
 	}*/
 
-	static async getProduct(productName){
+	async getProduct(productName){
 		this.productInfo = await Product.find({name: productName});
 		console.log(this.productInfo);
 		$('.product-info').empty();
@@ -46,7 +46,7 @@ class Info extends REST {
             <button type="button" class="btn-sm text-light my-2" id="minus-btn">
               <i class="fa fa-minus" aria-hidden="true"></i>
             </button>
-            <input class="form-control form-control-sm mt-2 text-center font-weight-bold" id="quantity" type="text" value="1">
+            <input class="form-control form-control-sm mt-2 text-center font-weight-bold" id="quantity" type="text" value="1" max="10" min="1">
             <button type="button" class="btn-sm text-light my-2" id="plus-btn">
               <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
@@ -83,7 +83,7 @@ class Info extends REST {
 	click(e) {
 		if ($(e.target).is('#plus-btn') || $(e.target).parent().is('#plus-btn')){
 			let oldValue = parseInt($('#quantity').val());
-			if(oldValue <= 19){
+			if(oldValue <= 9){
 				$("#quantity").val(parseInt($('#quantity').val())+1);
 			}else{return;}
 		}
@@ -96,5 +96,3 @@ class Info extends REST {
 	}
 }
 
-//<button id="plus-btn">+</button>
-//<button id="minus-btn">-</button>

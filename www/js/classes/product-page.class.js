@@ -3,18 +3,11 @@ class ProductPage extends Base {
     super();
     this.app = app;
     $(window).on('scroll', () => this.scrolling());
-    $(document).on('click', '.product-information', (e) => this.findProduct(e));
     this.makeCards();
   }
 
-  async click(event){
-  async findProduct(e){
-    let productName = $(e.target).attr('data-name');
-    console.log(productName,'product page name');
-    Info.getProduct(productName);
-  }
 
-  click(event){
+  async click(event){
     $(event.target).hasClass('toTop') && $(window).scrollTop(0);
 
     //Add product to cart
@@ -118,14 +111,14 @@ class ProductPage extends Base {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
       <div class="card mb-3">
         <div class="card-holder rounded mx-auto d-block">
-          <a class="pop product-information" href="/produkter/">
+          <a class="pop product-information" href="/produkter/${product.name.replace(/\s+/g, '-')}">
             <img class="card-img-top rounded mx-auto d-block mt-4" data-name="${product.name}" src="/imgs/${product.type}/${product.image}" alt="Card image cap">
           </a>
         </div>
         <div class="card-body pb-0 mt-1">
           <div class="title-holder rounded mx-auto d-block">
             <h5 class="card-title">
-              <a class="pop product-information" data-name="${product.name}" href="/produkter/">${product.name}</a>
+              <a class="pop product-information" href="/produkter/${product.name.replace(/\s+/g, '-')}">${product.name}</a>
             </h5>
           </div>
           <p class="card-text description">${product.description}
@@ -136,7 +129,7 @@ class ProductPage extends Base {
             <p class="float-left font-weight-bold ml-sm-3 mt-2">${product.price} kr</p>
           </div>
           <div class="ml-3">
-          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ' <a href="#" class=" btn btn-primary card-btn float-right ">KÖP</a>'} 
+          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : `<a href="#" class=" btn btn-primary card-btn float-right " data-id="${product._id}" >KÖP</a>` } 
              
           </div>
         </div>
