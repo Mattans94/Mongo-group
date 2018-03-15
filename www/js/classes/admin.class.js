@@ -158,6 +158,13 @@ class Admin extends Base {
   // End of functions in change-item-page
 
   // Functions in delete-item-page
+  setName(products) {
+    $('#inputName').empty();
+    products.forEach(product => {
+      $('#inputName').append(`<option>${product.name}</option>`);
+    });
+  }
+
   async click4(event) {
     if ($(event.target).is('#delete-btn')){
       event.preventDefault();
