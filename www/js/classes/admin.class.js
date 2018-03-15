@@ -208,14 +208,15 @@ class Admin extends Base {
   }
 
   // Functions in orders page
-  makeOrderList(targets) {
+  makeOrderList(targets =  [...this.app.orders]) {
+    console.log(targets)
     const orderList = [];
     targets.forEach(target => {
       orderList.unshift(`
       <tr>
         <th id="orderNumber">${target.orderNumber}</th>
         <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
-        <td>'Antal'</td>
+        <td>3</td>
         <td>${target.total}</td>
         <td>
           <div class="input-group mb-3">
@@ -277,4 +278,5 @@ class Admin extends Base {
       return;
     }
   }
+  //test
 }
