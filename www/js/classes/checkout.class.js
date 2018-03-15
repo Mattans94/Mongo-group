@@ -227,6 +227,7 @@ class Checkout extends Base {
             $('.stepBox').empty();
             that.render('.stepBox', 'Review');
             that.app.cart.renderShoppingList();
+            that.app.cart.renderCartContent();
         });
 
         $(document).on("click", '.order-btn', function (event) {
