@@ -41,7 +41,7 @@ class PopStateHandler {
 
     // Get the current url
     let url = location.pathname;
-    console.log(url,'url read from bar');
+    console.log(url);
 
     // Change which menu link that is active
     $('header a').removeClass('active');

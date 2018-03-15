@@ -46,7 +46,7 @@ class Info extends REST {
           </form>
         </div>
         <div class="col-4 col-sm-7 col-md-6 col-xl-9 pl-0 mt-2">
-          <button class="${this.productInfo[0].stock == 0 ? 'd-none' : ''} btn btn-sm text-light font-weight-bold btn-cart mt-2 card-btn" data-id="${this.productInfo[0]._id}" >Lägg i korgen</button>
+          <button class="${this.productInfo[0].stock == 0 ? 'd-none' : ''} btn btn-sm text-light font-weight-bold btn-cart mt-2 info-btn" data-id="${this.productInfo[0]._id}" >Lägg i korgen</button>
         </div>     
       </div>
       <!-- </div> -->
@@ -70,7 +70,7 @@ class Info extends REST {
 
 	click(e) {
     // add product to cart
-    $(e.target).hasClass('card-btn') && ProductPage.addProductToCart(e.target);
+    $(e.target).hasClass('info-btn') && ProductPage.addProductToCart(e.target);
 
     // get the current value of the input
     // get the stock value
