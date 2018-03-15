@@ -208,7 +208,7 @@ class Admin extends Base {
   }
 
   // Functions in orders page
-  makeOrderList(targets) {
+  makeOrderList(targets = this.app.orders) {
     const orderList = [];
     targets.forEach(target => {
       orderList.unshift(`
