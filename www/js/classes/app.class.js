@@ -44,6 +44,9 @@ class App extends REST {
       }
     }
 
+    async updateOrders() {
+      this.orders = await Order.find({});
+    }
     async start(){
       // Create a footer
       this.footer = await new Footer();
