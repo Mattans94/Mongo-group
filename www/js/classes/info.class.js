@@ -65,6 +65,9 @@ class Info extends REST {
     </div>`);
 	}
 
+
+
+
 	click(e) {
     // add product to cart
     $(e.target).hasClass('card-btn') && ProductPage.addProductToCart(e.target);
@@ -80,7 +83,7 @@ class Info extends REST {
 		}
     // the least amount you can order is 1
 		if ($(e.target).is('#minus-btn') || $(e.target).parent().is('#minus-btn')){
-			 (currentValue < 1) && $("#quantity").val(currentValue-1);
+			 (currentValue > 1) && $("#quantity").val(currentValue-1);
 		}
 	}
 
