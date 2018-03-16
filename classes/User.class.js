@@ -30,11 +30,10 @@ module.exports = class User {
         });
 
         expressApp.post('/login', (req, res) => {
-            // console.log("req");
-            // console.log(req);
+            console.log("here!!!!!!!!!!!!!!!!!!!!")
             let query = myModel.findOne({ "email": req.body.email });
-            // console.log("query ");
-            // console.log(query);
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!email!!!!!!!!!!!!!!")
+            console.log(req.body.email);
             query.select('email password name');
             query.exec(function (err, person) {
                 if (err) {

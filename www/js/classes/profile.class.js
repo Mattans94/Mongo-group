@@ -104,6 +104,7 @@ class Profile extends Base {
     clicklogin(event, element, instance) {
         if ($(event.target).hasClass('lgin')) {
             this.finishLogin();
+            event.preventDefault();
         }
         if ($(event.target).hasClass('register-btn')) {
             $('#loginModal').modal('toggle');
@@ -128,8 +129,8 @@ class Profile extends Base {
 
     finishLogin() {
         let that=this;
+        
         that.login().then((res) => {
-           
             console.log("res " + res.result);
             that.app.currentUser=document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         });
