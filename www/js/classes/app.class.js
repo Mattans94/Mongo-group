@@ -90,5 +90,13 @@ class App extends REST {
         html: '<p>HTML version of the message</p>'
       };
 
+      transporter.sendMail(message, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      });
+
     }
 }
