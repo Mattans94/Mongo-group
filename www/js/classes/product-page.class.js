@@ -123,7 +123,7 @@ class ProductPage extends Base {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
       <div class="card mb-3">
         <div class="card-holder rounded mx-auto d-block">
-          <a class="pop product-information" href="/${product._id}">
+          <a class="pop product-information" href="/produkter/${product._id}">
             <img class="card-img-top rounded mx-auto d-block mt-4" data-name="${product.name}" src="/imgs/${product.type}/${product.image}" alt="Card image cap">
           </a>
         </div>

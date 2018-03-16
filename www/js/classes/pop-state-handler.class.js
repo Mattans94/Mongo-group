@@ -64,14 +64,14 @@ class PopStateHandler {
     };
 
     for (let i = 0; i < this.app.products.length; i++){
-      const url = `/${this.app.products[i]._id}`;
+      const url = `/produkter/${this.app.products[i]._id}`;
       const method = 'info';
       Object.assign(urls, {[url] : method});
     }
 
     // Call the right method
     let methodName = urls[url];
-    (methodName == 'info') ? this[methodName](url.slice(1)) : this[methodName]();
+    (methodName == 'info') ? this[methodName](url.slice(11)) : this[methodName]();
 
     // Set the right menu item active
     this.app.navbar.setActive(url);
