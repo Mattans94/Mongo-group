@@ -6,29 +6,26 @@ class ProductPage extends Base {
     this.makeCards();
   }
 
-
-  click(event){
+  async click(event){
     $(event.target).hasClass('toTop') && $(window).scrollTop(0);
-    $(event.target).hasClass('card-btn') && ProductPage.addProductToCart(event.target);
+
+    //Add product to cart
+    if($(event.target).hasClass('card-btn')){
+      let dataId = $(event.target).data('id');
+      console.log('Hejsan', dataId);
+      console.log('_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}));
+      let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
+      if (!cartItem) {
+        Cart.create({product: dataId, sessionId: Cart.getSessionId()});
+      } else {
+        cartItem.quantity++;
+        let r = await cartItem.save();
+        console.log(r);
+      }
+
+    };
   }
 
-  static async addProductToCart(target){
-    console.log($(target).data('id'));
-    let dataId = $(target).data('id');
-    console.log('Hejsan', dataId);
-    console.log( '_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}) );
-    let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
-    if (!cartItem) {
-      Cart.create({product: dataId, sessionId: Cart.getSessionId()});
-    } else {
-      cartItem.quantity++;
-      let r = await cartItem.save();
-      console.log(r);
-    }
-  }
-
-  // scroll arrow to appear when you have scrolled 
-  // down more than 500 otherwise hide it
   scrolling() {
     ($(window).scrollTop() > 500) ? $('.toTop').show() : $('.toTop').hide();
   }
@@ -111,14 +108,14 @@ class ProductPage extends Base {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
       <div class="card mb-3">
         <div class="card-holder rounded mx-auto d-block">
-          <a class="pop product-information" href="/${product._id}">
-            <img class="card-img-top rounded mx-auto d-block mt-4" data-name="${product.name}" src="/imgs/${product.type}/${product.image}" alt="Card image cap">
+          <a href="#">
+            <img class="card-img-top rounded mx-auto d-block mt-4" src="/imgs/${product.type}/${product.image}" alt="Card image cap">
           </a>
         </div>
         <div class="card-body pb-0 mt-1">
           <div class="title-holder rounded mx-auto d-block">
             <h5 class="card-title">
-              <a class="pop product-information" href="/${product._id}">${product.name}</a>
+              <a href="#">${product.name}</a>
             </h5>
           </div>
           <p class="card-text description">${product.description}
@@ -129,8 +126,7 @@ class ProductPage extends Base {
             <p class="float-left font-weight-bold ml-sm-3 mt-2">${product.price} kr</p>
           </div>
           <div class="ml-3">
-          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ` <button class=" btn btn-primary card-btn float-right " data-id="${product._id}">KÖP</button>` } 
-             
+            <a href="#" class="btn btn-primary card-btn float-right" data-id="${product._id}">KÖP</a>
           </div>
         </div>
       </div>

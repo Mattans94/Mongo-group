@@ -26,7 +26,7 @@ Object.assign(Admin.prototype, { template(){ return `
         <div class="row m-3">
           <div class="col-md-8 mb-4">
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="radio" name="radio" class="custom-control-input" value="Alla" checked>
+              <input type="radio" id="radio" name="radio" class="custom-control-input" value="Alla">
               <label class="custom-control-label" for="radio">Alla</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
@@ -47,8 +47,9 @@ Object.assign(Admin.prototype, { template(){ return `
               <label class="input-group-text" for="input-sort">Sort</label>
             </div>
             <select class="custom-select" id="input-sort">
-              <option selected>Nyaste överst</option>
+              <option selected>Choose...</option>
               <option>Äldsta överst</option>
+              <option>Nyaste överst</option>
             </select>
           </div>
         </div>
@@ -65,7 +66,6 @@ Object.assign(Admin.prototype, { template(){ return `
             </thead>
             <tbody id="order-list">
               <!-- Order list rendered here -->
-              ${this.makeOrderList()}
             </tbody>
           </table>
         </div>

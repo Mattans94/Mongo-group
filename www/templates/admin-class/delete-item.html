@@ -24,16 +24,17 @@ Object.assign(Admin.prototype, { template4(){ return `
       </div>
       <div class="card-body">
         <h5 class="my-4">Fyll i produktnamn</h5>
+
         <form>
           <div class="input-group mb-5">
             <div class="input-group-prepend">
               <span class="input-group-text" id="name">Namn</span>
             </div>
-            <select id="inputName" class="form-control" aria-label="Default" aria-describedby="name">
-            </select>
+            <input id="inputName" type="text" class="form-control" aria-label="Default" aria-describedby="name">
           </div>
           <button id="delete-btn" type="submit" class="btn btn-lg submit">Ta bort</button>
         </form>
+
       </div>
     </div>
   </div>
