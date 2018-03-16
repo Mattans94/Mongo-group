@@ -57,7 +57,7 @@ class PopStateHandler {
       '/om_oss' : 'omOss',
       '/info' : 'info',
       '/kopvillkor': 'conditions',
-      '/shoppingCart': 'shoppingCart',
+      '/varukorg': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
       '/admin': 'admin',

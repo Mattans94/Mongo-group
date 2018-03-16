@@ -9,7 +9,7 @@ Object.assign(Cart.prototype, { templateBasket(){ return `
 
                     <form>
 
-                        <h1>SHOPPINGBAG</h1>
+                        <h1>Varukorg</h1>
                         <div class="table-responsive" id="shoppingList">
 
 
@@ -18,13 +18,13 @@ Object.assign(Cart.prototype, { templateBasket(){ return `
 
                         <div class="box-footer">
                             <div class="pull-left">
-                                <a href="/" class="btn btn-last">
-                                    <i class="fa fa-chevron-left"></i> Continue shopping</a>
+                                <a href="javascript:history.go(-1)" class="btn btn-last">
+                                    <i class="fa fa-chevron-left"></i>Tillbaka</a>
                             </div>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-next">Proceed to checkout
+                                <a class="btn btn-next pop text-light" href="checkout">Fortsätt till kassan
                                     <i class="fa fa-chevron-right"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
 
