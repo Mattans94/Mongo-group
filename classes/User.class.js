@@ -14,12 +14,13 @@ module.exports = class User {
             name: String,
             email: { type: String, required: true, unique: true },
             password: { type: String, required: true },
-            roles: [String]
+            role: String
         }
     }
     constructor(expressApp) {
         const schema = new mongoose.Schema(this.constructor.schema);
         const myModel = mongoose.model('User', schema);
+        this.myModel = myModel;
 
         expressApp.post('/register', (req, res) => {
             console.log('Body', req.body);
@@ -54,7 +55,6 @@ module.exports = class User {
                     res.json(JSON.stringify(err));
                     return;
                 }
-
                 if(!person){
                   res.json({message: 'Mail finns ej'});
                   return;

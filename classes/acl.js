@@ -16,6 +16,7 @@ path:    roles:
 */
 
 /*
+
 // run these for example acl
 let a = new ACL({path:'/admin', roles:['admin','super']});
 a.save();
@@ -30,6 +31,11 @@ a4.save();
 let a5 = new ACL({path:'/user', roles:['user']});
 a5.save();
 */
+let a = new ACL({path:'/admin', roles:['admin']});
+a.save();
+
+let a = new ACL({path:'/admin', roles:['admin']});
+a.save();
 
 module.exports = async function(req, res, next){
   let roles = ['*']; // everyone has the "*" (all) role

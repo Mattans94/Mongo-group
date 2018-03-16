@@ -2,8 +2,8 @@
 class Profile extends Base {
     constructor(app) {
         super();
-        this.app=app;
-      
+        this.app = app;
+
         //this.changeInput();
     }
 
@@ -128,11 +128,11 @@ class Profile extends Base {
 
 
     finishLogin() {
-        let that=this;
-        
+        let that = this;
+
         that.login().then((res) => {
             console.log("res " + res.result);
-            that.app.currentUser=document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+            that.app.currentUser = document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         });
     }
 
@@ -197,7 +197,8 @@ class Profile extends Base {
         newUser.email = this.email;
         newUser.password = this.password;
         newUser.name = this.name;
-        console.log(newUser);
+        newUser.roles = "Normal User";
+            console.log(newUser);
         return newUser;
     }
 
