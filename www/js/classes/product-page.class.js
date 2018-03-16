@@ -12,22 +12,34 @@ class ProductPage extends Base {
     $(event.target).hasClass('card-btn') && ProductPage.addProductToCart(event.target);
   }
 
-  static async addProductToCart(target){
+  static async addProductToCart(target, qty){
     console.log($(target).data('id'));
     let dataId = $(target).data('id');
     console.log('Hejsan', dataId);
     console.log( '_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}) );
     let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
     if (!cartItem) {
-      Cart.create({product: dataId, sessionId: Cart.getSessionId()});
-    } else {
+      Cart.create({product: dataId, sessionId: Cart.getSessionId(), quantity: qty});
+    } else if(!qty) {
       cartItem.quantity++;
-      let r = await cartItem.save();
-      console.log(r);
+      await cartItem.save();
+    } else{
+      cartItem.quantity += qty;
+      await cartItem.save();
     }
+    Cart.updateCartBadgeValue();
+
+    //Animation on product page
+    //Select item image and pass to the function
+    if(location.pathname == "/produkter"){
+      let itemImg = $(target).parent().parent().parent().find('img');
+      console.log(itemImg);
+      flyToElement($(itemImg), $('.shopping-cart'));
+    }
+
   }
 
-  // scroll arrow to appear when you have scrolled 
+  // scroll arrow to appear when you have scrolled
   // down more than 500 otherwise hide it
   scrolling() {
     ($(window).scrollTop() > 500) ? $('.toTop').show() : $('.toTop').hide();
@@ -129,8 +141,8 @@ class ProductPage extends Base {
             <p class="float-left font-weight-bold ml-sm-3 mt-2">${product.price} kr</p>
           </div>
           <div class="ml-3">
-          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ` <button class=" btn btn-primary card-btn float-right " data-id="${product._id}">KÖP</button>` } 
-             
+          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ` <button class=" btn btn-primary card-btn float-right " data-id="${product._id}">KÖP</button>` }
+
           </div>
         </div>
       </div>
