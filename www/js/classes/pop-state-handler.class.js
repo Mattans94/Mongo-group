@@ -12,8 +12,6 @@ class PopStateHandler {
     // from an arrow function to keep "this"
     // inside changePage pointing to the PopStateHandler object
     window.addEventListener('popstate', () => this.changePage());
-    console.log("1111");
-
   }
 
   addEventHandler() {
@@ -43,21 +41,19 @@ class PopStateHandler {
 
     // Get the current url
     let url = location.pathname;
-    console.log(url);
+    console.log(url,'url read from bar');
 
     // Change which menu link that is active
     $('header a').removeClass('active');
     $(`header a[href="${url}"]`).addClass('active');
-
     // A small "dictionary" of what method to call
     // on which url
     let urls = {
       '/': 'startsidan',
       '/produkter': 'produkter',
       '/om_oss' : 'omOss',
-      '/info' : 'info',
       '/kopvillkor': 'conditions',
-      '/shoppingCart': 'shoppingCart',
+      '/varukorg': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
       '/admin': 'admin',
@@ -67,9 +63,15 @@ class PopStateHandler {
       '/admin/delete': 'adminDelete'
     };
 
+    for (let i = 0; i < this.app.products.length; i++){
+      const url = `/${this.app.products[i]._id}`;
+      const method = 'info';
+      Object.assign(urls, {[url] : method});
+    }
+
     // Call the right method
     let methodName = urls[url];
-    this[methodName]();
+    (methodName == 'info') ? this[methodName](url.slice(1)) : this[methodName]();
 
     // Set the right menu item active
     this.app.navbar.setActive(url);
@@ -97,16 +99,15 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
-  info(){
+  info(id){
     $('main').empty();
+    this.app.info.getProduct(id);
     this.app.info.render('main');
-    console.log('Körs');
   }
 
   produkter(){
     $('main').empty();
     this.app.productPage.render('main');
-    console.log('Körs');
   }
 
   omOss() {
@@ -124,6 +125,7 @@ class PopStateHandler {
   }
 
   shoppingCart() {
+    $('title').text('Varukorg');
     $('main').empty();
     this.app.cart.render('main', 'Basket');
     this.app.cart.renderShoppingList();
@@ -144,7 +146,7 @@ class PopStateHandler {
       this.app.checkout.render('.stepBox','Address');
       this.app.cart.renderTotalPriceWithVAT();
     });
-    
+
     // this.app.profile.render('.stepBox', 'Address');
   }
 
@@ -176,6 +178,7 @@ class PopStateHandler {
     $('main').empty();
     this.app.admin.render('main', 4);
     this.app.admin.selectedCategory = '';
+    this.app.admin.setName(this.app.products);
   }
 
 

@@ -158,6 +158,13 @@ class Admin extends Base {
   // End of functions in change-item-page
 
   // Functions in delete-item-page
+  setName(products) {
+    $('#inputName').empty();
+    products.forEach(product => {
+      $('#inputName').append(`<option>${product.name}</option>`);
+    });
+  }
+
   async click4(event) {
     if ($(event.target).is('#delete-btn')){
       event.preventDefault();
@@ -208,14 +215,15 @@ class Admin extends Base {
   }
 
   // Functions in orders page
-  makeOrderList(targets) {
+  makeOrderList(targets =  [...this.app.orders]) {
+    console.log(targets)
     const orderList = [];
     targets.forEach(target => {
       orderList.unshift(`
       <tr>
         <th id="orderNumber">${target.orderNumber}</th>
         <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
-        <td>'Antal'</td>
+        <td>3</td>
         <td>${target.total}</td>
         <td>
           <div class="input-group mb-3">
@@ -277,4 +285,5 @@ class Admin extends Base {
       return;
     }
   }
+  //test
 }
