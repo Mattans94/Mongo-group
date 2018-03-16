@@ -24,6 +24,11 @@ class ProductPage extends Base {
         Cart.updateCartBadgeValue();
         console.log(r);
       }
+      //animate when clicking KÖP
+      //Select item image and pass to the function
+      let itemImg = $(event.target).parent().parent().parent().find('img');
+      console.log(itemImg);
+      flyToElement($(itemImg), $('.shopping-cart'));
     }
   }
   scrolling() {
