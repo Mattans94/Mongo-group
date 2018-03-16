@@ -61,8 +61,9 @@ class App extends REST {
       this.info = new Info(this);
       this.omOss = new OmOss(this);
       this.conditions = new Conditions();
+      this.userPage = new UserPage(this);
       this.admin = new Admin(this);
       this.checkout = new Checkout(this);
-      this.popState = new PopStateHandler(this);    
+      this.popState = new PopStateHandler(this);
     }
 }

@@ -56,6 +56,7 @@ class PopStateHandler {
       '/varukorg': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
+      '/mina_sidor': 'userPage',
       '/admin': 'admin',
       '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
@@ -148,6 +149,11 @@ class PopStateHandler {
     });
 
     // this.app.profile.render('.stepBox', 'Address');
+  }
+
+  userPage() {
+    $('main').empty();
+    this.app.userPage.render('main');
   }
 
   admin() {
