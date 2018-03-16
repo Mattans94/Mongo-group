@@ -66,37 +66,4 @@ class App extends REST {
       this.popState = new PopStateHandler(this);    
     }
 
-    nodemailer.createTestAccount((err, account) => {
-      if (err) {
-        console.error('Failed to create a testing account. ' + err.message);
-          return process.exit(1);
-      }
-      
-      let transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        secure: false,
-        auth: {
-          user: account.user,
-          pass: account.pass
-        }
-      });
-
-      let message = {
-        from: 'sender@server.com',
-        to: 'receiver@sender.com',
-        subject: 'Message title',
-        text: 'Plaintext version of the message',
-        html: '<p>HTML version of the message</p>'
-      };
-
-      transporter.sendMail(message, (error, info) => {
-        if (error) {
-            return console.log(error);
-        }
-        console.log('Message sent: %s', info.messageId);
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-      });
-
-    }
 }
