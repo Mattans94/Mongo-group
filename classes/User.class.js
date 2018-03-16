@@ -60,20 +60,25 @@ module.exports = class User {
                 if(!person){
                   res.json({message: 'Mail finns ej'});
                   return;
-                if (person.password == req.body.password) {
-                    req.session.data.user = person;
-                    req.session.markModified('data');
-                    req.session.save();
-                    res.cookie('user', person.name);
-                    res.json({ result: person.name });
-                } else {
-                    res.json({ result: 'Login fail!' });
                 }
+                // if (person.password == req.body.password) {
+                //     req.session.data.user = person;
+                //     req.session.markModified('data');
+                //     req.session.save();
+                //     res.cookie('user', person.name);
+                //     res.json({ result: person.name });
+                // } else {
+                //     res.json({ result: 'Login fail!' });
+                // }
 
                 bcrypt.compare(req.body.password, person.password, function(err, result) {
                   if(result) {
                    // Passwords match
-                   res.json({result:person});
+                   req.session.data.user = person;
+                   req.session.markModified('data');
+                   req.session.save();
+                   res.cookie('user', person.name);
+                   res.json({ result: person.name });
                   } else {
                    // Passwords don't match
                    res.json({ result: 'Login fail!' });
