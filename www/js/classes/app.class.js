@@ -65,4 +65,8 @@ class App extends REST {
       this.checkout = new Checkout(this);
       this.popState = new PopStateHandler(this);    
     }
+
+    nodemailer.createTestAccount((err, account) => {
+      let transporter = nodemailer.createTransport(transport[, defaults]);
+    }
 }
