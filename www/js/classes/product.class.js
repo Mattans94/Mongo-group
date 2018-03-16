@@ -10,7 +10,6 @@ class Product extends REST {
   }
 
   events(){
-    console.log('gdsgsdgsd');
     $(document).on('change, input', '.quantity-control', async function(){
       let sessionId = Cart.getSessionId();
       let prodId = $(this).data('id');
