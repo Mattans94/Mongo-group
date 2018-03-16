@@ -19,6 +19,7 @@ class Info extends REST {
       <div class="price font-weight-bold">
         <span>${this.productInfo[0].price} </span> kr
       </div>
+      <p class="text-muted">Varav moms: ${ this.productInfo[0].price - (this.productInfo[0].price / 1.12).toFixed(0)} kr</p>
       <div class="mt-4">
         <div class="d-flex justify-content-start">
          ${ this.productInfo[0].stock > 0 
