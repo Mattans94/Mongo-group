@@ -10,16 +10,12 @@ class Product extends REST {
   }
 
   events(){
+    console.log('gdsgsdgsd');
     $(document).on('change, input', '.quantity-control', async function(){
       let sessionId = Cart.getSessionId();
       let prodId = $(this).data('id');
-      let qtyField = $(this).val();
-      let qtyVal = parseInt(qtyField);
+      let qtyVal = parseInt($(this).val());
       console.log('Quantity', qtyVal);
-
-      if(qtyField === NaN || qtyField === null || qtyField < 1 || qtyField == ""){
-        qtyVal = 1;
-      }
 
       let product = await Cart.findOne({product: prodId, sessionId });
 

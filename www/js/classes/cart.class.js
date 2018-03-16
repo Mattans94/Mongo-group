@@ -30,7 +30,6 @@ class Cart extends REST {
       $('.cart-content').empty();
       products.render('.cart-content', 'CartContent');
       this.calculateAndRenderTotalPrice();
-      this.getVATFromTotalPrice();
     }
 
     // Ger priset på en vara utan moms
@@ -40,18 +39,11 @@ class Cart extends REST {
     // }
 
     // Ger moms-satsen av ett givet pris
-    getVATFromTotalPrice() {
-      $('.VAT-of-total-price').empty();
-      let cartTotal = 0;
-      $('.unit-total-price').each(function(){
-        cartTotal += parseInt($(this).text().replace('kr', ''));
-      });
-
-      let priceWithoutVAT = cartTotal / 1.12;
-      let VAT = cartTotal - priceWithoutVAT;
-
-      $('.VAT-of-total-price').append(`${VAT.toFixed(0)}kr`);
-    }
+    // getVATFromTotalPrice(price) {
+    //   let priceWithoutVAT = price / 1.12;
+    //   let VAT = price - priceWithoutVAT;
+    //   return VAT.toFixed(2);
+    // }
 
     calculateAndRenderTotalPrice(){
       $('.cart-total-price').empty();
@@ -61,6 +53,7 @@ class Cart extends REST {
         cartTotal += parseInt($(this).text().replace('kr', ''));
       });
 
+      console.log(cartTotal);
       $('.cart-total-price').append(`${cartTotal}kr`);
     }
 

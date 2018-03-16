@@ -227,6 +227,7 @@ class Checkout extends Base {
             $('.stepBox').empty();
             that.render('.stepBox', 'Review');
             that.app.cart.renderShoppingList();
+            that.app.cart.renderCartContent();
         });
 
         $(document).on("click", '.order-btn', function (event) {
@@ -271,7 +272,7 @@ class Checkout extends Base {
     //--------------------Order creater --------------------//
     createOrder() {
         let newOrder = {};
-        newOrder.user = this.app.profile.currentUser;
+        newOrder.user = this.app.currentUser;
         newOrder.orderNumber = this.getOrderNumber();
         newOrder.orderTime = this._orderTime;
         newOrder.product = "White Blouse Armani";

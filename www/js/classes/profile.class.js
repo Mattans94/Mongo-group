@@ -1,10 +1,9 @@
 //Profile class only use for render and get, set 
 class Profile extends Base {
-    constructor(rest, cart) {
+    constructor(app) {
         super();
-        this.rest = rest;
-        this.cart = cart;
-        this.currentUser = "Unknow User";
+        this.app=app;
+      
         //this.changeInput();
     }
 
@@ -107,6 +106,9 @@ class Profile extends Base {
             this.finishLogin();
             event.preventDefault();
         }
+        if ($(event.target).hasClass('register-btn')) {
+            $('#loginModal').modal('toggle');
+        }
     }
 
 
@@ -126,9 +128,11 @@ class Profile extends Base {
 
 
     finishLogin() {
-        this.login().then((res) => {
+        let that=this;
+        
+        that.login().then((res) => {
             console.log("res " + res.result);
-            this.currentUser=res.result;
+            that.app.currentUser=document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         });
     }
 

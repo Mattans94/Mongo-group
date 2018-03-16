@@ -17,11 +17,6 @@ module.exports = class Cart extends ModelAndRoutes {
               type: Number,
               default: 1
             },
-            // profile:String
-            profile:[{
-                type:Schema.Types.ObjectId,
-                ref:'profile'
-            }],
             sessionId: String
         }
     }

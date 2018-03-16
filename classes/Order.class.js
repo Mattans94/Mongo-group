@@ -27,21 +27,27 @@ module.exports = class Order extends ModelAndRoutes {
             total: Number,
             productVAT: Number,
             deliveryVAT: Number,
-            status:String,
-            ort:String,
+            status: String,
+            ort: String,
             user: String
         }
     }
 
-    constructor(expressApp){
+    constructor(expressApp) {
         super(expressApp);
 
-        expressApp.get('/getLastOrder', (req, res)=>{
-            let query = this.myModel.find().sort({_id:-1}).limit(1);
-            query.exec((err, data)=>{
+        expressApp.get('/getLastOrder', (req, res) => {
+            let query = this.myModel.find().sort({ _id: -1 }).limit(1);
+            query.exec((err, lastOrder) => {
+                
+                req.session.data.order = lastOrder;
+                req.session.markModified('data');
+                req.session.save();
+                res.cookie('street', lastOrder[0].street);
                 res.json({
-                  result: data
+                    result: lastOrder
                 });
+                //set more infomation to cookies
             });
         });
     }
