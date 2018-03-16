@@ -50,7 +50,7 @@ class Info extends REST {
         </div>
         <div class="col-4 col-sm-7 col-md-6 col-xl-9 pl-0 mt-2">
           <button class="${this.productInfo[0].stock == 0 ? 'd-none' : ''} btn btn-sm text-light font-weight-bold btn-cart mt-2 card-btn" data-id="${this.productInfo[0]._id}" >Lägg i korgen</button>
-        </div>     
+        </div>
       </div>
       <!-- </div> -->
 
@@ -68,7 +68,7 @@ class Info extends REST {
        </div>
     </div>`);
   }
-  
+
 
 
   click(e) {
@@ -86,12 +86,8 @@ class Info extends REST {
     }
     // the least amount you can order is 1
     if ($(e.target).is('#minus-btn') || $(e.target).parent().is('#minus-btn')) {
-      (currentValue < 1) && $("#quantity").val(currentValue - 1);
+      (currentValue > 1) && $("#quantity").val(currentValue - 1);
     }
   }
 
 }
-
-
-
-
