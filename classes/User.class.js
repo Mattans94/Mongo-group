@@ -12,7 +12,8 @@ module.exports = class User {
         return {
             name: String,
             email: String,
-            password: String
+            password: String,
+            roles: [String]
         }
     }
     constructor(expressApp) {
@@ -51,4 +52,3 @@ module.exports = class User {
     }
 
 }
-
