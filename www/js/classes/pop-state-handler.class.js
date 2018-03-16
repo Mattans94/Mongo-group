@@ -57,7 +57,7 @@ class PopStateHandler {
       '/om_oss' : 'omOss',
       '/info' : 'info',
       '/kopvillkor': 'conditions',
-      '/shoppingCart': 'shoppingCart',
+      '/varukorg': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
       '/admin': 'admin',
@@ -124,6 +124,7 @@ class PopStateHandler {
   }
 
   shoppingCart() {
+    $('title').text('Varukorg');
     $('main').empty();
     this.app.cart.render('main', 'Basket');
     this.app.cart.renderShoppingList();
