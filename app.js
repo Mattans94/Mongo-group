@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const flexjson = require('jsonflex')();
 const session = require('./classes/session.js');
+const nodemailer = require('nodemailer');
 const Schema = mongoose.Schema;
 const app = express();
 
