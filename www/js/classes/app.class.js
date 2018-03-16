@@ -72,6 +72,14 @@ class App extends REST {
           return process.exit(1);
       }
       
-      let transporter = nodemailer.createTransport(transport[, defaults]);
+      let transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        secure: false,
+        auth: {
+          user: account.user,
+          pass: account.pass
+        }
+      });
     }
 }
