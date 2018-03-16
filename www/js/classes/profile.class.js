@@ -103,9 +103,10 @@ class Profile extends Base {
 
     clicklogin(event, element, instance) {
         if ($(event.target).hasClass('lgin')) {
-            this.app.profile.toggleLoginModal();
             this.finishLogin();
-            event.preventDefault();
+        }
+        if ($(event.target).hasClass('register-btn')) {
+            $('#loginModal').modal('toggle');
         }
     }
 

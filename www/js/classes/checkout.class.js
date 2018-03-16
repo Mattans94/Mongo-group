@@ -272,7 +272,7 @@ class Checkout extends Base {
     //--------------------Order creater --------------------//
     createOrder() {
         let newOrder = {};
-        newOrder.user = this.app.profile.currentUser;
+        newOrder.user = this.app.currentUser;
         newOrder.orderNumber = this.getOrderNumber();
         newOrder.orderTime = this._orderTime;
         newOrder.product = "White Blouse Armani";
