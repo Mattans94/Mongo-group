@@ -178,6 +178,7 @@ class PopStateHandler {
     $('main').empty();
     this.app.admin.render('main', 4);
     this.app.admin.selectedCategory = '';
+    this.app.admin.setName(this.app.products);
   }
 
 
