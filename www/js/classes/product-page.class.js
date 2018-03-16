@@ -16,16 +16,16 @@ class ProductPage extends Base {
       console.log('_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}));
       let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
       if (!cartItem) {
-        Cart.create({product: dataId, sessionId: Cart.getSessionId()});
+        await Cart.create({product: dataId, sessionId: Cart.getSessionId()});
+        Cart.updateCartBadgeValue();
       } else {
         cartItem.quantity++;
         let r = await cartItem.save();
+        Cart.updateCartBadgeValue();
         console.log(r);
       }
-
-    };
+    }
   }
-
   scrolling() {
     ($(window).scrollTop() > 500) ? $('.toTop').show() : $('.toTop').hide();
   }
@@ -126,7 +126,7 @@ class ProductPage extends Base {
             <p class="float-left font-weight-bold ml-sm-3 mt-2">${product.price} kr</p>
           </div>
           <div class="ml-3">
-            <a href="#" class="btn btn-primary card-btn float-right" data-id="${product._id}">KÖP</a>
+            <a class="btn btn-primary card-btn float-right" data-id="${product._id}">KÖP</a>
           </div>
         </div>
       </div>

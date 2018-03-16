@@ -84,8 +84,10 @@ class PopStateHandler {
   }
 
   renderNav() {
-    $('header').empty();
-    this.app.navbar.render('header');
+    // $('header').empty();
+    // this.app.navbar.render('header');
+    //Remain quantity badge on cart symbol
+    Cart.updateCartBadgeValue();
   }
 
   startsidan() {
@@ -144,7 +146,7 @@ class PopStateHandler {
       this.app.checkout.render('.stepBox','Address');
       this.app.cart.renderTotalPriceWithVAT();
     });
-    
+
     // this.app.profile.render('.stepBox', 'Address');
   }
 
