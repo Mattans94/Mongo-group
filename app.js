@@ -14,6 +14,7 @@ app.use(express.static('www'));
 app.use(flexjson);
 app.use(cookieParser()); // needed to read and set cookies
 app.use(session);
+app.use(nodemailer);
 
 
 const Product = require('./classes/Product.class');
