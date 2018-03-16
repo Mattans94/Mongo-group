@@ -60,6 +60,7 @@ class PopStateHandler {
       '/shoppingCart': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
+      '/mina_sidor': 'userPage',
       '/admin': 'admin',
       '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
@@ -144,8 +145,13 @@ class PopStateHandler {
       this.app.checkout.render('.stepBox','Address');
       this.app.cart.renderTotalPriceWithVAT();
     });
-    
+
     // this.app.profile.render('.stepBox', 'Address');
+  }
+
+  userPage() {
+    $('main').empty();
+    this.app.userPage.render('main');
   }
 
   admin() {
@@ -176,6 +182,7 @@ class PopStateHandler {
     $('main').empty();
     this.app.admin.render('main', 4);
     this.app.admin.selectedCategory = '';
+    this.app.admin.setName(this.app.products);
   }
 
 

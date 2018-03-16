@@ -29,6 +29,8 @@ class App extends REST {
       this.tools = await Tool.find({});
       console.log('Tools are', this.tools);
 
+      this.orders = await Order.find({});
+
       this.start();
     }
 
@@ -54,7 +56,6 @@ class App extends REST {
       $('footer').empty();
       this.footer.render('footer');
 
-
       this.navbar = new Navbar(this);
       this.startsida = new Startsida(this);
       this.product = new Product(this);
@@ -63,7 +64,8 @@ class App extends REST {
       this.productPage = new ProductPage(this);
       this.omOss = new OmOss(this);
       this.conditions = new Conditions();
-     // this.admin = new Admin(this);
+      this.userPage = new UserPage(this);
+      this.admin = new Admin(this);
       this.checkout= new Checkout(this);
       this.popState = new PopStateHandler(this);
     }
