@@ -29,6 +29,8 @@ class App extends REST {
       this.tools = await Tool.find({});
       console.log('Tools are', this.tools);
 
+      this.orders = await Order.find({});
+
       this.start();
     }
 
