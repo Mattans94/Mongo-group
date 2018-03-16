@@ -46,9 +46,10 @@ module.exports = class User {
         });
 
         expressApp.post('/login', (req, res) => {
-            console.log("req " + req);
+            console.log("here!!!!!!!!!!!!!!!!!!!!")
             let query = myModel.findOne({ "email": req.body.email });
-            console.log("query " + query);
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!email!!!!!!!!!!!!!!")
+            console.log(req.body.email);
             query.select('email password name');
             query.exec(function (err, person) {
                 if (err) {
@@ -59,6 +60,14 @@ module.exports = class User {
                 if(!person){
                   res.json({message: 'Mail finns ej'});
                   return;
+                if (person.password == req.body.password) {
+                    req.session.data.user = person;
+                    req.session.markModified('data');
+                    req.session.save();
+                    res.cookie('user', person.name);
+                    res.json({ result: person.name });
+                } else {
+                    res.json({ result: 'Login fail!' });
                 }
 
                 bcrypt.compare(req.body.password, person.password, function(err, result) {

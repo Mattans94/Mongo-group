@@ -161,7 +161,7 @@ class Admin extends Base {
   setName(products) {
     $('#inputName').empty();
     products.forEach(product => {
-      $('#inputName').append(`<option>${product.name}</option>`);
+    $('#inputName').append(`<option>${product.name}</option>`);
     });
   }
 
@@ -215,15 +215,14 @@ class Admin extends Base {
   }
 
   // Functions in orders page
-  makeOrderList(targets =  [...this.app.orders]) {
-    console.log(targets)
+  makeOrderList(targets = [...this.app.orders]) {
     const orderList = [];
     targets.forEach(target => {
       orderList.unshift(`
       <tr>
         <th id="orderNumber">${target.orderNumber}</th>
         <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
-        <td>3</td>
+        <td>'Antal'</td>
         <td>${target.total}</td>
         <td>
           <div class="input-group mb-3">
@@ -285,5 +284,4 @@ class Admin extends Base {
       return;
     }
   }
-  //test
 }

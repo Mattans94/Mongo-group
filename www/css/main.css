@@ -6,7 +6,8 @@ body {
   background-color: #f0f0f0;
   overflow-x: hidden;
 }
-body .btn {
+body .btn,
+body a {
   cursor: pointer;
 }
 main {
