@@ -67,6 +67,11 @@ class App extends REST {
     }
 
     nodemailer.createTestAccount((err, account) => {
+      if (err) {
+        console.error('Failed to create a testing account. ' + err.message);
+          return process.exit(1);
+      }
+      
       let transporter = nodemailer.createTransport(transport[, defaults]);
     }
 }
