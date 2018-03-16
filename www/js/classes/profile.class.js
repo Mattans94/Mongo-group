@@ -201,6 +201,19 @@ class Profile extends Base {
         return newUser;
     }
 
+    getUserInfo() {
+        return $.ajax('/user').then((data) => {
+            if (data.result && data.result.length > 0) {
+                //this.lastOrder = data.result;
+                let r = data.result[0];
+
+                this.name = r.name;
+                this.email = r.email;
+                this.password = r.password;
+            }
+        });
+    }
+
 
 
 

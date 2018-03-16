@@ -11,8 +11,9 @@ module.exports = class User {
     static get schema() {
         return {
             name: String,
-            email: String,
-            password: String
+            email: { type: String, required: true, unique: true },
+            password: { type: String, required: true },
+            roles: [String]
         }
     }
     constructor(expressApp) {
@@ -30,10 +31,7 @@ module.exports = class User {
         });
 
         expressApp.post('/login', (req, res) => {
-            console.log("here!!!!!!!!!!!!!!!!!!!!")
             let query = myModel.findOne({ "email": req.body.email });
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!email!!!!!!!!!!!!!!")
-            console.log(req.body.email);
             query.select('email password name');
             query.exec(function (err, person) {
                 if (err) {
@@ -42,6 +40,7 @@ module.exports = class User {
                 }
                 if (person.password == req.body.password) {
                     req.session.data.user = person;
+                    req.session.loggedIn = true;
                     req.session.markModified('data');
                     req.session.save();
                     res.cookie('user', person.name);
@@ -52,6 +51,19 @@ module.exports = class User {
 
             });
         });
+
+        // expressApp.get('/user', (req, res)=>{
+        //     // check if there is a logged-in user and return that user
+        //     let response;
+        //     if(req.person._id){
+        //       response = req.person;
+        //       // never send the password back
+        //       response.password = '******';
+        //     }else{
+        //       response = {message: 'Not logged in'};
+        //     }
+        //     res.json(response);
+        //   });
 
     }
 

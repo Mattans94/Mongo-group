@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const flexjson = require('jsonflex')();
 const session = require('./classes/session.js');
+const acl = require('./classes/acl.js');
 const Schema = mongoose.Schema;
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.static('www'));
 app.use(flexjson);
 app.use(cookieParser()); // needed to read and set cookies
 app.use(session);
+// app.use(acl);
 
 
 const Product = require('./classes/Product.class');
