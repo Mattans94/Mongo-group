@@ -1,7 +1,8 @@
-class PopStateHandler {
+class PopStateHandler extends REST{
 
   // Note: Only instantiate PopStateHandler once!
   constructor(app) {
+    super();
     this.app = app;
     // Add event handlers for a.pop-links once
     this.addEventHandler();
@@ -105,11 +106,15 @@ class PopStateHandler {
     $('main').empty();
     this.app.info.getProduct(id);
     this.app.info.render('main');
+    Info.disableCartButtonStock(id)
   }
 
-  produkter(){
+  async produkter(){
     $('main').empty();
     this.app.productPage.render('main');
+    let session = Cart.getSessionId();
+    let cartItems = await Cart.find({sessionId: session});
+    cartItems.forEach((o) => Info.disableCartButtonStock(o.product));
   }
 
   omOss() {

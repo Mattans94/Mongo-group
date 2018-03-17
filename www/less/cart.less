@@ -1,22 +1,36 @@
+div#all div.container, div#basket{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
 table {
 	.form-control {
 		width: 150px !important;
-		height: 32px;
+		height: 31px;
+		border-radius: 0 !important;
 	}
 
 	.btn-sm {
 		background-color: #a99678;
 		border-color: #a99678;
 
-			&#minus-btn {
-				border-radius: .2rem 0 0 .2rem;
-				cursor: pointer;
-			}
+		&:disabled {
+			pointer-events: none;
+		}
+	
 
-			&#plus-btn {
-				border-radius: 0 .2rem .2rem 0;
-				cursor: pointer;
-			}
+		&#minus-btn {
+			border-radius: .2rem 0 0 .2rem;
+			cursor: pointer;
+		}
+
+		&#plus-btn {
+			border-radius: 0 .2rem .2rem 0;
+			cursor: pointer;
+		}
+		&:focus{
+			outline: none;
+		}
 	}
 	tfoot{
 		tr {

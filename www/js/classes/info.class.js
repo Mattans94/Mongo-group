@@ -3,6 +3,33 @@ class Info extends REST {
     super();
     this.app = app;
   }
+  
+  //Disables the add to cart button when max amount of products is added to the cart
+  //This function can also be called in a template to disable button on load. 
+  //Parameter id refers to the product's _id
+  static async disableCartButtonStock(id){
+    let product = await Product.findOne({ _id: id });
+    let cartItem = await Cart.findOne({
+      product: product._id
+    });
+    if(cartItem){
+      let cartQty = cartItem.quantity;
+      if(cartQty == product.stock){      
+      
+      //If on produkter page, just disable the button, and do not change the text
+      if(location.pathname == '/produkter'){
+        $(`button[data-id="${id}"]`)
+        .prop('disabled', true)
+        .css('cursor', 'not-allowed')
+      } else {
+        $(`button[data-id="${id}"]`)
+        .prop('disabled', true)
+        .text('Max antal varor tillagt')
+        .css('cursor', 'not-allowed');
+        }
+      } else $("#quantity").val(1);
+    }
+  }
 
   async getProduct(id) {
     this.productInfo = await Product.find({ _id: id });
@@ -49,7 +76,9 @@ class Info extends REST {
           </form>
         </div>
         <div class="col-4 col-sm-7 col-md-6 col-xl-9 pl-0 mt-2">
-          <button class="${this.productInfo[0].stock == 0 ? 'd-none' : ''} btn btn-sm text-light font-weight-bold btn-cart mt-2 card-btn" data-id="${this.productInfo[0]._id}" >Lägg i korgen</button>
+          <button class="${this.productInfo[0].stock == 0 ? 'd-none' : ''} btn btn-sm text-light font-weight-bold btn-cart mt-2 card-btn" data-id="${this.productInfo[0]._id}" ${Info.disableCartButtonStock(this.productInfo[0]._id)}>
+          Lägg i korgen
+          </button>
         </div>
       </div>
       <!-- </div> -->
@@ -71,17 +100,26 @@ class Info extends REST {
 
 
 
-  click(e) {
+  async click(e) {
 
 
     // get the current value of the input
     // get the stock value
     let currentValue = parseInt($('#quantity').val());
     const stock = this.productInfo[0].stock;
+    let cartItem = await Cart.findOne({
+      product: (this.productInfo[0]._id),
+      sessionId: (Cart.getSessionId())
+    })
 
     // you can't order more than there is in stock
     if ($(e.target).is('#plus-btn') || $(e.target).parent().is('#plus-btn')) {
-      (currentValue < stock) && $("#quantity").val(currentValue + 1);
+      if(cartItem){
+        console.log('Here i am');
+        
+        !((cartItem.quantity + currentValue + 1) > stock) ? $("#quantity").val(currentValue + 1) 
+        : $("#quantity").val(stock - cartItem.quantity);
+      } else (currentValue < stock) && $("#quantity").val(currentValue + 1);
     }
     // the least amount you can order is 1
     if ($(e.target).is('#minus-btn') || $(e.target).parent().is('#minus-btn')) {

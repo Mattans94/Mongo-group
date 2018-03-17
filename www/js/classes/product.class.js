@@ -17,6 +17,7 @@ class Product extends REST {
       let prodId = $(this).parent().find('.quantity-control').data('id');
       let qtyField = $(this).parent().find('.quantity-control');
       let qtyVal = parseInt(qtyField.val());
+      let product = await Product.findOne({_id: prodId});
       console.log('Quantity', qtyVal);
 
       if($(qtyField).val() === NaN || $(qtyField).val() === 'null' || $(qtyField).val() < 1 ){
@@ -24,18 +25,22 @@ class Product extends REST {
         return;
       }
 
-      if($(this).is('#plus-btn')){
+      if($(this).is('#plus-btn') && qtyVal < product.stock){
         qtyVal++;
         $(qtyField).val(qtyVal);
+
       } else if($(this).is('#minus-btn') && qtyVal != 1){
         qtyVal--;
         $(qtyField).val(qtyVal);
-      }
 
-      let product = await Cart.findOne({product: prodId, sessionId });
+      } else if(qtyVal == product.stock){
+        $('#plus-btn').prop('disabled', true);
+      } else $('#minus-btn').prop('disabled', true)
 
-      product.quantity = qtyVal;
-      await product.save();
+      let cartItem = await Cart.findOne({product: prodId, sessionId });
+
+      cartItem.quantity = qtyVal;
+      await cartItem.save();
       Cart.updateCartBadgeValue();
       //Re-render cart
       app.cart.renderCartContent();

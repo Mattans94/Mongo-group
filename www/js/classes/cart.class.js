@@ -33,7 +33,8 @@ class Cart extends REST {
       this.getVATFromTotalPrice();
     }
 
-
+    //Method to update the bade value in the navbar. Run this everytime
+    //you make a change in the cart!
     static async updateCartBadgeValue(){
 
       let session = Cart.getSessionId();
@@ -42,14 +43,10 @@ class Cart extends REST {
 
       let totalQtyOfProds = sessionCartObjs.map(o => qtyOfProds += o.quantity);
 
-      console.log(totalQtyOfProds[totalQtyOfProds.length - 1]);
-
       app.navbar.qty = totalQtyOfProds[totalQtyOfProds.length - 1];
 
       $('header').empty();
       app.navbar.render('header');
-
-
     }
 
 
