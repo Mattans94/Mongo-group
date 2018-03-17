@@ -54,12 +54,12 @@ class ProductPage extends Base {
       setTimeout(() => {
         $('.badge').css({'color': 'red'});
         // $('a[href="/varukorg"]').css('zoom', '1.2');
-        $('.shopping-cart').addClass('shake-rotate shake-constant');
+        $('.shopping-cart').addClass('shake shake-constant');
       }, 700);
       setTimeout(() => {
         $('.badge').css({'color': '#4fbfa8'});
         // $('a[href="/varukorg"]').css('zoom', 'normal');
-        $('.shopping-cart').removeClass('shake-rotate shake-constant');
+        $('.shopping-cart').removeClass('shake shake-constant');
         console.log('lol');
         
       }, 900);

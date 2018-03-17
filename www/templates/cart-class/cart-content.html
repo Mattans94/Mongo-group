@@ -1,7 +1,9 @@
 Object.assign(Product.prototype, {templateCartContent(){
 return `<tr>
       <td>
-        <img src="/imgs/${this.type}/${this.image}" alt="">
+        <a class="pop" href="/produkter/${this._id}">
+         <img src="/imgs/${this.type}/${this.image}" alt="">
+        </a>
       </td>
       <td colspan="1">
           <a class="pop" href="/produkter/${this._id}">${this.name}</a>
@@ -12,7 +14,6 @@ return `<tr>
             <button type="button" class="btn-sm text-light my-2" id="minus-btn">
               <i class="fa fa-minus" aria-hidden="true"></i>
             </button>
-            <!-- <input data-id="${this._id}" value="${this.cartItem.quantity}" min="1" minlength="1" class="form-control quantity-control"> -->
             <input data-id="${this._id}" class="form-control mt-2 col-3 text-center font-weight-bold quantity-control" type="text" value="${this.cartItem.quantity}" disabled>
             <button type="button" class="btn-sm text-light my-2 2" id="plus-btn">
               <i class="fa fa-plus" aria-hidden="true"></i>

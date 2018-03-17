@@ -68,7 +68,7 @@ class Info extends REST {
               <button type="button" class="btn-sm text-light my-2" id="minus-btn">
                 <i class="fa fa-minus" aria-hidden="true"></i>
               </button>
-              <input class="form-control form-control-sm mt-2 col-3 text-center font-weight-bold" id="quantity" type="text" value="1">
+              <input disabled class="form-control form-control-sm mt-2 col-3 text-center font-weight-bold" id="quantity" type="text" value="1">
               <button type="button" class="btn-sm text-light my-2 2" id="plus-btn">
                 <i class="fa fa-plus" aria-hidden="true"></i>
               </button>
