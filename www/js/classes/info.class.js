@@ -7,7 +7,7 @@ class Info extends REST {
   async getProduct(id) {
     this.productInfo = await Product.find({ _id: id });
     console.log(this.productInfo);
-    console.log('id',id)
+    console.log('product _id', id)
     console.log('tools', this.app.tools)
 
     $('.product-info').empty();
@@ -64,11 +64,33 @@ class Info extends REST {
         <p>${this.productInfo[0].type == 'Capsule' ? 'Antal:' : 'Vikt:'}
         	${this.productInfo[0].quantity} ${this.productInfo[0].type == 'Capsule' ? 'st' : 'gram'}
         </p>
-       <p>Kapslarna passar till kapselmaskiner frånt t ex: ${this.app.tools[0].name} med flera. </p>
-       </div>
+        <p>Kapslarna passar till kapselmaskiner frånt t.ex. ${this.app.tools[0].name} med flera. </p>
+      </div>
     </div>`);
   }
+
+
+  // async getProduct(id) {
+  //   this.productInfo = await Product.find({ _id: id });
+  //   console.log(this.productInfo);
+  //   console.log('id', id)
+  //   console.log('tools', this.app.tools)
+
   
+  // async getTool(id) {
+// populate使う
+// 引数のプロダクトidにひもついでるtoolsidを　foreach を使いながら、poplulateする
+
+
+  //   this.toolInfo = await Tool.find({ capsules: capsules });
+  //   console.log(this.toolInfo);
+  //   console.log('id', id)   
+  //   console.log('capsules', capsules)
+  //   // console.log('tools', this.app.tools)
+
+
+  // }
+
 
 
   click(e) {
