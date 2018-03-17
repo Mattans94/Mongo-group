@@ -12,7 +12,13 @@ module.exports = class User {
     static get schema() {
         return {
             name: String,
-            email: { type: String, required: true, unique: true },
+            email: {
+                type: String,
+                unique: true,
+                lowercase: true,
+                trim: true,
+                required: 'Please Supply an email address'
+                 },
             password: { type: String, required: true },
             role: String
         }

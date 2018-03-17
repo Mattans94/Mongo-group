@@ -6,10 +6,7 @@ module.exports = class Order extends ModelAndRoutes {
     static get schema() {
         return {
             orderNumber: Number, //change back to orderNumber later
-            orderDetails: [{
-                type: Schema.Types.ObjectId,
-                ref: 'OrderDetail'
-            }],
+            orderDetails: Schema.Types.Mixed,
             orderTime: Date,
             firstName: String,
             lastName: String,

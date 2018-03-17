@@ -137,9 +137,6 @@ class Profile extends Base {
     }
 
     clickRegister(event, element, instance) {
-        if ($(event.target).hasClass('cancelbtn')) {
-            $('#signupModal').modal('toggle');
-        }
         if ($(event.target).hasClass('signupbtn')) {
             this.sign().then(function () {
                 alert("You are now registed!");
@@ -214,6 +211,8 @@ class Profile extends Base {
             }
         });
     }
+
+  
 
 
 

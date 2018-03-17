@@ -66,6 +66,7 @@ class App extends REST {
       this.conditions = new Conditions();
       this.userPage = new UserPage(this);
       this.admin = new Admin(this);
+      this.orderDetails=new OrderDetails(this);
       this.checkout= new Checkout(this);
       this.popState = new PopStateHandler(this);
     }
