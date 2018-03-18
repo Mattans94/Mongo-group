@@ -30,18 +30,6 @@ const cart = new Cart(app);
 const orderDetails = new OrderDetails(app);
 
 
-// app.get('/getVisa', (req,res)=>{
-//   res.send(JSON.stringify({
-//     card: 1234567,
-//     year: 2018,
-//     month: 02,
-//     security: 123
-//   }));
-// });
-
-
-
-
 // Serve index.html if req has no file extension.
 // (to work with SPA)
 app.get(/^[^\.]*$/, (req, res) => {

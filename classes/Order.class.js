@@ -40,11 +40,9 @@ module.exports = class Order extends ModelAndRoutes {
                 req.session.data.order = lastOrder;
                 req.session.markModified('data');
                 req.session.save();
-                res.cookie('street', lastOrder[0].street);
                 res.json({
                     result: lastOrder
                 });
-                //set more infomation to cookies
             });
         });
     }

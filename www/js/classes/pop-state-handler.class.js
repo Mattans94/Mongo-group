@@ -156,34 +156,47 @@ class PopStateHandler {
 
   admin() {
     $('main').empty();
-    this.app.admin.render('main');
-    this.app.admin.selectedCategory = '';
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main');
+      this.app.admin.selectedCategory = '';
+    }
+   
   }
 
   adminStock() {
     $('main').empty();
-    this.app.admin.render('main', 5);
-    this.app.admin.selectedCategory = '';
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main', 5);
+      this.app.admin.selectedCategory = '';
+    }
   }
 
   adminAdd() {
     $('main').empty();
-    this.app.admin.render('main', 2);
-    this.app.admin.selectedCategory = '';
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main', 2);
+      this.app.admin.selectedCategory = '';
+    }
   }
 
   adminChange() {
     $('main').empty();
-    this.app.admin.render('main', 3);
-    this.app.admin.selectedCategory = '';
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main', 3);
+      this.app.admin.selectedCategory = '';
+    }
   }
 
   adminDelete() {
+
     $('main').empty();
-    this.app.admin.render('main', 4);
-    this.app.admin.selectedCategory = '';
-    this.app.admin.setName(this.app.products);
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main', 4);
+      this.app.admin.selectedCategory = '';
+      this.app.admin.setName(this.app.products);
+    }
   }
+
 
 
 }

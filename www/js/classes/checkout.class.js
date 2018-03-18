@@ -238,9 +238,9 @@ class Checkout extends REST {
             that.app.cart.renderCartContent();
         });
 
-        $(document).on("click", '.order-btn', function (event) {
-            that.getShoppingCart();
+        $(document).on("click", '.order-btn', async function (event) {
             event.preventDefault();
+            await that.getShoppingCart();
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
@@ -391,16 +391,17 @@ class Checkout extends REST {
                 if (obj.product == prodObj._id) {
                     prodObj.cartItem = obj;
                     let item = {};
+                    item.productId=prodObj._id;
                     item.product = prodObj.name;
                     item.quantity = obj.quantity;
                     item.unitPrice = prodObj.price;
-                    OrderDetails.create(item);
                     details.push(item);
 
                 }
             }
         }
         this._orderDetails = details;
+        
         console.log(this._orderDetails);
 
     }
