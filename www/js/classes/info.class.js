@@ -9,25 +9,33 @@ class Info extends REST {
   //Parameter id refers to the product's _id
   static async disableCartButtonStock(id){
     let product = await Product.findOne({ _id: id });
-    let cartItem = await Cart.findOne({
+    let cartItems = await Cart.find({
       product: product._id
     });
-    if(cartItem){
-      let cartQty = cartItem.quantity;
-      if(cartQty == product.stock){
 
-      //If on produkter page, just disable the button, and do not change the text
-      if(location.pathname == '/produkter'){
-        $(`button[data-id="${id}"]`)
-        .prop('disabled', true)
-        .css('cursor', 'not-allowed')
+    let totalCartQty = 0;
+
+    if(cartItems.length){
+      cartItems.forEach(item => totalCartQty += item.quantity);
+      console.log('Items', cartItems, 'Total', totalCartQty);
+      if(totalCartQty >= product.stock){
+        console.log('Cart quantity reached limit!');
+        //If on produkter page, just disable the button, and do not change the text
+        if(location.pathname == '/produkter'){
+          $(`button[data-id="${id}"]`)
+          .addClass('disabled')
+          .css('cursor', 'not-allowed').tooltip('enable');
+          return true;
+        } else {
+          $(`button[data-id="${id}"]`)
+          .prop('disabled', true)
+          .text('Max antal varor tillagt')
+          .css('cursor', 'not-allowed');
+          return true;
+          }
       } else {
-        $(`button[data-id="${id}"]`)
-        .prop('disabled', true)
-        .text('Max antal varor tillagt')
-        .css('cursor', 'not-allowed');
-        }
-      } else $("#quantity").val(1);
+        $("#quantity").val('1');
+      }
     }
   }
 
@@ -108,18 +116,20 @@ class Info extends REST {
     let currentValue = parseInt($('#quantity').val());
     const stock = this.productInfo[0].stock;
     const product = this.productInfo[0];
-    let cartItem = await Cart.findOne({
+    let cartItems = await Cart.find({
       product: product._id,
-      sessionId: (Cart.getSessionId())
     });
+
+    let totalCartQty = 0;
+    cartItems.forEach(item => totalCartQty += item.quantity);
 
     // you can't order more than there is in stock
     if ($(e.target).is('#plus-btn') || $(e.target).parent().is('#plus-btn')) {
-      if(cartItem){
+      if(cartItems.length){
         console.log('Here i am');
 
-        !((cartItem.quantity + currentValue + 1) > stock) ? $("#quantity").val(currentValue + 1)
-        : $("#quantity").val(stock - cartItem.quantity);
+        !((totalCartQty + currentValue + 1) > stock) ? $("#quantity").val(currentValue + 1)
+        : $("#quantity").val(0);
       } else if(currentValue < stock){
         $("#quantity").val(currentValue + 1);
         console.log('hello from the other side', cartItem);

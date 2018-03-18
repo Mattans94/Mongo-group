@@ -114,7 +114,9 @@ class PopStateHandler extends REST{
     this.app.productPage.render('main');
     let session = Cart.getSessionId();
     let cartItems = await Cart.find({sessionId: session});
-    cartItems.forEach((o) => Info.disableCartButtonStock(o.product));
+    cartItems.forEach((o) => {
+      Info.disableCartButtonStock(o.product);
+    });
   }
 
   omOss() {

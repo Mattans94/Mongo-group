@@ -24,6 +24,16 @@ class ProductPage extends Base {
     console.log('Hejsan', dataId);
     console.log( '_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}) );
     let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
+    let allCartItems = await Cart.find({product: dataId});
+
+    let totalCartQty = 0;
+    allCartItems.forEach(item => totalCartQty += item.quantity);
+
+    if(totalCartQty >= product.stock){
+      console.log('Should not add to cart!');
+      Info.disableCartButtonStock(dataId);
+      return;
+    }
 
     if (!cartItem) {
       Cart.create({product: dataId, sessionId: Cart.getSessionId(), quantity: qty});
@@ -38,8 +48,7 @@ class ProductPage extends Base {
       await cartItem.save();
     }
 
-    await Info.disableCartButtonStock(dataId);
-
+    Info.disableCartButtonStock(dataId);
     //Animation on product page
     //Select item image and pass to the function
     if(location.pathname == "/produkter"){
@@ -173,7 +182,7 @@ class ProductPage extends Base {
             <p class="float-left font-weight-bold ml-sm-3 mt-2">${product.price} kr</p>
           </div>
           <div class="ml-3">
-          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ` <button class=" btn btn-primary card-btn float-right " data-id="${product._id}">KÖP</button>` }
+          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ` <button class=" btn btn-primary card-btn float-right " data-id="${product._id}" data-toggle="tooltip" title="Max antal av vara i varukorgen eller vara ej i lager">KÖP</button>` }
 
           </div>
         </div>
