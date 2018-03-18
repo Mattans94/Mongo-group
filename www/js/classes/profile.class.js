@@ -194,7 +194,7 @@ class Profile extends Base {
         newUser.email = this.email;
         newUser.password = this.password;
         newUser.name = this.name;
-        newUser.roles = "Normal User";
+        newUser.role = "Normal User";
             console.log(newUser);
         return newUser;
     }
