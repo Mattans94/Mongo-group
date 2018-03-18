@@ -1,57 +1,50 @@
 Object.assign(Navbar.prototype, { template(){ return `
-	<div class="row">
-		<nav class="navbar navbar-expand-lg navbar-light fixed-top col-12">
-			<div class="container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-			  </button>
-			  <a href="/" class="pop nav-logo d-none d-lg-block ml-1"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
-				<a href="/" class="pop nav-logo logo-mobile d-lg-none"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
-			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-			    <ul class="navbar-nav ml-4">
-			      ${this.items.render()}
-			    </ul>
-
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<div class="row">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top col-12">
 		<div class="container">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <a href="/" class="pop nav-logo d-none d-lg-block ml-1"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
-			<a href="/" class="pop nav-logo logo-mobile d-lg-none"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
-		  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-		    <ul class="navbar-nav ml-4">
-		      ${this.items.render()}
-		    </ul>
-			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+			 aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a href="/" class="pop nav-logo d-none d-lg-block ml-1">
+				<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
+			</a>
+			<a href="/" class="pop nav-logo logo-mobile d-lg-none">
+				<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
+			</a>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav ml-4">
+					${this.items.render()}
+				</ul>
 
-			<div class="shopping-cart mr-4 fa-lg">
-				<a class="pop" href="shoppingCart"><i class="fas fa-shopping-cart"></i></a>
-			</div>
-
-			<div class="modal-container-login login-temp-render">
-	
-	
-				<!-- <button id="loginModalToggle" class="btn">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button> -->
-		
-		
-		
-		
-				<div class="dropdown">
-						<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="far fa-user"></i>
-								${this.app.currentUser}
+				<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+					<div class="container">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+						 aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
 						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="#"></a>
-							<a class="dropdown-item" href="/mina_sidor">Mina sidor</a>
-							<a class="dropdown-item" href="/">Logga ut<i class="fas fa-sign-out-alt ml-1 fa-lg"></i></a>
+						<a href="/" class="pop nav-logo d-none d-lg-block ml-1">
+							<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
+						</a>
+						<a href="/" class="pop nav-logo logo-mobile d-lg-none">
+							<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
+						</a>
+						<div class="collapse navbar-collapse" id="navbarNavDropdown">
+							<ul class="navbar-nav ml-4">
+								${this.items.render()}
+							</ul>
+						</div>
+
+						<div class="shopping-cart mr-4 fa-lg">
+							<a class="pop" href="shoppingCart">
+								<i class="fas fa-shopping-cart"></i>
+							</a>
+						</div>
+
+						<div class="modal-container-login">
+							<button id="loginModalToggle" class="btn">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
+
 						</div>
 					</div>
-			
-			
-			
-			</div>
-		</div>
-	</nav>
-`;}});
+				</nav>
+				`;}});
