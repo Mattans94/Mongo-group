@@ -36,9 +36,9 @@ class ProductPage extends Base {
       //than the stock value
       cartItem.quantity += qty;
       await cartItem.save();
-    } 
+    }
 
-    Info.disableCartButtonStock(dataId);
+    await Info.disableCartButtonStock(dataId);
 
     //Animation on product page
     //Select item image and pass to the function
@@ -61,13 +61,13 @@ class ProductPage extends Base {
         // $('a[href="/varukorg"]').css('zoom', 'normal');
         $('.shopping-cart').removeClass('shake shake-constant');
         console.log('lol');
-        
+
       }, 900);
     } else Cart.updateCartBadgeValue();
 
-    
 
-    
+
+
 
   }
 
@@ -173,7 +173,7 @@ class ProductPage extends Base {
             <p class="float-left font-weight-bold ml-sm-3 mt-2">${product.price} kr</p>
           </div>
           <div class="ml-3">
-          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ` <button class=" btn btn-primary card-btn float-right " data-id="${product._id}" ${Info.disableCartButtonStock(product._id)}>KÖP</button>` }
+          ${product.stock == 0 ? '<p class="text-danger font-weight-bold mt-2">Slut i lager</p>' : ` <button class=" btn btn-primary card-btn float-right " data-id="${product._id}">KÖP</button>` }
 
           </div>
         </div>

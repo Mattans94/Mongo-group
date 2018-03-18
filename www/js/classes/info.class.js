@@ -3,9 +3,9 @@ class Info extends REST {
     super();
     this.app = app;
   }
-  
+
   //Disables the add to cart button when max amount of products is added to the cart
-  //This function can also be called in a template to disable button on load. 
+  //This function can also be called in a template to disable button on load.
   //Parameter id refers to the product's _id
   static async disableCartButtonStock(id){
     let product = await Product.findOne({ _id: id });
@@ -14,8 +14,8 @@ class Info extends REST {
     });
     if(cartItem){
       let cartQty = cartItem.quantity;
-      if(cartQty == product.stock){      
-      
+      if(cartQty == product.stock){
+
       //If on produkter page, just disable the button, and do not change the text
       if(location.pathname == '/produkter'){
         $(`button[data-id="${id}"]`)
@@ -107,19 +107,24 @@ class Info extends REST {
     // get the stock value
     let currentValue = parseInt($('#quantity').val());
     const stock = this.productInfo[0].stock;
+    const product = this.productInfo[0];
     let cartItem = await Cart.findOne({
-      product: (this.productInfo[0]._id),
+      product: product._id,
       sessionId: (Cart.getSessionId())
-    })
+    });
 
     // you can't order more than there is in stock
     if ($(e.target).is('#plus-btn') || $(e.target).parent().is('#plus-btn')) {
       if(cartItem){
         console.log('Here i am');
-        
-        !((cartItem.quantity + currentValue + 1) > stock) ? $("#quantity").val(currentValue + 1) 
+
+        !((cartItem.quantity + currentValue + 1) > stock) ? $("#quantity").val(currentValue + 1)
         : $("#quantity").val(stock - cartItem.quantity);
-      } else (currentValue < stock) && $("#quantity").val(currentValue + 1);
+      } else if(currentValue < stock){
+        $("#quantity").val(currentValue + 1);
+        console.log('hello from the other side', cartItem);
+
+      }
     }
     // the least amount you can order is 1
     if ($(e.target).is('#minus-btn') || $(e.target).parent().is('#minus-btn')) {
