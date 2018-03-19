@@ -2,8 +2,8 @@
 class Profile extends Base {
     constructor(app) {
         super();
-        this.app=app;
-      
+        this.app = app;
+
         //this.changeInput();
     }
 
@@ -128,18 +128,15 @@ class Profile extends Base {
 
 
     finishLogin() {
-        let that=this;
-        
+        let that = this;
+
         that.login().then((res) => {
             console.log("res " + res.result);
-            that.app.currentUser=document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+            that.app.currentUser = document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         });
     }
 
     clickRegister(event, element, instance) {
-        if ($(event.target).hasClass('cancelbtn')) {
-            $('#signupModal').modal('toggle');
-        }
         if ($(event.target).hasClass('signupbtn')) {
             this.sign().then(function () {
                 alert("You are now registed!");
@@ -197,9 +194,25 @@ class Profile extends Base {
         newUser.email = this.email;
         newUser.password = this.password;
         newUser.name = this.name;
-        console.log(newUser);
+        newUser.role = "Normal User";
+            console.log(newUser);
         return newUser;
     }
+
+    getUserInfo() {
+        return $.ajax('/user').then((data) => {
+            if (data.result && data.result.length > 0) {
+                //this.lastOrder = data.result;
+                let r = data.result[0];
+
+                this.name = r.name;
+                this.email = r.email;
+                this.password = r.password;
+            }
+        });
+    }
+
+  
 
 
 
