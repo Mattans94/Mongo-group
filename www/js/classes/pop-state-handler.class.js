@@ -167,7 +167,8 @@ class PopStateHandler {
     $('main').empty();
     if(this.app.role=='Admin'){
       this.app.admin.render('main', 5);
-      this.app.admin.selectedCategory = '';
+      this.app.admin.selectedCategory = this.app.admin.getSelectedCategory($("input:radio[name=radio]:checked").val());
+      $('#stock-list').append(this.app.admin.makeStockList());
     }
   }
 
