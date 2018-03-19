@@ -215,54 +215,72 @@ class Admin extends Base {
   }
 
   // Functions in orders page
-  makeOrderList(targets = [...this.app.orders]) {
-    const orderList = [];
-    targets.forEach(target => {
-      orderList.unshift(`
-      <tr>
-        <th id="orderNumber">${target.orderNumber}</th>
-        <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
-        <td>'Antal'</td>
-        <td>${target.total}</td>
-        <td>
-          <div class="input-group mb-3">
-            <select class="custom-select" id="inputStatus${target.orderNumber}">
-              <option>Beställt</option>
-              <option>På väg</option>
-              <option>Klar</option>
-            </select>
-          </div>
-        </td>
-      </tr>
-      `);
-    });
-    return orderList.join('');
+  orderStatusHtml(status) {
+    const selectedTag = '<option selected>';
+    const nonSelectedTag = '<option>';
+    const html = ['Beställt', 'På väg', 'Klar'].map(option => {
+      const startTag = (option === status) ? selectedTag : nonSelectedTag
+      return startTag + option + '</option>';
+    }).join('');
+
+    return html;
   }
 
-  sortList() {
+  orderHtml(order) {
+    return `
+    <tr>
+      <th id="orderNumber">${order.orderNumber}</th>
+      <td>${moment(order.orderTime).format('YYYY-MM-DD')}</td>
+      <td>'Antal'</td>
+      <td>${order.total}</td>
+      <td>
+        <div class="input-group mb-3">
+          <select class="custom-select" id="inputStatus${order.orderNumber}">
+            ${this.orderStatusHtml(order.status)}
+          </select>
+        </div>
+      </td>
+    </tr>
+    `;
+  }
 
+  createOrderList() {
+    if (this.currentStatus === 'Alla') {
+      this.filterOrders = this.app.orders;
+    } else {
+      this.filterOrders = this.app.orders.filter(order => {
+        return order.status === this.currentStatus;
+      });
+    }
+
+    if (this.sortDirection === 'Äldsta överst') {
+      this.filterOrders = this.filterOrders.sort((a, b) => a.orderNumber - b.orderNumber);
+    } else {
+      this.filterOrders = this.filterOrders.sort((a, b) => b.orderNumber - a.orderNumber);
+    }
+  }
+
+  appendOrderListHtml() {
+    const ordersListHtml = [];
+    this.filterOrders.forEach(order => {
+      ordersListHtml.push(this.orderHtml(order));
+    });
+
+    $('#order-list').empty();
+    $('#order-list').append(ordersListHtml.join(''));
   }
 
   async change(event) {
     if ($(event.target).hasClass('custom-control-input')) {
-      const currentStatus = $("input:radio[name=radio]:checked").val();
+      this.currentStatus = $("input:radio[name=radio]:checked").val();
+      this.createOrderList();
+      this.appendOrderListHtml();
+    }
 
-      if (currentStatus !== 'Alla') {
-        const filterTargets = this.app.orders.filter(order => {
-          return order.status === currentStatus;
-        });
-        $('#order-list').empty();
-        $('#order-list').append(this.makeOrderList(filterTargets));
-        filterTargets.forEach(target => {
-          $(`#inputStatus${target.orderNumber}`).val(`${target.status}`);
-        })
-      } else {
-        $('#order-list').empty();
-        $('#order-list').append(this.makeOrderList(this.app.orders));
-        this.app.orders.forEach(target => {
-          $(`#inputStatus${target.orderNumber}`).val(`${target.status}`);
-        })
-      }
+    if ($(event.target).is('#input-sort')) {
+      this.sortDirection = $('#input-sort').val();
+      this.createOrderList();
+      this.appendOrderListHtml();
     }
 
     if ($(event.target).is("select[id^='inputStatus']")) {
