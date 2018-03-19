@@ -156,11 +156,11 @@ class PopStateHandler {
 
   admin() {
     $('main').empty();
-    if(this.app.role=='Admin'){
-      this.app.admin.render('main');
-      this.app.admin.selectedCategory = '';
-    }
-   
+    this.app.admin.render('main');
+    this.app.admin.sortDirection = $('#input-sort').val();
+    this.app.admin.currentStatus = $("input:radio[name=radio]:checked").val();
+    this.app.admin.createOrderList();
+    this.app.admin.appendOrderListHtml();
   }
 
   adminStock() {
