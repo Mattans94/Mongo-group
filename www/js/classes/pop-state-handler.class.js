@@ -152,6 +152,7 @@ class PopStateHandler {
   userPage() {
     $('main').empty();
     this.app.userPage.render('main');
+    this.app.userPage.renderList();
   }
 
   admin() {
@@ -189,7 +190,6 @@ class PopStateHandler {
   }
 
   adminDelete() {
-
     $('main').empty();
     if(this.app.role=='Admin'){
       this.app.admin.render('main', 4);
