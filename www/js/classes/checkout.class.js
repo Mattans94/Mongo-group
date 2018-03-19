@@ -1,5 +1,5 @@
 //Checkout class only used to render templates and get set all the variables
-class Checkout extends Base {
+class Checkout extends REST {
     constructor(app) {
         super();
         this.app = app;
@@ -121,11 +121,18 @@ class Checkout extends Base {
     }
 
     get ort() {
-        retrun`${this._ort}`;
+        return `${this._ort}`;
     }
 
     set ort(val) {
         this._ort = val;
+    }
+
+    get orderDetails() {
+        return `${this._orderDetails}`;
+    }
+    set orderDetails(val) {
+        this._orderDetails = val;
     }
 
 
@@ -225,13 +232,15 @@ class Checkout extends Base {
             $(".checkOut-btns").removeClass("active");
             $(".review-btn").addClass("active");
             $('.stepBox').empty();
+
             that.render('.stepBox', 'Review');
             that.app.cart.renderShoppingList();
             that.app.cart.renderCartContent();
         });
 
-        $(document).on("click", '.order-btn', function (event) {
+        $(document).on("click", '.order-btn', async function (event) {
             event.preventDefault();
+            await that.getShoppingCart();
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
@@ -272,6 +281,7 @@ class Checkout extends Base {
     //--------------------Order creater --------------------//
     createOrder() {
         let newOrder = {};
+        newOrder.orderDetails = this._orderDetails;
         newOrder.user = this.app.currentUser;
         newOrder.orderNumber = this.getOrderNumber();
         newOrder.orderTime = this._orderTime;
@@ -366,6 +376,34 @@ class Checkout extends Base {
                 this._ort = r.ort;
             }
         });
+    }
+
+    async getShoppingCart() {
+        console.log("get shopping cart")
+        let session = Cart.getSessionId();
+        let sessionProducts = await Cart.find({
+            sessionId: session
+        });
+        let details = [];
+
+        for (let obj of sessionProducts) {
+            for (let prodObj of app.products) {
+                if (obj.product == prodObj._id) {
+                    prodObj.cartItem = obj;
+                    let item = {};
+                    item.productId=prodObj._id;
+                    item.product = prodObj.name;
+                    item.quantity = obj.quantity;
+                    item.unitPrice = prodObj.price;
+                    details.push(item);
+
+                }
+            }
+        }
+        this._orderDetails = details;
+        
+        console.log(this._orderDetails);
+
     }
 
 }

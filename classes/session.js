@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Session = mongoose.model('Session', new Schema({
+  loggedIn: {type:Boolean, default:false},
   data: Schema.Types.Mixed
 }));
 
@@ -24,7 +25,7 @@ async function session(req, res, next){
     if(sessions[0]){
       req.session = sessions[0];
       req.session.data = req.session.data || {};
-      if(req.session.data.userId){ // is there a userId saved on the session?
+      if(req.session.data.userId && req.session.loggedIn){ // is there a userId saved on the session?
         let users = await User.find({_id: req.session.data.userId});
         if(users[0]){
           req.session.user = users[0]; // apply the user object

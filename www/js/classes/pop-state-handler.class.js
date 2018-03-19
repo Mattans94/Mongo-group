@@ -157,33 +157,47 @@ class PopStateHandler {
   admin() {
     $('main').empty();
     this.app.admin.render('main');
-    this.app.admin.selectedCategory = '';
+    this.app.admin.sortDirection = $('#input-sort').val();
+    this.app.admin.currentStatus = $("input:radio[name=radio]:checked").val();
+    this.app.admin.createOrderList();
+    this.app.admin.appendOrderListHtml();
   }
 
   adminStock() {
     $('main').empty();
-    this.app.admin.render('main', 5);
-    this.app.admin.selectedCategory = '';
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main', 5);
+      this.app.admin.selectedCategory = this.app.admin.getSelectedCategory($("input:radio[name=radio]:checked").val());
+      $('#stock-list').append(this.app.admin.makeStockList());
+    }
   }
 
   adminAdd() {
     $('main').empty();
-    this.app.admin.render('main', 2);
-    this.app.admin.selectedCategory = '';
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main', 2);
+      this.app.admin.selectedCategory = '';
+    }
   }
 
   adminChange() {
     $('main').empty();
-    this.app.admin.render('main', 3);
-    this.app.admin.selectedCategory = '';
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main', 3);
+      this.app.admin.selectedCategory = '';
+    }
   }
 
   adminDelete() {
+
     $('main').empty();
-    this.app.admin.render('main', 4);
-    this.app.admin.selectedCategory = '';
-    this.app.admin.setName(this.app.products);
+    if(this.app.role=='Admin'){
+      this.app.admin.render('main', 4);
+      this.app.admin.selectedCategory = '';
+      this.app.admin.setName(this.app.products);
+    }
   }
+
 
 
 }

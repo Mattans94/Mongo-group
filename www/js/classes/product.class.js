@@ -1,23 +1,24 @@
 class Product extends REST {
 
-  constructor(o){
+  constructor(o) {
     super(o);
-    if(!Product.hasEvents){
+    if (!Product.hasEvents) {
       this.events();
       Product.hasEvents = true;
     }
 
   }
 
-  events(){
+  events() {
     console.log('gdsgsdgsd');
-    $(document).on('change, input', '.quantity-control', async function(){
+    $(document).on('change, input', '.quantity-control', async function () {
       let sessionId = Cart.getSessionId();
+      console.log("sessionId " + sessionId);
       let prodId = $(this).data('id');
       let qtyVal = parseInt($(this).val());
       console.log('Quantity', qtyVal);
 
-      let product = await Cart.findOne({product: prodId, sessionId });
+      let product = await Cart.findOne({ product: prodId, sessionId });
 
       product.quantity = qtyVal;
       product.save();
@@ -27,11 +28,11 @@ class Product extends REST {
 
     });
 
-    $(document).on('click', '.trash-item', async function(){
+    $(document).on('click', '.trash-item', async function () {
       let sessionId = Cart.getSessionId();
       let prodId = $(this).data('id');
 
-      let product = await Cart.findOne({product: prodId, sessionId});
+      let product = await Cart.findOne({ product: prodId, sessionId });
 
       product.delete();
 
