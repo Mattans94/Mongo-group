@@ -5,7 +5,12 @@ const Session = mongoose.model('Session', new Schema({
   data: Schema.Types.Mixed
 }));
 
-async function session(req, res, next) {
+// let m = {
+//     session: sessionFn,
+//     schema: Session
+// };
+
+async function sessionFn(req, res, next) {
 
   if (!req.cookies.session) {
 
@@ -41,4 +46,5 @@ async function session(req, res, next) {
   }
 }
 
-module.exports = session;
+module.exports.sessionFn = sessionFn;
+module.exports.schema = Session;

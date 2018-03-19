@@ -12,7 +12,7 @@ module.exports = class User {
     static get schema() {
         return {
             name: String,
-            email: String,  
+            email: String,
             password: String,
             role: String
         }
@@ -78,10 +78,13 @@ module.exports = class User {
                         req.session.save();
                         res.cookie('user', person.name);
                         res.cookie('role', person.role);
-                        res.json({ result: person.name });
+                        res.json({
+                            message: 'Du är inloggad!',
+                            result: person.name
+                        });
                     } else {
                         // Passwords don't match
-                        res.json({ result: 'Login fail!' });
+                        res.json({ message: 'Inloggningen misslyckades!' });
                     }
                 });
                 // if (person.password == req.body.password) {
