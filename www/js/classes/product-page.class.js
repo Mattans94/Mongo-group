@@ -3,7 +3,6 @@ class ProductPage extends Base {
     super();
     this.app = app;
     $(window).on('scroll', () => this.scrolling());
-    this.makeCards();
   }
 
   async click(event){
