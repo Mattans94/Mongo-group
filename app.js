@@ -38,41 +38,30 @@ const cart = new Cart(app);
 //   }));
 // });
 
+
 // Move to appropriate class
 // Enter real values (sender, reciever, bought objects etc.)
-// nodemailer.createTestAccount((err, account) => {
-//   if (err) {
-//     console.error('Failed to create a testing account. ' + err.message);
-//       return process.exit(1);
-//   }
-  
-  let transporter = nodemailer.createTransport({
-    // host: 'smtp.ethereal.email',
-    // port: 587,
-    // secure: false,
-    service: 'gmail',
-    auth: {
-      user: 'coffedb@gmail.com',
-      pass: 'adminpassword'
-    }
-  });
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'coffedb@gmail.com',
+    pass: 'adminpassword'
+  }
+});
 
-  let mailOptions = {
-    from: 'coffedb@gmail.com',
-    to: 'coffedb@gmail.com',
-    subject: 'Bekräftelse på din beställning',
-    // text: 'Plaintext version of the message',
-    html: '<h1>Tack för att du valde att köpa ditt kaffe från CoffeeDB!</h1>'
-  };
+let mailOptions = {
+  from: 'coffedb@gmail.com',
+  to: 'coffedb@gmail.com',
+  subject: 'Bekräftelse på din beställning',
+  html: '<h1>Tack för att du valde att köpa ditt kaffe från CoffeeDB!</h1><p>Du har beställt:</p><ul><li>Test1</li><li>Test2</li><li>Test3</li></ul><p>Din beräknade leveranstid är 2-3 arbetsdagar.</p><hr><p>Har du problem, frågor eller funderingar? Tveka inte att höra av dig till oss på 040 - 12 33 21 eller maila till info@coffeeDB.com.</p>'
+};
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-        return console.log(error);
-    }
-    console.log('Message sent: %s', info.messageId);
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  });
-// });
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+      return console.log(error);
+  }
+  console.log('Message sent: %s', info.messageId);
+});
 
 
 // Serve index.html if req has no file extension.
