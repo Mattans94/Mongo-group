@@ -19,30 +19,36 @@ Object.assign(Navbar.prototype, { template(){ return `
 
 				<nav class="navbar navbar-expand-lg navbar-light fixed-top">
 					<div class="container">
+						<div>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
 						 aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
+					</div>
+					<div>
 						<a href="/" class="pop nav-logo d-none d-lg-block ml-1">
 							<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
 						</a>
+					</div>
+					<div>
 						<a href="/" class="pop nav-logo logo-mobile d-lg-none">
 							<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
 						</a>
+					</div>
 						<div class="collapse navbar-collapse" id="navbarNavDropdown">
 							<ul class="navbar-nav ml-4">
 								${this.items.render()}
 							</ul>
 						</div>
 
-						<div class="shopping-cart mr-4 fa-lg">
+						<div class="shopping-cart mr-sm-4 fa-lg">
 							<a class="pop" href="shoppingCart">
 								<i class="fas fa-shopping-cart"></i>
 							</a>
 						</div>
 
 						<div class="modal-container-login">
-							<button id="loginModalToggle" class="btn">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
+							<button id="loginModalToggle" class="btn mr-2">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
 
 						</div>
 					</div>
