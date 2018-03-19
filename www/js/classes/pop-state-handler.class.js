@@ -106,7 +106,14 @@ class PopStateHandler {
 
   produkter(){
     $('main').empty();
+    this.app.productPage.makeCards(); 
     this.app.productPage.render('main');
+    const category = this.app.startsida.category; 
+    if(category){ 
+      $(`#${category}`)[0].checked = true; 
+      this.app.productPage.makeCards([category]); 
+      this.app.startsida.category = ''; 
+    } 
     console.log('Körs');
   }
 

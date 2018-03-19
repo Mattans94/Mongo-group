@@ -9,4 +9,11 @@ class Startsida extends REST{
 			$('#carouselExampleControls').carousel('cycle');
 		});
 	}
+
+	click(e){ 
+    if($(e.target).hasClass('card-btn')){ 
+      this.category = $(e.target).attr('id'); 
+    } 
+  } 
+ 
 }
