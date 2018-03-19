@@ -41,7 +41,7 @@ class Admin extends Base {
     };
   }
 
-  // Common function in add-item and change-item pages
+  // Common function in add-item-page,change-item-page and stock-list-page
   getSelectedCategory(category) {
     const categories = {
       'Bönor': 'Bean',
