@@ -8,8 +8,6 @@ class Navbar extends REST {
       new NavbarItem('Om oss', '/om_oss'),
       new NavbarItem('Köpvillkor', '/kopvillkor')
     ];
-    // this.LogginBtnForNormalUser();
-    // this.LogginBtnForAdmin();
     this.changeLoginBtn();
   }
 
@@ -18,7 +16,6 @@ class Navbar extends REST {
       item.active = url == item.url;
     }
   }
-
 
   changeLoginBtn() {
     let that = this;
