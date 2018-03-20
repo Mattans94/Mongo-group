@@ -24,13 +24,23 @@ class App extends REST {
     this.powders = await Product.find({ type: 'Powder' });
     console.log('Powders are', this.powders);
 
-    this.capsules = await Product.find({ type: 'Capsule' });
-    console.log('Capsules are', this.capsules);
+    // this.capsules = await Product.find({ type: 'Capsule' });
+    // console.log('Capsules are', this.capsules);
 
     this.tools = await Tool.find({});
     console.log('Tools are', this.tools);
 
     this.orders = await Order.find({});
+
+    this.capsules = await Product.find('type[$regex]=Capsule&populate=tools');
+    this.capsules.forEach(capsule => {
+      const product = new Product(capsule);
+      product.save()
+      .then(async () => {
+        this.capsules = await Product.find('type[$regex]=Capsule&populate=tools');
+        console.log('saved')
+      });
+    });
 
     this.start();
   }
@@ -39,7 +49,7 @@ class App extends REST {
     const types = {
       beans: 'Bean',
       powders: 'Powder',
-      capsules: 'Capsule',
+      // capsules: 'Capsule',
       tools: 'Tool'
     };
 
