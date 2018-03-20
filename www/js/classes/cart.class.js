@@ -59,6 +59,7 @@ class Cart extends REST {
     // Ger moms-satsen av ett givet pris
     getVATFromTotalPrice() {
       $('.VAT-of-total-price').empty();
+      $('.VAT-of-total-exkl').empty();
       let cartTotal = 0;
       $('.unit-total-price').each(function(){
         cartTotal += parseInt($(this).text().replace('kr', ''));
@@ -67,6 +68,7 @@ class Cart extends REST {
       let priceWithoutVAT = cartTotal / 1.12;
       let VAT = cartTotal - priceWithoutVAT;
 
+      $('.VAT-of-total-exkl').append(`${priceWithoutVAT.toFixed(0)}kr`);
       $('.VAT-of-total-price').append(`${VAT.toFixed(0)}kr`);
     }
 

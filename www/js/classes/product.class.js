@@ -11,7 +11,7 @@ class Product extends REST {
 
   events(){
 
-    $(document).on('click', 'table form #plus-btn, table form #minus-btn', async function(){
+    $(document).on('click', 'form #plus-btn, form #minus-btn', async function(){
 
       let sessionId = Cart.getSessionId();
       let prodId = $(this).parent().find('.quantity-control').data('id');
