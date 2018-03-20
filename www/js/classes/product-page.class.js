@@ -52,7 +52,7 @@ class ProductPage extends Base {
     if(location.pathname == "/produkter"){
       let itemImg = $(target).parent().parent().parent().find('img');
       console.log(itemImg);
-      flyToElement($(itemImg), $('.shopping-cart'));
+      flyToElement($(itemImg), $('.fa-shopping-cart'));
 
       setTimeout(() => {
         Cart.updateCartBadgeValue();

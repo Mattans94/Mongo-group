@@ -221,7 +221,7 @@ class Checkout extends REST {
             that.pMethod = $('input[name="payment"]:checked').val();
             //TODO: as above
             let ifCreditCard = that.pMethod;
-            that.checkCreditCard(ifCreditCard);
+            //that.checkCreditCard(ifCreditCard);
             $(".checkOut-btns").removeClass("active");
             $(".review-btn").addClass("active");
             $('.stepBox').empty();
@@ -237,15 +237,29 @@ class Checkout extends REST {
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
+            that.sendConfirmationMail();
             location.replace("/invoice");
-
         });
-
-
-
-
-
     }
+
+
+    sendConfirmationMail() {
+        console.log(this.app.profile.email);
+        if (this.app.profile.email == "undefined@undefined") {
+            this.app.profile.email = "coffedb@gmail.com"
+        }
+        console.log(this.app.profile.email);
+        let sendmail = {
+            url: '/sendmail',
+            method: 'POST',
+            dataType: 'json',
+            data: JSON.stringify({mail: this.app.profile.email, purchase: this._orderDetails, ordernumber: this._orderNumber}),
+            processData: false,
+            contentType: "application/json; charset=utf-8"
+        };
+        return $.ajax(sendmail);
+    }
+
 
     clickPayment() {
 
@@ -279,13 +293,14 @@ class Checkout extends REST {
         newOrder.user = this.app.currentUser;
         newOrder.orderNumber = this.getOrderNumber();
         newOrder.orderTime = this._orderTime;
-        newOrder.product = "White Blouse Armani";
-        newOrder.quantity = 1;
-        newOrder.unitPrice = 10000;
-        newOrder.total = 10000;
-        newOrder.productVAT = 2500;
+        //newOrder.product = "White Blouse Armani";
+        newOrder.quantity = this.app.navbar.qty;
+        //newOrder.unitPrice = 10000;
+        newOrder.total = this.app.cart.cartTotal;
+        newOrder.productVAT = this.app.cart.VAT;
         newOrder.shippingMethod = this.dMethod;
         newOrder.shippingFee = this.dFee;
+        newOrder.shippingVAT = this.dFee*0.25;
         newOrder.paymentMethod = this.pMethod;
         newOrder.cardNumber = this._cardNumber;
         newOrder.cardMonth = this._cardMonth;
@@ -299,7 +314,7 @@ class Checkout extends REST {
         newOrder.region = this.country;
         newOrder.phoneNumber = this.telephone;
         newOrder.status = "Beställt";
-        console.log(newOrder);
+        console.log("newOrder", newOrder);
         return newOrder;
 
     }
