@@ -104,10 +104,13 @@ class Profile extends Base {
     clicklogin(event, element, instance) {
         if ($(event.target).hasClass('lgin')) {
             this.finishLogin();
-            event.preventDefault();
+             //event.preventDefault();
+             $('#loginModal').modal('toggle');
         }
         if ($(event.target).hasClass('register-btn')) {
-            $('#loginModal').modal('toggle');
+            $('#loginModal').modal('hide');
+            location.replace("/register");
+            //location.reload();
         }
     }
 
@@ -119,7 +122,7 @@ class Profile extends Base {
             url: '/login',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify(this.createUser()),
+            data: JSON.stringify(this.sendLoginInfo()),
             processData: false,
             contentType: "application/json; charset=utf-8"
         };
@@ -129,10 +132,10 @@ class Profile extends Base {
 
     finishLogin() {
         let that = this;
-
         that.login().then((res) => {
             console.log("res " + res.result);
-            that.app.currentUser = document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+            alert(res.message);
+            //location.reload();
         });
     }
 
@@ -187,6 +190,14 @@ class Profile extends Base {
         that.render('.modal-container-login', 'login');
         $('#loginModal').modal('toggle');
 
+    }
+
+    sendLoginInfo(){
+        let loginUser={};
+        loginUser.password = this.password;
+        loginUser.email = this.email;
+        console.log(loginUser);
+        return loginUser;
     }
 
     createUser() {

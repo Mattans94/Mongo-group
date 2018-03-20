@@ -108,7 +108,7 @@ const saveModels = () => {
       // Capsules json and tools json should be saved before updating
       await productUpdate(savedProducts, savedTools);
       await toolUpdate(savedProducts, savedTools);
-      process.exit();
+     // process.exit();
     });
   });
 

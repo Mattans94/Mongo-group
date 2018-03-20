@@ -8,7 +8,7 @@ Object.assign(Profile.prototype, {templatelogin(){ return `
                 <button type="button" class="close float-fight" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form class="mb-4" id="loginForm">
+                <div class="mb-4" id="loginForm">
                     <div class="form-group">
                         <input type="email" class="form-control lginEmail" aria-describedby="emailHelp" placeholder="Ange mailadress">
                     </div>
@@ -19,12 +19,12 @@ Object.assign(Profile.prototype, {templatelogin(){ return `
                         <button class="btn btn-next pop lgin" href="#" role="button">
                             <i class="fa fa-sign-in"></i> Logga in</button>
                     </p>
-                </form>
+                </div>
                 <small class="loginFail text-danger d-none">Kontrollera mailadress och lösenord!</small>
                 <p class="text-center text-muted"> Ny kund?</p>
                 <p class="text-center text-muted">
-                    <a href="/register" class="pop register-btn">
-                        <strong>Registrera ny användare</strong></a>!
+                    <a class=" register-btn">
+                        <strong class=" register-btn">Registrera ny användare</strong></a>!
                         Det är enkelt och tar 1 minut och ger dig tillgång till specialrabatter och mycket mer!</p>
             </div>
 

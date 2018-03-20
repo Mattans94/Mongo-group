@@ -4,12 +4,12 @@ Object.assign(UserPage.prototype, { template(){ return `
   <div class="col-12 mt-4 heading">
     <div class="card text-center">
       <i class="fas fa-user-circle">
-        <h1>${this.app.user}</h1>
+        <h1>${this.app.currentUser}</h1>
       </i>
     </div>
   </div>
   <div class="col-12 content">
-    <h2 class="" id="aktuella-heading">Aktuella order
+    <h2 class="" id="aktuella-heading">Order
       <i class="fas fa-coffee"></i>
     </h2>
     <div class="row aktuella">
@@ -26,7 +26,6 @@ Object.assign(UserPage.prototype, { template(){ return `
           </thead>
           <tbody id="order-list">
             <!-- Order list rendered here -->
-            ${this.makeOrderList()}
           </tbody>
         </table>
       </div>
