@@ -128,18 +128,19 @@ class Profile extends Base {
         };
         return $.ajax(login);
     }
-
+    
     finishLogin() {
-        let that = this;
-        that.login().then((res) => {
-            console.log("res " + res.result);
-            alert(res.message);
-            that.app.navbar.renderNav();
-            location.reload();
-            // that.app.navbar.changeLoginBtn();
- 
-        });
-    }
+           let that = this;
+           that.login().then((res) => {
+               console.log("res " + res.result);
+               alert(res.message);
+               $('header').empty();
+               that.app.navbar.render('header');
+               that.app.navbar.changeLoginBtn();
+               //location.reload();
+               // that.app.navbar.changeLoginBtn();
+           });
+       }
 
     clickRegister(event, element, instance) {
         if ($(event.target).hasClass('signupbtn')) {
