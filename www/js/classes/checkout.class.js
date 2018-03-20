@@ -250,12 +250,12 @@ class Checkout extends REST {
 
 
     sendConfirmationMail() {
-        console.log("order-objectet", this._orderDetails, this._orderDetails[0].product);
+        console.log("order-objectet", this._orderDetails, this._orderNumber);
         let sendmail = {
             url: '/sendmail',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify({mail: "coffedb@gmail.com", purchase: this._orderDetails, totalcost: 450}),
+            data: JSON.stringify({mail: "coffedb@gmail.com", purchase: this._orderDetails, ordernumber: this._orderNumber}),
             processData: false,
             contentType: "application/json; charset=utf-8"
         };
