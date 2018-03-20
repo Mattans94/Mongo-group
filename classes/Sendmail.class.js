@@ -24,16 +24,24 @@ module.exports = class Sendmail {
     function generateLi(purchase) {
       let content = ``;
       for(let i = 0; i < purchase.length; i++) {
-        content += `<li>${purchase[i].quantity}x<strong><span style="margin-left: 10px; margin-right: 10px;">${purchase[i].product}</span></strong>${purchase[i].unitPrice}kr</span></li>`;
+        content += `<li>${purchase[i].quantity}x<strong><span style="margin-left: 10px; margin-right: 10px;">${purchase[i].product}</span></strong>${purchase[i].quantity * purchase[i].unitPrice}kr</span></li>`;
       }
       return content;
+    }
+
+    function totalPrice(purchase) {
+      let price = 0;
+      for(let i = 0; i < purchase.length; i++) {
+        price += purchase[i].quantity * purchase[i].unitPrice;
+      }
+      return price;
     }
 
     let mailOptions = {
       from: 'coffedb@gmail.com',
       to: customerEmail,
       subject: 'Bekräftelse på din beställning',
-      html: `<h1>Tack för att du valde att köpa ditt kaffe från CoffeeDB!</h1><p><strong>Du har beställt:</strong></p><ul>${generateLi(purchase)}</ul><p style="margin-bottom: 30px;"><strong>Total kostnad:</strong> ${totalcost} kr</p><p style="margin-bottom: 30px;">Din beräknade leveranstid är 2-3 arbetsdagar.</p><hr><p><em>Har du problem, frågor eller funderingar? Tveka inte att höra av dig till oss på 040 - 12 33 21 eller maila till info@coffeeDB.com.</em></p>`
+      html: `<h1>Tack för att du valde att köpa ditt kaffe från CoffeeDB!</h1><p><strong>Du har beställt:</strong></p><ul>${generateLi(purchase)}</ul><p style="margin-bottom: 30px;"><strong>Total kostnad:</strong> ${totalPrice(purchase)} kr</p><p style="margin-bottom: 30px;">Din beräknade leveranstid är 2-3 arbetsdagar.</p><hr><p><em>Har du problem, frågor eller funderingar? Tveka inte att höra av dig till oss på 040 - 12 33 21 eller maila till info@coffeeDB.com.</em></p>`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
