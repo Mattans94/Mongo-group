@@ -5,6 +5,8 @@ class Checkout extends REST {
         this.app = app;
         this.lastOrder = null;
         this.clickEvents();
+        this.subTotal = '';
+        this.orderNumber=this.getOrderNumber();
     }
 
     get firstName() {
@@ -215,7 +217,10 @@ class Checkout extends REST {
             //radio button check function needed
             that.render('.stepBox', 'Payment');
             that.render('#myPay', 'Paypal');
+            $('#order-summary').empty();
+            that.renderShipping();
         });
+
         $(document).on("click", '.review-btn', function () {
             // event.preventDefault();
             that.pMethod = $('input[name="payment"]:checked').val();
@@ -277,16 +282,16 @@ class Checkout extends REST {
         let newOrder = {};
         newOrder.orderDetails = this._orderDetails;
         newOrder.user = this.app.currentUser;
-        newOrder.orderNumber = this.getOrderNumber();
+        newOrder.orderNumber = this.orderNumber;
         newOrder.orderTime = this._orderTime;
         //newOrder.product = "White Blouse Armani";
         newOrder.quantity = this.app.navbar.qty;
         //newOrder.unitPrice = 10000;
-        newOrder.total = this.app.cart.cartTotal;
+        newOrder.total = this.app.cart.cartTotal + this.dFee;
         newOrder.productVAT = this.app.cart.VAT;
         newOrder.shippingMethod = this.dMethod;
         newOrder.shippingFee = this.dFee;
-        newOrder.shippingVAT = this.dFee*0.25;
+        newOrder.shippingVAT = this.dFee * 0.25;
         newOrder.paymentMethod = this.pMethod;
         newOrder.cardNumber = this._cardNumber;
         newOrder.cardMonth = this._cardMonth;
@@ -341,7 +346,7 @@ class Checkout extends REST {
         if (check == "credit-card") {
             let exDate = `20${this._cardYear}/${this._cardMonth}`;
             let cardExp = new Date(exDate);
-            if (cardExp == "Invalid Date"||cardExp < new Date()) {
+            if (cardExp == "Invalid Date" || cardExp < new Date()) {
                 alert("Please check your credit card!");
             }
         }
@@ -411,6 +416,20 @@ class Checkout extends REST {
 
         console.log(this._orderDetails);
 
+    }
+
+    renderShipping() {
+        let that = this;
+        that.app.cart.render('#order-summary', 'OrderSummary');
+        that.app.cart.render('#total-without-shipping', 'TotalPrice');
+        $('.before-shipping').empty();
+        that.subTotal = that.app.cart.cartTotal + that.dFee;
+        $('.shipping-Fee').append(`<td>Fraktavgift</td>
+              <th>${that.dFee}kr</th>`);
+        $('.shipping-vat').append(`<td >Fraktmoms 25%</td>
+              <th>${that.dFee * 0.25}kr</th>`);
+        $('.addShipping').append(`<td>Total</td>
+              <th>${that.subTotal}kr</th>`);
     }
 
 }

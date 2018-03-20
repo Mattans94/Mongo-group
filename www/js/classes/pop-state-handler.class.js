@@ -167,6 +167,7 @@ class PopStateHandler extends REST{
       this.app.checkout.render('main', 'CheckOut');
       this.app.checkout.render('.stepBox','Address');
       this.app.cart.renderTotalPriceWithVAT();
+     
     });
 
     // this.app.profile.render('.stepBox', 'Address');
