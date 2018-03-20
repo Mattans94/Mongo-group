@@ -2,6 +2,10 @@ h2 {
   color: #4fbfa8;
   text-align: center;
 }
+.omr p {
+  font-family: 'Pacifico', cursive;
+  font-size: 505px;
+}
 .empty-space {
   margin-top: 85px;
 }
