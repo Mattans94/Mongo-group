@@ -237,20 +237,23 @@ class Checkout extends REST {
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
-            location.replace("/invoice");
-
             that.sendConfirmationMail();
+            location.replace("/invoice");
         });
     }
 
 
     sendConfirmationMail() {
-        console.log("order-objectet", this._orderDetails, this._orderNumber);
+        console.log(this.app.profile.email);
+        if (this.app.profile.email == "undefined@undefined") {
+            this.app.profile.email = "coffedb@gmail.com"
+        }
+        console.log(this.app.profile.email);
         let sendmail = {
             url: '/sendmail',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify({mail: "coffedb@gmail.com", purchase: this._orderDetails, ordernumber: this._orderNumber}),
+            data: JSON.stringify({mail: this.app.profile.email, purchase: this._orderDetails, ordernumber: this._orderNumber}),
             processData: false,
             contentType: "application/json; charset=utf-8"
         };
