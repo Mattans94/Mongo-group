@@ -1,6 +1,7 @@
 class Cart extends REST {
     constructor(cart) {
         super(cart);
+        this.cartTotal=0;
     }
 
     renderShoppingList() {
@@ -69,6 +70,8 @@ class Cart extends REST {
       $('.unit-total-price').each(function(){
         cartTotal += parseInt($(this).text().replace('kr', ''));
       });
+      this.cartTotal=cartTotal;
+      console.log("This.cartTotal "+this.cartTotal);
 
       console.log(cartTotal);
       $('.cart-total-price').append(`${cartTotal}kr`);
