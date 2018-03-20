@@ -30,6 +30,7 @@ class Cart extends REST {
       $('.cart-content').empty();
       products.render('.cart-content', 'CartContent');
       this.calculateAndRenderTotalPrice();
+      this.getVATFromTotalPrice();
     }
 
     //Method to update the bade value in the navbar. Run this everytime
@@ -61,6 +62,22 @@ class Cart extends REST {
     //   let VAT = price - priceWithoutVAT;
     //   return VAT.toFixed(2);
     // }
+
+
+    getVATFromTotalPrice() {
+     $('.VAT-of-total-price').empty();
+     $('.VAT-of-total-exkl').empty();
+     let cartTotal = 0;
+     $('.unit-total-price').each(function(){
+       cartTotal += parseInt($(this).text().replace('kr', ''));
+     });
+
+     let priceWithoutVAT = cartTotal / 1.12;
+     let VAT = cartTotal - priceWithoutVAT;
+
+     $('.VAT-of-total-exkl').append(`${priceWithoutVAT.toFixed(0)}kr`);
+     $('.VAT-of-total-price').append(`${VAT.toFixed(0)}kr`);
+    }
 
     calculateAndRenderTotalPrice(){
       $('.cart-total-price').empty();
