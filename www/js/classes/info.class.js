@@ -5,7 +5,6 @@ class Info extends REST {
   }
 
   //Disables the add to cart button when max amount of products is added to the cart
-  //This function can also be called in a template to disable button on load.
   //Parameter id refers to the product's _id
   static async disableCartButtonStock(id){
     let product = await Product.findOne({ _id: id });
@@ -132,7 +131,7 @@ class Info extends REST {
         : $("#quantity").val(1);
       } else if(currentValue < stock){
         $("#quantity").val(currentValue + 1);
-        console.log('hello from the other side', cartItem);
+
 
       }
     }
