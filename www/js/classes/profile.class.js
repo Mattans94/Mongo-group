@@ -129,13 +129,15 @@ class Profile extends Base {
         return $.ajax(login);
     }
 
-
     finishLogin() {
         let that = this;
         that.login().then((res) => {
             console.log("res " + res.result);
             alert(res.message);
-            //location.reload();
+            that.app.navbar.renderNav();
+            location.reload();
+            // that.app.navbar.changeLoginBtn();
+ 
         });
     }
 
