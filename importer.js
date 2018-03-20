@@ -2,6 +2,7 @@ const beansJson = require('./beans.json');
 const powdersJson = require('./powders.json');
 const capsulesJson = require('./capsules.json');
 const toolsJson = require('./tools.json');
+const usersJson = require('./users.json');
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -18,13 +19,16 @@ db.once('open', () => {
 
 const Product = require('./classes/Product.class');
 const Tool = require('./classes/Tool.class');
+const User = require('./classes/User.class');
 
 const productModel = new Product(app).myModel;
 const toolModel = new Tool(app).myModel;
+const userModel = new User(app).myModel;
 
 const models = {
   'product': productModel,
-  'tool': toolModel
+  'tool': toolModel,
+  'user': userModel
 }
 
 // Save product's json files into mongoDB.
@@ -88,17 +92,15 @@ const saveModels = () => {
 
   let savedProducts;
   let savedTools;
-  let savedOrders;
-  let savedProfiles;
 
   productModel.remove({}, () => {
     toolModel.remove({}, async () => {
-      await save(productsJson, 'product', {'tools': []})
+      await save(productsJson, 'product', { 'tools': [] })
         .then(obj => {
           savedProducts = obj;
         });
 
-      await save(toolsJson, 'tool', {'capsules': []})
+      await save(toolsJson, 'tool', { 'capsules': [] })
         .then(obj => {
           savedTools = obj;
         });
@@ -106,8 +108,13 @@ const saveModels = () => {
       // Capsules json and tools json should be saved before updating
       await productUpdate(savedProducts, savedTools);
       await toolUpdate(savedProducts, savedTools);
-      process.exit();
+     // process.exit();
     });
+  });
+
+  userModel.remove({}, async () => {
+    let userList = await save(usersJson, 'user');
+    console.log(userList);
   });
 
 }

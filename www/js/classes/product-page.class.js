@@ -3,13 +3,11 @@ class ProductPage extends Base {
     super();
     this.app = app;
     $(window).on('scroll', () => this.scrolling());
-    this.makeCards();
   }
 
-
   click(event){
-    $(event.target).hasClass('toTop') && $(window).scrollTop(0);
-    $(event.target).hasClass('card-btn') && ProductPage.addProductToCart(event.target);
+   $(event.target).hasClass('toTop') && $(window).scrollTop(0);
+   $(event.target).hasClass('card-btn') && ProductPage.addProductToCart(event.target);
   }
 
   static async addProductToCart(target, qty){

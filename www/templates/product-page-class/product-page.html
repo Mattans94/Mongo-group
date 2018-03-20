@@ -4,22 +4,22 @@ Object.assign(ProductPage.prototype, { template(){ return `
         <p class="font-weight-bold mr-3">Kategorier:</p>
         <form class="d-flex justify-content-start flex-wrap">
             <div class="form-check col-4 col-md-2 mr-2 mr-sm-3 mr-md-5">
-                <input type="checkbox" class="form-check-input" id="exampleCheck2" value="Bean" name="check">
-                <label class="form-check-label" for="exampleCheck2">Kaffebönor</label>
+                <input type="checkbox" class="form-check-input" id="Bean" value="Bean" name="check">
+                <label class="form-check-label" for="Bean">Kaffebönor</label>
             </div>
             <div class="form-check col-4 col-md-2 mr-5">
-                <input type="checkbox" class="form-check-input" id="exampleCheck3" value="Powder" name="check">
-                <label class="form-check-label" for="exampleCheck3">Bryggkaffe</label>
+                <input type="checkbox" class="form-check-input" id="Powder" value="Powder" name="check">
+                <label class="form-check-label" for="Powder">Bryggkaffe</label>
             </div>
             <div class="form-check col-4 col-md-2 mr-0 mr-md-4 mr-lg-0">
-                <input type="checkbox" class="form-check-input" id="exampleCheck4" value="Capsule" name="check">
-                <label class="form-check-label" for="exampleCheck4">Kaffekapslar</label>
+                <input type="checkbox" class="form-check-input" id="Capsule" value="Capsule" name="check">
+                <label class="form-check-label" for="Capsule">Kaffekapslar</label>
             </div>
         </form>
     </div>
-    <div class="col-12 col-md-3 mb-4 pr-md-0">
+    <div class="col-12 col-md-3 mb-4">
         <div class="form-group">
-            <select class="form-control selectSorting float-md-right float-left mt-3 mt-md-0">
+            <select class="form-control selectSorting">
                 <option class="dropdown" value="sortering">Sortering</option>
                 <option class="dropdown" data-property="name" value="ascendingOrder">Produktnamn A-Ö</option>
                 <option class="dropdown" data-property="name" value="descendingOrder">Produktnamn Ö-A</option>

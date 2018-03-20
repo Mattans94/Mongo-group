@@ -4,7 +4,7 @@
   padding: 40px;
 }
 .product-info .card-img-top {
-  max-width: 70%;
+  max-width: 100%;
   max-height: unset;
 }
 .product-info .form-control {
@@ -17,9 +17,11 @@
 }
 .product-info .btn-sm#minus-btn {
   border-radius: .2rem 0 0 .2rem;
+  cursor: pointer;
 }
 .product-info .btn-sm#plus-btn {
   border-radius: 0 .2rem .2rem 0;
+  cursor: pointer;
 }
 .product-info .btn-cart {
   background-color: #4fbfa8;

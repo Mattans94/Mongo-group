@@ -1,5 +1,5 @@
 //Checkout class only used to render templates and get set all the variables
-class Checkout extends Base {
+class Checkout extends REST {
     constructor(app) {
         super();
         this.app = app;
@@ -121,11 +121,18 @@ class Checkout extends Base {
     }
 
     get ort() {
-        retrun`${this._ort}`;
+        return `${this._ort}`;
     }
 
     set ort(val) {
         this._ort = val;
+    }
+
+    get orderDetails() {
+        return `${this._orderDetails}`;
+    }
+    set orderDetails(val) {
+        this._orderDetails = val;
     }
 
 
@@ -201,10 +208,6 @@ class Checkout extends Base {
             let method = that.dMethod;// get delivery method
             that.calculateShipping(method);// get delivery fee
             that.pMethod = "paypal"; // if payment method has not been chosen, paypal is selected
-            // that._cardNumber = "";
-            // that._cardMonth = "";
-            // that._cardYear = "";
-            // that._cvCode = "";
             $(".checkOut-btns").removeClass("active");
             $(".payment-btn").addClass("active");
             $('.stepBox').empty();
@@ -212,28 +215,29 @@ class Checkout extends Base {
             //radio button check function needed
             that.render('.stepBox', 'Payment');
             that.render('#myPay', 'Paypal');
-            // $.get('/getVisa', (data)=>{
-            //     console.log(data);
-            // });
         });
         $(document).on("click", '.review-btn', function () {
             // event.preventDefault();
             that.pMethod = $('input[name="payment"]:checked').val();
             //TODO: as above
             let ifCreditCard = that.pMethod;
-            that.checkCreditCard(ifCreditCard);
+            //that.checkCreditCard(ifCreditCard);
             $(".checkOut-btns").removeClass("active");
             $(".review-btn").addClass("active");
             $('.stepBox').empty();
+
             that.render('.stepBox', 'Review');
             that.app.cart.renderShoppingList();
+            that.app.cart.renderCartContent();
         });
 
-        $(document).on("click", '.order-btn', function (event) {
+        $(document).on("click", '.order-btn', async function (event) {
             event.preventDefault();
+            await that.getShoppingCart();
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
+            location.replace("/invoice");
 
         });
 
@@ -271,16 +275,18 @@ class Checkout extends Base {
     //--------------------Order creater --------------------//
     createOrder() {
         let newOrder = {};
-        newOrder.user = this.app.profile.currentUser;
+        newOrder.orderDetails = this._orderDetails;
+        newOrder.user = this.app.currentUser;
         newOrder.orderNumber = this.getOrderNumber();
         newOrder.orderTime = this._orderTime;
-        newOrder.product = "White Blouse Armani";
-        newOrder.quantity = 1;
-        newOrder.unitPrice = 10000;
-        newOrder.total = 10000;
-        newOrder.productVAT = 2500;
+        //newOrder.product = "White Blouse Armani";
+        newOrder.quantity = this.app.navbar.qty;
+        //newOrder.unitPrice = 10000;
+        newOrder.total = this.app.cart.cartTotal;
+        newOrder.productVAT = this.app.cart.VAT;
         newOrder.shippingMethod = this.dMethod;
         newOrder.shippingFee = this.dFee;
+        newOrder.shippingVAT = this.dFee*0.25;
         newOrder.paymentMethod = this.pMethod;
         newOrder.cardNumber = this._cardNumber;
         newOrder.cardMonth = this._cardMonth;
@@ -335,7 +341,7 @@ class Checkout extends Base {
         if (check == "credit-card") {
             let exDate = `20${this._cardYear}/${this._cardMonth}`;
             let cardExp = new Date(exDate);
-            if (cardExp == "Invalid Date") {
+            if (cardExp == "Invalid Date"||cardExp < new Date()) {
                 alert("Please check your credit card!");
             }
         }
@@ -363,8 +369,48 @@ class Checkout extends Base {
                 this.country = r.region;
                 this.telephone = r.phoneNumber;
                 this._ort = r.ort;
+            } else {
+                this.firstname = '';
+                this.lastname = '';
+                this._cardNumber = '';
+                this._cardMonth = '';
+                this._cardYear = '';
+                this._cvCode = '';
+                this.streetName = '';
+                this.postNumber = '';
+                this.country = '';
+                this.telephone = '';
+                this._ort = '';
             }
         });
+    }
+
+    async getShoppingCart() {
+        console.log("get shopping cart")
+        let session = Cart.getSessionId();
+        let sessionProducts = await Cart.find({
+            sessionId: session
+        });
+        let details = [];
+
+        for (let obj of sessionProducts) {
+            for (let prodObj of app.products) {
+                if (obj.product == prodObj._id) {
+                    prodObj.cartItem = obj;
+                    let item = {};
+                    item.productId = prodObj._id;
+                    item.product = prodObj.name;
+                    item.quantity = obj.quantity;
+                    item.unitPrice = prodObj.price;
+                    details.push(item);
+
+                }
+            }
+        }
+        this._orderDetails = details;
+
+        console.log(this._orderDetails);
+
     }
 
 }

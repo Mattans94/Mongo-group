@@ -1,8 +1,8 @@
 class Product extends REST {
 
-  constructor(o){
+  constructor(o) {
     super(o);
-    if(!Product.hasEvents){
+    if (!Product.hasEvents) {
       this.events();
       Product.hasEvents = true;
     }
@@ -61,6 +61,7 @@ class Product extends REST {
 
     $(document).on('change, input', '.quantity-control', async function(){
       let sessionId = Cart.getSessionId();
+      console.log("sessionId " + sessionId);
       let prodId = $(this).data('id');
       let qtyField = $(this).text();
       let qtyVal = parseInt(qtyField);
@@ -80,7 +81,7 @@ class Product extends REST {
 
     });
 
-    $(document).on('click', '.trash-item', async function(){
+    $(document).on('click', '.trash-item', async function () {
       let sessionId = Cart.getSessionId();
       let prodId = $(this).data('id');
 

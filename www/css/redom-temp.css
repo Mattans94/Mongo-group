@@ -131,7 +131,7 @@
   color: #333333;
 }
 .btn-next {
-  color: #ffffff;
+  color: #ffffff !important;
   background-color: #3da892;
   border-color: #318675;
 }
@@ -147,7 +147,7 @@
   color: #fff;
 }
 .modal-backdrop {
-  z-index: 20! important;
+  z-index: 600! important;
 }
 /*************credit-card**********/
 .credit-card {

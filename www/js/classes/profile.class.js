@@ -1,10 +1,9 @@
 //Profile class only use for render and get, set 
 class Profile extends Base {
-    constructor(rest, cart) {
+    constructor(app) {
         super();
-        this.rest = rest;
-        this.cart = cart;
-        this.currentUser = "Unknow User";
+        this.app = app;
+
         //this.changeInput();
     }
 
@@ -105,7 +104,13 @@ class Profile extends Base {
     clicklogin(event, element, instance) {
         if ($(event.target).hasClass('lgin')) {
             this.finishLogin();
-            event.preventDefault();
+             //event.preventDefault();
+             $('#loginModal').modal('toggle');
+        }
+        if ($(event.target).hasClass('register-btn')) {
+            $('#loginModal').modal('hide');
+            location.replace("/register");
+            //location.reload();
         }
     }
 
@@ -117,7 +122,7 @@ class Profile extends Base {
             url: '/login',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify(this.createUser()),
+            data: JSON.stringify(this.sendLoginInfo()),
             processData: false,
             contentType: "application/json; charset=utf-8"
         };
@@ -126,16 +131,15 @@ class Profile extends Base {
 
 
     finishLogin() {
-        this.login().then((res) => {
+        let that = this;
+        that.login().then((res) => {
             console.log("res " + res.result);
-            this.currentUser=res.result;
+            alert(res.message);
+            //location.reload();
         });
     }
 
     clickRegister(event, element, instance) {
-        if ($(event.target).hasClass('cancelbtn')) {
-            $('#signupModal').modal('toggle');
-        }
         if ($(event.target).hasClass('signupbtn')) {
             this.sign().then(function () {
                 alert("You are now registed!");
@@ -188,14 +192,38 @@ class Profile extends Base {
 
     }
 
+    sendLoginInfo(){
+        let loginUser={};
+        loginUser.password = this.password;
+        loginUser.email = this.email;
+        console.log(loginUser);
+        return loginUser;
+    }
+
     createUser() {
         let newUser = {};
         newUser.email = this.email;
         newUser.password = this.password;
         newUser.name = this.name;
-        console.log(newUser);
+        newUser.role = "Normal User";
+            console.log(newUser);
         return newUser;
     }
+
+    getUserInfo() {
+        return $.ajax('/user').then((data) => {
+            if (data.result && data.result.length > 0) {
+                //this.lastOrder = data.result;
+                let r = data.result[0];
+
+                this.name = r.name;
+                this.email = r.email;
+                this.password = r.password;
+            }
+        });
+    }
+
+  
 
 
 

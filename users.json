@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Admin",
+        "email": "admin@coffeeDB.com",
+        "password": "$2a$10$9.lpF9ibr37iDtRu9wp3r.G6PK254l6ZpKl/zgAR8pJDh9.L9nmQ.",
+        "role": "Admin"
+    },
+    {
+        "name": "Test",
+        "email": "user@db.com",
+        "password": "$2a$10$2YnnFi0DYuomiLaQloKieOe8UgQflhuRfpMeT9pGgdUpm9mlTEq2S",
+        "role": "Normal User"
+    }
+]
