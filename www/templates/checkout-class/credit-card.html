@@ -6,14 +6,14 @@ Object.assign(Checkout.prototype, { templateCreditCard(){ return `
             <h4 class="credit-card__title">
                 Payment Details
             </h4>
-            <form class="credit-card__form">
+            <div class="credit-card__form">
                 <input class="credit-card__number" placeholder="Card Number" type="text" value="${this.cardNumber}" required/>
                 <fieldset>
                     <input class="credit-card__expiry-month" maxLength="2" placeholder="MM" type="text" value="${this.cardMonth}" required/>
                     <input class="credit-card__expiry-year" maxLength="2" placeholder="YY" type="text" value="${this.cardYear}" required/>
                     <input class="credit-card__cv-code pull-right" maxLength="3" placeholder="cvc" type="text" value="${this._cvCode}" required/>
                 </fieldset>
-            </form>
+            </div>
         </div>
     </div>
 

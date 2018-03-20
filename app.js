@@ -12,7 +12,7 @@ app.use(bodyParser.json()) // needed to post json
 app.use(express.static('www'));
 app.use(flexjson);
 app.use(cookieParser()); // needed to read and set cookies
-app.use(session);
+app.use(session.sessionFn);
 
 
 
@@ -29,12 +29,38 @@ const user = new User(app);
 const cart = new Cart(app);
 const orderDetails = new OrderDetails(app);
 
+app.get('/getLogin', (req, res) => {
+  //const Session = mongoose.model('Session', session.schema);
+  let query = session.schema.findOne({ _id: req.cookies.session });
+  query.select('_id loggedIn data');
+  query.exec(function (err, data) {
+    if (err) {
+      res.json(JSON.stringify(err));
+      return;
+    }
+    if (!data || !data.data || !data.data.user) {
+      res.json({
+        isLogin: false
+      })
+      return;
+    }
+    res.json({
+      isLogin: true,
+      user: data.data.user.name,
+      role: data.data.user.role
+    })
+  }
+
+  )
+
+});
 
 // Serve index.html if req has no file extension.
 // (to work with SPA)
 app.get(/^[^\.]*$/, (req, res) => {
   res.sendFile(__dirname + '/www/index.html');
 });
+
 
 
 
