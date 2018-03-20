@@ -4,19 +4,17 @@ class UserPage extends Base {
     this.app = app;
   }
 
-  makeOrderList() {
+  makeOrderList(orders) {
     const orderList = [];
-    // temporary orders (this.app.orders is all orders in our site)
-    const targets = this.app.orders;
 
-    targets.forEach(target => {
+    orders.forEach(order => {
       orderList.unshift(`
       <tr>
-        <th id="orderNumber">${target.orderNumber}</th>
-        <td>${moment(target.orderTime).format('YYYY-MM-DD')}</td>
-        <td>3</td>
-        <td>${target.total}</td>
-        <td>${target.status}</td>
+        <th id="orderNumber">${order.orderNumber}</th>
+        <td>${moment(order.orderTime).format('YYYY-MM-DD')}</td>
+        <td>${order.quantity}</td>
+        <td>${order.total}</td>
+        <td>${order.status}</td>
       </tr>
       `);
     });
@@ -24,12 +22,14 @@ class UserPage extends Base {
   }
 
   // We use this after user and order connected
-  renderList(user) {
-    const filterTargets = this.app.orders.filter(order => {
-      return order.user === user;
+  renderList() {
+    const currentUsersOrders = this.app.orders.filter(order => {
+      return order.user === this.app.currentUser;
     });
-    $('#order-list').empty();
-    $('#order-list').append(this.makeOrderList(filterTargets));
-  }
 
+    if (currentUsersOrders) {
+      $('#order-list').empty();
+      $('#order-list').append(this.makeOrderList(currentUsersOrders));
+    }
+  }
 }

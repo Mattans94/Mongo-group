@@ -107,7 +107,14 @@ class PopStateHandler {
 
   produkter(){
     $('main').empty();
+    this.app.productPage.makeCards(); 
     this.app.productPage.render('main');
+    const category = this.app.startsida.category; 
+    if(category){ 
+      $(`#${category}`)[0].checked = true; 
+      this.app.productPage.makeCards([category]); 
+      this.app.startsida.category = ''; 
+    } 
     console.log('Körs');
   }
 
@@ -153,6 +160,7 @@ class PopStateHandler {
   userPage() {
     $('main').empty();
     this.app.userPage.render('main');
+    this.app.userPage.renderList();
   }
 
   admin() {
@@ -190,7 +198,6 @@ class PopStateHandler {
   }
 
   adminDelete() {
-
     $('main').empty();
     if(this.app.role=='Admin'){
       this.app.admin.render('main', 4);
