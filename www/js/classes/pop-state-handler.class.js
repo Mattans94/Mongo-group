@@ -1,7 +1,8 @@
-class PopStateHandler {
+class PopStateHandler extends REST{
 
   // Note: Only instantiate PopStateHandler once!
   constructor(app) {
+    super();
     this.app = app;
     // Add event handlers for a.pop-links once
     this.addEventHandler();
@@ -57,7 +58,7 @@ class PopStateHandler {
       '/om_oss' : 'omOss',
       '/info' : 'info',
       '/kopvillkor': 'conditions',
-      '/shoppingCart': 'shoppingCart',
+      '/varukorg': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
       '/mina_sidor': 'userPage',
@@ -65,12 +66,19 @@ class PopStateHandler {
       '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
       '/admin/change': 'adminChange',
-      '/admin/delete': 'adminDelete'
+      '/admin/delete': 'adminDelete',
+      '/invoice':'invoice'
     };
+
+    for (let i = 0; i < this.app.products.length; i++){
+      const url = `/produkter/${this.app.products[i]._id}`;
+      const method = 'info';
+      Object.assign(urls, {[url] : method});
+    }
 
     // Call the right method
     let methodName = urls[url];
-    this[methodName]();
+    (methodName == 'info') ? this[methodName](url.slice(11)) : this[methodName]();
 
     // Set the right menu item active
     this.app.navbar.setActive(url);
@@ -91,6 +99,10 @@ class PopStateHandler {
     this.app.navbar.render('header');
     this.app.navbar.changeLoginBtn();
     // this.app.navbar.render(‘.modal-container-login’, 2);  //ok!
+    // $('header').empty();
+    // this.app.navbar.render('header');
+    //Remain quantity badge on cart symbol
+    Cart.updateCartBadgeValue();
   }
 
 
@@ -104,22 +116,28 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
-  info(){
+  info(id){
     $('main').empty();
+    this.app.info.getProduct(id);
     this.app.info.render('main');
-    console.log('Körs');
+    Info.disableCartButtonStock(id)
   }
 
-  produkter(){
+  async produkter(){
     $('main').empty();
-    this.app.productPage.makeCards(); 
+    this.app.productPage.makeCards();
     this.app.productPage.render('main');
-    const category = this.app.startsida.category; 
-    if(category){ 
-      $(`#${category}`)[0].checked = true; 
-      this.app.productPage.makeCards([category]); 
-      this.app.startsida.category = ''; 
-    } 
+    let session = Cart.getSessionId();
+    let cartItems = await Cart.find({sessionId: session});
+    cartItems.forEach((o) => {
+      Info.disableCartButtonStock(o.product);
+    });
+    const category = this.app.startsida.category;
+    if(category){
+      $(`#${category}`)[0].checked = true;
+      this.app.productPage.makeCards([category]);
+      this.app.startsida.category = '';
+    }
     console.log('Körs');
   }
 
@@ -170,11 +188,13 @@ class PopStateHandler {
 
   admin() {
     $('main').empty();
+    if(this.app.role=='Admin'){
     this.app.admin.render('main');
     this.app.admin.sortDirection = $('#input-sort').val();
     this.app.admin.currentStatus = $("input:radio[name=radio]:checked").val();
     this.app.admin.createOrderList();
     this.app.admin.appendOrderListHtml();
+    }
   }
 
   adminStock() {
@@ -209,6 +229,12 @@ class PopStateHandler {
       this.app.admin.selectedCategory = '';
       this.app.admin.setName(this.app.products);
     }
+  }
+
+  invoice(){
+    $('main').empty();
+    this.app.checkout.render('main', 'Invoice');
+    
   }
 
 
