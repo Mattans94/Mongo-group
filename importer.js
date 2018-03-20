@@ -94,7 +94,8 @@ const saveModels = () => {
   let savedTools;
 
   productModel.remove({}, () => {
-    toolModel.remove({}, async () => {
+    toolModel.remove({}, () => {
+      userModel.remove({}, async () => {
       await save(productsJson, 'product', { 'tools': [] })
         .then(obj => {
           savedProducts = obj;
@@ -105,16 +106,14 @@ const saveModels = () => {
           savedTools = obj;
         });
 
+      await save(usersJson, 'user');
+
       // Capsules json and tools json should be saved before updating
       await productUpdate(savedProducts, savedTools);
       await toolUpdate(savedProducts, savedTools);
-     // process.exit();
+      process.exit();
+      });
     });
-  });
-
-  userModel.remove({}, async () => {
-    let userList = await save(usersJson, 'user');
-    console.log(userList);
   });
 
 }
