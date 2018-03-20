@@ -7,10 +7,19 @@ Object.assign(Navbar.prototype, { template(){ return `
 			  </button>
 			  <a href="/" class="pop nav-logo d-none d-lg-block ml-1"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
 				<a href="/" class="pop nav-logo logo-mobile d-lg-none"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
+				<div class="shopping-cart mr-4 fa-lg">
+					<a class="pop" href="/varukorg"><i class="fas fa-shopping-cart"><span class="badge">${this.qty || 0}</span></i></a>
+				</div>
 			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 			    <ul class="navbar-nav ml-4">
 			      ${this.items.render()}
 			    </ul>
+					<div class="modal-container-login">
+						<button id="loginModalToggle" class="btn">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
 		<div class="container">
@@ -19,6 +28,7 @@ Object.assign(Navbar.prototype, { template(){ return `
 		  </button>
 		  <a href="/" class="pop nav-logo d-none d-lg-block ml-1"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
 			<a href="/" class="pop nav-logo logo-mobile d-lg-none"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
+
 		  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 		    <ul class="navbar-nav ml-4">
 		      ${this.items.render()}
@@ -29,9 +39,7 @@ Object.assign(Navbar.prototype, { template(){ return `
 				<a class="pop" href="/varukorg"><i class="fas fa-shopping-cart"><span class="badge">${this.qty || 0}</span></i></a>
 			</div>
 
-			<div class="modal-container-login">
-				<button id="loginModalToggle" class="btn">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
-			</div>
+
 		</div>
 	</nav>
 `;}});
