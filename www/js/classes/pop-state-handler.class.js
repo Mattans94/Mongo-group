@@ -1,4 +1,4 @@
-class PopStateHandler extends REST{
+class PopStateHandler extends REST {
 
   // Note: Only instantiate PopStateHandler once!
   constructor(app) {
@@ -55,8 +55,8 @@ class PopStateHandler extends REST{
     let urls = {
       '/': 'startsidan',
       '/produkter': 'produkter',
-      '/om_oss' : 'omOss',
-      '/info' : 'info',
+      '/om_oss': 'omOss',
+      '/info': 'info',
       '/kopvillkor': 'conditions',
       '/varukorg': 'shoppingCart',
       '/register': 'register',
@@ -67,13 +67,13 @@ class PopStateHandler extends REST{
       '/admin/add': 'adminAdd',
       '/admin/change': 'adminChange',
       '/admin/delete': 'adminDelete',
-      '/invoice':'invoice'
+      '/invoice': 'invoice'
     };
 
-    for (let i = 0; i < this.app.products.length; i++){
+    for (let i = 0; i < this.app.products.length; i++) {
       const url = `/produkter/${this.app.products[i]._id}`;
       const method = 'info';
-      Object.assign(urls, {[url] : method});
+      Object.assign(urls, { [url]: method });
     }
 
     // Call the right method
@@ -98,9 +98,11 @@ class PopStateHandler extends REST{
     $('header').empty();
     this.app.navbar.render('header');
     this.app.navbar.changeLoginBtn();
+
     // this.app.navbar.render(‘.modal-container-login’, 2);  //ok!
     // $('header').empty();
     // this.app.navbar.render('header');
+
     //Remain quantity badge on cart symbol
     Cart.updateCartBadgeValue();
   }
@@ -116,24 +118,24 @@ class PopStateHandler extends REST{
     this.app.startsida.callCarousel();
   }
 
-  info(id){
+  info(id) {
     $('main').empty();
     this.app.info.getProduct(id);
     this.app.info.render('main');
     Info.disableCartButtonStock(id)
   }
 
-  async produkter(){
+  async produkter() {
     $('main').empty();
     this.app.productPage.makeCards();
     this.app.productPage.render('main');
     let session = Cart.getSessionId();
-    let cartItems = await Cart.find({sessionId: session});
+    let cartItems = await Cart.find({ sessionId: session });
     cartItems.forEach((o) => {
       Info.disableCartButtonStock(o.product);
     });
     const category = this.app.startsida.category;
-    if(category){
+    if (category) {
       $(`#${category}`)[0].checked = true;
       this.app.productPage.makeCards([category]);
       this.app.startsida.category = '';
@@ -171,9 +173,9 @@ class PopStateHandler extends REST{
 
   checkout() {
     $('main').empty();
-    this.app.checkout.getLastOrder().then(()=>{
+    this.app.checkout.getLastOrder().then(() => {
       this.app.checkout.render('main', 'CheckOut');
-      this.app.checkout.render('.stepBox','Address');
+      this.app.checkout.render('.stepBox', 'Address');
       this.app.cart.renderTotalPriceWithVAT();
     });
 
@@ -188,18 +190,18 @@ class PopStateHandler extends REST{
 
   admin() {
     $('main').empty();
-    if(this.app.role=='Admin'){
-    this.app.admin.render('main');
-    this.app.admin.sortDirection = $('#input-sort').val();
-    this.app.admin.currentStatus = $("input:radio[name=radio]:checked").val();
-    this.app.admin.createOrderList();
-    this.app.admin.appendOrderListHtml();
+    if (this.app.role == 'Admin') {
+      this.app.admin.render('main');
+      this.app.admin.sortDirection = $('#input-sort').val();
+      this.app.admin.currentStatus = $("input:radio[name=radio]:checked").val();
+      this.app.admin.createOrderList();
+      this.app.admin.appendOrderListHtml();
     }
   }
 
   adminStock() {
     $('main').empty();
-    if(this.app.role=='Admin'){
+    if (this.app.role == 'Admin') {
       this.app.admin.render('main', 5);
       this.app.admin.selectedCategory = this.app.admin.getSelectedCategory($("input:radio[name=radio]:checked").val());
       $('#stock-list').append(this.app.admin.makeStockList());
@@ -208,7 +210,7 @@ class PopStateHandler extends REST{
 
   adminAdd() {
     $('main').empty();
-    if(this.app.role=='Admin'){
+    if (this.app.role == 'Admin') {
       this.app.admin.render('main', 2);
       this.app.admin.selectedCategory = '';
     }
@@ -216,7 +218,7 @@ class PopStateHandler extends REST{
 
   adminChange() {
     $('main').empty();
-    if(this.app.role=='Admin'){
+    if (this.app.role == 'Admin') {
       this.app.admin.render('main', 3);
       this.app.admin.selectedCategory = '';
     }
@@ -224,17 +226,17 @@ class PopStateHandler extends REST{
 
   adminDelete() {
     $('main').empty();
-    if(this.app.role=='Admin'){
+    if (this.app.role == 'Admin') {
       this.app.admin.render('main', 4);
       this.app.admin.selectedCategory = '';
       this.app.admin.setName(this.app.products);
     }
   }
 
-  invoice(){
+  invoice() {
     $('main').empty();
     this.app.checkout.render('main', 'Invoice');
-    
+
   }
 
 
