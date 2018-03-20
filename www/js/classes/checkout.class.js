@@ -250,11 +250,12 @@ class Checkout extends REST {
 
 
     sendConfirmationMail() {
+        console.log("order-objectet", this._orderDetails, this._orderDetails[0].product);
         let sendmail = {
             url: '/sendmail',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify({name: "xyz"}),
+            data: JSON.stringify({mail: "coffedb@gmail.com", purchase: this._orderDetails, totalcost: 450}),
             processData: false,
             contentType: "application/json; charset=utf-8"
         };
@@ -314,7 +315,7 @@ class Checkout extends REST {
         newOrder.region = this.country;
         newOrder.phoneNumber = this.telephone;
         newOrder.status = "Beställt";
-        console.log(newOrder);
+        console.log("newOrder", newOrder);
         return newOrder;
 
     }

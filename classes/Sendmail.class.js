@@ -5,11 +5,12 @@ const nodemailer = require('nodemailer');
 module.exports = class Sendmail {
   constructor(app) {
     app.post('/sendmail', (req, res) => {
-      res.json(this.sendConfirmationMail());
+      console.log(req.body);
+      res.json(this.sendConfirmationMail(req.body.mail, req.body.purchase, req.body.totalcost));
     })
   }
 
-  sendConfirmationMail(){
+  sendConfirmationMail(customerEmail, purchase, totalcost){
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -18,11 +19,21 @@ module.exports = class Sendmail {
       }
     });
 
+    // function för att iterera med en for-loop genom arrayen purchase
+    // arrayen purchase är this._orderDetails
+    function generateLi(purchase) {
+      let content = ``;
+      for(let i = 0; i < purchase.length; i++) {
+        content += `<li>${purchase[i].quantity}x<strong><span style="margin-left: 10px; margin-right: 10px;">${purchase[i].product}</span></strong>${purchase[i].unitPrice}kr</span></li>`;
+      }
+      return content;
+    }
+
     let mailOptions = {
       from: 'coffedb@gmail.com',
-      to: 'coffedb@gmail.com',
+      to: customerEmail,
       subject: 'Bekräftelse på din beställning',
-      html: '<h1>Tack för att du valde att köpa ditt kaffe från CoffeeDB!</h1><p><strong>Du har beställt:</strong></p><ul><li>Test1</li><li>Test2</li><li>Test3</li></ul><p style="margin-bottom: 30px;"><strong>Total kostnad:</strong> XX kr</p><p style="margin-bottom: 30px;">Din beräknade leveranstid är 2-3 arbetsdagar.</p><hr><p><em>Har du problem, frågor eller funderingar? Tveka inte att höra av dig till oss på 040 - 12 33 21 eller maila till info@coffeeDB.com.</em></p>'
+      html: `<h1>Tack för att du valde att köpa ditt kaffe från CoffeeDB!</h1><p><strong>Du har beställt:</strong></p><ul>${generateLi(purchase)}</ul><p style="margin-bottom: 30px;"><strong>Total kostnad:</strong> ${totalcost} kr</p><p style="margin-bottom: 30px;">Din beräknade leveranstid är 2-3 arbetsdagar.</p><hr><p><em>Har du problem, frågor eller funderingar? Tveka inte att höra av dig till oss på 040 - 12 33 21 eller maila till info@coffeeDB.com.</em></p>`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
