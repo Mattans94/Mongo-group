@@ -23,12 +23,14 @@ const Order = require('./classes/Order.class');
 const User = require('./classes/User.class');
 const Cart = require('./classes/Cart.class');
 const OrderDetails = require('./classes/OrderDetails.class');
+const Sendmail = require('./classes/Sendmail.class');
 const product = new Product(app);
 const tool = new Tool(app);
 const order = new Order(app);
 const user = new User(app);
 const cart = new Cart(app);
 const orderDetails = new OrderDetails(app);
+const sendmail = new Sendmail(app);
 
 
 // Move to appropriate class
