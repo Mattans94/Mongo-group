@@ -87,6 +87,7 @@ class PopStateHandler {
   renderNav() {
     $('header').empty();
     this.app.navbar.render('header');
+    this.app.navbar.render('.modal-container-login', 2);  //ok!
   }
 
   startsidan() {
