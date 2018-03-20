@@ -46,6 +46,8 @@ class Cart extends REST {
 
       $('header').empty();
       app.navbar.render('header');
+      app.navbar.changeLoginBtn();
+
     }
 
 
