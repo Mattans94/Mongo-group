@@ -32,6 +32,23 @@ class Cart extends REST {
       this.calculateAndRenderTotalPrice();
     }
 
+    //Method to update the bade value in the navbar. Run this everytime
+    //you make a change in the cart!
+    static async updateCartBadgeValue(){
+
+      let session = Cart.getSessionId();
+      let sessionCartObjs = await Cart.find({sessionId: session});
+      let qtyOfProds = 0;
+
+      let totalQtyOfProds = sessionCartObjs.map(o => qtyOfProds += o.quantity);
+
+      app.navbar.qty = totalQtyOfProds[totalQtyOfProds.length - 1];
+
+      $('header').empty();
+      app.navbar.render('header');
+    }
+
+
     // Ger priset på en vara utan moms
     // getPriceWithoutVAT(price) {
     //   let priceWithoutVAT = price / 1.12;

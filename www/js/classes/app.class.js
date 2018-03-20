@@ -69,6 +69,7 @@ class App extends REST {
     this.admin = new Admin(this);
     this.orderDetails = new OrderDetails(this);
     this.checkout = new Checkout(this);
+    this.info = new Info(this);
     this.popState = new PopStateHandler(this);
   }
 
@@ -83,12 +84,12 @@ class App extends REST {
       that.currentUser=data.user;
       that.role=data.role;
      }
-    
+
    });
     //return document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
   }
 
- 
-   
-  
+
+
+
 }

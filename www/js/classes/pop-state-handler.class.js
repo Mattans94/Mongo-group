@@ -1,7 +1,8 @@
-class PopStateHandler {
+class PopStateHandler extends REST{
 
   // Note: Only instantiate PopStateHandler once!
   constructor(app) {
+    super();
     this.app = app;
     // Add event handlers for a.pop-links once
     this.addEventHandler();
@@ -57,7 +58,7 @@ class PopStateHandler {
       '/om_oss' : 'omOss',
       '/info' : 'info',
       '/kopvillkor': 'conditions',
-      '/shoppingCart': 'shoppingCart',
+      '/varukorg': 'shoppingCart',
       '/register': 'register',
       '/checkout': 'checkout',
       '/mina_sidor': 'userPage',
@@ -68,9 +69,15 @@ class PopStateHandler {
       '/admin/delete': 'adminDelete'
     };
 
+    for (let i = 0; i < this.app.products.length; i++){
+      const url = `/produkter/${this.app.products[i]._id}`;
+      const method = 'info';
+      Object.assign(urls, {[url] : method});
+    }
+
     // Call the right method
     let methodName = urls[url];
-    this[methodName]();
+    (methodName == 'info') ? this[methodName](url.slice(11)) : this[methodName]();
 
     // Set the right menu item active
     this.app.navbar.setActive(url);
@@ -85,8 +92,10 @@ class PopStateHandler {
   }
 
   renderNav() {
-    $('header').empty();
-    this.app.navbar.render('header');
+    // $('header').empty();
+    // this.app.navbar.render('header');
+    //Remain quantity badge on cart symbol
+    Cart.updateCartBadgeValue();
   }
 
   startsidan() {
@@ -98,22 +107,28 @@ class PopStateHandler {
     this.app.startsida.callCarousel();
   }
 
-  info(){
+  info(id){
     $('main').empty();
+    this.app.info.getProduct(id);
     this.app.info.render('main');
-    console.log('Körs');
+    Info.disableCartButtonStock(id)
   }
 
-  produkter(){
+  async produkter(){
     $('main').empty();
-    this.app.productPage.makeCards(); 
+    this.app.productPage.makeCards();
     this.app.productPage.render('main');
-    const category = this.app.startsida.category; 
-    if(category){ 
-      $(`#${category}`)[0].checked = true; 
-      this.app.productPage.makeCards([category]); 
-      this.app.startsida.category = ''; 
-    } 
+    let session = Cart.getSessionId();
+    let cartItems = await Cart.find({sessionId: session});
+    cartItems.forEach((o) => {
+      Info.disableCartButtonStock(o.product);
+    });
+    const category = this.app.startsida.category;
+    if(category){
+      $(`#${category}`)[0].checked = true;
+      this.app.productPage.makeCards([category]);
+      this.app.startsida.category = '';
+    }
     console.log('Körs');
   }
 
