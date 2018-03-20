@@ -1,27 +1,40 @@
 Object.assign(Cart.prototype, {templateShoppingList(){ return `
-    <table class="table" >
-    <thead>
-            <tr>
-                <th colspan="2">Dina varor</th>
-                <th>Antal</th>
-                <th>Enhetspris</th>
-                <th colspan="2">Totalsumma</th>
-            </tr>
-        </thead>
-        <tbody class="cart-content">
+    <div class="row">
+      <div class="col-12">
+        <div class="row d-none d-lg-block">
 
-        </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="5">Totalt</th>
-                <th colspan="2" class="cart-total-price"></th>
-            </tr>
-            <tr>
-                <th colspan="5" class="VAT-text text-muted">Varav moms</th>
-                <th colspan="2" class="VAT-of-total-price VAT-text text-muted"></th>
-            </tr>
-        </tfoot>
-    </table>
+        </div>
+
+          <div class="">
+            <div class="row text-center d-none d-md-flex cart-headers">
+              <div class="col-3">Dina varor</div>
+              <div class="col-3">Antal</div>
+              <div class="col-3">Enhetspris</div>
+              <div class="col-3 text-left">Totalsumma</div>
+            </div>
+            <div class="cart-content mb-3"></div>
+          </div>
+
+          <div class="row ml-1">
+            <div class="col-12 d-flex total-moms-price mb-2">
+                <div class="col-md-9">Totalt</div>
+                <div class="col-md-3 cart-total-price"></div>
+            </div>
+          </div>
+            <div class="row ml-2">
+              <div class="col-12 d-flex">
+                <div class="col-md-9 VAT-text text-muted">Varav moms</div>
+                <div class="col-md-3 VAT-of-total-price VAT-text text-muted float-right"></div>
+              </div>
+            </div>
+            <div class="row ml-2">
+              <div class="col-12 d-flex">
+                <div class="col-md-9 VAT-text text-muted">Exklusive moms</div>
+                <div class="col-md-3 VAT-of-total-exkl VAT-text text-muted float-right"></div>
+              </div>
+            </div>
+        </div>
+    </div>
 
 
 

@@ -62,31 +62,27 @@ class Cart extends REST {
   //   return priceWithoutVAT.toFixed(2);
   // }
 
-  // Ger moms-satsen av ett givet pris
-  // getVATFromTotalPrice(price) {
-  //   let priceWithoutVAT = price / 1.12;
-  //   let VAT = price - priceWithoutVAT;
-  //   return VAT.toFixed(2);
-  // }
+    // Ger moms-satsen av ett givet pris
+    getVATFromTotalPrice() {
+      $('.VAT-of-total-price').empty();
+      $('.VAT-of-total-exkl').empty();
+      let cartTotal = 0;
+      $('.unit-total-price').each(function(){
+        cartTotal += parseInt($(this).text().replace('kr', ''));
+      });
 
 
-  getVATFromTotalPrice() {
-    $('.VAT-of-total-price').empty();
-    $('.VAT-of-total-exkl').empty();
-    let cartTotal = 0;
-    $('.unit-total-price').each(function () {
-      cartTotal += parseInt($(this).text().replace('kr', ''));
-    });
+      let priceWithoutVAT = cartTotal / 1.12;
+      this.totalPriceWithoutVAT = priceWithoutVAT.toFixed();
+      console.log("This.totalPriceWithoutVAT " + this.totalPriceWithoutVAT);
+      let VAT = cartTotal - priceWithoutVAT;
+      this.VAT = VAT.toFixed();
+      console.log("This.VAT " + this.VAT);
+      $('.VAT-of-total-exkl').append(`${priceWithoutVAT.toFixed(0)}kr`);
+      $('.VAT-of-total-price').append(`${VAT.toFixed(0)}kr`);
+    }
 
-    let priceWithoutVAT = cartTotal / 1.12;
-    this.totalPriceWithoutVAT = priceWithoutVAT.toFixed();
-    console.log("This.totalPriceWithoutVAT " + this.totalPriceWithoutVAT);
-    let VAT = cartTotal - priceWithoutVAT;
-    this.VAT = VAT.toFixed();
-    console.log("This.VAT " + this.VAT);
-    $('.VAT-of-total-exkl').append(`${priceWithoutVAT.toFixed(0)}kr`);
-    $('.VAT-of-total-price').append(`${VAT.toFixed(0)}kr`);
-  }
+
 
   calculateAndRenderTotalPrice() {
     $('.cart-total-price').empty();

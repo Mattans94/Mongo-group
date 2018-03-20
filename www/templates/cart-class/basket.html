@@ -9,23 +9,24 @@ Object.assign(Cart.prototype, { templateBasket(){ return `
 
                     <div>
 
-                        <h1>Varukorg</h1>
-                        <div class="table-responsive" id="shoppingList">
+                        <h1 class="border-bottom">Varukorg</h1>
+                        <div id="shoppingList">
 
 
                         </div>
                         <!-- /.table-responsive -->
 
                         <div class="box-footer">
-                            <div class="pull-left">
+                          <div class="float-md-right">
+                              <a class="btn btn-next pop text-light" href="checkout">Fortsätt till kassan
+                                  <i class="fa fa-chevron-right"></i>
+                              </a>
+                          </div>
+                            <div class="float-md-left">
                                 <a href="produkter" class="btn btn-last pop">
                                     <i class="fa fa-chevron-left"></i>Tillbaka till produkter</a>
                             </div>
-                            <div class="pull-right">
-                                <a class="btn btn-next pop text-light" href="checkout">Fortsätt till kassan
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                            </div>
+
                         </div>
 
                     </div>
