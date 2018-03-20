@@ -1,0 +1,14 @@
+Object.assign(Checkout.prototype, { templateInvoice(){ return `
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="firstname">Faktura</label>
+                <input type="text" class="form-control firstname" value="${this.firstname}" required>
+            </div>
+        </div>
+        
+    </div>
+    <!-- /.row -->
+    
+   
+    `;}});

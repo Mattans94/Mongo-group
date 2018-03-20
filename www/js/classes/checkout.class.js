@@ -237,6 +237,7 @@ class Checkout extends REST {
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
+            location.replace("/invoice");
 
         });
 

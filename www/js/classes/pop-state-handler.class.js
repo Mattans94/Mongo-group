@@ -65,7 +65,8 @@ class PopStateHandler {
       '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
       '/admin/change': 'adminChange',
-      '/admin/delete': 'adminDelete'
+      '/admin/delete': 'adminDelete',
+      '/invoice':'invoice'
     };
 
     // Call the right method
@@ -203,6 +204,12 @@ class PopStateHandler {
       this.app.admin.selectedCategory = '';
       this.app.admin.setName(this.app.products);
     }
+  }
+
+  invoice(){
+    $('main').empty();
+    this.app.checkout.render('main', 'Invoice');
+    
   }
 
 

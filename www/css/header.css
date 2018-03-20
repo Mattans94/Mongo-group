@@ -1,5 +1,5 @@
 header .dropdown-item:hover {
-  background-color: #66717b !important;
+  background-color: #4fbfa8 !important;
 }
 header .navbar-brand {
   width: 50px;
@@ -30,4 +30,10 @@ header nav .shopping-cart a {
 }
 header nav .fa-sign-in-alt {
   color: #4fbfa8;
+}
+header nav .dropdown-toggle {
+  background-color: buttonface;
+}
+header nav .dropdown-toggle:hover {
+  background-color: #4fbfa8;
 }
