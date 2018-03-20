@@ -1,0 +1,31 @@
+div#all div.container,
+div#basket {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+table .form-control {
+  width: 150px !important;
+  height: 31px;
+  border-radius: 0 !important;
+}
+table .btn-sm {
+  background-color: #a99678;
+  border-color: #a99678;
+}
+table .btn-sm:disabled {
+  pointer-events: none;
+}
+table .btn-sm#minus-btn {
+  border-radius: .2rem 0 0 .2rem;
+  cursor: pointer;
+}
+table .btn-sm#plus-btn {
+  border-radius: 0 .2rem .2rem 0;
+  cursor: pointer;
+}
+table .btn-sm:focus {
+  outline: none;
+}
+table tfoot tr th.VAT-text {
+  font-size: 14px;
+}
