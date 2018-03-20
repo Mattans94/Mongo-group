@@ -171,7 +171,7 @@ class ProductPage extends Base {
         <div class="card-body pb-0 mt-1">
           <div class="title-holder rounded mx-auto d-block">
             <h5 class="card-title">
-              <a class="pop product-information" href="/${product._id}">${product.name}</a>
+              <a class="pop product-information" href="/produkter/${product._id}">${product.name}</a>
             </h5>
           </div>
           <p class="card-text description">${product.description}

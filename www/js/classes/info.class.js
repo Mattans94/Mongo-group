@@ -129,7 +129,7 @@ class Info extends REST {
         console.log('Here i am');
 
         !((totalCartQty + currentValue + 1) > stock) ? $("#quantity").val(currentValue + 1)
-        : $("#quantity").val(0);
+        : $("#quantity").val(1);
       } else if(currentValue < stock){
         $("#quantity").val(currentValue + 1);
         console.log('hello from the other side', cartItem);
