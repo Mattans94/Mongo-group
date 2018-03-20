@@ -70,10 +70,10 @@ class Product extends REST {
         qtyVal = 1;
       }
 
-      let product = await Cart.findOne({product: prodId, sessionId });
+      let cartItem = await Cart.findOne({product: prodId, sessionId });
 
-      product.quantity = qtyVal;
-      await product.save();
+      cartItem.quantity = qtyVal;
+      await cartItem.save();
       Cart.updateCartBadgeValue();
       //Re-render cart
       app.cart.renderCartContent();
@@ -84,9 +84,9 @@ class Product extends REST {
       let sessionId = Cart.getSessionId();
       let prodId = $(this).data('id');
 
-      let product = await Cart.findOne({product: prodId, sessionId});
+      let cartItem = await Cart.findOne({product: prodId, sessionId});
 
-      await product.delete();
+      await cartItem.delete();
       Cart.updateCartBadgeValue();
       //Re-render cart content
       app.cart.renderCartContent();
