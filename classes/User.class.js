@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 mongoose.connect('mongodb://localhost/coffeeDB');
 const db = mongoose.connection;
+const session = require('./session');
 db.on('error', (e) => { console.error(e); });
 db.once('open', () => { console.info('db connected'); });
 
@@ -110,6 +111,30 @@ module.exports = class User {
         //     res.json(response);
         //   });
 
+
+
+        expressApp.get('/logouts', async (req, res) =>{
+
+          if(req.session && req.session.data && req.session.data.user){
+            delete req.session.data.user;
+            req.session.markModified('data');
+            req.session.save(() => {
+              res.json({logoutOk: 'Logged out',
+              result: []
+              });
+            });
+          } else{
+            res.json({
+              logoutOk: 'Not logged out',
+              result: []
+            });
+          }
+
+
+        });
+
     }
+
+
 
 }

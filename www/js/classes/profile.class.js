@@ -1,8 +1,9 @@
-//Profile class only use for render and get, set 
+//Profile class only use for render and get, set
 class Profile extends Base {
     constructor(app) {
         super();
         this.app = app;
+        this.clickLogout();
 
         //this.changeInput();
     }
@@ -57,7 +58,7 @@ class Profile extends Base {
     keyuplogin(event) {
         if ($(event.target).hasClass('lginEmail')) {
             this.email = this.getOneOf('.lginEmail');
-          
+
         }
         if ($(event.target).hasClass('lgPass')) {
             this.password = this.getOneOf('.lgPass');
@@ -121,8 +122,12 @@ class Profile extends Base {
         }
     }
 
-
-
+    clickLogout(){
+      $(document).on('click', '.logout', () =>{
+        console.log('Clicked logout');
+        this.logout();
+      });
+    }
 
     login() {
         let login = {
@@ -135,7 +140,7 @@ class Profile extends Base {
         };
         return $.ajax(login);
     }
-    
+
     finishLogin() {
         let that = this;
         that.login().then((res) => {
@@ -238,7 +243,12 @@ class Profile extends Base {
         });
     }
 
-  
+
+    async logout(){
+      await Logout.find('');
+    }
+
+
 
 
 
