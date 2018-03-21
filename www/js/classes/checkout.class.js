@@ -237,15 +237,29 @@ class Checkout extends REST {
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
+            that.sendConfirmationMail();
             location.replace("/invoice");
-
         });
-
-
-
-
-
     }
+
+
+    sendConfirmationMail() {
+        console.log(this.app.profile.email);
+        if (this.app.profile.email == "undefined@undefined") {
+            this.app.profile.email = "coffedb@gmail.com"
+        }
+        console.log(this.app.profile.email);
+        let sendmail = {
+            url: '/sendmail',
+            method: 'POST',
+            dataType: 'json',
+            data: JSON.stringify({mail: this.app.profile.email, purchase: this._orderDetails, ordernumber: this._orderNumber}),
+            processData: false,
+            contentType: "application/json; charset=utf-8"
+        };
+        return $.ajax(sendmail);
+    }
+
 
     clickPayment() {
 
@@ -300,7 +314,7 @@ class Checkout extends REST {
         newOrder.region = this.country;
         newOrder.phoneNumber = this.telephone;
         newOrder.status = "Beställt";
-        console.log(newOrder);
+        console.log("newOrder", newOrder);
         return newOrder;
 
     }
