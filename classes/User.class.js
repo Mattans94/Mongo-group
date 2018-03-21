@@ -78,6 +78,7 @@ module.exports = class User {
                         req.session.save();
                         res.cookie('user', person.name);
                         res.cookie('role', person.role);
+                        res.cookie('email', person.email);
                         res.json({
                             message: 'Du är inloggad!',
                             result: person.name

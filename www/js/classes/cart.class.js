@@ -1,6 +1,7 @@
 class Cart extends REST {
-  constructor(cart) {
+  constructor(cart, app) {
     super(cart);
+    this.app=app;
     this.cartTotal = 0;
     this.totalPriceWithoutVAT = 0;
     this.VAT = 0;
@@ -10,6 +11,11 @@ class Cart extends REST {
   renderShoppingList() {
     $('#shoppingList').empty();
     this.render('#shoppingList', 'ShoppingList');
+  }
+  renderTotalPriceWithVAT() {
+    $('#order-summary').empty();
+    this.render('#order-summary', 'OrderSummary');
+    this.render('#total-without-shipping', 'TotalPrice');
   }
 
   async renderCartContent() {
@@ -45,7 +51,6 @@ class Cart extends REST {
 
     app.navbar.qty = totalQtyOfProds[totalQtyOfProds.length - 1];
     this.totalQuantity = totalQtyOfProds[totalQtyOfProds.length - 1];
-    console.log("this.totalQuantity " + this.totalQuantity);
 
     $('header').empty();
     app.navbar.render('header');
