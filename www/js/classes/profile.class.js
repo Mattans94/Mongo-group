@@ -188,7 +188,8 @@ class Profile extends Base {
     toggleLoginModal() {
         let that = this;
         that.render('.modal-container-login', 'login');
-        $('#loginModal').modal('show');
+        //$('#loginModal').modal('show');
+        $('#loginModal').appendTo('header').modal('show');
 
     }
 
