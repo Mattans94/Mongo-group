@@ -12,14 +12,14 @@
   height: 32px;
 }
 .product-info .btn-sm {
-  background-color: #a99678;
-  border-color: #a99678;
+  background-color: #959797;
+  border-color: #959797;
 }
-.product-info .btn-sm#minus-btn {
+.product-info .btn-sm.minus-btn {
   border-radius: .2rem 0 0 .2rem;
   cursor: pointer;
 }
-.product-info .btn-sm#plus-btn {
+.product-info .btn-sm.plus-btn {
   border-radius: 0 .2rem .2rem 0;
   cursor: pointer;
 }

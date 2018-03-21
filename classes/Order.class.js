@@ -28,7 +28,7 @@ module.exports = class Order extends ModelAndRoutes {
             ort: String,
             user: String,
             quantity: Number,
-
+            email:String
         }
     }
 

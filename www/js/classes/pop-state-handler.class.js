@@ -66,8 +66,7 @@ class PopStateHandler extends REST{
       '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
       '/admin/change': 'adminChange',
-      '/admin/delete': 'adminDelete',
-      '/invoice':'invoice'
+      '/admin/delete': 'adminDelete'
     };
 
     for (let i = 0; i < this.app.products.length; i++){
@@ -151,7 +150,6 @@ class PopStateHandler extends REST{
     $('main').empty();
     this.app.cart.render('main', 'Basket');
     this.app.cart.renderShoppingList();
-  
     this.app.cart.renderCartContent();
   }
 
@@ -167,6 +165,7 @@ class PopStateHandler extends REST{
       this.app.checkout.render('main', 'CheckOut');
       this.app.checkout.render('.stepBox','Address');
       this.app.cart.renderTotalPriceWithVAT();
+     
     });
 
     // this.app.profile.render('.stepBox', 'Address');
@@ -223,11 +222,6 @@ class PopStateHandler extends REST{
     }
   }
 
-  invoice(){
-    $('main').empty();
-    this.app.checkout.render('main', 'Invoice');
-
-  }
 
 
 

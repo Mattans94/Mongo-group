@@ -5,6 +5,8 @@ class Checkout extends REST {
         this.app = app;
         this.lastOrder = null;
         this.clickEvents();
+        this.subTotal = '';
+        this.orderNumber;
     }
 
     get firstName() {
@@ -80,14 +82,6 @@ class Checkout extends REST {
         this.pMethod = val;
     }
 
-    get orderNumber() {
-        return `${this._orderNumber}`;
-    }
-
-    set orderNumber(val) {
-        this._orderNumber = val;
-    }
-
     get cardMonth() {
         return `${this._cardMonth}`;
     }
@@ -135,6 +129,17 @@ class Checkout extends REST {
         this._orderDetails = val;
     }
 
+    get email() {
+        return `${this._email}`;
+    }
+
+    set email(val) {
+        if (this.app.userEmail) {
+            this._email = this.app.userEmail;
+        }
+        this._email = val;
+    }
+
 
     keyupAddress(event) {
         if ($(event.target).hasClass('firstname')) {
@@ -157,6 +162,9 @@ class Checkout extends REST {
         }
         if ($(event.target).hasClass('ort')) {
             this.ort = $(".ort").val();
+        }
+        if ($(event.target).hasClass('email')) {
+            this.email = $(".email").val();
         }
 
     }
@@ -201,7 +209,7 @@ class Checkout extends REST {
             $(".delivery-btn").addClass("active");
             $('.stepBox').empty();
             that.render('.stepBox', 'Delivery');
-            that.dMethod = "delivery1";
+            that.dMethod = "Hämta ut i butiken";
         });
         $(document).on("click", '.payment-btn', function () {
             that.dMethod = $('input[name="delivery"]:checked').val();
@@ -215,7 +223,10 @@ class Checkout extends REST {
             //radio button check function needed
             that.render('.stepBox', 'Payment');
             that.render('#myPay', 'Paypal');
+            $('#order-summary').empty();
+            that.renderShipping();
         });
+
         $(document).on("click", '.review-btn', function () {
             // event.preventDefault();
             that.pMethod = $('input[name="payment"]:checked').val();
@@ -238,9 +249,11 @@ class Checkout extends REST {
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
+            $("main").empty();
+            that.render("main", 'Invoice');
             that.sendConfirmationMail();
             that.resetCart();
-            location.replace("/invoice");
+
         });
     }
 
@@ -306,13 +319,13 @@ class Checkout extends REST {
 
     //-----------------------delivery ---------------------//
     calculateShipping(method) {
-        if (method == "delivery1") {
+        if (method == "Hämta ut i butiken") {
             this.dFee = 0;
         }
-        if (method == "delivery2") {
+        if (method == "Standard Hem Leverans") {
             this.dFee = 49;
         }
-        if (method == "delivery3") {
+        if (method == "Express Hem Leverans") {
             this.dFee = 99;
         }
     }
@@ -321,16 +334,17 @@ class Checkout extends REST {
         let newOrder = {};
         newOrder.orderDetails = this._orderDetails;
         newOrder.user = this.app.currentUser;
-        newOrder.orderNumber = this.getOrderNumber();
+        newOrder.email = this.email;
+        newOrder.orderNumber = this.orderNumber;
         newOrder.orderTime = this._orderTime;
         //newOrder.product = "White Blouse Armani";
         newOrder.quantity = this.app.navbar.qty;
         //newOrder.unitPrice = 10000;
-        newOrder.total = this.app.cart.cartTotal;
+        newOrder.total = this.app.cart.cartTotal + this.dFee;
         newOrder.productVAT = this.app.cart.VAT;
         newOrder.shippingMethod = this.dMethod;
         newOrder.shippingFee = this.dFee;
-        newOrder.shippingVAT = this.dFee*0.25;
+        newOrder.shippingVAT = this.dFee * 0.25;
         newOrder.paymentMethod = this.pMethod;
         newOrder.cardNumber = this._cardNumber;
         newOrder.cardMonth = this._cardMonth;
@@ -350,8 +364,8 @@ class Checkout extends REST {
     }
     //------------------Order Number/ Order Time Creater-------------------//
     getOrderNumber() {
-        this._orderNumber = new Date().getTime();
-        return this._orderNumber;
+        this.orderNumber = new Date().getTime();
+        return this.orderNumber;
     }
 
     getOrderTime() {
@@ -385,7 +399,7 @@ class Checkout extends REST {
         if (check == "credit-card") {
             let exDate = `20${this._cardYear}/${this._cardMonth}`;
             let cardExp = new Date(exDate);
-            if (cardExp == "Invalid Date"||cardExp < new Date()) {
+            if (cardExp == "Invalid Date" || cardExp < new Date()) {
                 alert("Please check your credit card!");
             }
         }
@@ -413,6 +427,7 @@ class Checkout extends REST {
                 this.country = r.region;
                 this.telephone = r.phoneNumber;
                 this._ort = r.ort;
+                this._email = r.email;
             } else {
                 this.firstname = '';
                 this.lastname = '';
@@ -425,6 +440,7 @@ class Checkout extends REST {
                 this.country = '';
                 this.telephone = '';
                 this._ort = '';
+                this._email='';
             }
         });
     }
@@ -456,5 +472,20 @@ class Checkout extends REST {
         console.log(this._orderDetails);
 
     }
+
+    renderShipping() {
+        let that = this;
+        that.app.cart.render('#order-summary', 'OrderSummary');
+        that.app.cart.render('#total-without-shipping', 'TotalPrice');
+        $('.before-shipping').empty();
+        that.subTotal = that.app.cart.cartTotal + that.dFee;
+        $('.shipping-Fee').append(`<td>Fraktavgift</td>
+              <th>${that.dFee}kr</th>`);
+        $('.shipping-vat').append(`<td >Fraktmoms 25%</td>
+              <th>${that.dFee * 0.25}kr</th>`);
+        $('.addShipping').append(`<td>Total</td>
+              <th>${that.subTotal}kr</th>`);
+    }
+
 
 }
