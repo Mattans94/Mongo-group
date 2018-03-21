@@ -296,7 +296,7 @@ class Checkout extends REST {
             url: '/sendmail',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify({mail: this.app.profile.email, purchase: this._orderDetails, ordernumber: this._orderNumber}),
+            data: JSON.stringify({mail: this.app.profile.email, purchase: this._orderDetails, ordernumber: this.orderNumber}),
             processData: false,
             contentType: "application/json; charset=utf-8"
         };
