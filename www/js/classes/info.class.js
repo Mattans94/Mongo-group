@@ -68,8 +68,8 @@ class Info extends REST {
       </div>
       <div class="mt-4">
         <div class="d-flex justify-content-start">
-         ${ this.productInfo[0].stock > 0 
-            ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">${this.productInfo[0].stock } st i lager</p>` 
+         ${ this.productInfo[0].stock > 0
+            ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">${this.productInfo[0].stock } st i lager</p>`
             : '<i class="fas fa-times mr-3 mt-1"></i> <p class="font-weight-bold text-danger mb-0">Finns ej i lager</p>'}
         </div>
         <div class="d-flex justify-content-start">
@@ -138,8 +138,7 @@ class Info extends REST {
       if(cartItems.length){
         console.log('Here i am');
 
-        !((totalCartQty + currentValue + 1) > stock) ? $("#quantity").val(currentValue + 1)
-        : $("#quantity").val(1);
+        !((totalCartQty + currentValue + 1) > stock) && $("#quantity").val(currentValue + 1);
       } else if(currentValue < stock){
         $("#quantity").val(currentValue + 1);
 
