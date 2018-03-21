@@ -4,7 +4,7 @@ class Profile extends Base {
         super();
         this.app = app;
         this.clickLogout();
-
+        //this.render('.modal-container-login', 'login');
         //this.changeInput();
     }
 
@@ -111,20 +111,17 @@ class Profile extends Base {
 
 
     clicklogin(event, element, instance) {
+        let that=this;
         if ($(event.target).hasClass('lgin')) {
-            this.finishLogin();
-             //event.preventDefault();
+            that.finishLogin();
         }
         if ($(event.target).hasClass('register-btn')) {
-            $('.loginModal').modal('hide');
             location.replace("/register");
-            //location.reload();
         }
     }
 
     clickLogout(){
       $(document).on('click', '.logout', () =>{
-        console.log('Clicked logout');
         this.logout();
       });
     }
@@ -147,16 +144,12 @@ class Profile extends Base {
             if(res.result){
                 app.currentUser=res.result;
                 $('.loginModal').modal('toggle');
-
-                setTimeout(()=> {
-                    $('header').empty();
-                    that.app.navbar.render('header');
-                    that.app.navbar.changeLoginBtn();
-                    //location.reload();
-                    // that.app.navbar.changeLoginBtn();
-                }, 500);
+                location.replace('/produkter');
+            }else{
+                alert(res.message);
             }
           });
+        
        }
 
     clickRegister(event, element, instance) {
@@ -207,7 +200,10 @@ class Profile extends Base {
 
     toggleLoginModal() {
         let that = this;
-        that.render('.modal-container-login', 'login');
+        if($('.modal-container-login .loginModal').length==0){
+            that.render('.modal-container-login', 'login');
+        }
+        
         $('.loginModal').modal('toggle');
 
     }
@@ -246,6 +242,10 @@ class Profile extends Base {
 
     async logout(){
       await Logout.find('');
+      document.cookie='user'+'=';
+      document.cookie='role'+'=';
+      document.cookie='email'+'=';
+      location.replace('/');
     }
 
 

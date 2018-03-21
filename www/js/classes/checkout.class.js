@@ -195,19 +195,16 @@ class Checkout extends REST {
             $(".address-btn").addClass("active");
             $('.stepBox').empty();
             that.render('.stepBox', 'Address');
+            $('.payment-btn').attr('disabled', true);
+            $('.review-btn').attr('disabled', true);
         });
         $(document).on("click", '.delivery-btn', function () {
-            $(".checkOut-btns").removeClass("active");
-            $(".delivery-btn").addClass("active");
-            $('.stepBox').empty();
-            that.render('.stepBox', 'Delivery');
-            that.dMethod = "Hämta ut i butiken";
+            that.checkAddress();
         });
         $(document).on("click", '.payment-btn', function () {
             that.dMethod = $('input[name="delivery"]:checked').val();
             let method = that.dMethod;// get delivery method
             that.calculateShipping(method);// get delivery fee
-            that.pMethod = "paypal"; // if payment method has not been chosen, paypal is selected
             $(".checkOut-btns").removeClass("active");
             $(".payment-btn").addClass("active");
             $('.stepBox').empty();
@@ -225,13 +222,7 @@ class Checkout extends REST {
             //TODO: as above
             let ifCreditCard = that.pMethod;
             that.checkCreditCard(ifCreditCard);
-            $(".checkOut-btns").removeClass("active");
-            $(".review-btn").addClass("active");
-            $('.stepBox').empty();
 
-            that.render('.stepBox', 'Review');
-            that.app.cart.renderShoppingList();
-            that.app.cart.renderCartContent();
         });
 
         $(document).on("click", '.order-btn', async function (event) {
@@ -251,19 +242,19 @@ class Checkout extends REST {
     }
 
     async resetCart() {
-      let sessionId = Cart.getSessionId();
+        let sessionId = Cart.getSessionId();
 
-      this._orderDetails.forEach( async obj => {
-        let cartItems = await Cart.findOne({product: obj._id, sessionId});
+        this._orderDetails.forEach(async obj => {
+            let cartItems = await Cart.findOne({ product: obj._id, sessionId });
 
-        const item = new Cart(cartItems);
-        item.delete()
-        .then(() => {
-          Cart.updateCartBadgeValue();
-          //Re-render cart content
-          app.cart.renderCartContent();
+            const item = new Cart(cartItems);
+            item.delete()
+                .then(() => {
+                    Cart.updateCartBadgeValue();
+                    //Re-render cart content
+                    app.cart.renderCartContent();
+                });
         });
-      });
     }
 
     changeStock() {
@@ -296,7 +287,7 @@ class Checkout extends REST {
             url: '/sendmail',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify({mail: correctMail, purchase: this._orderDetails, ordernumber: this.orderNumber}),
+            data: JSON.stringify({ mail: correctMail, purchase: this._orderDetails, ordernumber: this.orderNumber }),
             processData: false,
             contentType: "application/json; charset=utf-8"
         };
@@ -318,7 +309,7 @@ class Checkout extends REST {
     getEmail() {
         if (this.app.userEmail) {
             return this.app.userEmail;
-        }else{
+        } else {
             return null;
         }
     }
@@ -395,6 +386,7 @@ class Checkout extends REST {
             this._cardMonth = "";
             this._cardYear = "";
             this._cvCode = "";
+
         }
         if (chosen == "credit-card") {
             $('#myPay').empty();
@@ -405,17 +397,52 @@ class Checkout extends REST {
 
     checkCreditCard(check) {
         if (check == "credit-card") {
-            let exDate = `20${this._cardYear}/${this._cardMonth}`;
-            let cardExp = new Date(exDate);
+            let cardExp = new Date(2000 + this._cardYear, this._cardMonth);
             if (cardExp == "Invalid Date" || cardExp < new Date()) {
                 alert("Please check your credit card!");
-                event.preventDefault();
+            } else {
+                $(".checkOut-btns").removeClass("active");
+                $(".review-btn").addClass("active");
+                $('.stepBox').empty();
+                this.render('.stepBox', 'Review');
+                this.app.cart.renderShoppingList();
+                this.app.cart.renderCartContent();
             }
+        }
+        if (check == "paypal") {
+            $(".checkOut-btns").removeClass("active");
+            $(".review-btn").addClass("active");
+            $('.stepBox').empty();
+            this.render('.stepBox', 'Review');
+            this.app.cart.renderShoppingList();
+            this.app.cart.renderCartContent();
+        }
+
+    }
+    checkAddress() {
+        let flag = true;
+        $("input.form-control ").map((index, element) => {
+            if ($(element).val().length == 0) {
+                flag = false;
+                console.log(flag);
+            }
+        });
+        if (flag) {
+            $(".checkOut-btns").removeClass("active");
+            $(".delivery-btn").addClass("active");
+            $('.stepBox').empty();
+            this.render('.stepBox', 'Delivery');
+            this.dMethod = "Hämta ut i butiken";
+            this.pMethod = "paypal"; // if payment method has not been chosen, paypal is selected
+        } else {
+            alert("Please complete the form!")
         }
 
     }
 
-    checkOrder(){
+
+
+    checkOrder() {
 
     }
 

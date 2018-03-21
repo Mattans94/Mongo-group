@@ -14,14 +14,6 @@ Object.assign(Checkout.prototype, { templateAddress(){ return `
     </div>
 </div>
 <!-- /.row -->
-<div class="row">
-    <div class="col-sm-12">
-        <div class="form-group">
-            <label for="street">Email</label>
-            <input type="text" class="form-control email" value="${this.email}" required>
-        </div>
-    </div>
-</div>
 
 <div class="row">
     <div class="col-sm-12">
@@ -34,7 +26,6 @@ Object.assign(Checkout.prototype, { templateAddress(){ return `
 <!-- /.row -->
 
 <div class="row">
-
     <div class="col-sm-6 col-md-4">
         <div class="form-group">
             <label for="zip">Postnummer</label>
@@ -54,13 +45,23 @@ Object.assign(Checkout.prototype, { templateAddress(){ return `
             <input class="form-control country" value="${this.country}" required>
         </div>
     </div>
+</div>
 
-    <div class="col-sm-6">
+<div class="row">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="phone">Telefon</label>
             <input type="text" class="form-control telephone" value="${this.telephone}" required>
         </div>
     </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control email" value="${this.email}" required>
+        </div>
+    </div>
+</div>
 
 
 
