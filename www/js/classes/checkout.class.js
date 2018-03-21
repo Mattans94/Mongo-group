@@ -224,7 +224,7 @@ class Checkout extends REST {
             that.pMethod = $('input[name="payment"]:checked').val();
             //TODO: as above
             let ifCreditCard = that.pMethod;
-            //that.checkCreditCard(ifCreditCard);
+            that.checkCreditCard(ifCreditCard);
             $(".checkOut-btns").removeClass("active");
             $(".review-btn").addClass("active");
             $('.stepBox').empty();
@@ -241,6 +241,7 @@ class Checkout extends REST {
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
+            that.checkOrder();
             $("main").empty();
             that.render("main", 'Invoice');
             that.sendConfirmationMail();
@@ -358,7 +359,7 @@ class Checkout extends REST {
         newOrder.region = this.country;
         newOrder.phoneNumber = this.telephone;
         newOrder.status = "Beställt";
-        console.log("newOrder", newOrder);
+        //console.log("newOrder", newOrder);
         return newOrder;
 
     }
@@ -401,8 +402,13 @@ class Checkout extends REST {
             let cardExp = new Date(exDate);
             if (cardExp == "Invalid Date" || cardExp < new Date()) {
                 alert("Please check your credit card!");
+                event.preventDefault();
             }
         }
+
+    }
+
+    checkOrder(){
 
     }
 
