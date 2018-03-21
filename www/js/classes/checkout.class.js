@@ -6,7 +6,7 @@ class Checkout extends REST {
         this.lastOrder = null;
         this.clickEvents();
         this.subTotal = '';
-        this.orderNumber=this.getOrderNumber();
+        this.orderNumber;
     }
 
     get firstName() {
@@ -82,13 +82,13 @@ class Checkout extends REST {
         this.pMethod = val;
     }
 
-    get orderNumber() {
-        return `${this._orderNumber}`;
-    }
+    // get orderNumber() {
+    //     return `${this._orderNumber}`;
+    // }
 
-    set orderNumber(val) {
-        this._orderNumber = val;
-    }
+    // set orderNumber(val) {
+    //     this._orderNumber = val;
+    // }
 
     get cardMonth() {
         return `${this._cardMonth}`;
@@ -242,8 +242,8 @@ class Checkout extends REST {
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
-            location.replace("/invoice");
-
+            $("main").empty();
+            that.render("main", 'Invoice');
         });
 
 
@@ -311,8 +311,8 @@ class Checkout extends REST {
     }
     //------------------Order Number/ Order Time Creater-------------------//
     getOrderNumber() {
-        this._orderNumber = new Date().getTime();
-        return this._orderNumber;
+        this.orderNumber = new Date().getTime();
+        return this.orderNumber;
     }
 
     getOrderTime() {

@@ -66,8 +66,7 @@ class PopStateHandler extends REST{
       '/admin/stock': 'adminStock',
       '/admin/add': 'adminAdd',
       '/admin/change': 'adminChange',
-      '/admin/delete': 'adminDelete',
-      '/invoice':'invoice'
+      '/admin/delete': 'adminDelete'
     };
 
     for (let i = 0; i < this.app.products.length; i++){
@@ -224,11 +223,11 @@ class PopStateHandler extends REST{
     }
   }
 
-  invoice(){
-    $('main').empty();
-    this.app.checkout.render('main', 'Invoice');
+  // invoice(){
+  //   $('main').empty();
+  //   this.app.checkout.render('main', 'Invoice');
     
-  }
+  // }
 
 
 
