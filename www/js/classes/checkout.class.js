@@ -82,14 +82,6 @@ class Checkout extends REST {
         this.pMethod = val;
     }
 
-    // get orderNumber() {
-    //     return `${this._orderNumber}`;
-    // }
-
-    // set orderNumber(val) {
-    //     this._orderNumber = val;
-    // }
-
     get cardMonth() {
         return `${this._cardMonth}`;
     }
@@ -137,6 +129,17 @@ class Checkout extends REST {
         this._orderDetails = val;
     }
 
+    get email() {
+        return `${this._email}`;
+    }
+
+    set email(val) {
+        if (this.app.userEmail) {
+            this._email = this.app.userEmail;
+        }
+        this._email = val;
+    }
+
 
     keyupAddress(event) {
         if ($(event.target).hasClass('firstname')) {
@@ -159,6 +162,9 @@ class Checkout extends REST {
         }
         if ($(event.target).hasClass('ort')) {
             this.ort = $(".ort").val();
+        }
+        if ($(event.target).hasClass('email')) {
+            this.email = $(".email").val();
         }
 
     }
@@ -203,7 +209,7 @@ class Checkout extends REST {
             $(".delivery-btn").addClass("active");
             $('.stepBox').empty();
             that.render('.stepBox', 'Delivery');
-            that.dMethod = "delivery1";
+            that.dMethod = "Hämta ut i butiken";
         });
         $(document).on("click", '.payment-btn', function () {
             that.dMethod = $('input[name="delivery"]:checked').val();
@@ -267,13 +273,13 @@ class Checkout extends REST {
 
     //-----------------------delivery ---------------------//
     calculateShipping(method) {
-        if (method == "delivery1") {
+        if (method == "Hämta ut i butiken") {
             this.dFee = 0;
         }
-        if (method == "delivery2") {
+        if (method == "Standard Hem Leverans") {
             this.dFee = 49;
         }
-        if (method == "delivery3") {
+        if (method == "Express Hem Leverans") {
             this.dFee = 99;
         }
     }
@@ -282,6 +288,7 @@ class Checkout extends REST {
         let newOrder = {};
         newOrder.orderDetails = this._orderDetails;
         newOrder.user = this.app.currentUser;
+        newOrder.email = this.email;
         newOrder.orderNumber = this.orderNumber;
         newOrder.orderTime = this._orderTime;
         //newOrder.product = "White Blouse Armani";
@@ -374,6 +381,7 @@ class Checkout extends REST {
                 this.country = r.region;
                 this.telephone = r.phoneNumber;
                 this._ort = r.ort;
+                this._email = r.email;
             } else {
                 this.firstname = '';
                 this.lastname = '';
@@ -386,6 +394,7 @@ class Checkout extends REST {
                 this.country = '';
                 this.telephone = '';
                 this._ort = '';
+                this._email='';
             }
         });
     }
@@ -431,5 +440,6 @@ class Checkout extends REST {
         $('.addShipping').append(`<td>Total</td>
               <th>${that.subTotal}kr</th>`);
     }
+
 
 }

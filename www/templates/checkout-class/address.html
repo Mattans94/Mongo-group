@@ -9,11 +9,19 @@ Object.assign(Checkout.prototype, { templateAddress(){ return `
     <div class="col-sm-6">
         <div class="form-group">
             <label for="lastname">Efternamn</label>
-            <input type="text" class="form-control lastname"  value="${this.lastname}" required>
+            <input type="text" class="form-control lastname" value="${this.lastname}" required>
         </div>
     </div>
 </div>
 <!-- /.row -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="street">Email</label>
+            <input type="text" class="form-control email" value="${this.email}" required>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-sm-12">

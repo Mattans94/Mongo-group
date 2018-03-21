@@ -5,6 +5,7 @@ class App extends REST {
     this.clickEvents();
     this.role = '';
     this.currentUser = '';
+    this.userEmail = '';
     this.checkIfLogin();
   }
 
@@ -78,14 +79,15 @@ class App extends REST {
     //get ajax request => response
     //if response.isLogin then return response.userName
     //else then return null
-    let that=this;
-    $.ajax('/getLogin').then((data)=>{
-     if(data.isLogin){
-      that.currentUser=data.user;
-      that.role=data.role;
-     }
+    let that = this;
+    $.ajax('/getLogin').then((data) => {
+      if (data.isLogin) {
+        that.currentUser = data.user;
+        that.role = data.role;
+        that.userEmail = data.email;
+      }
 
-   });
+    });
     //return document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
   }
 
