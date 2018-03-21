@@ -105,10 +105,10 @@ class Profile extends Base {
         if ($(event.target).hasClass('lgin')) {
             this.finishLogin();
              //event.preventDefault();
-             $('#loginModal').modal('toggle');
+             $('.loginModal').modal('toggle');
         }
         if ($(event.target).hasClass('register-btn')) {
-            $('#loginModal').modal('hide');
+            $('.loginModal').modal('hide');
             location.replace("/register");
             //location.reload();
         }
@@ -191,7 +191,7 @@ class Profile extends Base {
     toggleLoginModal() {
         let that = this;
         that.render('.modal-container-login', 'login');
-        $('#loginModal').modal('toggle');
+        $('.loginModal').modal('toggle');
 
     }
 
