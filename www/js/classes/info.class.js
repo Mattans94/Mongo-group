@@ -111,7 +111,7 @@ class Info extends REST {
         	${this.productInfo[0].quantity} ${this.productInfo[0].type == 'Capsule' ? 'st' : 'gram'}
         </p>
         <p>${this.productInfo[0].type == 'Capsule' ?
-        `Kapslarna passar till kapselmaskiner frånt t.ex.${this.connectCapsuleAndTool(id)} med flera.` : ''}</p>
+        `Kapslarna passar till kapselmaskiner från t.ex. ${this.connectCapsuleAndTool(id)} m.m.` : ''}</p>
       </div>
     </div>`);
   }
