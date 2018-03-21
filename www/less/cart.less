@@ -3,21 +3,118 @@ div#all div.container, div#basket{
 	padding-right: 0 !important;
 }
 
-table {
+.box-footer{
+	@media only screen and(max-width:414px){
+		.btn{
+			width: 300px;
+		}
+	}
+}
+
+div#shoppingList {
 	.form-control {
 		width: 150px !important;
-		height: 31px;
+		height: 30px;
 		border-radius: 0 !important;
+		font-size: 14px;
+		padding:0;
+	}
+
+	.quant{
+		padding-left:0;
+	}
+
+	p.VAT-text {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.total-moms-price{
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.name{
+		width: 91px;
+	}
+
+	div .name{
+		margin-left: -20px;
+	}
+
+	img {
+		width: 50px;
+		height:50px;
+		margin-left:-20px;
+	}
+
+	.cart-headers{
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	@media only screen and (max-width:768px){
+		.form-control{
+			padding: 0;
+		}
+	}
+
+
+	@media only screen and (max-width:414px){
+		#shoppingList{
+			overflow-x: hidden;
+		}
+
+		.VAT-text {
+			font-size: 15px;
+		}
+
+		.btn-sm{
+			width:25px !important;
+		}
+		.form-control{
+			width:100px !important;
+			padding:0;
+			height: 31px;
+		}
+
+		.fa-trash-o {
+			font-size: 25px;
+		}
+
+		.quant{
+			margin-left: 10px;
+		}
+
+		.name{
+			word-break: keep-all;
+			position: absolute;
+			height: 60px;
+			font-size: 3vw;
+		}
+
+		div .name{
+			word-wrap: break-word;
+			white-space: pre-line;
+			overflow: hidden;
+		}
+
+		.unit-total-price{
+			margin-top:12px;
+			font-size: 18px;
+		}
 	}
 
 	.btn-sm {
-		background-color: #a99678;
-		border-color: #a99678;
+		background-color: #b1b1b1;
+		border-color: #b1b1b1;
+
+
 
 		&:disabled {
 			pointer-events: none;
 		}
-	
+
 
 		&#minus-btn {
 			border-radius: .2rem 0 0 .2rem;
@@ -31,12 +128,6 @@ table {
 		&:focus{
 			outline: none;
 		}
-	}
-	tfoot{
-		tr {
-			th.VAT-text {
-				font-size: 14px;
-			}
-		}
+
 	}
 }

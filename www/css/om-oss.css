@@ -46,7 +46,14 @@
 .om-oss .btn-link {
   color: #000;
   font-size: 1.2rem;
+  white-space: normal;
+  text-align: left;
   text-decoration: none;
+}
+@media screen and (max-width: 320px) {
+  .om-oss .btn-link {
+    font-size: 1rem;
+  }
 }
 .om-oss .btn-link:hover {
   text-decoration: none;

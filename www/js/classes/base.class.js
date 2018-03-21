@@ -46,7 +46,8 @@ class Base {
       let queued = Base.renderQueue.shift();
       queued.obj.render.apply(queued.obj, queued.args);
     }
-
+    
+    Footer.footerFix();
   }
 
   subrender(templateNo){

@@ -147,7 +147,7 @@
   color: #fff;
 }
 .modal-backdrop {
-  z-index: 600! important;
+  z-index: 1000! important;
 }
 /*************credit-card**********/
 .credit-card {
