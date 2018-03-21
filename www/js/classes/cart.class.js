@@ -11,10 +11,6 @@ class Cart extends REST {
     $('#shoppingList').empty();
     this.render('#shoppingList', 'ShoppingList');
   }
-  renderTotalPriceWithVAT() {
-    $('#order-summary').empty();
-    this.render('#order-summary', 'OrderSummary');
-  }
 
   async renderCartContent() {
     let session = Cart.getSessionId();
