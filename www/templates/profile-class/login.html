@@ -1,19 +1,19 @@
 Object.assign(Profile.prototype, {templatelogin(){ return `
-<div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+<div class="modal fade loginModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-index" role="document">
-        <div class="modal-content " id="content">
+        <div class="modal-content content">
             <div class="modal-header">
 
-                <h4 class="modal-title " id="Login">Logga in</h4>
+                <h4 class="modal-title Login">Logga in</h4>
                 <button type="button" class="close float-fight" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <div class="mb-4" id="loginForm">
+                <div class="mb-4 loginForm">
                     <div class="form-group">
                         <input type="email" class="form-control lginEmail" aria-describedby="emailHelp" placeholder="Ange mailadress">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control lgPass"  placeholder="Ange lösenord">
+                        <input type="password" class="form-control lgPass" placeholder="Ange lösenord">
                     </div>
                     <p class="text-center">
                         <button class="btn btn-next pop lgin" href="#" role="button">

@@ -1,9 +1,9 @@
 Object.assign(Navbar.prototype, { template4(){ return `
 
 <div class="dropdown">
-      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn dropdown-toggle mr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="far fa-user"></i>
-        ${that.app.currentUser} 
+        Admin 
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="#"></a>

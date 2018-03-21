@@ -52,9 +52,11 @@ class Cart extends REST {
     app.navbar.qty = totalQtyOfProds[totalQtyOfProds.length - 1];
     this.totalQuantity = totalQtyOfProds[totalQtyOfProds.length - 1];
 
-    $('header').empty();
-    app.navbar.render('header');
-  }
+      $('header').empty();
+      app.navbar.render('header');
+      app.navbar.changeLoginBtn();
+
+    }
 
 
   // Ger priset på en vara utan moms
