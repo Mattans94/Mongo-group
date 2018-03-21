@@ -17,6 +17,11 @@ div#shoppingList {
 		height: 30px;
 		border-radius: 0 !important;
 		font-size: 14px;
+		padding:0;
+	}
+
+	.quant{
+		padding-left:0;
 	}
 
 	p.VAT-text {
@@ -40,6 +45,7 @@ div#shoppingList {
 	img {
 		width: 50px;
 		height:50px;
+		margin-left:-20px;
 	}
 
 	.cart-headers{
@@ -83,7 +89,16 @@ div#shoppingList {
 		.name{
 			word-break: keep-all;
 			position: absolute;
+			height: 60px;
+			font-size: 3vw;
 		}
+
+		div .name{
+			word-wrap: break-word;
+			white-space: pre-line;
+			overflow: hidden;
+		}
+
 		.unit-total-price{
 			margin-top:12px;
 			font-size: 18px;
@@ -91,8 +106,8 @@ div#shoppingList {
 	}
 
 	.btn-sm {
-		background-color: #a99678;
-		border-color: #a99678;
+		background-color: #b1b1b1;
+		border-color: #b1b1b1;
 
 
 

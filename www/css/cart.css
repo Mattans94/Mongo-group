@@ -3,29 +3,101 @@ div#basket {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-table .form-control {
+@media only screen and (max-width: 414px) {
+  .box-footer .btn {
+    width: 300px;
+  }
+}
+div#shoppingList .form-control {
   width: 150px !important;
-  height: 31px;
+  height: 30px;
   border-radius: 0 !important;
+  font-size: 14px;
+  padding: 0;
 }
-table .btn-sm {
-  background-color: #a99678;
-  border-color: #a99678;
+div#shoppingList .quant {
+  padding-left: 0;
 }
-table .btn-sm:disabled {
+div#shoppingList p.VAT-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+div#shoppingList .total-moms-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+div#shoppingList .name {
+  width: 91px;
+}
+div#shoppingList div .name {
+  margin-left: -20px;
+}
+div#shoppingList img {
+  width: 50px;
+  height: 50px;
+  margin-left: -20px;
+}
+div#shoppingList .cart-headers {
+  font-size: 20px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+  div#shoppingList .form-control {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 414px) {
+  div#shoppingList #shoppingList {
+    overflow-x: hidden;
+  }
+  div#shoppingList .VAT-text {
+    font-size: 15px;
+  }
+  div#shoppingList .btn-sm {
+    width: 25px !important;
+  }
+  div#shoppingList .form-control {
+    width: 100px !important;
+    padding: 0;
+    height: 31px;
+  }
+  div#shoppingList .fa-trash-o {
+    font-size: 25px;
+  }
+  div#shoppingList .quant {
+    margin-left: 10px;
+  }
+  div#shoppingList .name {
+    word-break: keep-all;
+    position: absolute;
+    height: 60px;
+    font-size: 3vw;
+  }
+  div#shoppingList div .name {
+    word-wrap: break-word;
+    white-space: pre-line;
+    overflow: hidden;
+  }
+  div#shoppingList .unit-total-price {
+    margin-top: 12px;
+    font-size: 18px;
+  }
+}
+div#shoppingList .btn-sm {
+  background-color: #b1b1b1;
+  border-color: #b1b1b1;
+}
+div#shoppingList .btn-sm:disabled {
   pointer-events: none;
 }
-table .btn-sm#minus-btn {
+div#shoppingList .btn-sm#minus-btn {
   border-radius: .2rem 0 0 .2rem;
   cursor: pointer;
 }
-table .btn-sm#plus-btn {
+div#shoppingList .btn-sm#plus-btn {
   border-radius: 0 .2rem .2rem 0;
   cursor: pointer;
 }
-table .btn-sm:focus {
+div#shoppingList .btn-sm:focus {
   outline: none;
-}
-table tfoot tr th.VAT-text {
-  font-size: 14px;
 }

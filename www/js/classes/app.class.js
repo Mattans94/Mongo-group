@@ -5,6 +5,7 @@ class App extends REST {
     this.clickEvents();
     this.role = '';
     this.currentUser = '';
+    this.userEmail = '';
     this.checkIfLogin();
   }
 
@@ -24,7 +25,8 @@ class App extends REST {
     this.powders = await Product.find({ type: 'Powder' });
     console.log('Powders are', this.powders);
 
-    this.capsules = await Product.find({ type: 'Capsule' });
+    // Capsules populate with tools
+    this.capsules = await Product.find('type[$regex]=Capsule&populate=tools');
     console.log('Capsules are', this.capsules);
 
     this.tools = await Tool.find({});
@@ -39,7 +41,7 @@ class App extends REST {
     const types = {
       beans: 'Bean',
       powders: 'Powder',
-      capsules: 'Capsule',
+      // capsules: 'Capsule',
       tools: 'Tool'
     };
 
@@ -78,14 +80,15 @@ class App extends REST {
     //get ajax request => response
     //if response.isLogin then return response.userName
     //else then return null
-    let that=this;
-    $.ajax('/getLogin').then((data)=>{
-     if(data.isLogin){
-      that.currentUser=data.user;
-      that.role=data.role;
-     }
+    let that = this;
+    $.ajax('/getLogin').then((data) => {
+      if (data.isLogin) {
+        that.currentUser = data.user;
+        that.role = data.role;
+        that.userEmail = data.email;
+      }
 
-   });
+    });
     //return document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
   }
 

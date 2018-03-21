@@ -38,11 +38,21 @@ class Info extends REST {
     }
   }
 
+  connectCapsuleAndTool(id) {
+    const tools = [];
+    this.app.capsules.forEach(capsule =>
+      { if (capsule._id === id) {
+        capsule.tools.forEach(async tool => {
+          await tools.push(tool.name);
+        });
+      };
+    });
+    return tools.join(', ');
+  }
+
   async getProduct(id) {
     this.productInfo = await Product.find({ _id: id });
     console.log(this.productInfo);
-    console.log('product _id', id)
-    console.log('tools', this.app.tools)
 
     $('.product-info').empty();
     $('.product-info').append(`
@@ -59,8 +69,8 @@ class Info extends REST {
       <div class="mt-4">
         <div class="d-flex justify-content-start">
          ${ this.productInfo[0].stock > 0
-        ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">Finns i lager</p>`
-        : '<i class="fas fa-times mr-3 mt-1"></i> <p class="font-weight-bold text-danger mb-0">Finns ej i lager</p>'}
+            ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">Finns i lager</p>`
+            : '<i class="fas fa-times mr-3 mt-1"></i> <p class="font-weight-bold text-danger mb-0">Finns ej i lager</p>'}
         </div>
         <div class="d-flex justify-content-start">
           <i class="fas fa-truck mr-2 mt-2"></i>
@@ -72,11 +82,11 @@ class Info extends REST {
         <div class="${this.productInfo[0].stock == 0 ? 'd-none' : ''} col-8 col-sm-5 col-lg-4 col-xl-3 mt-2 px-0">
           <form class="d-flex justify-content-start">
             <div class="form-group d-flex justify-content-start">
-              <button type="button" class="btn-sm text-light my-2" id="minus-btn">
+              <button type="button" class="btn-sm text-light my-2 minus-btn">
                 <i class="fa fa-minus" aria-hidden="true"></i>
               </button>
               <input disabled class="form-control form-control-sm mt-2 col-3 text-center font-weight-bold" id="quantity" type="text" value="1">
-              <button type="button" class="btn-sm text-light my-2 2" id="plus-btn">
+              <button type="button" class="btn-sm text-light my-2 2 plus-btn">
                 <i class="fa fa-plus" aria-hidden="true"></i>
               </button>
             </div>
@@ -100,7 +110,8 @@ class Info extends REST {
         <p>${this.productInfo[0].type == 'Capsule' ? 'Antal:' : 'Vikt:'}
         	${this.productInfo[0].quantity} ${this.productInfo[0].type == 'Capsule' ? 'st' : 'gram'}
         </p>
-        <p>Kapslarna passar till kapselmaskiner frånt t.ex. ${this.app.tools[0].name} med flera. </p>
+        <p>${this.productInfo[0].type == 'Capsule' ?
+        `Kapslarna passar till kapselmaskiner från t.ex. ${this.connectCapsuleAndTool(id)} m.m.` : ''}</p>
       </div>
     </div>`);
   }
@@ -123,12 +134,11 @@ class Info extends REST {
     cartItems.forEach(item => totalCartQty += item.quantity);
 
     // you can't order more than there is in stock
-    if ($(e.target).is('#plus-btn') || $(e.target).parent().is('#plus-btn')) {
+    if ($(e.target).is('.plus-btn') || $(e.target).parent().is('.plus-btn')) {
       if(cartItems.length){
         console.log('Here i am');
 
-        !((totalCartQty + currentValue + 1) > stock) ? $("#quantity").val(currentValue + 1)
-        : $("#quantity").val(1);
+        !((totalCartQty + currentValue + 1) > stock) && $("#quantity").val(currentValue + 1);
       } else if(currentValue < stock){
         $("#quantity").val(currentValue + 1);
 
@@ -136,7 +146,7 @@ class Info extends REST {
       }
     }
     // the least amount you can order is 1
-    if ($(e.target).is('#minus-btn') || $(e.target).parent().is('#minus-btn')) {
+    if ($(e.target).is('.minus-btn') || $(e.target).parent().is('.minus-btn')) {
       (currentValue > 1) && $("#quantity").val(currentValue - 1);
     }
     console.log('Current', currentValue + 1);
