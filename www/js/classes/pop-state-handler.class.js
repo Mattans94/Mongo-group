@@ -151,7 +151,7 @@ class PopStateHandler extends REST{
     $('main').empty();
     this.app.cart.render('main', 'Basket');
     this.app.cart.renderShoppingList();
-    this.app.cart.renderTotalPriceWithVAT();
+  
     this.app.cart.renderCartContent();
   }
 
@@ -226,7 +226,7 @@ class PopStateHandler extends REST{
   invoice(){
     $('main').empty();
     this.app.checkout.render('main', 'Invoice');
-    
+
   }
 
 
