@@ -289,7 +289,8 @@ class Checkout extends REST {
     sendConfirmationMail() {
         console.log(this.app.profile.email);
         if (this.app.profile.email == "undefined@undefined") {
-            this.app.profile.email = "coffedb@gmail.com"
+            this.app.profile.email = "coffedb@gmail.com";
+            console.log("Kunde inte skicka bekräftelsemail -- hittar inte mailadress.");
         }
         console.log(this.app.profile.email);
         let sendmail = {
