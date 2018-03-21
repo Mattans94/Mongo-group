@@ -134,9 +134,6 @@ class Checkout extends REST {
     }
 
     set email(val) {
-        if (this.app.userEmail) {
-            this._email = this.app.userEmail;
-        }
         this._email = val;
     }
 
@@ -186,12 +183,7 @@ class Checkout extends REST {
 
     }
 
-    // clickPaypal(){
-    //     $(document).on("click", "paypal-button", function(event){
-    //         event.preventDefault();
 
-    //     })
-    // }
 
 
 
@@ -255,15 +247,15 @@ class Checkout extends REST {
         });
     }
 
-    changeStock(){
-        this._orderDetails.forEach( async obj => {
-            const product = await Product.find({_id: obj.productId});
+    changeStock() {
+        this._orderDetails.forEach(async obj => {
+            const product = await Product.find({ _id: obj.productId });
             product[0].stock = product[0].stock - obj.quantity;
             const newProduct = new Product(product[0]);
             newProduct.save()
-            .then(() => {
-                this.app.updateProducts();
-            });
+                .then(() => {
+                    this.app.updateProducts();
+                });
         });
     }
 
@@ -278,7 +270,7 @@ class Checkout extends REST {
             url: '/sendmail',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify({mail: this.app.profile.email, purchase: this._orderDetails, ordernumber: this._orderNumber}),
+            data: JSON.stringify({ mail: this.app.profile.email, purchase: this._orderDetails, ordernumber: this._orderNumber }),
             processData: false,
             contentType: "application/json; charset=utf-8"
         };
@@ -295,6 +287,14 @@ class Checkout extends REST {
             that.toPay(topay);
         });
 
+    }
+
+    getEmail() {
+        if (this.app.userEmail) {
+            return this.app.userEmail;
+        }else{
+            return null;
+        }
     }
 
 
@@ -392,7 +392,6 @@ class Checkout extends REST {
     getLastOrder() {
         return $.ajax('/getLastOrder').then((data) => {
             if (data.result && data.result.length > 0) {
-                //this.lastOrder = data.result;
                 let r = data.result[0];
 
                 this.dMethod = r.shippingMethod;
@@ -422,7 +421,7 @@ class Checkout extends REST {
                 this.country = '';
                 this.telephone = '';
                 this._ort = '';
-                this._email='';
+                this._email = '';
             }
         });
     }

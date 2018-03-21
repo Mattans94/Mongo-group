@@ -83,6 +83,7 @@ class App extends REST {
     let that = this;
     $.ajax('/getLogin').then((data) => {
       if (data.isLogin) {
+        console.log(data);
         that.currentUser = data.user;
         that.role = data.role;
         that.userEmail = data.email;

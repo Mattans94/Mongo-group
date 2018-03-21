@@ -28,7 +28,7 @@ module.exports = class Order extends ModelAndRoutes {
             ort: String,
             user: String,
             quantity: Number,
-            email:String
+            email: String
         }
     }
 
@@ -48,7 +48,7 @@ module.exports = class Order extends ModelAndRoutes {
 
             let query = this.myModel.find({ user: user }).sort({ _id: -1 }).limit(1);
             query.exec((err, lastOrder) => {
-
+                
                 req.session.data.order = lastOrder;
                 req.session.markModified('data');
                 req.session.save();

@@ -51,7 +51,8 @@ app.get('/getLogin', (req, res) => {
     res.json({
       isLogin: true,
       user: data.data.user.name,
-      role: data.data.user.role
+      role: data.data.user.role,
+      email: data.data.user.email
     })
   }
 
