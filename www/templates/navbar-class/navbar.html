@@ -8,11 +8,11 @@ Object.assign(Navbar.prototype, { template(){ return `
 			  <a href="/" class="pop nav-logo d-none d-lg-block ml-1"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
 				<a href="/" class="pop nav-logo logo-mobile d-lg-none"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
 			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-			    <ul class="navbar-nav ml-4">
+			    <ul class="navbar-nav">
 			      ${this.items.render()}
 			    </ul>
 					<div class="modal-container-login d-md-none">
-						<button id="loginModalToggle" class="btn">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
+						<button id="loginModalToggle" class="btn mb-2">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
 					</div>
 				</div>
 			</div>
