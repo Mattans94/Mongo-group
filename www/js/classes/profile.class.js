@@ -45,14 +45,22 @@ class Profile extends Base {
         this._name = val;
     }
 
+    getOneOf(selector){
+        let first = $($(selector)[0]).val();
+        let second = $($(selector)[1]).val();
+
+        return first || second;
+    }
+
 
     // get data from login modal and register page
     keyuplogin(event) {
         if ($(event.target).hasClass('lginEmail')) {
-            this.email = $(".lginEmail").val();
+            this.email = this.getOneOf('.lginEmail');
+          
         }
         if ($(event.target).hasClass('lgPass')) {
-            this.password = $(".lgPass").val();
+            this.password = this.getOneOf('.lgPass');
         }
     }
     // get data from register page
@@ -71,10 +79,10 @@ class Profile extends Base {
             this.repass = $(".signUpRePass").val();
         }
         if ($(event.target).hasClass('lginEmail')) {
-            this.email = $(".lginEmail").val();
+            this.email = this.getOneOf('.lginEmail');
         }
         if ($(event.target).hasClass('lgPass')) {
-            this.password = $(".lgPass").val();
+            this.password = this.getOneOf('.lgPass');
             console.log(this.password);
         }
 
@@ -105,7 +113,6 @@ class Profile extends Base {
         if ($(event.target).hasClass('lgin')) {
             this.finishLogin();
              //event.preventDefault();
-             $('.loginModal').modal('toggle');
         }
         if ($(event.target).hasClass('register-btn')) {
             $('.loginModal').modal('hide');
@@ -130,16 +137,21 @@ class Profile extends Base {
     }
     
     finishLogin() {
-           let that = this;
-           that.login().then((res) => {
-               console.log("res " + res.result);
-               alert(res.message);
-               $('header').empty();
-               that.app.navbar.render('header');
-               that.app.navbar.changeLoginBtn();
-               //location.reload();
-               // that.app.navbar.changeLoginBtn();
-           });
+        let that = this;
+        that.login().then((res) => {
+            if(res.result){
+                app.currentUser=res.result;
+                $('.loginModal').modal('toggle');
+
+                setTimeout(()=> {
+                    $('header').empty();
+                    that.app.navbar.render('header');
+                    that.app.navbar.changeLoginBtn();
+                    //location.reload();
+                    // that.app.navbar.changeLoginBtn();
+                }, 500);
+            }
+          });
        }
 
     clickRegister(event, element, instance) {
