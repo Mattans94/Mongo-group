@@ -3,15 +3,15 @@ Object.assign(ProductPage.prototype, { template(){ return `
     <div class="col-12 col-md-9 d-flex justify-content-start">
         <p class="font-weight-bold mr-3">Kategorier:</p>
         <form class="d-flex justify-content-start flex-wrap">
-            <div class="form-check col-4 col-md-2 mr-2 mr-sm-3 mr-md-5">
+            <div class="form-check col-sm-4 col-md-2 mr-2 mr-sm-3 mr-md-5">
                 <input type="checkbox" class="form-check-input" id="Bean" value="Bean" name="check">
                 <label class="form-check-label" for="Bean">Kaffebönor</label>
             </div>
-            <div class="form-check col-4 col-md-2 mr-5">
+            <div class="form-check col-sm-4 col-md-2 mr-5">
                 <input type="checkbox" class="form-check-input" id="Powder" value="Powder" name="check">
                 <label class="form-check-label" for="Powder">Bryggkaffe</label>
             </div>
-            <div class="form-check col-4 col-md-2 mr-0 mr-md-4 mr-lg-0">
+            <div class="form-check col-sm-4 col-md-2 mr-0 mr-md-4 mr-lg-0">
                 <input type="checkbox" class="form-check-input" id="Capsule" value="Capsule" name="check">
                 <label class="form-check-label" for="Capsule">Kaffekapslar</label>
             </div>
@@ -19,7 +19,7 @@ Object.assign(ProductPage.prototype, { template(){ return `
     </div>
     <div class="col-12 col-md-3 mb-4">
         <div class="form-group">
-            <select class="form-control selectSorting">
+            <select class="form-control selectSorting mt-3 mt-md-0">
                 <option class="dropdown" value="sortering">Sortering</option>
                 <option class="dropdown" data-property="name" value="ascendingOrder">Produktnamn A-Ö</option>
                 <option class="dropdown" data-property="name" value="descendingOrder">Produktnamn Ö-A</option>
