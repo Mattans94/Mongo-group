@@ -244,7 +244,25 @@ class Checkout extends REST {
             $("main").empty();
             that.render("main", 'Invoice');
             that.sendConfirmationMail();
+            that.resetCart();
+
         });
+    }
+
+    async resetCart() {
+      let sessionId = Cart.getSessionId();
+
+      this._orderDetails.forEach( async obj => {
+        let cartItems = await Cart.findOne({product: obj._id, sessionId});
+
+        const item = new Cart(cartItems);
+        item.delete()
+        .then(() => {
+          Cart.updateCartBadgeValue();
+          //Re-render cart content
+          app.cart.renderCartContent();
+        });
+      });
     }
 
     changeStock() {

@@ -1,5 +1,6 @@
 const qs = require('qs');
 const mongoose = require('mongoose');
+const ttl = require('mongoose-ttl');
 mongoose.connect('mongodb://localhost/coffeeDB');
 const db = mongoose.connection;
 db.on('error', (e)=>{ console.error(e); });
@@ -16,7 +17,12 @@ module.exports = class ModelAndRoutes {
 
   constructor(expressApp){
     this.expressApp = expressApp;
-    const schema = new mongoose.Schema(this.constructor.schema);
+    let schema;
+    if(this.constructor.name == 'Cart'){
+      schema = new mongoose.Schema(this.constructor.schema);
+      //Cart object expires after 1h
+      schema.plugin(ttl, { ttl: 3600000 });
+    } else {schema = new mongoose.Schema(this.constructor.schema);}
     this.modelName = this.constructor.name;
     this.routeName = this.modelName.toLowerCase() + 's';
 

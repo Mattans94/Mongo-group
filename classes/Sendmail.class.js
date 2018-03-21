@@ -41,7 +41,7 @@ module.exports = class Sendmail {
       from: 'coffedb@gmail.com',
       to: customerEmail,
       subject: 'Bekräftelse på din beställning',
-      html: `<h1>Tack för att du valde att köpa ditt kaffe från CoffeeDB!</h1><p><strong>Du har beställt:</strong></p><ul>${generateLi(purchase)}</ul><p style="margin-bottom: 30px;"><strong>Total kostnad:</strong> ${totalPrice(purchase)} kr</p><p style="margin-bottom: 10px;">Ditt ordernummer är: <em>${ordernumber}</em></p><p style="margin-bottom: 30px;">Din beräknade leveranstid är 2-3 arbetsdagar.</p><hr><p><em>Har du problem, frågor eller funderingar? Tveka inte att höra av dig till oss på 040 - 12 33 21 eller maila till info@coffeeDB.com.</em></p>`
+      html: `<h1 style="background-color: #4fbfa8; color: white; padding: 5px 20px;">Tack för att du valde att köpa ditt kaffe från CoffeeDB!</h1><p><strong style="font-size: 16px;">Du har beställt:</strong></p><ul>${generateLi(purchase)}</ul><p style="padding-top: 8px; font-size: 16px; margin-bottom: 30px; border-top: 2px solid #4fbfa8;"><strong style="margin-right: 5px;">Total kostnad:</strong> ${totalPrice(purchase)} kr</p><p style="margin-bottom: 10px;">Ditt ordernummer är: <em>${ordernumber}</em></p><p style="margin-bottom: 30px;">Din beräknade leveranstid är 2-3 arbetsdagar.</p><hr><p><em>Har du problem, frågor eller funderingar? Tveka inte att höra av dig till oss på 040 - 12 33 21 eller maila till info@coffeeDB.com.</em></p>`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
