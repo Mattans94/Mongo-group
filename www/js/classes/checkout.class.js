@@ -239,8 +239,25 @@ class Checkout extends REST {
             that.getOrderTime();
             Order.create(that.createOrder());
             that.sendConfirmationMail();
+            that.resetCart();
             location.replace("/invoice");
         });
+    }
+
+    async resetCart() {
+      let sessionId = Cart.getSessionId();
+
+      this._orderDetails.forEach( async obj => {
+        let cartItems = await Cart.findOne({product: obj._id, sessionId});
+
+        const item = new Cart(cartItems);
+        item.delete()
+        .then(() => {
+          Cart.updateCartBadgeValue();
+          //Re-render cart content
+          app.cart.renderCartContent();
+        });
+      });
     }
 
     changeStock(){
