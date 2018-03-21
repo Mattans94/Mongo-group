@@ -68,9 +68,9 @@ class Info extends REST {
       </div>
       <div class="mt-4">
         <div class="d-flex justify-content-start">
-         ${ this.productInfo[0].stock > 0
-        ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">Finns i lager</p>`
-        : '<i class="fas fa-times mr-3 mt-1"></i> <p class="font-weight-bold text-danger mb-0">Finns ej i lager</p>'}
+         ${ this.productInfo[0].stock > 0 
+            ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">${this.productInfo[0].stock } st i lager</p>` 
+            : '<i class="fas fa-times mr-3 mt-1"></i> <p class="font-weight-bold text-danger mb-0">Finns ej i lager</p>'}
         </div>
         <div class="d-flex justify-content-start">
           <i class="fas fa-truck mr-2 mt-2"></i>
@@ -111,7 +111,7 @@ class Info extends REST {
         	${this.productInfo[0].quantity} ${this.productInfo[0].type == 'Capsule' ? 'st' : 'gram'}
         </p>
         <p>${this.productInfo[0].type == 'Capsule' ?
-        `Kapslarna passar till kapselmaskiner frånt t.ex.${this.connectCapsuleAndTool(id)} med flera.` : ''}</p>
+        `Kapslarna passar till kapselmaskiner från t.ex. ${this.connectCapsuleAndTool(id)} m.m.` : ''}</p>
       </div>
     </div>`);
   }
