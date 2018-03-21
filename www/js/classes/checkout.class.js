@@ -234,11 +234,24 @@ class Checkout extends REST {
         $(document).on("click", '.order-btn', async function (event) {
             event.preventDefault();
             await that.getShoppingCart();
+            that.changeStock();
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
             that.sendConfirmationMail();
             location.replace("/invoice");
+        });
+    }
+
+    changeStock(){
+        this._orderDetails.forEach( async obj => {
+            const product = await Product.find({_id: obj.productId});
+            product[0].stock = product[0].stock - obj.quantity;
+            const newProduct = new Product(product[0]);
+            newProduct.save()
+            .then(() => {
+                this.app.updateProducts();
+            });
         });
     }
 
