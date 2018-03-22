@@ -7,21 +7,20 @@ Object.assign(Checkout.prototype, { templateInvoice(){ return `
             <div class="box">
                 <h1>Faktura</h1>
                 <hr>
-                <p class="lead">TACK FÖR DKTT KÖP!</p>
-                <p class="lead">ORDERNUMMER: ${this.orderNumber}
-                    <strong>beställt ${this._orderTime}</strong>.</p>
+                <p class="lead">TACK FÖR DITT KÖP!</p>
+                <p class="lead">Ditt ordernummer: ${this.orderNumber}
+                    <strong>lagd ${this._orderTime}</strong>.</p>
                 <p class="lead">
-                    <strong>BELOPP: ${this.app.cart.cartTotal + this.dFee} kr</strong>
+                    <strong>Belopp: ${this.app.cart.cartTotal + this.dFee} kr</strong>
                 </p>
-                <p class="lead">BETALNINGSSÄT: ${this.paymentMethod}</p>
-                <p class="lead">LEVERANSSÄT: ${this.dMethod}</p>
-                
-                <p class="lead">Frakt Adress: ${this.firstName} ${this.lastName}, ${this.street}, ${this.zip}, ${this.ort}, ${this.region}</p>
-                <p class="lead">Tel: ${this.phoneNumber}</p>     
+                <p class="lead">Betalningsmetod: ${this.paymentMethod}</p>
+                <p class="lead">Leveranssätt: ${this.dMethod}</p>
+
+                <p class="lead">Fraktadress: ${this.firstName} ${this.lastName}, ${this.street}, ${this.zip}, ${this.ort}, ${this.region}</p>
+                <p class="lead">Tel: ${this.phoneNumber}</p>
                 <hr>
                 <p class="lead">Bekräftelse skickas med e-post till <a>${this.email}</a>.</p>
-                <p class="text-muted">Om du har några frågor, är du välkommen att
-                    <a href="/om_oss">kontakta oss</a>, vårt kundservicecenter arbetar 24/7.</p>
+                <p class="text-muted">Om du har några frågor, är du välkommen att<a href="/om_oss" class="pop">kontakta oss</a></p>
 
 
 
@@ -31,7 +30,7 @@ Object.assign(Checkout.prototype, { templateInvoice(){ return `
             </div>
             <!-- /.table-responsive -->
 
-            
+
 
         </div>
     </div>
