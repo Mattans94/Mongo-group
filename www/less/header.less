@@ -8,9 +8,18 @@ header {
     width: 50px;
     margin-right: 50px;
 
-    // @media only screen and (min-width: 576px) {
-    //   margin-right: 250px;
-    // }
+    @media only screen and (min-width: 576px) {
+      margin-right: 250px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      margin-right: 310px;
+    }
+
+    @media only screen and (min-width: 992px) {
+      margin-right: 0;
+    }
+
   }
 
   .d-lg-none{
@@ -87,7 +96,7 @@ header {
       @media only screen and (max-width: 768px) {
         margin-top: 70px !important;
         &:hover {
-          background-color: @bluegreen;
+          // background-color: @bluegreen;
         }
       }
     }

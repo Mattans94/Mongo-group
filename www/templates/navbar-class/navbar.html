@@ -8,7 +8,7 @@ Object.assign(Navbar.prototype, { template(){ return `
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="text-center">
-				<a href="/" class="pop nav-logo ml-1">
+				<a href="/" class="pop nav-logo ml-1 mr-lg-4">
 					<img class="navbar-brand img-fluid " src="/imgs/coffee-logo.png" alt="logo">
 				</a>
 			</div>
@@ -21,10 +21,6 @@ Object.assign(Navbar.prototype, { template(){ return `
 			</div>
 
 
-
-
-
-
 			<!-- <a href="/" class="pop nav-logo d-none d-lg-block ml-1">
 				<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
 			</a> -->
@@ -32,7 +28,7 @@ Object.assign(Navbar.prototype, { template(){ return `
 				<ul class="navbar-nav">
 					${this.items.render()}
 				</ul>
-				<div class="modal-container-login d-lg-none d--block">
+				<div class="modal-container-login d-block d-md-none">
 					<!-- The login button is rendered here  -->
 				</div>
 			</div>
@@ -44,7 +40,7 @@ Object.assign(Navbar.prototype, { template(){ return `
 					</i>
 				</a>
 			</div>
-			<div class="modal-container-login d-none d-lg-block ">
+			<div class="modal-container-login d-none d-md-block">
 				<!-- The login button is rendered here  -->
 			</div>
 
