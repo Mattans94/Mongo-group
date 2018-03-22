@@ -116,7 +116,8 @@ class Profile extends Base {
             that.finishLogin();
         }
         if ($(event.target).hasClass('register-btn')) {
-            location.replace("/register");
+          $('.modal-backdrop').remove();
+          $('body').removeClass('modal-open');
         }
     }
 
@@ -149,7 +150,7 @@ class Profile extends Base {
                 alert(res.message);
             }
           });
-        
+
        }
 
     clickRegister(event, element, instance) {
@@ -203,7 +204,7 @@ class Profile extends Base {
         if($('.modal-container-login .loginModal').length==0){
             that.render('.modal-container-login', 'login');
         }
-        
+
         $('.loginModal').modal('toggle');
 
     }
