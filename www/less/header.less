@@ -1,11 +1,16 @@
 header {
 
   .dropdown-item:hover{
-    background-color: @bluegreen !important;
+    background-color: #4fbfa8 !important;
   }
 
   .navbar-brand{
     width: 50px;
+    margin-right: 50px;
+
+    // @media only screen and (min-width: 576px) {
+    //   margin-right: 250px;
+    // }
   }
 
   .d-lg-none{
@@ -20,102 +25,69 @@ header {
     padding-bottom: 0 !important;
     background-color: #fff;
    .nav-item.active{
-      background-color: @bluegreen;
+      background-color: #4fbfa8;
       font-weight: bold;
     }
-    .navbar-brand {
-        width: 50px;
-    }
-    .shopping-cart a{
-      color: @bluegreen;
-      &:hover {
-        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-        transform: translate3d(0, 0, 0);
-        backface-visibility: hidden;
-        perspective: 1000px;
-      }
-
-      @keyframes shake {
-        10%, 90% {
-          transform: translate3d(-1px, 0, 0);
-        }
-        .nav-item {
-            padding: 10px;
-        }
-        .shopping-cart a {
-            color: #4fbfa8;
-            &:hover {
-                animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
-                transform: translate3d(0, 0, 0);
-                backface-visibility: hidden;
-                perspective: 1000px;
-            }
-            @keyframes shake {
-                10%,
-                90% {
-                    transform: translate3d(-1px, 0, 0);
-                }
-                20%,
-                80% {
-                    transform: translate3d(2px, 0, 0);
-                }
-                30%,
-                50%,
-                70% {
-                    transform: translate3d(-4px, 0, 0);
-                }
-                40%,
-                60% {
-                    transform: translate3d(4px, 0, 0);
-                }
-            }
-        }
-        .fa-sign-in-alt {
-            color: #4fbfa8;
-        }
-        .badge {
-            border-radius: 10px;
-            background-color: #f1f100;
-        }
-        .dropdown-toggle {
-            background-color: buttonface;
-            &:hover {
-                background-color: #4fbfa8;
-            }
-        }
-        .nav-logo {
-          text-align: center;
-        }
-      }
+    .nav-item{
+      padding: 10px;
     }
 
-    .badge{
-      border-radius: 10px;
-      background-color: #f1f100;
+.shopping-cart a{
+  color: #4fbfa8;
+  &:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+}
+
+  .fa-sign-in-alt{
+    color:#4fbfa8;
+  }
+
+.badge{
+  border-radius: 10px;
+  background-color: #f1f100;
+}
+  .dropdown-toggle {
+    background-color: buttonface;
+
+    &:hover {
+      background-color: #4fbfa8;  
+    }
+  }
+
+  .modal-content {
+    @media only screen and (max-width: 576px) {
+      margin-top: 50px !important;
     }
 
-    .dropdown-toggle {
-      background-color: buttonface;
-
-      &:hover {
-        background-color: #4fbfa8;
-        .fa-sign-in-alt{
-          color:@bluegreen;
-        }
-      }
-
-      .modal-content {
-        @media only screen and (max-width: 576px) {
-          margin-top: 50px !important;
-        }
-
-        @media only screen and (max-width: 768px) {
-          margin-top: 70px !important;
-          &:hover {
-            background-color: @bluegreen;
-          }
-        }
-      }
+    @media only screen and (max-width: 768px) {
+      margin-top: 70px !important;
     }
+
+
+  }
+
+
   }
 }
