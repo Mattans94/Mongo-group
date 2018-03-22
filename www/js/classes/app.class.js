@@ -37,7 +37,7 @@ class App extends REST {
     const types = {
       beans: 'Bean',
       powders: 'Powder',
-      // capsules: 'Capsule',
+      capsules: 'Capsule',
       tools: 'Tool'
     };
 
