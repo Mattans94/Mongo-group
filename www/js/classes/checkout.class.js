@@ -390,9 +390,11 @@ class Checkout extends REST {
     }
 
     checkCreditCard(check) {
+        let cardExp = new Date(2000 + this._cardYear, this._cardMonth);
+        let checkNumber = /\d{16}$/.test(this._cardNumber);
+        let checkCVC = /\d{3}$/.test(this.__cvCode);
         if (check == "credit-card") {
-            let cardExp = new Date(2000 + this._cardYear, this._cardMonth);
-            if (cardExp == "Invalid Date" || cardExp < new Date()) {
+            if (cardExp == "Invalid Date" || cardExp < new Date() || !checkNumber || !checkCVC) {
                 alert("Please check your credit card!");
             } else {
                 $(".checkOut-btns").removeClass("active");
@@ -433,11 +435,6 @@ class Checkout extends REST {
 
     }
 
-
-
-    checkOrder() {
-
-    }
 
 
     getLastOrder() {
