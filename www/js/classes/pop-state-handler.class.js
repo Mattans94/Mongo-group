@@ -183,10 +183,13 @@ class PopStateHandler extends REST {
   }
 
   userPage() {
-    $('title').text('Mina sidor');
-    $('main').empty();
-    this.app.userPage.render('main');
-    this.app.userPage.renderList();
+    if(this.app.role == 'Admin' || this.app.role == 'Normal User'){
+      $('title').text('Mina sidor');
+      $('main').empty();
+      this.app.userPage.render('main');
+      this.app.userPage.renderList();
+    } else $('main').append(`<div class="alert alert-danger" role="alert">Åtkomst nekad! Vänligen logga in.</div>`);
+
   }
 
   admin() {
