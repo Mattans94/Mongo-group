@@ -393,9 +393,12 @@ class Checkout extends REST {
         let checkNumber = /\d{16}$/.test(this._cardNumber);
         let checkCVC = /\d{3}$/.test(this.__cvCode);
         if (check == "credit-card") {
-            if (cardExp == "Invalid Date" || cardExp < new Date() || !checkNumber || !checkCVC) {
+            if (cardExp == "Invalid Date"){
                 alert("Please check your credit card!");
-            } else {
+            } if(cardExp < new Date()){
+                alert("Please check your credit card!");
+            }
+            else if(checkNumber||checkCVC) {
                 $(".checkOut-btns").removeClass("active");
                 $(".review-btn").addClass("active");
                 $('.stepBox').empty();
