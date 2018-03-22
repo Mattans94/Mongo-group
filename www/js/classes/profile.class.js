@@ -112,6 +112,9 @@ class Profile extends Base {
 
     clicklogin(event, element, instance) {
         let that=this;
+        $(document).on('hide.bs.modal', () =>{
+          $('.modal-backdrop').remove();
+        });
         if ($(event.target).hasClass('lgin')) {
             that.finishLogin();
         }
