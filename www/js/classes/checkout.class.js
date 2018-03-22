@@ -232,7 +232,6 @@ class Checkout extends REST {
             that.getOrderNumber();
             that.getOrderTime();
             Order.create(that.createOrder());
-            that.checkOrder();
             $("main").empty();
             that.render("main", 'Invoice');
             that.sendConfirmationMail();
