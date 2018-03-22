@@ -46,7 +46,7 @@ module.exports = class Sendmail {
       }
       return price;
     }
-    
+
     // Get order info
     let orderInfo = await this.order.findOne({orderNumber: ordernumber});
     console.log('Order', orderInfo);
@@ -58,7 +58,10 @@ module.exports = class Sendmail {
     this.street = orderInfo.street;
     this.zip = orderInfo.zip;
     this.ort = orderInfo.ort;
-    this.cardNumber = orderInfo.cardNumber.toString().replace(/\d(?=\d{4})/g, '#');
+    if(orderInfo.cardNumber){
+      this.cardNumber = orderInfo.cardNumber.toString().replace(/\d(?=\d{4})/g, '#');
+    }
+
 
 
     let mailOptions = {
