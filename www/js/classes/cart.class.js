@@ -32,7 +32,6 @@ class Cart extends REST {
         }
       }
     }
-    console.log('Mina produkter', products);
     $('.cart-content').empty();
     products.render('.cart-content', 'CartContent');
     this.calculateAndRenderTotalPrice();
@@ -77,10 +76,8 @@ class Cart extends REST {
 
       let priceWithoutVAT = cartTotal / 1.12;
       this.totalPriceWithoutVAT = priceWithoutVAT.toFixed();
-      console.log("This.totalPriceWithoutVAT " + this.totalPriceWithoutVAT);
       let VAT = cartTotal - priceWithoutVAT;
       this.VAT = VAT.toFixed();
-      console.log("This.VAT " + this.VAT);
       $('.VAT-of-total-exkl').append(`${priceWithoutVAT.toFixed(0)}kr`);
       $('.VAT-of-total-price').append(`${VAT.toFixed(0)}kr`);
     }
@@ -97,13 +94,11 @@ class Cart extends REST {
     this.cartTotal = cartTotal;
 
 
-    console.log(cartTotal);
     $('.cart-total-price').append(`${cartTotal}kr`);
   }
 
 
   click() {
-    console.log('HELOOOO');
     let that = this;
     $(document).on("click", '.address-btn', function () {
       $(".checkOut-btns").removeClass("active");

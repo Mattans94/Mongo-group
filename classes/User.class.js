@@ -24,7 +24,6 @@ module.exports = class User {
         this.myModel = myModel;
 
         expressApp.post('/register', (req, res) => {
-            console.log('Body', req.body);
             let password;
 
             bcrypt.hash(req.body.password, 10, function (err, hash) {
@@ -34,7 +33,6 @@ module.exports = class User {
                 }
 
                 req.body.password = hash;
-                console.log(req.body);
 
                 //Success, save the user into db
                 const entity = new myModel(req.body);

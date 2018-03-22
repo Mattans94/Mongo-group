@@ -22,18 +22,14 @@ class Navbar extends REST {
     // $(document).on(‘click’, ‘.pop’, () => {
     $('.modal-container-login').empty();
     // $(‘.modal’).modal(‘hide’);   // Close the modal after login
-    // console.log(‘User:’, that.app.currentUser)
-    // console.log(‘normal user: ‘, that.app.getRole)
     let user = that.getUserRole();
     if (!user) {
       that.render('.modal-container-login', 2);
       // this.app.navbar.render('.modal-container-login', 2);
     } else if (user == 'Admin') {
       that.render('.modal-container-login', 4);
-      console.log('admin: ', user);
     } else {
       that.render('.modal-container-login', 3);
-      console.log('normal: ', user);
     }
   }
 

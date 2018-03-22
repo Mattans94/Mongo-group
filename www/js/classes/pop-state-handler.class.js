@@ -13,7 +13,6 @@ class PopStateHandler extends REST {
     // from an arrow function to keep "this"
     // inside changePage pointing to the PopStateHandler object
     window.addEventListener('popstate', () => this.changePage());
-    console.log("1111");
 
   }
 
@@ -44,7 +43,6 @@ class PopStateHandler extends REST {
 
     // Get the current url
     let url = location.pathname;
-    console.log(url);
 
     // Change which menu link that is active
     $('header a').removeClass('active');
@@ -140,7 +138,6 @@ class PopStateHandler extends REST {
       this.app.productPage.makeCards([category]);
       this.app.startsida.category = '';
     }
-    console.log('Körs');
   }
 
   omOss() {
