@@ -16,9 +16,7 @@ class Info extends REST {
 
     if(cartItems.length){
       cartItems.forEach(item => totalCartQty += item.quantity);
-      console.log('Items', cartItems, 'Total', totalCartQty);
       if(totalCartQty >= product.stock){
-        console.log('Cart quantity reached limit!');
         //If on produkter page, just disable the button, and do not change the text
         if(location.pathname == '/produkter'){
           $(`button[data-id="${id}"]`)
@@ -52,6 +50,7 @@ class Info extends REST {
 
   async getProduct(id) {
     this.productInfo = await Product.find({ _id: id });
+    $('title').text(`Produkter/${this.productInfo[0].name}`);
     console.log(this.productInfo);
 
     $('.product-info').empty();
@@ -69,7 +68,7 @@ class Info extends REST {
       <div class="mt-4">
         <div class="d-flex justify-content-start">
          ${ this.productInfo[0].stock > 0
-            ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">${this.productInfo[0].stock } st i lager</p>`
+            ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">Finns i lager</p>`
             : '<i class="fas fa-times text-danger mr-3 mt-1"></i> <p class="font-weight-bold text-danger mb-0">Finns ej i lager</p>'}
         </div>
         <div class="d-flex justify-content-start">
@@ -106,7 +105,6 @@ class Info extends REST {
         <p class="mt-4">Ursprung:
           <span>${this.productInfo[0].countryOfOrigin}</span>
         </p>
-        <p>Typ: ${this.productInfo[0].type}</p>
         <p>${this.productInfo[0].type == 'Capsule' ? 'Antal:' : 'Vikt:'}
         	${this.productInfo[0].quantity} ${this.productInfo[0].type == 'Capsule' ? 'st' : 'gram'}
         </p>
@@ -136,7 +134,6 @@ class Info extends REST {
     // you can't order more than there is in stock
     if ($(e.target).is('.plus-btn') || $(e.target).parent().is('.plus-btn')) {
       if(cartItems.length){
-        console.log('Here i am');
 
         !((totalCartQty + currentValue + 1) > stock) && $("#quantity").val(currentValue + 1);
       } else if(currentValue < stock){
@@ -149,7 +146,6 @@ class Info extends REST {
     if ($(e.target).is('.minus-btn') || $(e.target).parent().is('.minus-btn')) {
       (currentValue > 1) && $("#quantity").val(currentValue - 1);
     }
-    console.log('Current', currentValue + 1);
     // add product to cart
     $(e.target).hasClass('card-btn') && ProductPage.addProductToCart(e.target, currentValue);
   }

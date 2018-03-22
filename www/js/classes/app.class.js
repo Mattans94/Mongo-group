@@ -20,17 +20,13 @@ class App extends REST {
     this.products = await Product.find({});
 
     this.beans = await Product.find({ type: 'Bean' });
-    console.log('Beans are', this.beans);
 
     this.powders = await Product.find({ type: 'Powder' });
-    console.log('Powders are', this.powders);
 
     // Capsules populate with tools
     this.capsules = await Product.find('type[$regex]=Capsule&populate=tools');
-    console.log('Capsules are', this.capsules);
 
     this.tools = await Tool.find({});
-    console.log('Tools are', this.tools);
 
     this.orders = await Order.find({});
 
@@ -76,14 +72,12 @@ class App extends REST {
   }
 
   checkIfLogin() {
-    console.log("check if login");
     //get ajax request => response
     //if response.isLogin then return response.userName
     //else then return null
     let that = this;
     $.ajax('/getLogin').then((data) => {
       if (data.isLogin) {
-        console.log(data);
         that.currentUser = data.user;
         that.role = data.role;
         that.userEmail = data.email;

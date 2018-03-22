@@ -21,7 +21,6 @@ async function sessionFn(req, res, next) {
       path: '/',
       httpOnly: false
     });
-    console.log(req.cookies.session);
     mySession.save();
     req.session = mySession;
     next();

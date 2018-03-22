@@ -11,16 +11,11 @@ class ProductPage extends Base {
   }
 
   static async addProductToCart(target, qty){
-    console.log($(target).data('id'));
     let dataId = $(target).data('id');
-    console.log('Data-id', dataId)
     let product = await Product.findOne({
       _id: dataId
     });
     let productStock = product.stock;
-    console.log('STOCK', productStock);
-    console.log('Hejsan', dataId);
-    console.log( '_________', await Cart.find({product: dataId, sessionId: Cart.getSessionId()}) );
     let cartItem = await Cart.findOne({product: dataId, sessionId: Cart.getSessionId()});
     let allCartItems = await Cart.find({product: dataId});
 
@@ -28,7 +23,6 @@ class ProductPage extends Base {
     allCartItems.forEach(item => totalCartQty += item.quantity);
 
     if(totalCartQty >= product.stock){
-      console.log('Should not add to cart!');
       Info.disableCartButtonStock(dataId);
       return;
     }
@@ -51,7 +45,6 @@ class ProductPage extends Base {
     //Select item image and pass to the function
     if(location.pathname == "/produkter"){
       let itemImg = $(target).parent().parent().parent().find('img');
-      console.log(itemImg);
       flyToElement($(itemImg), $('.fa-shopping-cart'));
 
       setTimeout(() => {
@@ -67,7 +60,6 @@ class ProductPage extends Base {
         $('.badge').css({'color': '#4fbfa8'});
         // $('a[href="/varukorg"]').css('zoom', 'normal');
         $('.shopping-cart').removeClass('shake shake-constant');
-        console.log('lol');
 
       }, 900);
     } else Cart.updateCartBadgeValue();
