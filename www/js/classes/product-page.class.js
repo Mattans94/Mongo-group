@@ -45,7 +45,7 @@ class ProductPage extends Base {
     //Select item image and pass to the function
     if(location.pathname == "/produkter"){
       let itemImg = $(target).parent().parent().parent().find('img');
-      flyToElement($(itemImg), $('.fa-shopping-cart'));
+      flyToElement($(itemImg), $('.fa-shopping-cart:visible'));
 
       setTimeout(() => {
         Cart.updateCartBadgeValue();
