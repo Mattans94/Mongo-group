@@ -1,8 +1,19 @@
 header {
 
-  .dropdown-item:hover{
-    background-color: #4fbfa8 !important;
+  .dropdown-item {
+    @media only screen and (min-width: 576px) {
+      display: unset;
+    }
+
+    @media only screen and (min-width: 768px) {
+      display: block;
+    }
+
+    &:hover{
+      background-color: #4fbfa8 !important;
+    }
   }
+
 
   .navbar-brand{
     width: 50px;
@@ -95,9 +106,9 @@ header {
 
       @media only screen and (max-width: 768px) {
         margin-top: 70px !important;
-        &:hover {
+        // &:hover {
           // background-color: @bluegreen;
-        }
+        // }
       }
     }
   }
