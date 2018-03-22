@@ -5,7 +5,6 @@ const nodemailer = require('nodemailer');
 module.exports = class Sendmail {
   constructor(app) {
     app.post('/sendmail', (req, res) => {
-      console.log('email:', req.cookies.email);
       res.json(this.sendConfirmationMail((req.cookies.email || req.body.mail), req.body.purchase, req.body.ordernumber));
     })
   }

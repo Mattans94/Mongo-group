@@ -278,7 +278,6 @@ class Checkout extends REST {
             console.log("Kunde inte skicka bekräftelsemail -- användare inte inloggad.");
             console.log("Skickar bekräftelsemail till 'coffedb@gmail.com' istället.");
         }
-        console.log(this.email || this.app.profile.email);
         let sendmail = {
             url: '/sendmail',
             method: 'POST',
