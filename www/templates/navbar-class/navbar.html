@@ -1,24 +1,67 @@
 Object.assign(Navbar.prototype, { template(){ return `
-	<div class="row">
-		<nav class="navbar navbar-expand-lg navbar-light fixed-top col-12">
-			<div class="container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-			  </button>
-			  <a href="/" class="pop nav-logo d-none d-lg-block ml-1"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
-				<a href="/" class="pop nav-logo logo-mobile d-lg-none"><img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo"></a>
-			  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-			    <ul class="navbar-nav">
-			      ${this.items.render()}
-			    </ul>
-					<div class="modal-container-login d-md-none">
-						<button id="loginModalToggle" class="btn mb-2">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
-					</div>
+<div class="row">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top col-12">
+		<div class="container">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+			 aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="text-center">
+				<a href="/" class="pop nav-logo ml-1">
+					<img class="navbar-brand img-fluid " src="/imgs/coffee-logo.png" alt="logo">
+				</a>
+			</div>
+			<div class="shopping-cart mr-4 fa-lg4 d-block d-lg-none float-right">
+				<a class="pop" href="/varukorg">
+					<i class="fas fa-shopping-cart float-right">
+						<span class="badge">${this.qty || 0}</span>
+					</i>
+				</a>
+			</div>
+
+
+
+
+
+
+			<!-- <a href="/" class="pop nav-logo d-none d-lg-block ml-1">
+				<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
+			</a> -->
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					${this.items.render()}
+				</ul>
+				<div class="modal-container-login">
+					<!-- The login button is rendered here  -->
 				</div>
 			</div>
+<<<<<<< HEAD
+			<div class="shopping-cart mr-4 fa-lg4 d-none d-lg-block float-right">
+				<a class="pop" href="/varukorg">
+					<i class="fas fa-shopping-cart">
+						<span class="badge">${this.qty || 0}</span>
+					</i>
+				</a>
+			</div>
+
+=======
 			</nav>
+>>>>>>> 1f7d64c4e509286069787953737996f0916c0eca
 		</div>
 
+
+
+
+
+
+
+		<!-- <div class="modal-container-login d-md-none">
+						<button id="loginModalToggle" class="btn mb-2">Logga in<i class="fas fa-sign-in-alt ml-1 fa-lg"></i></button>
+					</div> -->
+
+
+		<!-- 
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
 		<div class="container">
 				<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
@@ -32,39 +75,26 @@ Object.assign(Navbar.prototype, { template(){ return `
 		    <ul class="navbar-nav ml-4">
 		      ${this.items.render()}
 		    </ul>
-			</div>
+			</div> -->
 
-				<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+		<!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top">
 					<div class="container">
 						<div>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
 						 aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
-					</div>
-					<div>
-						<a href="/" class="pop nav-logo d-none d-lg-block ml-1">
-							<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
-						</a>
-					</div>
-					<div>
-						<a href="/" class="pop nav-logo logo-mobile d-lg-none">
-							<img class="navbar-brand img-fluid" src="/imgs/coffee-logo.png" alt="logo">
-						</a>
-					</div>
-						<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					</div-->
+
+
+		<!--div class="collapse navbar-collapse" id="navbarNavDropdown">
 							<ul class="navbar-nav ml-4">
 								${this.items.render()}
 							</ul>
-						</div>
-					<div class="shopping-cart mr-4 fa-lg">
-						<a class="pop" href="/varukorg"><i class="fas fa-shopping-cart"><span class="badge">${this.qty || 0}</span></i></a>
-					</div>
-					<div class="modal-container-login d-none d-md-block">
-					<!-- The login button is rendered here  -->
-					</div>
+						</div>-->
 
 
-		</div>
-	</nav>
+
+</div>
+</nav>
 `;}});

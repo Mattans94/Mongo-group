@@ -2,14 +2,14 @@ html {
   position: relative;
   min-height: 100%;
 }
-body {
+html body {
   background-color: #f0f0f0;
   overflow-x: hidden;
 }
-body .btn,
-body a {
+html body .btn,
+html body a {
   cursor: pointer;
 }
-main {
+html body main {
   margin-top: 75px;
 }
