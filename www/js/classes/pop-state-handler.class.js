@@ -108,7 +108,7 @@ class PopStateHandler extends REST {
 
 
   startsidan() {
-    $('title').text('CoffeeDB');
+    $('title').text('Startsida');
     $('main').empty();
     this.app.startsida.render('main');
     this.app.startsida.render('.carousel-container', 2); // Carousel
@@ -124,6 +124,7 @@ class PopStateHandler extends REST {
   }
 
   async produkter() {
+    $('title').text('Produkter');
     $('main').empty();
     this.app.productPage.makeCards();
     this.app.productPage.render('main');
@@ -155,6 +156,7 @@ class PopStateHandler extends REST {
   }
 
   shoppingCart() {
+    $('title').text('Din varukorg');
     $('main').empty();
     this.app.cart.render('main', 'Basket');
     this.app.cart.renderShoppingList();
@@ -168,24 +170,27 @@ class PopStateHandler extends REST {
   }
 
   checkout() {
+    $('title').text('Kassa');
     $('main').empty();
     this.app.checkout.getLastOrder().then(() => {
       this.app.checkout.render('main', 'CheckOut');
       this.app.checkout.render('.stepBox', 'Address');
       this.app.cart.renderTotalPriceWithVAT();
-     
+
     });
 
     // this.app.profile.render('.stepBox', 'Address');
   }
 
   userPage() {
+    $('title').text('Mina sidor');
     $('main').empty();
     this.app.userPage.render('main');
     this.app.userPage.renderList();
   }
 
   admin() {
+    $('title').text('Admin');
     $('main').empty();
     if (this.app.role == 'Admin') {
       this.app.admin.render('main');

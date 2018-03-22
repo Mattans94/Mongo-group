@@ -50,6 +50,8 @@ class Info extends REST {
 
   async getProduct(id) {
     this.productInfo = await Product.find({ _id: id });
+    $('title').text(`Produkter/${this.productInfo[0].name}`);
+    console.log(this.productInfo);
 
     $('.product-info').empty();
     $('.product-info').append(`
@@ -66,7 +68,7 @@ class Info extends REST {
       <div class="mt-4">
         <div class="d-flex justify-content-start">
          ${ this.productInfo[0].stock > 0
-            ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">${this.productInfo[0].stock } st i lager</p>`
+            ? `<i class="fas fa-check mr-3 mt-1"></i> <p class="mb-0">Finns i lager</p>`
             : '<i class="fas fa-times text-danger mr-3 mt-1"></i> <p class="font-weight-bold text-danger mb-0">Finns ej i lager</p>'}
         </div>
         <div class="d-flex justify-content-start">
@@ -103,7 +105,6 @@ class Info extends REST {
         <p class="mt-4">Ursprung:
           <span>${this.productInfo[0].countryOfOrigin}</span>
         </p>
-        <p>Typ: ${this.productInfo[0].type}</p>
         <p>${this.productInfo[0].type == 'Capsule' ? 'Antal:' : 'Vikt:'}
         	${this.productInfo[0].quantity} ${this.productInfo[0].type == 'Capsule' ? 'st' : 'gram'}
         </p>
