@@ -23,9 +23,10 @@ header {
       background-color: @bluegreen;
       font-weight: bold;
     }
-    .navbar-brand {
-        width: 50px;
+    .nav-item{
+      padding: 10px;
     }
+
     .shopping-cart a{
       color: @bluegreen;
       &:hover {
@@ -39,81 +40,45 @@ header {
         10%, 90% {
           transform: translate3d(-1px, 0, 0);
         }
-        .nav-item {
-            padding: 10px;
+
+        20%, 80% {
+          transform: translate3d(2px, 0, 0);
         }
-        .shopping-cart a {
-            color: #4fbfa8;
-            &:hover {
-                animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
-                transform: translate3d(0, 0, 0);
-                backface-visibility: hidden;
-                perspective: 1000px;
-            }
-            @keyframes shake {
-                10%,
-                90% {
-                    transform: translate3d(-1px, 0, 0);
-                }
-                20%,
-                80% {
-                    transform: translate3d(2px, 0, 0);
-                }
-                30%,
-                50%,
-                70% {
-                    transform: translate3d(-4px, 0, 0);
-                }
-                40%,
-                60% {
-                    transform: translate3d(4px, 0, 0);
-                }
-            }
+
+        30%, 50%, 70% {
+          transform: translate3d(-4px, 0, 0);
         }
-        .fa-sign-in-alt {
-            color: #4fbfa8;
-        }
-        .badge {
-            border-radius: 10px;
-            background-color: #f1f100;
-        }
-        .dropdown-toggle {
-            background-color: buttonface;
-            &:hover {
-                background-color: #4fbfa8;
-            }
-        }
-        .nav-logo {
-          text-align: center;
+
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
         }
       }
+    }
+
+    .fa-sign-in-alt{
+      color:@bluegreen;
     }
 
     .badge{
       border-radius: 10px;
       background-color: #f1f100;
     }
-
     .dropdown-toggle {
       background-color: buttonface;
 
       &:hover {
-        background-color: #4fbfa8;
-        .fa-sign-in-alt{
-          color:@bluegreen;
-        }
+        background-color: @bluegreen;
+      }
+    }
+    .modal-content {
+      @media only screen and (max-width: 576px) {
+        margin-top: 50px !important;
       }
 
-      .modal-content {
-        @media only screen and (max-width: 576px) {
-          margin-top: 50px !important;
-        }
-
-        @media only screen and (max-width: 768px) {
-          margin-top: 70px !important;
-          &:hover {
-            background-color: @bluegreen;
-          }
+      @media only screen and (max-width: 768px) {
+        margin-top: 70px !important;
+        &:hover {
+          background-color: @bluegreen;
         }
       }
     }
