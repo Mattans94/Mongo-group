@@ -71,7 +71,6 @@ class Profile extends Base {
         }
         if ($(event.target).hasClass('signUpEmail')) {
             this.email = $(".signUpEmail").val();
-            console.log(this.email);
         }
         if ($(event.target).hasClass('signUpPass')) {
             this.password = $(".signUpPass").val();
@@ -84,7 +83,6 @@ class Profile extends Base {
         }
         if ($(event.target).hasClass('lgPass')) {
             this.password = this.getOneOf('.lgPass');
-            console.log(this.password);
         }
 
     }
@@ -216,7 +214,6 @@ class Profile extends Base {
         let loginUser={};
         loginUser.password = this.password;
         loginUser.email = this.email;
-        console.log(loginUser);
         return loginUser;
     }
 
@@ -226,7 +223,6 @@ class Profile extends Base {
         newUser.password = this.password;
         newUser.name = this.name;
         newUser.role = "Normal User";
-            console.log(newUser);
         return newUser;
     }
 

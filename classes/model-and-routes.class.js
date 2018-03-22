@@ -26,7 +26,6 @@ module.exports = class ModelAndRoutes {
     this.modelName = this.constructor.name;
     this.routeName = this.modelName.toLowerCase() + 's';
 
-    console.log(this.routeName);
 
     this.myModel = mongoose.model(this.modelName, schema);
     this.setupPostRoute();
@@ -75,8 +74,6 @@ module.exports = class ModelAndRoutes {
 
       // get params
       params = params || qs.parse(req.params[0]);
-
-      console.log(`${this.routeName}`,params)
 
       // Get populate instructions
       // and then delete them from the Mongo query params

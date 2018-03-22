@@ -16,9 +16,7 @@ class Info extends REST {
 
     if(cartItems.length){
       cartItems.forEach(item => totalCartQty += item.quantity);
-      console.log('Items', cartItems, 'Total', totalCartQty);
       if(totalCartQty >= product.stock){
-        console.log('Cart quantity reached limit!');
         //If on produkter page, just disable the button, and do not change the text
         if(location.pathname == '/produkter'){
           $(`button[data-id="${id}"]`)
@@ -52,7 +50,6 @@ class Info extends REST {
 
   async getProduct(id) {
     this.productInfo = await Product.find({ _id: id });
-    console.log(this.productInfo);
 
     $('.product-info').empty();
     $('.product-info').append(`
@@ -136,7 +133,6 @@ class Info extends REST {
     // you can't order more than there is in stock
     if ($(e.target).is('.plus-btn') || $(e.target).parent().is('.plus-btn')) {
       if(cartItems.length){
-        console.log('Here i am');
 
         !((totalCartQty + currentValue + 1) > stock) && $("#quantity").val(currentValue + 1);
       } else if(currentValue < stock){
@@ -149,7 +145,6 @@ class Info extends REST {
     if ($(e.target).is('.minus-btn') || $(e.target).parent().is('.minus-btn')) {
       (currentValue > 1) && $("#quantity").val(currentValue - 1);
     }
-    console.log('Current', currentValue + 1);
     // add product to cart
     $(e.target).hasClass('card-btn') && ProductPage.addProductToCart(e.target, currentValue);
   }

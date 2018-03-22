@@ -352,7 +352,6 @@ class Checkout extends REST {
         newOrder.region = this.country;
         newOrder.phoneNumber = this.telephone;
         newOrder.status = "Beställt";
-        //console.log("newOrder", newOrder);
         return newOrder;
 
     }
@@ -419,7 +418,6 @@ class Checkout extends REST {
         $("input.form-control ").map((index, element) => {
             if ($(element).val().length == 0) {
                 flag = false;
-                console.log(flag);
             }
         });
         if (flag) {
@@ -480,7 +478,6 @@ class Checkout extends REST {
     }
 
     async getShoppingCart() {
-        console.log("get shopping cart")
         let session = Cart.getSessionId();
         let sessionProducts = await Cart.find({
             sessionId: session
@@ -502,9 +499,6 @@ class Checkout extends REST {
             }
         }
         this._orderDetails = details;
-
-        console.log(this._orderDetails);
-
     }
 
     renderShipping() {
