@@ -30,7 +30,7 @@ const order = new Order(app);
 const user = new User(app);
 const cart = new Cart(app);
 const orderDetails = new OrderDetails(app);
-const sendmail = new Sendmail(app);
+const sendmail = new Sendmail(app, order.myModel);
 
 
 app.get('/getLogin', (req, res) => {
