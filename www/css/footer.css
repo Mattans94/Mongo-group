@@ -1,0 +1,28 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  line-height: 30px;
+  background-color: #e0e0e0;
+  overflow-x: hidden;
+}
+footer p {
+  line-height: 1.6em;
+  margin-bottom: 0;
+  color: black;
+}
+footer p .fa {
+  line-height: 30px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+footer p a.text-light:hover {
+  text-decoration: none;
+}
+footer .myheight {
+  height: 60px;
+}

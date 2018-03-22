@@ -207,7 +207,6 @@ class Profile extends Base {
         if($('.modal-container-login .loginModal').length==0){
             that.render('.modal-container-login', 'login');
         }
-
         $('.loginModal').modal('toggle');
 
     }
