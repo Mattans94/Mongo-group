@@ -1,0 +1,38 @@
+Object.assign(Cart.prototype, {templateOrderSummary(){ return `
+<div class="box-header">
+    <h3>Din order</h3>
+</div>
+<p class="text-muted">Fraktavgift och momsberäkning baseras på din totala kostnad och räknas ut automatiskt.</p>
+
+<div class="table-responsive">
+
+    <table class="table">
+        <tbody>
+            <tr class="before-shipping">
+                <td>Belopp utan moms</td>
+                <th>${this.totalPriceWithoutVAT}kr</th>
+            </tr>
+            <tr class="before-shipping">
+                <td class="vatCss">Moms 12%</td>
+                <th>${this.VAT}kr</th>
+            </tr>
+            <tr class="total" id="total-without-shipping">
+
+            </tr>
+            <tr class="shipping-Fee">
+
+            </tr>
+             <tr class="shipping-vat vatCss">
+
+            </tr> 
+            <tr class="addShipping total">
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+
+`;}});

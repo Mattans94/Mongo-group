@@ -1,0 +1,102 @@
+Object.assign(Admin.prototype, { template2(){ return `
+
+<div class="row admin">
+  <div class="col-12">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin">Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/stock">Lager</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop active" href="/admin/add">Addera</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/change">Ändra</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/delete">Ta bort</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <h5 class="my-4">Välj en kategori och fyll i information</h5>
+
+        <div class="mb-4">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio1" name="radio" class="custom-control-input" value="Bönor">
+            <label class="custom-control-label" for="radio1">Bönor</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio2" name="radio" class="custom-control-input" value="Bryggkaffe">
+            <label class="custom-control-label" for="radio2">Bryggkaffe</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio3" name="radio" class="custom-control-input" value="Kapslar">
+            <label class="custom-control-label" for="radio3">Kapslar</label>
+          </div>
+        </div>
+
+        <form>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="name">Namn</span>
+            </div>
+            <input id="inputName" type="text" class="form-control" aria-label="Default" aria-describedby="name">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="photo">Bild</span>
+            </div>
+            <input id="inputPhoto" type="text" class="form-control" aria-label="Default" aria-describedby="photo">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="description">Beskrivning</span>
+            </div>
+            <input id="inputDescription" type="text" class="form-control" aria-label="Default" aria-describedby="description">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="price">Pris (kr)</span>
+            </div>
+            <input id="inputPrice" type="number" class="form-control" aria-label="Default" aria-describedby="price">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="quantity">Antal (g)</span>
+            </div>
+            <input id="inputQuantity" type="number" class="form-control" aria-label="Default" aria-describedby="quantity">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="flavor">Smak</span>
+            </div>
+            <input id="inputFlavor" type="text" class="form-control" aria-label="Default" aria-describedby="flavor">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="country">Land</span>
+            </div>
+            <input id="inputCountry" type="text" class="form-control" aria-label="Default" aria-describedby="country">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="stock">Antal i lager</span>
+            </div>
+            <input id="inputStock" type="number" class="form-control" aria-label="Default" aria-describedby="stock">
+          </div>
+          <div class="input-group mb-2" id="type">
+            <!-- Here is used only when category is 'kapsular' -->
+          </div>
+          <button id="add-btn" type="submit" class="btn btn-lg m-3 submit">Addera</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+`;}});

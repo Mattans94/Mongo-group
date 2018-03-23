@@ -1,0 +1,76 @@
+Object.assign(Admin.prototype, { template(){ return `
+
+<div class="row admin">
+  <div class="col-12">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link pop active" href="/admin">Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/stock">Lager</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/add">Addera</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/change">Ändra</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pop" href="/admin/delete">Ta bort</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="row m-3">
+          <div class="col-md-8 mb-4">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio" name="radio" class="custom-control-input" value="Alla" checked>
+              <label class="custom-control-label" for="radio">Alla</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio1" name="radio" class="custom-control-input" value="Beställt">
+              <label class="custom-control-label" for="radio1">Beställt</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio2" name="radio" class="custom-control-input" value="På väg">
+              <label class="custom-control-label" for="radio2">På väg</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio3" name="radio" class="custom-control-input" value="Klar">
+              <label class="custom-control-label" for="radio3">Klar</label>
+            </div>
+          </div>
+          <div class="input-group mb-3 col-md-4">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="input-sort">Sort</label>
+            </div>
+            <select class="custom-select" id="input-sort">
+              <option selected>Nyaste överst</option>
+              <option>Äldsta överst</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table text-left">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Datum</th>
+                <th scope="col">Antal</th>
+                <th scope="col">Pris</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody id="order-list">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+`;}});

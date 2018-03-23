@@ -1,0 +1,113 @@
+header {
+  
+  .dropdown-item {
+    @media only screen and (min-width: 576px) {
+      display: unset;
+    }
+
+    @media only screen and (min-width: 768px) {
+      display: block;
+    }
+
+    &:hover{
+      background-color: #4fbfa8 !important;
+    }
+  }
+
+
+  .navbar-brand{
+    width: 50px;
+    margin-right: 50px;
+
+    @media only screen and (min-width: 576px) {
+      margin-right: 250px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      margin-right: 310px;
+    }
+
+    @media only screen and (min-width: 992px) {
+      margin-right: 0;
+    }
+
+  }
+
+  .d-lg-none{
+    width: 150px;
+  }
+  .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+    color: white;
+  }
+
+  nav{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: #fff;
+   .nav-item.active{
+      background-color: #4fbfa8;
+      font-weight: bold;
+    }
+    .nav-item{
+      padding: 10px;
+    }
+
+    .shopping-cart a{
+      color: @bluegreen;
+      &:hover {
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      & .fa-shopping-cart {
+        font-size: 20px;
+      }
+
+      @keyframes shake {
+        10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+
+        20%, 80% {
+          transform: translate3d(2px, 0, 0);
+        }
+
+        30%, 50%, 70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+    }
+
+    .fa-sign-in-alt{
+      color:@bluegreen;
+    }
+
+    .badge{
+      border-radius: 10px;
+      background-color: #f1f100;
+    }
+    .dropdown-toggle {
+      background-color: buttonface;
+
+      &:hover {
+        background-color: @bluegreen;
+      }
+    }
+    
+    .modal-content {
+      @media only screen and (max-width: 576px) {
+        margin-top: 50px !important;
+      }
+
+      @media only screen and (max-width: 768px) {
+        margin-top: 70px !important;
+      }
+    }
+  }
+}

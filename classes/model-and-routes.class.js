@@ -1,5 +1,6 @@
 const qs = require('qs');
 const mongoose = require('mongoose');
+const ttl = require('mongoose-ttl');
 mongoose.connect('mongodb://localhost/coffeeDB');
 const db = mongoose.connection;
 db.on('error', (e)=>{ console.error(e); });
@@ -16,9 +17,16 @@ module.exports = class ModelAndRoutes {
 
   constructor(expressApp){
     this.expressApp = expressApp;
-    let schema = new mongoose.Schema(this.constructor.schema);
+    let schema;
+    if(this.constructor.name == 'Cart'){
+      schema = new mongoose.Schema(this.constructor.schema);
+      //Cart object expires after 1h
+      schema.plugin(ttl, { ttl: 3600000 });
+    } else {schema = new mongoose.Schema(this.constructor.schema);}
     this.modelName = this.constructor.name;
     this.routeName = this.modelName.toLowerCase() + 's';
+
+
     this.myModel = mongoose.model(this.modelName, schema);
     this.setupPostRoute();
     this.setupGetRoute();
@@ -26,21 +34,22 @@ module.exports = class ModelAndRoutes {
     this.setupPutRoute();
   }
 
-  setupImportRoute(arrayOfObjects){
-    this.expressApp.get(`/import/${this.routeName}`, (req, res)=>{
-      // empty old items in collection
-      this.myModel.remove({}, ()=>{
-        // perform a new clean import
-        this.myModel.create(arrayOfObjects, ()=>{
-          res.json('imported data');
-        });
-      });
-    });
-  }
+  // User doesn't use import function. Use importer.js instead.
+  // setupImportRoute(arrayOfObjects){
+  //   this.expressApp.get(`/import/${this.routeName}`, (req, res)=>{
+  //     // empty old items in collection
+  //     this.myModel.remove({}, ()=>{
+  //       // perform a new clean import
+  //       this.myModel.create(arrayOfObjects, ()=>{
+  //         res.json('imported data');
+  //       });
+  //     });
+  //   });
+  // }
 
   setupPostRoute(){
     this.expressApp.post(`/${this.routeName}`, (req, res) =>{
-      let entity = new this.myModel(req.body);
+      const entity = new this.myModel(req.body);
       entity.save(() => {
         // Newly created and saved Mongoose object
         // with  _id and __v properties
@@ -56,7 +65,7 @@ module.exports = class ModelAndRoutes {
 
       // check if params is a stringified object
       try {
-        let obj = JSON.parse(req.params[0]);
+        const obj = JSON.parse(req.params[0]);
         if(typeof obj == 'object'){
           params = obj;
         }
@@ -66,11 +75,9 @@ module.exports = class ModelAndRoutes {
       // get params
       params = params || qs.parse(req.params[0]);
 
-      console.log("PPPP",params)
-
       // Get populate instructions
       // and then delete them from the Mongo query params
-      let populate = params.populate || '';
+      const populate = params.populate || '';
       delete params.populate;
 
       this.myModel.find(params).populate(populate).exec((err, data)=>{
@@ -87,14 +94,14 @@ module.exports = class ModelAndRoutes {
 
     this.expressApp.delete(`/${this.routeName}/?*`, (req, res) => {
       // get params
-      let params = qs.parse(req.params[0]);
+      const params = qs.parse(req.params[0]);
       this.myModel.find(params, (err, data) => {
         if(err){
           res.json(err);
         }
         else {
-          let numberOfItems = data.length;
-          let response = {numberOfItems: numberOfItems};
+          const numberOfItems = data.length;
+          const response = {numberOfItems: numberOfItems};
           if(numberOfItems === 0){
             response.error = 'No items to remove';
             res.json(response);
@@ -125,14 +132,14 @@ module.exports = class ModelAndRoutes {
   setupPutRoute(){
     this.expressApp.put(`/${this.routeName}/?*`, (req, res) => {
       // get params
-      let params = qs.parse(req.params[0]);
+      const params = qs.parse(req.params[0]);
       this.myModel.find(params, (err, data) => {
         if(err){
           res.json(err);
         }
         else {
-          let numberOfItems = data.length;
-          let response = {numberOfItems: numberOfItems};
+          const numberOfItems = data.length;
+          const response = {numberOfItems: numberOfItems};
           if(numberOfItems === 0){
             response.error = 'No items to update';
             res.json(response);

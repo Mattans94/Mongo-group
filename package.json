@@ -4,15 +4,24 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "setup": "node importer.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "cookie-parser": "^1.4.3",
+    "csshake": "^1.5.3",
     "express": "^4.16.2",
     "jsonflex": "^1.0.10",
     "mongoose": "^5.0.6",
-    "qs": "^6.5.1"
+    "mongoose-ttl": "0.0.3",
+    "nodemailer": "^4.6.3",
+    "qs": "^6.5.1",
+    "validator": "^9.4.1"
   }
 }

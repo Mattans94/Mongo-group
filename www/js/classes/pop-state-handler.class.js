@@ -1,8 +1,8 @@
-class PopStateHandler {
+class PopStateHandler extends REST {
 
   // Note: Only instantiate PopStateHandler once!
-  constructor(app){
-
+  constructor(app) {
+    super();
     this.app = app;
     // Add event handlers for a.pop-links once
     this.addEventHandler();
@@ -16,13 +16,13 @@ class PopStateHandler {
 
   }
 
-  addEventHandler(){
+  addEventHandler() {
 
     // make "that" the PopStateHandler object
     // (since this will be the a tag inside the click function)
     let that = this;
 
-    $(document).on('click','a.pop',function(e){
+    $(document).on('click', 'a.pop', function (e) {
 
       // Create a push state event
       let href = $(this).attr('href');
@@ -37,7 +37,7 @@ class PopStateHandler {
     });
   }
 
-   changePage(){
+  changePage() {
     // React on page changed
     // (replace part of the DOM etc.)
 
@@ -52,30 +52,37 @@ class PopStateHandler {
     // on which url
     let urls = {
       '/': 'startsidan',
-      '/biljetter': 'biljetter',
-      '/om_oss': 'OmOss',
-      '/filmer': 'calendar',
+      '/produkter': 'produkter',
+      '/om_oss': 'omOss',
+      '/info': 'info',
+      '/kopvillkor': 'conditions',
+      '/varukorg': 'shoppingCart',
+      '/register': 'register',
+      '/checkout': 'checkout',
       '/mina_sidor': 'userPage',
-      '/film/The_Martian': 'filmInfo',
-      '/film/Call_Me_by_Your_Name': 'filmInfo',
-      '/film/Star_Wars:_The_Last_Jedi': 'filmInfo',
-      '/film/Thor:_Ragnarok': 'filmInfo',
-      '/film/Interstellar': 'filmInfo',
-      '/film/The_Incredibles': 'filmInfo',
-      '/film/Downsizing': 'filmInfo',
-      '/film/Three_Billboards_Outside_Ebbing,_Missouri': 'filmInfo',
-      '/mina_sidor': 'userPage'
+      '/admin': 'admin',
+      '/admin/stock': 'adminStock',
+      '/admin/add': 'adminAdd',
+      '/admin/change': 'adminChange',
+      '/admin/delete': 'adminDelete',
+      '/invoice': 'invoice'
     };
+
+    for (let i = 0; i < this.app.products.length; i++) {
+      const url = `/produkter/${this.app.products[i]._id}`;
+      const method = 'info';
+      Object.assign(urls, { [url]: method });
+    }
 
     // Call the right method
     let methodName = urls[url];
-    this[methodName]();
+    (methodName == 'info') ? this[methodName](url.slice(11)) : this[methodName]();
 
     // Set the right menu item active
     this.app.navbar.setActive(url);
 
-    //Render correct navbar depending if you're logged in or not
-    window.onload = () => this.renderCorrectNav();
+    //Render navbar
+    this.renderNav();
 
     //Scroll to top of page
     window.scrollTo(0, 0);
@@ -83,83 +90,160 @@ class PopStateHandler {
 
   }
 
-  startsidan(){
-    $('title').text('Filmvisarna');
-    $('.karusell').empty();
-    $('main').empty();
-    this.app.startsidan.render('.karusell', '2');
-    this.app.startsidan.render('main');
-    this.app.startsidan.callCarousel();
+
+
+  renderNav() {
+    $('header').empty();
+    this.app.navbar.render('header');
+    this.app.navbar.changeLoginBtn();
+
+    // this.app.navbar.render(‘.modal-container-login’, 2);  //ok!
+    // $('header').empty();
+    // this.app.navbar.render('header');
+
+    //Remain quantity badge on cart symbol
+    Cart.updateCartBadgeValue();
   }
 
-  filmInfo(){
-    let url = location.pathname;
-    let numbers = {
-      '/film/The_Martian': 0,
-      '/film/Call_Me_by_Your_Name': 1,
-      '/film/Star_Wars:_The_Last_Jedi': 2,
-      '/film/Thor:_Ragnarok': 3,
-      '/film/Interstellar': 4,
-      '/film/The_Incredibles': 5,
-      '/film/Downsizing': 6,
-      '/film/Three_Billboards_Outside_Ebbing,_Missouri': 7
-    };
-    $('.karusell').empty();
+
+
+  startsidan() {
+    $('title').text('Startsida');
     $('main').empty();
-    $('#booking-modal').remove();
-    $(document).on("hidden.bs.modal", "#booking-modal", () => {
-      $('div.modal-backdrop').remove();
+    this.app.startsida.render('main');
+    this.app.startsida.render('.carousel-container', 2); // Carousel
+    this.app.startsida.render('.card-container', 3); // Cards
+    this.app.startsida.callCarousel();
+  }
+
+  info(id) {
+    $('main').empty();
+    this.app.info.getProduct(id);
+    this.app.info.render('main');
+    Info.disableCartButtonStock(id)
+  }
+
+  async produkter() {
+    $('title').text('Produkter');
+    $('main').empty();
+    this.app.productPage.makeCards();
+    this.app.productPage.render('main');
+    let session = Cart.getSessionId();
+    let cartItems = await Cart.find({ sessionId: session });
+    cartItems.forEach((o) => {
+      Info.disableCartButtonStock(o.product);
     });
-    this.app.movies[numbers[url]].render('main','3');
-    $('title').text($('h2').text()+ ' - Filmvisarna');
+    const category = this.app.startsida.category;
+    if (category) {
+      $(`#${category}`)[0].checked = true;
+      this.app.productPage.makeCards([category]);
+      this.app.startsida.category = '';
+    }
   }
 
-  biljetter(){
-    $('.karusell').empty();
-    $('main').empty();
-    this.app.biljetter.render('main');
-    $('title').text('Biljetter - Filmvisarna');
-  }
-
-  OmOss(){
+  omOss() {
     $('.karusell').empty();
     $('main').empty();
     this.app.omOss.render('main');
-    $('title').text('Om oss - Filmvisarna');
+    $('title').text('Om oss');
   }
 
-  calendar(){
+  conditions() {
     $('.karusell').empty();
     $('main').empty();
-    this.app.startsidan.render('.karusell', '2');
-    $('title').text('Filmer - Filmvisarna');
-    this.app.filmer.render('main');
-    this.app.startsidan.callCarousel();
+    this.app.conditions.render('main');
+    $('title').text('Köpvillkor');
   }
 
-  async userPage(){
-    //Need to check if user is logged in, else the user
-    //can type /mina_sidor into the url
-    if(await this.app.userPage.isLoggedIn()){
-      $('.karusell').empty();
-      this.app.userPage.filterOrdersByDate(); //Run method that gets all orders the user have done
-    } else{
-      this.startsidan();
-      $('.access-denied-modal').modal('show');
-      setTimeout(() => {
-        $('.access-denied-modal').modal('hide');
-      }, 3000);
+  shoppingCart() {
+    $('title').text('Din varukorg');
+    $('main').empty();
+    this.app.cart.render('main', 'Basket');
+    this.app.cart.renderShoppingList();
+    this.app.cart.renderCartContent();
+  }
+
+  register() {
+    $('main').empty();
+    this.app.profile.render('main', 'Register');
+
+  }
+
+  checkout() {
+    $('title').text('Kassa');
+    $('main').empty();
+    this.app.checkout.getLastOrder().then(() => {
+      this.app.checkout.render('main', 'CheckOut');
+      this.app.checkout.render('.stepBox', 'Address');
+      this.app.cart.renderTotalPriceWithVAT();
+
+    });
+
+    // this.app.profile.render('.stepBox', 'Address');
+  }
+
+  userPage() {
+    if(this.app.role == 'Admin' || this.app.role == 'Normal User'){
+      $('title').text('Mina sidor');
+      $('main').empty();
+      this.app.userPage.render('main');
+      this.app.userPage.renderList();
+    } else $('main').append(`<div class="alert alert-danger" role="alert">Åtkomst nekad! Vänligen logga in.</div>`);
+
+  }
+
+  admin() {
+    $('title').text('Admin');
+    $('main').empty();
+    if (this.app.role == 'Admin') {
+      this.app.admin.render('main');
+      this.app.admin.sortDirection = $('#input-sort').val();
+      this.app.admin.currentStatus = $("input:radio[name=radio]:checked").val();
+      this.app.admin.createOrderList();
+      this.app.admin.appendOrderListHtml();
     }
   }
 
-  async renderCorrectNav(){
-    if(await this.app.userPage.isLoggedIn()){
-      $('header').empty();
-      this.app.navbar.render('header', '2');
-    } else if(!(await this.app.userPage.isLoggedIn())) {
-      $('header').empty();
-      await this.app.navbar.render('header')
+  adminStock() {
+    $('main').empty();
+    if (this.app.role == 'Admin') {
+      this.app.admin.render('main', 5);
+      this.app.admin.selectedCategory = this.app.admin.getSelectedCategory($("input:radio[name=radio]:checked").val());
+      $('#stock-list').append(this.app.admin.makeStockList());
     }
   }
+
+  adminAdd() {
+    $('main').empty();
+    if (this.app.role == 'Admin') {
+      this.app.admin.render('main', 2);
+      this.app.admin.selectedCategory = '';
+    }
+  }
+
+  adminChange() {
+    $('main').empty();
+    if (this.app.role == 'Admin') {
+      this.app.admin.render('main', 3);
+      this.app.admin.selectedCategory = '';
+    }
+  }
+
+  adminDelete() {
+    $('main').empty();
+    if (this.app.role == 'Admin') {
+      this.app.admin.render('main', 4);
+      this.app.admin.selectedCategory = '';
+      this.app.admin.setName(this.app.products);
+    }
+  }
+
+  invoice() {
+    $('main').empty();
+    this.app.checkout.render('main', 'Invoice');
+
+  }
+
+
 
 }

@@ -1,0 +1,28 @@
+Object.assign(Checkout.prototype, { templateInvoice(){ return `
+
+<div id="content">
+    <div class="container">
+        <div class="col-md-9" id="customer-order">
+            <div class="box">
+                <h1>Faktura</h1>
+                <hr>
+                <p class="lead">TACK FÖR DITT KÖP!</p>
+                <p class="lead">Ditt ordernummer: ${this.orderNumber}
+                    <strong>lagd ${this._orderTime}</strong>.</p>
+                <p class="lead">
+                    <strong>Belopp: ${this.app.cart.cartTotal + this.dFee} kr</strong>
+                </p>
+                <p class="lead">Betalningsmetod: ${this.paymentMethod}</p>
+                <p class="lead">Leveranssätt: ${this.dMethod}</p>
+
+                <p class="lead">Fraktadress: ${this.firstName} ${this.lastName}, ${this.street}, ${this.zip}, ${this.ort}, ${this.region}</p>
+                <p class="lead">Tel: ${this.phoneNumber}</p>
+                <hr>
+                <p class="lead">Bekräftelse skickas med e-post till <a>${this.email}</a>.</p>
+                <p class="text-muted">Om du har några frågor, är du välkommen att<a href="/om_oss" class="pop">kontakta oss</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+`;}});

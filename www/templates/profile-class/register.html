@@ -1,0 +1,70 @@
+Object.assign(Profile.prototype, {templateRegister(){ return `
+<div id="content">
+    <div class="container register">
+        <div class="row">
+        <div class="col-md-6">
+            <div class="box">
+                <h1>Ny kund</h1>
+
+                <p class="lead">Inte registrerad än? Skapa ditt konto här</p>
+
+                <hr>
+
+                <div>
+                    <div class="form-group">
+                        <label for="name">Användarnamn</label>
+                        <input type="text" class="form-control userName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Mailadress</label>
+                        <input type="text" class="form-control signUpEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Lösenord</label>
+                        <input type="password" class="form-control signUpPass" name="password" required>
+                        <!--small class="passControl">Måste vara minst 6 tecken, innehålla minst en siffra en stor och en liten bokstav!</small-->
+                    </div>
+                    <div class="form-group">
+                        <label>Repetera lösenord</label>
+                        <input type="password" class="form-control signUpRePass" name="repass" required>
+                        <small class="repassCheck d-none">Kontrollera lösenordet!</small>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-next signupbtn">
+                            <i class="fa fa-user-md"></i> Registrera</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="box">
+                <h1>Logga in</h1>
+
+                <p class="lead">Är du redan kund? Logga in här</p>
+
+                <hr>
+
+                <div>
+                    <div class="form-group">
+                        <label for="email">Mailadress</label>
+                        <input type="text" class="form-control lginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Lösenord</label>
+                        <input type="password" class="form-control lgPass" required>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-next lgin">
+                            <i class="fa fa-sign-in"></i> Logga in</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- /.container -->
+</div>
+
+`; }});

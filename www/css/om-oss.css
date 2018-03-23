@@ -1,0 +1,61 @@
+.om-oss {
+  border-radius: 5px;
+  padding: 30px;
+}
+@media only screen and (max-width: 576px) {
+  .om-oss {
+    padding: 20px;
+  }
+}
+.om-oss .om-oss-text {
+  background-color: #fff;
+  padding: 30px;
+}
+.om-oss h2,
+.om-oss h3 {
+  font-family: 'Oswald', sans-serif;
+  background-color: #4fbfa8;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  display: block;
+}
+.om-oss img {
+  padding: 10px;
+  width: 300px;
+}
+.om-oss .list-group-item.active {
+  background-color: #4fbfa8;
+  font-weight: bold;
+}
+.om-oss .list-group-item {
+  border: none;
+  border-radius: 0;
+}
+.om-oss .card {
+  border: none;
+}
+.om-oss .card .card-body {
+  padding: 40px;
+}
+@media screen and (max-width: 700px) {
+  .om-oss .card .card-body {
+    padding: 20px;
+  }
+}
+.om-oss .btn-link {
+  color: #000;
+  font-size: 1.2rem;
+  white-space: normal;
+  text-align: left;
+  text-decoration: none;
+}
+@media screen and (max-width: 320px) {
+  .om-oss .btn-link {
+    font-size: 1rem;
+  }
+}
+.om-oss .btn-link:hover {
+  text-decoration: none;
+  font-weight: bold;
+}

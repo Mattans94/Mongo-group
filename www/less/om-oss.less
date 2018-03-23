@@ -1,0 +1,56 @@
+.om-oss{
+  border-radius: 5px;
+  @media only screen and (max-width: 576px){ padding: 20px;}
+  padding: 30px;
+  .om-oss-text{
+    background-color: #fff;
+    padding: 30px;
+  }
+
+  h2, h3{
+    font-family: @oswald;
+    background-color: @bluegreen;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: block;
+  }
+
+  img{
+    padding: 10px;
+    width: 300px;
+  }
+
+  .list-group-item.active{
+    background-color: @bluegreen;
+    font-weight: bold;
+  }
+
+  .list-group-item{
+    border:none;
+    border-radius: 0;
+  }
+
+  .card{
+    border: none;
+    .card-body{
+      padding: 40px;
+      @media screen and (max-width: 700px){
+        padding: 20px;
+      }
+    }
+  }
+
+  .btn-link{
+    color: #000;
+    font-size: 1.2rem;
+    @media screen and (max-width: 320px){font-size: 1rem;}
+    white-space: normal;
+    text-align: left;
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+}

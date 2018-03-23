@@ -1,0 +1,40 @@
+Object.assign(Product.prototype, {templateCartContent(){
+return `<div class="row border-bottom">
+
+      <div class="col-3 col-md-1 d-none d-lg-flex">
+        <a class="pop" href="/produkter/${this._id}">
+         <img src="/imgs/${this.type}/${this.image}" alt="">
+        </a>
+      </div>
+
+      <div class="col-3 col-md-3 my-md-auto">
+          <a class="pop name" href="/produkter/${this._id}">${this.name}</a>
+      </div>
+
+      <div class="quant col-3 col-md-2 mr-md-5 mt-auto">
+        <form class="justify-content-start">
+          <div class="form-group d-flex justify-content-start">
+            <button type="button" class="btn-sm text-light my-2" id="minus-btn">
+              <i class="fa fa-minus" aria-hidden="true"></i>
+            </button>
+            <input data-id="${this._id}" class="form-control mt-2 col-4 text-center font-weight-bold quantity-control" type="text" value="${this.cartItem.quantity}" disabled>
+            <button type="button" class="btn-sm text-light my-2 2" id="plus-btn">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-1 col-md-1 d-md-block d-none my-auto ml-4 mr-5">${this.price}kr</div>
+
+      <div class="unit-total-price col-2 col-md-1 my-auto ml-5">
+        ${this.price * this.cartItem.quantity}kr
+      </div>
+
+      <div class="col-1 col-md-1 my-auto">
+          <a class="trash-item" data-id="${this._id}">
+              <i class="fa fa-trash-o"></i>
+          </a>
+      </div>
+    </div>`
+  ;}});

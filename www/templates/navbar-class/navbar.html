@@ -1,0 +1,46 @@
+Object.assign(Navbar.prototype, { template(){ return `
+<div class="row">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top col-12">
+		<div class="container">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+			 aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="text-center">
+				<a href="/" class="pop nav-logo ml-1 mr-lg-4">
+					<img class="navbar-brand img-fluid " src="/imgs/coffee-logo.png" alt="logo">
+				</a>
+			</div>
+			<div class="shopping-cart mr-4 fa-lg4 d-block d-lg-none float-right">
+				<a class="pop" href="/varukorg">
+					<i class="fas fa-shopping-cart float-right">
+						<span class="badge">${this.qty || 0}</span>
+					</i>
+				</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					${this.items.render()}
+				</ul>
+				<div class="modal-container-login d-block d-md-none">
+					<!-- The login button is rendered here  -->
+				</div>
+			</div>
+
+			<div class="shopping-cart mr-4 fa-lg4 d-none d-lg-block float-right">
+				<a class="pop" href="/varukorg">
+					<i class="fas fa-shopping-cart">
+						<span class="badge">${this.qty || 0}</span>
+					</i>
+				</a>
+			</div>
+			<div class="modal-container-login d-none d-md-block">
+				<!-- The login button is rendered here  -->
+			</div>
+		</div>
+	</nav>
+</div>
+
+`;}});

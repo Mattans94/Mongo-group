@@ -1,0 +1,43 @@
+Object.assign(Cart.prototype, {templateShoppingList(){ return `
+    <div class="row">
+      <div class="col-12">
+        <div class="row d-none d-lg-block">
+
+        </div>
+
+          <div class="">
+            <div class="row text-center d-none d-md-flex cart-headers">
+              <div class="col-3">Dina varor</div>
+              <div class="col-3">Antal</div>
+              <div class="col-3">Enhetspris</div>
+              <div class="col-3 text-left">Totalsumma</div>
+            </div>
+            <div class="cart-content mb-3"></div>
+          </div>
+
+          <div class="row ml-1">
+            <div class="col-12 d-flex total-moms-price mb-2">
+                <div class="col-md-9">Totalt</div>
+                <div class="col-md-3 cart-total-price"></div>
+            </div>
+          </div>
+            <div class="row ml-2">
+              <div class="col-12 d-flex">
+                <div class="col-md-9 VAT-text text-muted">Varav moms</div>
+                <div class="col-md-3 VAT-of-total-price VAT-text text-muted float-right"></div>
+              </div>
+            </div>
+            <div class="row ml-2">
+              <div class="col-12 d-flex">
+                <div class="col-md-9 VAT-text text-muted">Exklusive moms</div>
+                <div class="col-md-3 VAT-of-total-exkl VAT-text text-muted float-right"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+        `;}});
