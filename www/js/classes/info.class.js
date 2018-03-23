@@ -51,7 +51,6 @@ class Info extends REST {
   async getProduct(id) {
     this.productInfo = await Product.find({ _id: id });
     $('title').text(`Produkter/${this.productInfo[0].name}`);
-    console.log(this.productInfo);
 
     $('.product-info').empty();
     $('.product-info').append(`
