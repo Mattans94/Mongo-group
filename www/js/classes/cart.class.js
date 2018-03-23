@@ -93,7 +93,15 @@ class Cart extends REST {
     });
     this.cartTotal = cartTotal;
 
+    if(location.pathname == '/checkout'){
+      $('#total-without-shipping').empty();
+      $('.addShipping').empty();
+      app.checkout.subTotal = this.cartTotal + app.checkout.dFee;
+      this.render('#total-without-shipping', 'TotalPrice');
+      $('.addShipping').append(`<td>Total</td>
+            <th>${app.checkout.subTotal}kr</th>`);
 
+    }
     $('.cart-total-price').append(`${cartTotal}kr`);
   }
 

@@ -503,15 +503,13 @@ class Checkout extends REST {
     renderShipping() {
         let that = this;
         that.app.cart.render('#order-summary', 'OrderSummary');
-        that.app.cart.render('#total-without-shipping', 'TotalPrice');
+        that.app.cart.calculateAndRenderTotalPrice();
         $('.before-shipping').empty();
-        that.subTotal = that.app.cart.cartTotal + that.dFee;
         $('.shipping-Fee').append(`<td>Fraktavgift</td>
               <th>${that.dFee}kr</th>`);
         $('.shipping-vat').append(`<td >Fraktmoms 25%</td>
               <th>${that.dFee * 0.25}kr</th>`);
-        $('.addShipping').append(`<td>Total</td>
-              <th>${that.subTotal}kr</th>`);
+        
     }
 
 
