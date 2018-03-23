@@ -39,18 +39,11 @@ module.exports = class Sendmail {
       return content;
     }
 
-    function totalPrice(purchase) {
-      let price = 0;
-      for(let i = 0; i < purchase.length; i++) {
-        price += purchase[i].quantity * purchase[i].unitPrice;
-      }
-      return price;
-    }
 
     // Get order info
     let orderInfo = await this.order.findOne({orderNumber: ordernumber});
     console.log('Order', orderInfo);
-
+    this.orderTotal = orderInfo.total;
     this.shippingMethod = orderInfo.shippingMethod;
     this.paymentMethod = orderInfo.paymentMethod.toUpperCase();
     this.firstName = orderInfo.firstName;
@@ -71,7 +64,7 @@ module.exports = class Sendmail {
       html: `<h1 style="background-color: #4fbfa8; color: white; padding: 5px 20px;">Hej ${this.firstName}! Tack för att du valt att köpa ditt kaffe hos oss!</h1>
       <p><strong style="font-size: 16px;">Du har beställt:</strong></p>
       <ul>${generateLi(purchase)}</ul>
-      <p style="padding-top: 8px; font-size: 16px; margin-bottom: 30px; border-top: 2px solid #4fbfa8;"><strong style="margin-right: 5px;">Total kostnad:</strong> ${totalPrice(purchase)} kr</p>
+      <p style="padding-top: 8px; font-size: 16px; margin-bottom: 30px; border-top: 2px solid #4fbfa8;"><strong style="margin-right: 5px;">Total kostnad:</strong> ${this.orderTotal} kr</p>
       <strong style="margin-right: 5px;">Betalningsmetod: ${this.paymentMethod}<br></strong>
       <strong style="margin-right: 5px; ${this.paymentMethod != 'CREDIT-CARD' ? 'display: none;"' : '"'}>Kortnummer: ${this.cardNumber}</strong>
       <p style="margin-bottom: 10px;">Ditt ordernummer är: <em>${ordernumber}</em></p>
